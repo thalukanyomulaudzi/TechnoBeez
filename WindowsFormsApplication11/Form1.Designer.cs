@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.jobOrderPanel = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.jobOrderResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.button18 = new System.Windows.Forms.Button();
@@ -40,33 +39,26 @@
             this.button9 = new System.Windows.Forms.Button();
             this.JobQuotePanel = new System.Windows.Forms.Panel();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.quoteResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel21 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button10 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.quoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.employeePanel = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.employeeResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventoryPanel = new System.Windows.Forms.Panel();
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
-            this.inventoryResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientPanel = new System.Windows.Forms.Panel();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.clientResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.supplierPanel = new System.Windows.Forms.Panel();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.supplierResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.jobQuotePanelActions = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
-            this.button20 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel22 = new System.Windows.Forms.Panel();
@@ -120,7 +112,6 @@
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.jobOrderPanelActions = new System.Windows.Forms.Panel();
-            this.addressBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.header = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -143,29 +134,30 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lblHawks = new System.Windows.Forms.Label();
+            this.jobOrderResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quoteResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inventoryResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.supplierResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.addressBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.jobOrderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).BeginInit();
             this.panel20.SuspendLayout();
             this.JobQuotePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quoteResultBindingSource)).BeginInit();
             this.panel21.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.quoteBindingSource)).BeginInit();
             this.panel13.SuspendLayout();
             this.panel16.SuspendLayout();
             this.employeePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeResultBindingSource)).BeginInit();
             this.inventoryPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).BeginInit();
             this.clientPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).BeginInit();
             this.supplierPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).BeginInit();
             this.panel14.SuspendLayout();
             this.jobQuotePanelActions.SuspendLayout();
             this.panel19.SuspendLayout();
@@ -183,11 +175,18 @@
             this.panel28.SuspendLayout();
             this.panel29.SuspendLayout();
             this.jobOrderPanelActions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addressBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quoteResultBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeResultBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quoteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addressBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // jobOrderPanel
@@ -559,7 +558,6 @@
             // 
             // panel19
             // 
-            this.panel19.Controls.Add(this.button20);
             this.panel19.Controls.Add(this.button1);
             this.panel19.Controls.Add(this.button4);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Right;
@@ -567,21 +565,6 @@
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(292, 61);
             this.panel19.TabIndex = 8;
-            // 
-            // button20
-            // 
-            this.button20.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button20.Image = ((System.Drawing.Image)(resources.GetObject("button20.Image")));
-            this.button20.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button20.Location = new System.Drawing.Point(179, 17);
-            this.button20.Name = "button20";
-            this.button20.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.button20.Size = new System.Drawing.Size(76, 28);
-            this.button20.TabIndex = 11;
-            this.button20.Text = "Export";
-            this.button20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button20.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -1539,28 +1522,21 @@
             this.Text = "Form1";
             this.jobOrderPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).EndInit();
             this.panel20.ResumeLayout(false);
             this.JobQuotePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quoteResultBindingSource)).EndInit();
             this.panel21.ResumeLayout(false);
             this.panel21.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.quoteBindingSource)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.employeePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeResultBindingSource)).EndInit();
             this.inventoryPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).EndInit();
             this.clientPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).EndInit();
             this.supplierPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).EndInit();
             this.panel14.ResumeLayout(false);
             this.jobQuotePanelActions.ResumeLayout(false);
             this.jobQuotePanelActions.PerformLayout();
@@ -1589,13 +1565,20 @@
             this.panel29.PerformLayout();
             this.jobOrderPanelActions.ResumeLayout(false);
             this.jobOrderPanelActions.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addressBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quoteResultBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeResultBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quoteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addressBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1638,7 +1621,6 @@
         private System.Windows.Forms.Panel jobQuotePanelActions;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel22;
