@@ -88,7 +88,7 @@
             // 
             // txtBranchCode
             // 
-            this.txtBranchCode.Location = new System.Drawing.Point(123, 83);
+            this.txtBranchCode.Location = new System.Drawing.Point(138, 82);
             this.txtBranchCode.Name = "txtBranchCode";
             this.txtBranchCode.Size = new System.Drawing.Size(150, 20);
             this.txtBranchCode.TabIndex = 57;
@@ -116,7 +116,7 @@
             this.panel14.Controls.Add(this.panel17);
             this.panel14.Controls.Add(this.panel15);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel14.Location = new System.Drawing.Point(0, 353);
+            this.panel14.Location = new System.Drawing.Point(0, 320);
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(616, 61);
@@ -242,7 +242,7 @@
             // 
             // txtAccNumber
             // 
-            this.txtAccNumber.Location = new System.Drawing.Point(123, 51);
+            this.txtAccNumber.Location = new System.Drawing.Point(138, 56);
             this.txtAccNumber.Name = "txtAccNumber";
             this.txtAccNumber.Size = new System.Drawing.Size(150, 20);
             this.txtAccNumber.TabIndex = 55;
@@ -260,7 +260,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(616, 414);
+            this.panel3.Size = new System.Drawing.Size(616, 381);
             this.panel3.TabIndex = 16;
             // 
             // groupBox1
@@ -289,7 +289,7 @@
             // 
             // txtBankName
             // 
-            this.txtBankName.Location = new System.Drawing.Point(123, 19);
+            this.txtBankName.Location = new System.Drawing.Point(138, 24);
             this.txtBankName.Name = "txtBankName";
             this.txtBankName.Size = new System.Drawing.Size(150, 20);
             this.txtBankName.TabIndex = 53;
@@ -452,7 +452,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 414);
+            this.ClientSize = new System.Drawing.Size(616, 381);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);

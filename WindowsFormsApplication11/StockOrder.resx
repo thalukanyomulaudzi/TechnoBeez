@@ -120,6 +120,9 @@
   <metadata name="errorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>193, 290</value>
   </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>25</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="button7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -130,16 +133,6 @@
         TMTlPhEbetEkqK/iLEaxFS7MZowBR2GihpU4iUlISQCKIc9xSgMQIYzDTjxgl2pjENZIfRBRrWCxHrAW
         LNKaIjRvRJS92ANK9fuATyNE8ODNAmyJc00RPHizAD/4osz/HwHxM9nlO179i7/zDFX3ALR+gY7x6asv
         AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="addEmployee.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJ
-        TUUH4QkIDgY6Q6B7JwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAClSURBVDhP
-        7dOxCcJAGIbhA0EsFKytFBewESwcwg3MKBlFN9ENLC1tBNEh9H3NGZKLYmrxgwd+/nx3xUHCmwxwxT3h
-        zm8f08cYc9ziXOXOb852a5nAwqklu54ps8Iei5bseqbMEkdcsPvCjl3P1JJhU4zPx+qgFzm/HtCO3Uaq
-        FxwwQx45uzP/C377gjW2xRhG6GIYObszduw2MsUZ6W+csmOXhPAAI8tYvenC7gwAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="employeeTypeBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

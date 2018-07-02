@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.jobOrderPanel = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.jobOrderResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.button18 = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@
             this.button9 = new System.Windows.Forms.Button();
             this.JobQuotePanel = new System.Windows.Forms.Panel();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.quoteResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel21 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button10 = new System.Windows.Forms.Button();
@@ -48,12 +50,16 @@
             this.panel16 = new System.Windows.Forms.Panel();
             this.employeePanel = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.employeeResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventoryPanel = new System.Windows.Forms.Panel();
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
+            this.inventoryResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientPanel = new System.Windows.Forms.Panel();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.clientResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.supplierPanel = new System.Windows.Forms.Panel();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.supplierResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.jobQuotePanelActions = new System.Windows.Forms.Panel();
@@ -134,30 +140,30 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lblHawks = new System.Windows.Forms.Label();
-            this.jobOrderResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quoteResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inventoryResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.supplierResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addressBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.jobOrderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).BeginInit();
             this.panel20.SuspendLayout();
             this.JobQuotePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quoteResultBindingSource)).BeginInit();
             this.panel21.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel16.SuspendLayout();
             this.employeePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeResultBindingSource)).BeginInit();
             this.inventoryPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).BeginInit();
             this.clientPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).BeginInit();
             this.supplierPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).BeginInit();
             this.panel14.SuspendLayout();
             this.jobQuotePanelActions.SuspendLayout();
             this.panel19.SuspendLayout();
@@ -179,12 +185,6 @@
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quoteResultBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeResultBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quoteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -196,7 +196,7 @@
             this.jobOrderPanel.Location = new System.Drawing.Point(0, 0);
             this.jobOrderPanel.Name = "jobOrderPanel";
             this.jobOrderPanel.Padding = new System.Windows.Forms.Padding(30, 30, 30, 0);
-            this.jobOrderPanel.Size = new System.Drawing.Size(737, 304);
+            this.jobOrderPanel.Size = new System.Drawing.Size(718, 304);
             this.jobOrderPanel.TabIndex = 1;
             // 
             // dataGridView2
@@ -212,7 +212,7 @@
             this.dataGridView2.Location = new System.Drawing.Point(30, 30);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(677, 274);
+            this.dataGridView2.Size = new System.Drawing.Size(658, 274);
             this.dataGridView2.TabIndex = 0;
             // 
             // label6
@@ -232,7 +232,7 @@
             this.panel20.Controls.Add(this.button8);
             this.panel20.Controls.Add(this.button9);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel20.Location = new System.Drawing.Point(448, 0);
+            this.panel20.Location = new System.Drawing.Point(429, 0);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(289, 61);
             this.panel20.TabIndex = 8;
@@ -290,7 +290,7 @@
             this.JobQuotePanel.Location = new System.Drawing.Point(0, 0);
             this.JobQuotePanel.Name = "JobQuotePanel";
             this.JobQuotePanel.Padding = new System.Windows.Forms.Padding(30, 30, 30, 0);
-            this.JobQuotePanel.Size = new System.Drawing.Size(737, 304);
+            this.JobQuotePanel.Size = new System.Drawing.Size(718, 304);
             this.JobQuotePanel.TabIndex = 2;
             // 
             // dataGridView3
@@ -306,7 +306,7 @@
             this.dataGridView3.Location = new System.Drawing.Point(30, 30);
             this.dataGridView3.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(677, 274);
+            this.dataGridView3.Size = new System.Drawing.Size(658, 274);
             this.dataGridView3.TabIndex = 0;
             // 
             // panel21
@@ -382,7 +382,7 @@
             this.panel13.Location = new System.Drawing.Point(186, 76);
             this.panel13.Margin = new System.Windows.Forms.Padding(0);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(737, 365);
+            this.panel13.Size = new System.Drawing.Size(718, 365);
             this.panel13.TabIndex = 7;
             // 
             // panel16
@@ -397,7 +397,7 @@
             this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel16.Location = new System.Drawing.Point(0, 61);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(737, 304);
+            this.panel16.Size = new System.Drawing.Size(718, 304);
             this.panel16.TabIndex = 5;
             // 
             // employeePanel
@@ -407,7 +407,7 @@
             this.employeePanel.Location = new System.Drawing.Point(0, 0);
             this.employeePanel.Name = "employeePanel";
             this.employeePanel.Padding = new System.Windows.Forms.Padding(30, 30, 30, 0);
-            this.employeePanel.Size = new System.Drawing.Size(737, 304);
+            this.employeePanel.Size = new System.Drawing.Size(718, 304);
             this.employeePanel.TabIndex = 0;
             // 
             // dataGridView1
@@ -423,7 +423,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(30, 30);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(677, 274);
+            this.dataGridView1.Size = new System.Drawing.Size(658, 274);
             this.dataGridView1.TabIndex = 0;
             // 
             // inventoryPanel
@@ -433,7 +433,7 @@
             this.inventoryPanel.Location = new System.Drawing.Point(0, 0);
             this.inventoryPanel.Name = "inventoryPanel";
             this.inventoryPanel.Padding = new System.Windows.Forms.Padding(30, 30, 30, 0);
-            this.inventoryPanel.Size = new System.Drawing.Size(737, 304);
+            this.inventoryPanel.Size = new System.Drawing.Size(718, 304);
             this.inventoryPanel.TabIndex = 2;
             // 
             // dataGridView6
@@ -449,7 +449,7 @@
             this.dataGridView6.Location = new System.Drawing.Point(30, 30);
             this.dataGridView6.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView6.Name = "dataGridView6";
-            this.dataGridView6.Size = new System.Drawing.Size(677, 274);
+            this.dataGridView6.Size = new System.Drawing.Size(658, 274);
             this.dataGridView6.TabIndex = 0;
             // 
             // clientPanel
@@ -460,7 +460,7 @@
             this.clientPanel.Location = new System.Drawing.Point(0, 0);
             this.clientPanel.Name = "clientPanel";
             this.clientPanel.Padding = new System.Windows.Forms.Padding(30, 30, 30, 0);
-            this.clientPanel.Size = new System.Drawing.Size(737, 304);
+            this.clientPanel.Size = new System.Drawing.Size(718, 304);
             this.clientPanel.TabIndex = 3;
             // 
             // dataGridView4
@@ -476,7 +476,7 @@
             this.dataGridView4.Location = new System.Drawing.Point(30, 30);
             this.dataGridView4.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(677, 274);
+            this.dataGridView4.Size = new System.Drawing.Size(658, 274);
             this.dataGridView4.TabIndex = 0;
             // 
             // supplierPanel
@@ -487,7 +487,7 @@
             this.supplierPanel.Location = new System.Drawing.Point(0, 0);
             this.supplierPanel.Name = "supplierPanel";
             this.supplierPanel.Padding = new System.Windows.Forms.Padding(30, 30, 30, 0);
-            this.supplierPanel.Size = new System.Drawing.Size(737, 304);
+            this.supplierPanel.Size = new System.Drawing.Size(718, 304);
             this.supplierPanel.TabIndex = 4;
             // 
             // dataGridView5
@@ -503,7 +503,7 @@
             this.dataGridView5.Location = new System.Drawing.Point(30, 30);
             this.dataGridView5.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.Size = new System.Drawing.Size(677, 274);
+            this.dataGridView5.Size = new System.Drawing.Size(658, 274);
             this.dataGridView5.TabIndex = 0;
             // 
             // panel14
@@ -520,7 +520,7 @@
             this.panel14.Location = new System.Drawing.Point(0, 0);
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(737, 61);
+            this.panel14.Size = new System.Drawing.Size(718, 61);
             this.panel14.TabIndex = 4;
             // 
             // panel15
@@ -529,7 +529,7 @@
             this.panel15.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel15.Location = new System.Drawing.Point(0, 60);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(737, 1);
+            this.panel15.Size = new System.Drawing.Size(718, 1);
             this.panel15.TabIndex = 0;
             // 
             // jobQuotePanelActions
@@ -542,7 +542,7 @@
             this.jobQuotePanelActions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jobQuotePanelActions.Location = new System.Drawing.Point(0, 0);
             this.jobQuotePanelActions.Name = "jobQuotePanelActions";
-            this.jobQuotePanelActions.Size = new System.Drawing.Size(737, 61);
+            this.jobQuotePanelActions.Size = new System.Drawing.Size(718, 61);
             this.jobQuotePanelActions.TabIndex = 11;
             // 
             // label3
@@ -561,7 +561,7 @@
             this.panel19.Controls.Add(this.button1);
             this.panel19.Controls.Add(this.button4);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel19.Location = new System.Drawing.Point(445, 0);
+            this.panel19.Location = new System.Drawing.Point(426, 0);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(292, 61);
             this.panel19.TabIndex = 8;
@@ -669,7 +669,7 @@
             this.employeePanelActions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.employeePanelActions.Location = new System.Drawing.Point(0, 0);
             this.employeePanelActions.Name = "employeePanelActions";
-            this.employeePanelActions.Size = new System.Drawing.Size(737, 61);
+            this.employeePanelActions.Size = new System.Drawing.Size(718, 61);
             this.employeePanelActions.TabIndex = 9;
             // 
             // label5
@@ -689,7 +689,7 @@
             this.panel17.Controls.Add(this.button7);
             this.panel17.Controls.Add(this.addEmployee);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel17.Location = new System.Drawing.Point(451, 0);
+            this.panel17.Location = new System.Drawing.Point(432, 0);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(286, 61);
             this.panel17.TabIndex = 8;
@@ -808,7 +808,7 @@
             this.supplierPanelActions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.supplierPanelActions.Location = new System.Drawing.Point(0, 0);
             this.supplierPanelActions.Name = "supplierPanelActions";
-            this.supplierPanelActions.Size = new System.Drawing.Size(737, 61);
+            this.supplierPanelActions.Size = new System.Drawing.Size(718, 61);
             this.supplierPanelActions.TabIndex = 13;
             // 
             // label11
@@ -828,7 +828,7 @@
             this.panel26.Controls.Add(this.button14);
             this.panel26.Controls.Add(this.button15);
             this.panel26.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel26.Location = new System.Drawing.Point(435, 0);
+            this.panel26.Location = new System.Drawing.Point(416, 0);
             this.panel26.Name = "panel26";
             this.panel26.Size = new System.Drawing.Size(302, 61);
             this.panel26.TabIndex = 8;
@@ -945,7 +945,7 @@
             this.clientPanelActions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.clientPanelActions.Location = new System.Drawing.Point(0, 0);
             this.clientPanelActions.Name = "clientPanelActions";
-            this.clientPanelActions.Size = new System.Drawing.Size(737, 61);
+            this.clientPanelActions.Size = new System.Drawing.Size(718, 61);
             this.clientPanelActions.TabIndex = 12;
             // 
             // panel23
@@ -954,7 +954,7 @@
             this.panel23.Controls.Add(this.button3);
             this.panel23.Controls.Add(this.button12);
             this.panel23.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel23.Location = new System.Drawing.Point(449, 0);
+            this.panel23.Location = new System.Drawing.Point(430, 0);
             this.panel23.Name = "panel23";
             this.panel23.Size = new System.Drawing.Size(288, 61);
             this.panel23.TabIndex = 8;
@@ -1082,7 +1082,7 @@
             this.inventoryPanelActions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inventoryPanelActions.Location = new System.Drawing.Point(0, 0);
             this.inventoryPanelActions.Name = "inventoryPanelActions";
-            this.inventoryPanelActions.Size = new System.Drawing.Size(737, 61);
+            this.inventoryPanelActions.Size = new System.Drawing.Size(718, 61);
             this.inventoryPanelActions.TabIndex = 11;
             // 
             // label13
@@ -1103,7 +1103,7 @@
             this.panel28.Controls.Add(this.button2);
             this.panel28.Controls.Add(this.button5);
             this.panel28.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel28.Location = new System.Drawing.Point(364, 0);
+            this.panel28.Location = new System.Drawing.Point(345, 0);
             this.panel28.Name = "panel28";
             this.panel28.Size = new System.Drawing.Size(373, 61);
             this.panel28.TabIndex = 8;
@@ -1237,7 +1237,7 @@
             this.jobOrderPanelActions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jobOrderPanelActions.Location = new System.Drawing.Point(0, 0);
             this.jobOrderPanelActions.Name = "jobOrderPanelActions";
-            this.jobOrderPanelActions.Size = new System.Drawing.Size(737, 61);
+            this.jobOrderPanelActions.Size = new System.Drawing.Size(718, 61);
             this.jobOrderPanelActions.TabIndex = 10;
             // 
             // header
@@ -1278,7 +1278,7 @@
             this.panel2.Location = new System.Drawing.Point(186, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(737, 76);
+            this.panel2.Size = new System.Drawing.Size(718, 76);
             this.panel2.TabIndex = 6;
             // 
             // panel1
@@ -1514,7 +1514,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 441);
+            this.ClientSize = new System.Drawing.Size(904, 441);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -1522,21 +1522,27 @@
             this.Text = "Form1";
             this.jobOrderPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).EndInit();
             this.panel20.ResumeLayout(false);
             this.JobQuotePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quoteResultBindingSource)).EndInit();
             this.panel21.ResumeLayout(false);
             this.panel21.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.employeePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeResultBindingSource)).EndInit();
             this.inventoryPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).EndInit();
             this.clientPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).EndInit();
             this.supplierPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).EndInit();
             this.panel14.ResumeLayout(false);
             this.jobQuotePanelActions.ResumeLayout(false);
             this.jobQuotePanelActions.PerformLayout();
@@ -1571,12 +1577,6 @@
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quoteResultBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeResultBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quoteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressBindingSource)).EndInit();
             this.ResumeLayout(false);
