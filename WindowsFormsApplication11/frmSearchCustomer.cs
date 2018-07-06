@@ -9,16 +9,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication11
 {
-    public partial class Form1 : Form
+    public partial class frmSearchCustomer : Form
     {
-        public Form1()
+        public frmSearchCustomer()
         {
             InitializeComponent();
-        }
-
-        private void jobOBtn_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

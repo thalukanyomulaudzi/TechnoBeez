@@ -9,16 +9,21 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication11
 {
-    public partial class Form1 : Form
+    public partial class frmAddCombo : Form
     {
-        public Form1()
+        public frmAddCombo()
         {
             InitializeComponent();
         }
 
-        private void jobOBtn_Click(object sender, EventArgs e)
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Combo successfully Added");
         }
     }
 }

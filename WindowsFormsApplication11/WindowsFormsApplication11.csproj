@@ -44,11 +44,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add Combo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add Combo.Designer.cs">
+      <DependentUpon>Add Combo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddCombo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddCombo.Designer.cs">
+      <DependentUpon>frmAddCombo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddCustomer.Designer.cs">
+      <DependentUpon>frmAddCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmComboMaintain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmComboMaintain.Designer.cs">
+      <DependentUpon>frmComboMaintain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMaintainCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMaintainCustomer.Designer.cs">
+      <DependentUpon>frmMaintainCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSearchCombo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearchCombo.Designer.cs">
+      <DependentUpon>frmSearchCombo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSearchCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearchCustomer.Designer.cs">
+      <DependentUpon>frmSearchCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu_And_Combo.cs">
       <SubType>Form</SubType>
@@ -58,15 +100,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StockOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="StockOrder.cs" />
     <Compile Include="StockOrder.Designer.cs">
       <DependentUpon>StockOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="SupplierForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="SupplierForm.cs" />
     <Compile Include="SupplierForm.Designer.cs">
       <DependentUpon>SupplierForm.cs</DependentUpon>
     </Compile>
@@ -76,8 +114,29 @@
     <Compile Include="SupplierList.Designer.cs">
       <DependentUpon>SupplierList.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Add Combo.resx">
+      <DependentUpon>Add Combo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddCombo.resx">
+      <DependentUpon>frmAddCombo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddCustomer.resx">
+      <DependentUpon>frmAddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmComboMaintain.resx">
+      <DependentUpon>frmComboMaintain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMaintainCustomer.resx">
+      <DependentUpon>frmMaintainCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSearchCombo.resx">
+      <DependentUpon>frmSearchCombo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSearchCustomer.resx">
+      <DependentUpon>frmSearchCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu_And_Combo.resx">
       <DependentUpon>Menu_And_Combo.cs</DependentUpon>
