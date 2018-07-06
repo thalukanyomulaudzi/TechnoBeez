@@ -37,7 +37,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.rbtFemale = new System.Windows.Forms.RadioButton();
             this.rbtMale = new System.Windows.Forms.RadioButton();
-            this.txtCustomerSurname = new System.Windows.Forms.TextBox();
+            this.txtCustomeSurname = new System.Windows.Forms.TextBox();
             this.txtCustomerNames = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtHouseNo = new System.Windows.Forms.TextBox();
@@ -144,12 +144,12 @@
             this.rbtMale.Text = "Male";
             this.rbtMale.UseVisualStyleBackColor = true;
             // 
-            // txtCustomerSurname
+            // txtCustomeSurname
             // 
-            this.txtCustomerSurname.Location = new System.Drawing.Point(69, 92);
-            this.txtCustomerSurname.Name = "txtCustomerSurname";
-            this.txtCustomerSurname.Size = new System.Drawing.Size(227, 20);
-            this.txtCustomerSurname.TabIndex = 5;
+            this.txtCustomeSurname.Location = new System.Drawing.Point(69, 92);
+            this.txtCustomeSurname.Name = "txtCustomeSurname";
+            this.txtCustomeSurname.Size = new System.Drawing.Size(227, 20);
+            this.txtCustomeSurname.TabIndex = 5;
             // 
             // txtCustomerNames
             // 
@@ -278,7 +278,7 @@
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.rbtFemale);
             this.groupBox3.Controls.Add(this.rbtMale);
-            this.groupBox3.Controls.Add(this.txtCustomerSurname);
+            this.groupBox3.Controls.Add(this.txtCustomeSurname);
             this.groupBox3.Controls.Add(this.txtCustomerNames);
             this.groupBox3.Controls.Add(this.groupBox5);
             this.groupBox3.Controls.Add(this.label3);
@@ -461,7 +461,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RadioButton rbtFemale;
         private System.Windows.Forms.RadioButton rbtMale;
-        private System.Windows.Forms.TextBox txtCustomerSurname;
+        private System.Windows.Forms.TextBox txtCustomeSurname;
         private System.Windows.Forms.TextBox txtCustomerNames;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox txtHouseNo;
