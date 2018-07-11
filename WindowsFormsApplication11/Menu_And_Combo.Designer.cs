@@ -50,14 +50,14 @@
             this.txtinventoryName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.genderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -69,7 +69,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // errorProvider
@@ -254,8 +253,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.comboBox1);
-            this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.richTextBox1);
@@ -270,13 +269,13 @@
             this.panel3.Size = new System.Drawing.Size(437, 430);
             this.panel3.TabIndex = 16;
             // 
-            // genderBindingSource1
+            // comboBox1
             // 
-            this.genderBindingSource1.DataMember = "Gender";
-            // 
-            // employeeTypeBindingSource2
-            // 
-            this.employeeTypeBindingSource2.DataMember = "EmployeeType";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(142, 106);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(228, 21);
+            this.comboBox1.TabIndex = 56;
             // 
             // label3
             // 
@@ -287,21 +286,22 @@
             this.label3.TabIndex = 54;
             this.label3.Text = "Menu Image:";
             // 
-            // pictureBox1
+            // genderBindingSource1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(142, 267);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(228, 78);
-            this.pictureBox1.TabIndex = 55;
-            this.pictureBox1.TabStop = false;
+            this.genderBindingSource1.DataMember = "Gender";
             // 
-            // comboBox1
+            // employeeTypeBindingSource2
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(142, 106);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(228, 21);
-            this.comboBox1.TabIndex = 56;
+            this.employeeTypeBindingSource2.DataMember = "EmployeeType";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(142, 262);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(121, 30);
+            this.button1.TabIndex = 57;
+            this.button1.Text = "Upload";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Menu_And_Combo
             // 
@@ -326,7 +326,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -359,7 +358,7 @@
         private System.Windows.Forms.BindingSource genderBindingSource;
         private System.Windows.Forms.BindingSource employeeTypeBindingSource2;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication11
 {
-    public partial class frmMaintainCustomer : Form
+    public partial class Customer_LookUp : Form
     {
-        public frmMaintainCustomer()
+        public Customer_LookUp()
         {
             InitializeComponent();
         }

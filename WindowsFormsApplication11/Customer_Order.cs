@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication11
 {
-    public partial class frmSearchCustomer : Form
+    public partial class Customer_Order : Form
     {
-        public frmSearchCustomer()
+        public Customer_Order()
         {
             InitializeComponent();
         }
