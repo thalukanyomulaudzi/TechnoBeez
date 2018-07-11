@@ -43,12 +43,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.employeeTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.genderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel14.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -203,14 +203,6 @@
             this.label14.TabIndex = 1;
             this.label14.Text = "Supplier Type";
             // 
-            // employeeTypeBindingSource2
-            // 
-            this.employeeTypeBindingSource2.DataMember = "EmployeeType";
-            // 
-            // genderBindingSource1
-            // 
-            this.genderBindingSource1.DataMember = "Gender";
-            // 
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(150, 33);
@@ -218,6 +210,14 @@
             this.richTextBox1.Size = new System.Drawing.Size(228, 102);
             this.richTextBox1.TabIndex = 53;
             this.richTextBox1.Text = "";
+            // 
+            // employeeTypeBindingSource2
+            // 
+            this.employeeTypeBindingSource2.DataMember = "EmployeeType";
+            // 
+            // genderBindingSource1
+            // 
+            this.genderBindingSource1.DataMember = "Gender";
             // 
             // SupplierType
             // 
@@ -229,6 +229,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "SupplierType";
             this.Text = "SupplierType";
+            this.Load += new System.EventHandler(this.SupplierType_Load);
             this.panel14.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
