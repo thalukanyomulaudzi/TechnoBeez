@@ -15,5 +15,15 @@ namespace WindowsFormsApplication11
         {
             InitializeComponent();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //To Save Suppplier information
+        }
+
+        private void panel17_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

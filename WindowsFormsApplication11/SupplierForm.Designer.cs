@@ -60,7 +60,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnSaveSupplier = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtSupplierPhone = new System.Windows.Forms.TextBox();
@@ -359,27 +359,29 @@
             // 
             // panel17
             // 
-            this.panel17.Controls.Add(this.button7);
+            this.panel17.Controls.Add(this.btnSaveSupplier);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel17.Location = new System.Drawing.Point(496, 0);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(109, 60);
             this.panel17.TabIndex = 8;
+            this.panel17.Paint += new System.Windows.Forms.PaintEventHandler(this.panel17_Paint);
             // 
-            // button7
+            // btnSaveSupplier
             // 
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(13, 17);
-            this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.button7.Size = new System.Drawing.Size(70, 28);
-            this.button7.TabIndex = 9;
-            this.button7.Text = "Save";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnSaveSupplier.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnSaveSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveSupplier.Image")));
+            this.btnSaveSupplier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveSupplier.Location = new System.Drawing.Point(13, 17);
+            this.btnSaveSupplier.Name = "btnSaveSupplier";
+            this.btnSaveSupplier.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnSaveSupplier.Size = new System.Drawing.Size(70, 28);
+            this.btnSaveSupplier.TabIndex = 9;
+            this.btnSaveSupplier.Text = "Save";
+            this.btnSaveSupplier.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSaveSupplier.UseVisualStyleBackColor = true;
+            this.btnSaveSupplier.Click += new System.EventHandler(this.button7_Click);
             // 
             // panel15
             // 
@@ -488,7 +490,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnUpdateEmployee;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnSaveSupplier;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtSupplierPhone;
