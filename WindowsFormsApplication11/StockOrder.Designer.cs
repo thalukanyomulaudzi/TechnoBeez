@@ -54,6 +54,7 @@
             this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -182,6 +183,7 @@
             // 
             // panel17
             // 
+            this.panel17.Controls.Add(this.btnUpdateEmployee);
             this.panel17.Controls.Add(this.button7);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel17.Location = new System.Drawing.Point(206, 0);
@@ -254,6 +256,21 @@
             // 
             this.genderBindingSource1.DataMember = "Gender";
             // 
+            // btnUpdateEmployee
+            // 
+            this.btnUpdateEmployee.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnUpdateEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateEmployee.Image")));
+            this.btnUpdateEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdateEmployee.Location = new System.Drawing.Point(28, 15);
+            this.btnUpdateEmployee.Name = "btnUpdateEmployee";
+            this.btnUpdateEmployee.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnUpdateEmployee.Size = new System.Drawing.Size(84, 34);
+            this.btnUpdateEmployee.TabIndex = 59;
+            this.btnUpdateEmployee.Text = "Update";
+            this.btnUpdateEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdateEmployee.UseVisualStyleBackColor = true;
+            // 
             // StockOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,5 +323,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Button btnUpdateEmployee;
     }
 }

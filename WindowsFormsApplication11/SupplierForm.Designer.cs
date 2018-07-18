@@ -58,7 +58,6 @@
             this.txtStreetName = new System.Windows.Forms.TextBox();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.addEmployee = new System.Windows.Forms.Button();
             this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
@@ -336,7 +335,6 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.addEmployee);
             this.panel4.Controls.Add(this.btnUpdateEmployee);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.Location = new System.Drawing.Point(287, 0);
@@ -344,28 +342,13 @@
             this.panel4.Size = new System.Drawing.Size(209, 60);
             this.panel4.TabIndex = 10;
             // 
-            // addEmployee
-            // 
-            this.addEmployee.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.addEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addEmployee.Image = ((System.Drawing.Image)(resources.GetObject("addEmployee.Image")));
-            this.addEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addEmployee.Location = new System.Drawing.Point(106, 17);
-            this.addEmployee.Name = "addEmployee";
-            this.addEmployee.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.addEmployee.Size = new System.Drawing.Size(76, 28);
-            this.addEmployee.TabIndex = 8;
-            this.addEmployee.Text = "Delete";
-            this.addEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addEmployee.UseVisualStyleBackColor = true;
-            // 
             // btnUpdateEmployee
             // 
             this.btnUpdateEmployee.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
             this.btnUpdateEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateEmployee.Image")));
             this.btnUpdateEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdateEmployee.Location = new System.Drawing.Point(12, 17);
+            this.btnUpdateEmployee.Location = new System.Drawing.Point(119, 17);
             this.btnUpdateEmployee.Name = "btnUpdateEmployee";
             this.btnUpdateEmployee.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.btnUpdateEmployee.Size = new System.Drawing.Size(84, 28);
@@ -503,7 +486,6 @@
         private System.Windows.Forms.TextBox txtStreetName;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button addEmployee;
         private System.Windows.Forms.Button btnUpdateEmployee;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Button button7;

@@ -118,6 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnUpdateEmployee.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJ
+        TUUH4QkIFAsTpQ27oAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACySURBVDhP
+        zZMxCsJAEEVTWXiaYOM57AI5lVewsrVLYWthlYOkyQEE/U92hokbNQsWfngw7P757AxsJXXivoCbuIha
+        TMTlPhEbetEkqK/iLEaxFS7MZowBR2GihpU4iUlISQCKIc9xSgMQIYzDTjxgl2pjENZIfRBRrWCxHrAW
+        LNKaIjRvRJS92ANK9fuATyNE8ODNAmyJc00RPHizAD/4osz/HwHxM9nlO179i7/zDFX3ALR+gY7x6asv
+        AAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="btnSaveCombo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6

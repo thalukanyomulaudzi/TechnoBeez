@@ -36,7 +36,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.addEmployee = new System.Windows.Forms.Button();
             this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
@@ -50,6 +49,7 @@
             this.txtinventoryName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.genderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -57,7 +57,6 @@
             this.employeeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -109,7 +108,6 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.addEmployee);
             this.panel4.Controls.Add(this.btnUpdateEmployee);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.Location = new System.Drawing.Point(121, 0);
@@ -117,28 +115,13 @@
             this.panel4.Size = new System.Drawing.Size(209, 60);
             this.panel4.TabIndex = 11;
             // 
-            // addEmployee
-            // 
-            this.addEmployee.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.addEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addEmployee.Image = ((System.Drawing.Image)(resources.GetObject("addEmployee.Image")));
-            this.addEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addEmployee.Location = new System.Drawing.Point(106, 17);
-            this.addEmployee.Name = "addEmployee";
-            this.addEmployee.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.addEmployee.Size = new System.Drawing.Size(76, 28);
-            this.addEmployee.TabIndex = 8;
-            this.addEmployee.Text = "Delete";
-            this.addEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addEmployee.UseVisualStyleBackColor = true;
-            // 
             // btnUpdateEmployee
             // 
             this.btnUpdateEmployee.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
             this.btnUpdateEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateEmployee.Image")));
             this.btnUpdateEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdateEmployee.Location = new System.Drawing.Point(12, 17);
+            this.btnUpdateEmployee.Location = new System.Drawing.Point(119, 17);
             this.btnUpdateEmployee.Name = "btnUpdateEmployee";
             this.btnUpdateEmployee.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.btnUpdateEmployee.Size = new System.Drawing.Size(84, 28);
@@ -269,6 +252,15 @@
             this.panel3.Size = new System.Drawing.Size(437, 430);
             this.panel3.TabIndex = 16;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(142, 262);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(121, 30);
+            this.button1.TabIndex = 57;
+            this.button1.Text = "Upload";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -293,15 +285,6 @@
             // employeeTypeBindingSource2
             // 
             this.employeeTypeBindingSource2.DataMember = "EmployeeType";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(142, 262);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 30);
-            this.button1.TabIndex = 57;
-            this.button1.Text = "Upload";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // Menu_And_Combo
             // 
@@ -340,7 +323,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button addEmployee;
         private System.Windows.Forms.Button btnUpdateEmployee;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Button button7;

@@ -32,18 +32,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SupplierType));
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.addEmployee = new System.Windows.Forms.Button();
             this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.employeeTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -77,7 +76,6 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.addEmployee);
             this.panel4.Controls.Add(this.btnUpdateEmployee);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.Location = new System.Drawing.Point(108, 0);
@@ -85,28 +83,13 @@
             this.panel4.Size = new System.Drawing.Size(209, 60);
             this.panel4.TabIndex = 10;
             // 
-            // addEmployee
-            // 
-            this.addEmployee.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.addEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addEmployee.Image = ((System.Drawing.Image)(resources.GetObject("addEmployee.Image")));
-            this.addEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addEmployee.Location = new System.Drawing.Point(106, 17);
-            this.addEmployee.Name = "addEmployee";
-            this.addEmployee.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.addEmployee.Size = new System.Drawing.Size(76, 28);
-            this.addEmployee.TabIndex = 8;
-            this.addEmployee.Text = "Delete";
-            this.addEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addEmployee.UseVisualStyleBackColor = true;
-            // 
             // btnUpdateEmployee
             // 
             this.btnUpdateEmployee.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
             this.btnUpdateEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateEmployee.Image")));
             this.btnUpdateEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdateEmployee.Location = new System.Drawing.Point(12, 17);
+            this.btnUpdateEmployee.Location = new System.Drawing.Point(119, 17);
             this.btnUpdateEmployee.Name = "btnUpdateEmployee";
             this.btnUpdateEmployee.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.btnUpdateEmployee.Size = new System.Drawing.Size(84, 28);
@@ -162,6 +145,14 @@
             this.panel3.Size = new System.Drawing.Size(426, 235);
             this.panel3.TabIndex = 22;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(150, 33);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(228, 102);
+            this.richTextBox1.TabIndex = 53;
+            this.richTextBox1.Text = "";
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -203,14 +194,6 @@
             this.label14.TabIndex = 1;
             this.label14.Text = "Supplier Type";
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(150, 33);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(228, 102);
-            this.richTextBox1.TabIndex = 53;
-            this.richTextBox1.Text = "";
-            // 
             // employeeTypeBindingSource2
             // 
             this.employeeTypeBindingSource2.DataMember = "EmployeeType";
@@ -251,7 +234,6 @@
         private System.Windows.Forms.BindingSource employeeTypeBindingSource1;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button addEmployee;
         private System.Windows.Forms.Button btnUpdateEmployee;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Button button7;
