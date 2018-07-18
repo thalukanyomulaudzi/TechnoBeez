@@ -50,6 +50,12 @@
     <Compile Include="Add Employee.Designer.cs">
       <DependentUpon>Add Employee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Book Employee Shift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Book Employee Shift.Designer.cs">
+      <DependentUpon>Book Employee Shift.cs</DependentUpon>
+    </Compile>
     <Compile Include="Combo_LookUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,12 @@
     <Compile Include="frmAddCustomer.Designer.cs">
       <DependentUpon>frmAddCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maintain Employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintain Employee.Designer.cs">
+      <DependentUpon>Maintain Employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu_And_Combo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +117,18 @@
     </Compile>
     <Compile Include="SalesAndOrdering.Designer.cs">
       <DependentUpon>SalesAndOrdering.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search Employee Shift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search Employee Shift.Designer.cs">
+      <DependentUpon>Search Employee Shift.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup Employee Shift Schedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup Employee Shift Schedule.Designer.cs">
+      <DependentUpon>Setup Employee Shift Schedule.cs</DependentUpon>
     </Compile>
     <Compile Include="StockOrder.cs">
       <SubType>Form</SubType>
@@ -133,6 +157,9 @@
     <EmbeddedResource Include="Add Employee.resx">
       <DependentUpon>Add Employee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Book Employee Shift.resx">
+      <DependentUpon>Book Employee Shift.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Combo_LookUp.resx">
       <DependentUpon>Combo_LookUp.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +178,9 @@
     <EmbeddedResource Include="frmAddCustomer.resx">
       <DependentUpon>frmAddCustomer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Maintain Employee.resx">
+      <DependentUpon>Maintain Employee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu_And_Combo.resx">
       <DependentUpon>Menu_And_Combo.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +198,12 @@
     </Compile>
     <EmbeddedResource Include="SalesAndOrdering.resx">
       <DependentUpon>SalesAndOrdering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search Employee Shift.resx">
+      <DependentUpon>Search Employee Shift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setup Employee Shift Schedule.resx">
+      <DependentUpon>Setup Employee Shift Schedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StockOrder.resx">
       <DependentUpon>StockOrder.cs</DependentUpon>
