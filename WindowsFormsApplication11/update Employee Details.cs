@@ -9,17 +9,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication11
 {
-    public partial class Setup_Employee_Shift_Schedule : Form
+    public partial class update_Employee_Details : Form
     {
-        public Setup_Employee_Shift_Schedule()
+        public update_Employee_Details()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //Submit Button
-
         }
     }
 }

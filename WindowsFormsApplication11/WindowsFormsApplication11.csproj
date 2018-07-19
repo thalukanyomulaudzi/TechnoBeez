@@ -92,6 +92,12 @@
     <Compile Include="frmAddCustomer.Designer.cs">
       <DependentUpon>frmAddCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maintain Employee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,12 @@
     <Compile Include="SupplierType.Designer.cs">
       <DependentUpon>SupplierType.cs</DependentUpon>
     </Compile>
+    <Compile Include="update Employee Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="update Employee Details.Designer.cs">
+      <DependentUpon>update Employee Details.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Add Employee.resx">
       <DependentUpon>Add Employee.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddCustomer.resx">
       <DependentUpon>frmAddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maintain Employee.resx">
       <DependentUpon>Maintain Employee.cs</DependentUpon>
@@ -216,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SupplierType.resx">
       <DependentUpon>SupplierType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="update Employee Details.resx">
+      <DependentUpon>update Employee Details.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
