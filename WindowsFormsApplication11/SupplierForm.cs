@@ -25,5 +25,10 @@ namespace WindowsFormsApplication11
         {
 
         }
+
+        private void SupplierForm_Load(object sender, EventArgs e)
+        {
+            //new
+        }
     }
 }
