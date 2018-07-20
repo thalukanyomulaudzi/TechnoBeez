@@ -84,7 +84,12 @@ namespace WindowsFormsApplication11
 
             if(e.ClickedItem.Name.ToString() == "Deleted")
             {
-                deleteF.ShowDialog();
+                //deleteF.ShowDialog();
+                if (MessageBox.Show("Are you sure you want to delete?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    //deleteEmployee(index);
+                  //  MessageBox.Show("");
+                }
             }
             
             MessageBox.Show(e.ClickedItem.Name.ToString());
