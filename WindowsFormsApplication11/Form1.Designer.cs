@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.jobOrderPanel = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.button18 = new System.Windows.Forms.Button();
@@ -134,16 +133,19 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lblHawks = new System.Windows.Forms.Label();
-            this.jobOrderResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quoteResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventoryResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.supplierResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jobOrderResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addressBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvDataGrid = new System.Windows.Forms.DataGridView();
+            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jobOrderPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel20.SuspendLayout();
             this.JobQuotePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -179,41 +181,26 @@
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quoteResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quoteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // jobOrderPanel
             // 
-            this.jobOrderPanel.Controls.Add(this.dataGridView2);
+            this.jobOrderPanel.Controls.Add(this.dgvDataGrid);
             this.jobOrderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jobOrderPanel.Location = new System.Drawing.Point(0, 0);
             this.jobOrderPanel.Name = "jobOrderPanel";
             this.jobOrderPanel.Padding = new System.Windows.Forms.Padding(30, 30, 30, 0);
             this.jobOrderPanel.Size = new System.Drawing.Size(718, 304);
             this.jobOrderPanel.TabIndex = 1;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.DataSource = this.jobOrderResultBindingSource;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(30, 30);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(658, 274);
-            this.dataGridView2.TabIndex = 0;
             // 
             // label6
             // 
@@ -580,6 +567,7 @@
             this.button1.Text = "Add";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button4
             // 
@@ -1244,7 +1232,7 @@
             // 
             this.header.AutoSize = true;
             this.header.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.header.Location = new System.Drawing.Point(25, 21);
+            this.header.Location = new System.Drawing.Point(38, 16);
             this.header.Name = "header";
             this.header.Size = new System.Drawing.Size(143, 33);
             this.header.TabIndex = 1;
@@ -1415,9 +1403,10 @@
             this.quoteBtn.Name = "quoteBtn";
             this.quoteBtn.Size = new System.Drawing.Size(185, 40);
             this.quoteBtn.TabIndex = 6;
-            this.quoteBtn.Text = "Sale";
+            this.quoteBtn.Text = "Sales and Ordering";
             this.quoteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.quoteBtn.UseVisualStyleBackColor = false;
+            this.quoteBtn.Click += new System.EventHandler(this.quoteBtn_Click);
             // 
             // panel9
             // 
@@ -1511,6 +1500,43 @@
             this.lblHawks.TabIndex = 0;
             this.lblHawks.Text = "Hawks";
             // 
+            // dgvDataGrid
+            // 
+            this.dgvDataGrid.AutoGenerateColumns = false;
+            this.dgvDataGrid.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col1,
+            this.col2,
+            this.col3});
+            this.dgvDataGrid.DataSource = this.jobOrderResultBindingSource;
+            this.dgvDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDataGrid.Location = new System.Drawing.Point(30, 30);
+            this.dgvDataGrid.Margin = new System.Windows.Forms.Padding(0);
+            this.dgvDataGrid.Name = "dgvDataGrid";
+            this.dgvDataGrid.Size = new System.Drawing.Size(658, 274);
+            this.dgvDataGrid.TabIndex = 0;
+            this.dgvDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataGrid_CellContentClick);
+            // 
+            // col1
+            // 
+            this.col1.HeaderText = "Sales ID";
+            this.col1.Name = "col1";
+            this.col1.Width = 150;
+            // 
+            // col2
+            // 
+            this.col2.HeaderText = "Sale Date";
+            this.col2.Name = "col2";
+            this.col2.Width = 200;
+            // 
+            // col3
+            // 
+            this.col3.HeaderText = "Sale Amount";
+            this.col3.Name = "col3";
+            this.col3.Width = 200;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1523,7 +1549,6 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.jobOrderPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel20.ResumeLayout(false);
             this.JobQuotePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
@@ -1573,14 +1598,15 @@
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quoteResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quoteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1588,7 +1614,6 @@
         #endregion
 
         private System.Windows.Forms.Panel jobOrderPanel;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.BindingSource jobOrderResultBindingSource;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel20;
@@ -1699,6 +1724,10 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblHawks;
+        private System.Windows.Forms.DataGridView dgvDataGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col3;
     }
 }
 
