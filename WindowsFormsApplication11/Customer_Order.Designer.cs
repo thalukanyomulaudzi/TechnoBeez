@@ -219,6 +219,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Customer_Order";
             this.Text = "Customer_Order";
+            this.Load += new System.EventHandler(this.Customer_Order_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.jobQuotePanelActions.ResumeLayout(false);

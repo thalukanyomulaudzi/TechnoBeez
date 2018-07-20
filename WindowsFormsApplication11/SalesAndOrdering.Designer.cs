@@ -35,25 +35,35 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventoryResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.total = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectedServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
@@ -65,16 +75,6 @@
             this.employeeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -105,6 +105,7 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "View Order";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -149,6 +150,23 @@
             this.dataGridView1.Size = new System.Drawing.Size(355, 124);
             this.dataGridView1.TabIndex = 6;
             // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Item Names";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Quantity";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 60;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Price";
+            this.Column5.Name = "Column5";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.textBox2);
@@ -163,6 +181,13 @@
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Order";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(275, 181);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(86, 20);
+            this.textBox2.TabIndex = 15;
             // 
             // button1
             // 
@@ -216,6 +241,13 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "For Delivery";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(18, 24);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(163, 20);
+            this.textBox1.TabIndex = 14;
             // 
             // panel3
             // 
@@ -275,6 +307,13 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Total of Sale";
             // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(208, 18);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(99, 20);
+            this.textBox4.TabIndex = 13;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -322,6 +361,13 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Sales Items ";
             // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(275, 161);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(86, 20);
+            this.textBox3.TabIndex = 12;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -344,6 +390,23 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(355, 137);
             this.dataGridView2.TabIndex = 6;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Item Names";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Quantity";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 60;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
             // 
             // panel14
             // 
@@ -401,68 +464,6 @@
             // genderBindingSource1
             // 
             this.genderBindingSource1.DataMember = "Gender";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Item Names";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Quantity";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 60;
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Item Names";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 150;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Quantity";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 60;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Price";
-            this.Column5.Name = "Column5";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(275, 161);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(86, 20);
-            this.textBox3.TabIndex = 12;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(208, 18);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(99, 20);
-            this.textBox4.TabIndex = 13;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(18, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 20);
-            this.textBox1.TabIndex = 14;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(275, 181);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(86, 20);
-            this.textBox2.TabIndex = 15;
             // 
             // SalesAndOrdering
             // 

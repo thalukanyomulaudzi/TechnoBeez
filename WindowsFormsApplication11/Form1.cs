@@ -103,7 +103,9 @@ namespace WindowsFormsApplication11
         {
             SalesAndOrdering sales = new SalesAndOrdering();
             sales.ShowDialog();
-               
+
+
+                  
         }
 
         private void supplierBtn_Click(object sender, EventArgs e)
