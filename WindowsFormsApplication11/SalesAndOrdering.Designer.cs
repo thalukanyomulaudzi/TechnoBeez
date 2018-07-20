@@ -37,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.inventoryResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -54,19 +55,22 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.selectedServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.selectedServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inventoryResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.genderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -75,11 +79,10 @@
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selectedServiceBindingSource)).BeginInit();
             this.panel14.SuspendLayout();
             this.panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.selectedServiceBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource)).BeginInit();
@@ -233,6 +236,9 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.button5);
+            this.panel3.Controls.Add(this.comboBox1);
+            this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.groupBox5);
             this.panel3.Controls.Add(this.groupBox4);
             this.panel3.Controls.Add(this.groupBox3);
@@ -362,9 +368,9 @@
             this.button7.Location = new System.Drawing.Point(13, 17);
             this.button7.Name = "button7";
             this.button7.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.button7.Size = new System.Drawing.Size(70, 28);
+            this.button7.Size = new System.Drawing.Size(80, 28);
             this.button7.TabIndex = 9;
-            this.button7.Text = "Save";
+            this.button7.Text = "Submit";
             this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button7.UseVisualStyleBackColor = true;
             // 
@@ -389,6 +395,36 @@
             // 
             this.genderBindingSource1.DataMember = "Gender";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(434, 386);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(119, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Select Payment method";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Cash",
+            "Card"});
+            this.comboBox1.Location = new System.Drawing.Point(611, 383);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(100, 21);
+            this.comboBox1.TabIndex = 14;
+            // 
+            // button5
+            // 
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(611, 410);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(100, 23);
+            this.button5.TabIndex = 15;
+            this.button5.Text = "Make Paymnet";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // SalesAndOrdering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,6 +436,7 @@
             this.Name = "SalesAndOrdering";
             this.Text = "SalesAndOrdering";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -407,17 +444,17 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selectedServiceBindingSource)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.selectedServiceBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource)).EndInit();
@@ -465,5 +502,8 @@
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.BindingSource employeeTypeBindingSource1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label4;
     }
 }

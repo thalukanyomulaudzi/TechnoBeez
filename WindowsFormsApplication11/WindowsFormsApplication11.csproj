@@ -104,6 +104,12 @@
     <Compile Include="Maintain Employee.Designer.cs">
       <DependentUpon>Maintain Employee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Make payment popUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Make payment popUp.Designer.cs">
+      <DependentUpon>Make payment popUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu_And_Combo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Maintain Employee.resx">
       <DependentUpon>Maintain Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Make payment popUp.resx">
+      <DependentUpon>Make payment popUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu_And_Combo.resx">
       <DependentUpon>Menu_And_Combo.cs</DependentUpon>
