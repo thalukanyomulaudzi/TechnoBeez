@@ -131,20 +131,19 @@
             this.empBtn = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblHawks = new System.Windows.Forms.Label();
+            this.dgvDataGrid = new System.Windows.Forms.DataGridView();
+            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jobOrderResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quoteResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventoryResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.supplierResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jobOrderResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addressBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dgvDataGrid = new System.Windows.Forms.DataGridView();
-            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jobOrderPanel.SuspendLayout();
             this.panel20.SuspendLayout();
             this.JobQuotePanel.SuspendLayout();
@@ -181,15 +180,15 @@
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quoteResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quoteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // jobOrderPanel
@@ -1252,7 +1251,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(55, 76);
+            this.label2.Location = new System.Drawing.Point(55, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 30);
             this.label2.TabIndex = 2;
@@ -1355,6 +1354,7 @@
             this.supplierBtn.Text = "Suppliers";
             this.supplierBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.supplierBtn.UseVisualStyleBackColor = false;
+            this.supplierBtn.Click += new System.EventHandler(this.supplierBtn_Click);
             // 
             // panel11
             // 
@@ -1471,7 +1471,6 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.SteelBlue;
             this.panel5.Controls.Add(this.label2);
-            this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.lblHawks);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
@@ -1480,25 +1479,15 @@
             this.panel5.Size = new System.Drawing.Size(185, 123);
             this.panel5.TabIndex = 1;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(41, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 30);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Business";
-            // 
             // lblHawks
             // 
             this.lblHawks.AutoSize = true;
             this.lblHawks.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHawks.Location = new System.Drawing.Point(27, 16);
+            this.lblHawks.Location = new System.Drawing.Point(29, 29);
             this.lblHawks.Name = "lblHawks";
-            this.lblHawks.Size = new System.Drawing.Size(73, 30);
+            this.lblHawks.Size = new System.Drawing.Size(96, 30);
             this.lblHawks.TabIndex = 0;
-            this.lblHawks.Text = "Hawks";
+            this.lblHawks.Text = "Mmwase";
             // 
             // dgvDataGrid
             // 
@@ -1598,15 +1587,15 @@
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quoteResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quoteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1722,7 +1711,6 @@
         private System.Windows.Forms.Button empBtn;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblHawks;
         private System.Windows.Forms.DataGridView dgvDataGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn col1;
