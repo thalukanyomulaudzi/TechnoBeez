@@ -132,18 +132,18 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblHawks = new System.Windows.Forms.Label();
+            this.dgvDataGrid = new System.Windows.Forms.DataGridView();
+            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jobOrderResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quoteResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventoryResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.supplierResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jobOrderResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addressBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dgvDataGrid = new System.Windows.Forms.DataGridView();
-            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jobOrderPanel.SuspendLayout();
             this.panel20.SuspendLayout();
             this.JobQuotePanel.SuspendLayout();
@@ -180,15 +180,15 @@
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quoteResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quoteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // jobOrderPanel
@@ -1354,6 +1354,7 @@
             this.supplierBtn.Text = "Suppliers";
             this.supplierBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.supplierBtn.UseVisualStyleBackColor = false;
+            this.supplierBtn.Click += new System.EventHandler(this.supplierBtn_Click);
             // 
             // panel11
             // 
@@ -1586,15 +1587,15 @@
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quoteResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quoteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
