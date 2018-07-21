@@ -195,6 +195,7 @@ namespace WindowsFormsApplication11
             {
                 navigate(inventoryBtn);
             }
+            btnorderList.Visible = true;
             //clientPanel.BringToFront();
             //clientPanelActions.BringToFront();
             dgvDataGrid.Show();
@@ -237,6 +238,12 @@ namespace WindowsFormsApplication11
             dgvDataGrid.Columns[2].HeaderCell.Value = "Employee Email";
 
             dgvDataGrid.MouseClick += new MouseEventHandler(mouse_click);
+        }
+
+        private void btnorderList_Click(object sender, EventArgs e)
+        {
+            OrderList f = new OrderList();
+            f.ShowDialog();
         }
     }
 }

@@ -145,6 +145,7 @@
             this.lblHawks = new System.Windows.Forms.Label();
             this.quoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addressBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnorderList = new System.Windows.Forms.Button();
             this.jobOrderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).BeginInit();
@@ -199,7 +200,7 @@
             this.jobOrderPanel.Location = new System.Drawing.Point(0, 0);
             this.jobOrderPanel.Name = "jobOrderPanel";
             this.jobOrderPanel.Padding = new System.Windows.Forms.Padding(30, 30, 30, 0);
-            this.jobOrderPanel.Size = new System.Drawing.Size(718, 323);
+            this.jobOrderPanel.Size = new System.Drawing.Size(745, 323);
             this.jobOrderPanel.TabIndex = 1;
             // 
             // dgvDataGrid
@@ -217,7 +218,7 @@
             this.dgvDataGrid.Location = new System.Drawing.Point(30, 30);
             this.dgvDataGrid.Margin = new System.Windows.Forms.Padding(0);
             this.dgvDataGrid.Name = "dgvDataGrid";
-            this.dgvDataGrid.Size = new System.Drawing.Size(658, 293);
+            this.dgvDataGrid.Size = new System.Drawing.Size(685, 293);
             this.dgvDataGrid.TabIndex = 0;
             this.dgvDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataGrid_CellContentClick);
             // 
@@ -256,7 +257,7 @@
             this.panel20.Controls.Add(this.button8);
             this.panel20.Controls.Add(this.button9);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel20.Location = new System.Drawing.Point(429, 0);
+            this.panel20.Location = new System.Drawing.Point(456, 0);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(289, 61);
             this.panel20.TabIndex = 8;
@@ -314,7 +315,7 @@
             this.JobQuotePanel.Location = new System.Drawing.Point(0, 0);
             this.JobQuotePanel.Name = "JobQuotePanel";
             this.JobQuotePanel.Padding = new System.Windows.Forms.Padding(30, 30, 30, 0);
-            this.JobQuotePanel.Size = new System.Drawing.Size(718, 323);
+            this.JobQuotePanel.Size = new System.Drawing.Size(745, 323);
             this.JobQuotePanel.TabIndex = 2;
             // 
             // dataGridView3
@@ -330,7 +331,7 @@
             this.dataGridView3.Location = new System.Drawing.Point(30, 30);
             this.dataGridView3.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(658, 293);
+            this.dataGridView3.Size = new System.Drawing.Size(685, 293);
             this.dataGridView3.TabIndex = 0;
             // 
             // panel21
@@ -406,7 +407,7 @@
             this.panel13.Location = new System.Drawing.Point(186, 76);
             this.panel13.Margin = new System.Windows.Forms.Padding(0);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(718, 384);
+            this.panel13.Size = new System.Drawing.Size(745, 384);
             this.panel13.TabIndex = 7;
             // 
             // panel16
@@ -421,7 +422,7 @@
             this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel16.Location = new System.Drawing.Point(0, 61);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(718, 323);
+            this.panel16.Size = new System.Drawing.Size(745, 323);
             this.panel16.TabIndex = 5;
             // 
             // employeePanel
@@ -431,7 +432,7 @@
             this.employeePanel.Location = new System.Drawing.Point(0, 0);
             this.employeePanel.Name = "employeePanel";
             this.employeePanel.Padding = new System.Windows.Forms.Padding(30, 30, 30, 0);
-            this.employeePanel.Size = new System.Drawing.Size(718, 323);
+            this.employeePanel.Size = new System.Drawing.Size(745, 323);
             this.employeePanel.TabIndex = 0;
             // 
             // dataGridView1
@@ -447,7 +448,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(30, 30);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(658, 293);
+            this.dataGridView1.Size = new System.Drawing.Size(685, 293);
             this.dataGridView1.TabIndex = 0;
             // 
             // inventoryPanel
@@ -457,7 +458,7 @@
             this.inventoryPanel.Location = new System.Drawing.Point(0, 0);
             this.inventoryPanel.Name = "inventoryPanel";
             this.inventoryPanel.Padding = new System.Windows.Forms.Padding(30, 30, 30, 0);
-            this.inventoryPanel.Size = new System.Drawing.Size(718, 323);
+            this.inventoryPanel.Size = new System.Drawing.Size(745, 323);
             this.inventoryPanel.TabIndex = 2;
             // 
             // dataGridView6
@@ -473,7 +474,7 @@
             this.dataGridView6.Location = new System.Drawing.Point(30, 30);
             this.dataGridView6.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView6.Name = "dataGridView6";
-            this.dataGridView6.Size = new System.Drawing.Size(658, 293);
+            this.dataGridView6.Size = new System.Drawing.Size(685, 293);
             this.dataGridView6.TabIndex = 0;
             // 
             // clientPanel
@@ -484,7 +485,7 @@
             this.clientPanel.Location = new System.Drawing.Point(0, 0);
             this.clientPanel.Name = "clientPanel";
             this.clientPanel.Padding = new System.Windows.Forms.Padding(30, 30, 30, 0);
-            this.clientPanel.Size = new System.Drawing.Size(718, 323);
+            this.clientPanel.Size = new System.Drawing.Size(745, 323);
             this.clientPanel.TabIndex = 3;
             // 
             // dataGridView4
@@ -500,7 +501,7 @@
             this.dataGridView4.Location = new System.Drawing.Point(30, 30);
             this.dataGridView4.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(658, 293);
+            this.dataGridView4.Size = new System.Drawing.Size(685, 293);
             this.dataGridView4.TabIndex = 0;
             // 
             // supplierPanel
@@ -511,7 +512,7 @@
             this.supplierPanel.Location = new System.Drawing.Point(0, 0);
             this.supplierPanel.Name = "supplierPanel";
             this.supplierPanel.Padding = new System.Windows.Forms.Padding(30, 30, 30, 0);
-            this.supplierPanel.Size = new System.Drawing.Size(718, 323);
+            this.supplierPanel.Size = new System.Drawing.Size(745, 323);
             this.supplierPanel.TabIndex = 4;
             // 
             // dataGridView5
@@ -527,7 +528,7 @@
             this.dataGridView5.Location = new System.Drawing.Point(30, 30);
             this.dataGridView5.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.Size = new System.Drawing.Size(658, 293);
+            this.dataGridView5.Size = new System.Drawing.Size(685, 293);
             this.dataGridView5.TabIndex = 0;
             // 
             // panel14
@@ -544,7 +545,7 @@
             this.panel14.Location = new System.Drawing.Point(0, 0);
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(718, 61);
+            this.panel14.Size = new System.Drawing.Size(745, 61);
             this.panel14.TabIndex = 4;
             // 
             // panel15
@@ -553,7 +554,7 @@
             this.panel15.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel15.Location = new System.Drawing.Point(0, 60);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(718, 1);
+            this.panel15.Size = new System.Drawing.Size(745, 1);
             this.panel15.TabIndex = 0;
             // 
             // jobQuotePanelActions
@@ -566,7 +567,7 @@
             this.jobQuotePanelActions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jobQuotePanelActions.Location = new System.Drawing.Point(0, 0);
             this.jobQuotePanelActions.Name = "jobQuotePanelActions";
-            this.jobQuotePanelActions.Size = new System.Drawing.Size(718, 61);
+            this.jobQuotePanelActions.Size = new System.Drawing.Size(745, 61);
             this.jobQuotePanelActions.TabIndex = 11;
             // 
             // label3
@@ -582,12 +583,13 @@
             // 
             // panel19
             // 
+            this.panel19.Controls.Add(this.btnorderList);
             this.panel19.Controls.Add(this.button1);
             this.panel19.Controls.Add(this.button4);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel19.Location = new System.Drawing.Point(491, 0);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(227, 61);
+            this.panel19.Size = new System.Drawing.Size(254, 61);
             this.panel19.TabIndex = 8;
             // 
             // button1
@@ -599,7 +601,7 @@
             this.button1.Location = new System.Drawing.Point(14, 17);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.button1.Size = new System.Drawing.Size(67, 28);
+            this.button1.Size = new System.Drawing.Size(63, 28);
             this.button1.TabIndex = 9;
             this.button1.Text = "Add";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -612,10 +614,10 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(93, 17);
+            this.button4.Location = new System.Drawing.Point(83, 19);
             this.button4.Name = "button4";
             this.button4.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.button4.Size = new System.Drawing.Size(76, 28);
+            this.button4.Size = new System.Drawing.Size(72, 28);
             this.button4.TabIndex = 8;
             this.button4.Text = "Delete";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -694,7 +696,7 @@
             this.employeePanelActions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.employeePanelActions.Location = new System.Drawing.Point(0, 0);
             this.employeePanelActions.Name = "employeePanelActions";
-            this.employeePanelActions.Size = new System.Drawing.Size(718, 61);
+            this.employeePanelActions.Size = new System.Drawing.Size(745, 61);
             this.employeePanelActions.TabIndex = 9;
             // 
             // label5
@@ -714,7 +716,7 @@
             this.panel17.Controls.Add(this.button7);
             this.panel17.Controls.Add(this.addEmployee);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel17.Location = new System.Drawing.Point(432, 0);
+            this.panel17.Location = new System.Drawing.Point(459, 0);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(286, 61);
             this.panel17.TabIndex = 8;
@@ -833,7 +835,7 @@
             this.supplierPanelActions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.supplierPanelActions.Location = new System.Drawing.Point(0, 0);
             this.supplierPanelActions.Name = "supplierPanelActions";
-            this.supplierPanelActions.Size = new System.Drawing.Size(718, 61);
+            this.supplierPanelActions.Size = new System.Drawing.Size(745, 61);
             this.supplierPanelActions.TabIndex = 13;
             // 
             // label11
@@ -853,7 +855,7 @@
             this.panel26.Controls.Add(this.button14);
             this.panel26.Controls.Add(this.button15);
             this.panel26.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel26.Location = new System.Drawing.Point(416, 0);
+            this.panel26.Location = new System.Drawing.Point(443, 0);
             this.panel26.Name = "panel26";
             this.panel26.Size = new System.Drawing.Size(302, 61);
             this.panel26.TabIndex = 8;
@@ -970,7 +972,7 @@
             this.clientPanelActions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.clientPanelActions.Location = new System.Drawing.Point(0, 0);
             this.clientPanelActions.Name = "clientPanelActions";
-            this.clientPanelActions.Size = new System.Drawing.Size(718, 61);
+            this.clientPanelActions.Size = new System.Drawing.Size(745, 61);
             this.clientPanelActions.TabIndex = 12;
             // 
             // panel23
@@ -979,7 +981,7 @@
             this.panel23.Controls.Add(this.button3);
             this.panel23.Controls.Add(this.button12);
             this.panel23.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel23.Location = new System.Drawing.Point(430, 0);
+            this.panel23.Location = new System.Drawing.Point(457, 0);
             this.panel23.Name = "panel23";
             this.panel23.Size = new System.Drawing.Size(288, 61);
             this.panel23.TabIndex = 8;
@@ -1107,7 +1109,7 @@
             this.inventoryPanelActions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inventoryPanelActions.Location = new System.Drawing.Point(0, 0);
             this.inventoryPanelActions.Name = "inventoryPanelActions";
-            this.inventoryPanelActions.Size = new System.Drawing.Size(718, 61);
+            this.inventoryPanelActions.Size = new System.Drawing.Size(745, 61);
             this.inventoryPanelActions.TabIndex = 11;
             // 
             // label13
@@ -1128,7 +1130,7 @@
             this.panel28.Controls.Add(this.button2);
             this.panel28.Controls.Add(this.button5);
             this.panel28.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel28.Location = new System.Drawing.Point(345, 0);
+            this.panel28.Location = new System.Drawing.Point(372, 0);
             this.panel28.Name = "panel28";
             this.panel28.Size = new System.Drawing.Size(373, 61);
             this.panel28.TabIndex = 8;
@@ -1262,7 +1264,7 @@
             this.jobOrderPanelActions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jobOrderPanelActions.Location = new System.Drawing.Point(0, 0);
             this.jobOrderPanelActions.Name = "jobOrderPanelActions";
-            this.jobOrderPanelActions.Size = new System.Drawing.Size(718, 61);
+            this.jobOrderPanelActions.Size = new System.Drawing.Size(745, 61);
             this.jobOrderPanelActions.TabIndex = 10;
             // 
             // header
@@ -1303,7 +1305,7 @@
             this.panel2.Location = new System.Drawing.Point(186, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(718, 76);
+            this.panel2.Size = new System.Drawing.Size(745, 76);
             this.panel2.TabIndex = 6;
             // 
             // panel1
@@ -1548,11 +1550,28 @@
             this.lblHawks.TabIndex = 0;
             this.lblHawks.Text = "Mmwase";
             // 
+            // btnorderList
+            // 
+            this.btnorderList.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnorderList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnorderList.Image = ((System.Drawing.Image)(resources.GetObject("btnorderList.Image")));
+            this.btnorderList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnorderList.Location = new System.Drawing.Point(161, 19);
+            this.btnorderList.Name = "btnorderList";
+            this.btnorderList.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnorderList.Size = new System.Drawing.Size(90, 28);
+            this.btnorderList.TabIndex = 10;
+            this.btnorderList.Text = "Order List";
+            this.btnorderList.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnorderList.UseVisualStyleBackColor = true;
+            this.btnorderList.Visible = false;
+            this.btnorderList.Click += new System.EventHandler(this.btnorderList_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 460);
+            this.ClientSize = new System.Drawing.Size(931, 460);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -1739,6 +1758,7 @@
         private System.Windows.Forms.Button supplierBtn;
         private System.Windows.Forms.Button inventoryBtn;
         private System.Windows.Forms.Button btnSuppliers11;
+        private System.Windows.Forms.Button btnorderList;
     }
 }
 

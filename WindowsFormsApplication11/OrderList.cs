@@ -15,5 +15,11 @@ namespace WindowsFormsApplication11
         {
             InitializeComponent();
         }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            StockOrder f = new StockOrder();
+            f.ShowDialog();
+        }
     }
 }

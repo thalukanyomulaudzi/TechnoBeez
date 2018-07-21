@@ -181,6 +181,7 @@
             this.button18.Text = "Order";
             this.button18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // tabControl1
             // 
@@ -221,7 +222,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(625, 189);
+            this.tabPage2.Size = new System.Drawing.Size(625, 195);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Received Orders";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -233,7 +234,7 @@
             this.dgvReceivedOrder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvReceivedOrder.Location = new System.Drawing.Point(3, 3);
             this.dgvReceivedOrder.Name = "dgvReceivedOrder";
-            this.dgvReceivedOrder.Size = new System.Drawing.Size(619, 183);
+            this.dgvReceivedOrder.Size = new System.Drawing.Size(619, 189);
             this.dgvReceivedOrder.TabIndex = 17;
             // 
             // dgvPlacedOrder

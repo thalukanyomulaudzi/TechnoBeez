@@ -43,29 +43,29 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.employeeTypeBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.genderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnSelectSupplier = new System.Windows.Forms.Button();
             this.btnSelectStock = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.employeeTypeBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.genderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel3.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
@@ -191,14 +191,6 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // employeeTypeBindingSource2
-            // 
-            this.employeeTypeBindingSource2.DataMember = "EmployeeType";
-            // 
-            // genderBindingSource1
-            // 
-            this.genderBindingSource1.DataMember = "Gender";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnSelectSupplier);
@@ -229,6 +221,7 @@
             this.btnSelectSupplier.TabIndex = 56;
             this.btnSelectSupplier.Text = "Select Supplier";
             this.btnSelectSupplier.UseVisualStyleBackColor = true;
+            this.btnSelectSupplier.Click += new System.EventHandler(this.btnSelectSupplier_Click);
             // 
             // btnSelectStock
             // 
@@ -238,6 +231,7 @@
             this.btnSelectStock.TabIndex = 58;
             this.btnSelectStock.Text = "Select Stock";
             this.btnSelectStock.UseVisualStyleBackColor = true;
+            this.btnSelectStock.Click += new System.EventHandler(this.btnSelectStock_Click);
             // 
             // groupBox3
             // 
@@ -248,6 +242,14 @@
             this.groupBox3.TabIndex = 66;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Quantity";
+            // 
+            // employeeTypeBindingSource2
+            // 
+            this.employeeTypeBindingSource2.DataMember = "EmployeeType";
+            // 
+            // genderBindingSource1
+            // 
+            this.genderBindingSource1.DataMember = "Gender";
             // 
             // StockOrder
             // 
@@ -266,17 +268,17 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
