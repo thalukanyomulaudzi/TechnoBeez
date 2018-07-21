@@ -43,6 +43,10 @@ namespace WindowsFormsApplication11
             dgvDataGrid.Hide();
         }
 
+        
+
+
+
         private void quoteBtn_Click(object sender, EventArgs e)
         {
             header.Text = "Sales and Ordering";
@@ -104,7 +108,7 @@ namespace WindowsFormsApplication11
             SalesAndOrdering sales = new SalesAndOrdering();
             sales.ShowDialog();
 
-
+            
                   
         }
 
