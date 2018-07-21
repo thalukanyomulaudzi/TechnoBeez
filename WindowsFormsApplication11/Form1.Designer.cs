@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.jobOrderPanel = new System.Windows.Forms.Panel();
+            this.dgvDataGrid = new System.Windows.Forms.DataGridView();
+            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.button18 = new System.Windows.Forms.Button();
@@ -118,9 +122,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
-            this.inventoryBtn = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.supplierBtn = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
             this.jobOBtn = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -132,10 +134,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblHawks = new System.Windows.Forms.Label();
-            this.dgvDataGrid = new System.Windows.Forms.DataGridView();
-            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jobOrderResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quoteResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -144,7 +142,11 @@
             this.supplierResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addressBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.supplierBtn = new System.Windows.Forms.Button();
+            this.inventoryBtn = new System.Windows.Forms.Button();
+            this.btnSuppliers11 = new System.Windows.Forms.Button();
             this.jobOrderPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataGrid)).BeginInit();
             this.panel20.SuspendLayout();
             this.JobQuotePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -180,7 +182,6 @@
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quoteResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeResultBindingSource)).BeginInit();
@@ -200,6 +201,43 @@
             this.jobOrderPanel.Padding = new System.Windows.Forms.Padding(30, 30, 30, 0);
             this.jobOrderPanel.Size = new System.Drawing.Size(718, 304);
             this.jobOrderPanel.TabIndex = 1;
+            // 
+            // dgvDataGrid
+            // 
+            this.dgvDataGrid.AutoGenerateColumns = false;
+            this.dgvDataGrid.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col1,
+            this.col2,
+            this.col3});
+            this.dgvDataGrid.DataSource = this.jobOrderResultBindingSource;
+            this.dgvDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDataGrid.Location = new System.Drawing.Point(30, 30);
+            this.dgvDataGrid.Margin = new System.Windows.Forms.Padding(0);
+            this.dgvDataGrid.Name = "dgvDataGrid";
+            this.dgvDataGrid.Size = new System.Drawing.Size(658, 274);
+            this.dgvDataGrid.TabIndex = 0;
+            this.dgvDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataGrid_CellContentClick);
+            // 
+            // col1
+            // 
+            this.col1.HeaderText = "Sales ID";
+            this.col1.Name = "col1";
+            this.col1.Width = 150;
+            // 
+            // col2
+            // 
+            this.col2.HeaderText = "Sale Date";
+            this.col2.Name = "col2";
+            this.col2.Width = 200;
+            // 
+            // col3
+            // 
+            this.col3.HeaderText = "Sale Amount";
+            this.col3.Name = "col3";
+            this.col3.Width = 200;
             // 
             // label6
             // 
@@ -547,9 +585,9 @@
             this.panel19.Controls.Add(this.button1);
             this.panel19.Controls.Add(this.button4);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel19.Location = new System.Drawing.Point(426, 0);
+            this.panel19.Location = new System.Drawing.Point(491, 0);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(292, 61);
+            this.panel19.Size = new System.Drawing.Size(227, 61);
             this.panel19.TabIndex = 8;
             // 
             // button1
@@ -1271,6 +1309,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panel1.Controls.Add(this.btnSuppliers11);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel4);
@@ -1314,22 +1353,6 @@
             this.panel18.Size = new System.Drawing.Size(185, 1);
             this.panel18.TabIndex = 13;
             // 
-            // inventoryBtn
-            // 
-            this.inventoryBtn.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.inventoryBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.inventoryBtn.FlatAppearance.BorderSize = 0;
-            this.inventoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventoryBtn.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.inventoryBtn.Location = new System.Drawing.Point(0, 206);
-            this.inventoryBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.inventoryBtn.Name = "inventoryBtn";
-            this.inventoryBtn.Size = new System.Drawing.Size(185, 40);
-            this.inventoryBtn.TabIndex = 12;
-            this.inventoryBtn.Text = "Stock";
-            this.inventoryBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.inventoryBtn.UseVisualStyleBackColor = false;
-            // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.Gainsboro;
@@ -1338,23 +1361,6 @@
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(185, 1);
             this.panel12.TabIndex = 11;
-            // 
-            // supplierBtn
-            // 
-            this.supplierBtn.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.supplierBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.supplierBtn.FlatAppearance.BorderSize = 0;
-            this.supplierBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.supplierBtn.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.supplierBtn.Location = new System.Drawing.Point(0, 165);
-            this.supplierBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.supplierBtn.Name = "supplierBtn";
-            this.supplierBtn.Size = new System.Drawing.Size(185, 40);
-            this.supplierBtn.TabIndex = 10;
-            this.supplierBtn.Text = "Suppliers";
-            this.supplierBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.supplierBtn.UseVisualStyleBackColor = false;
-            this.supplierBtn.Click += new System.EventHandler(this.supplierBtn_Click);
             // 
             // panel11
             // 
@@ -1377,7 +1383,7 @@
             this.jobOBtn.Name = "jobOBtn";
             this.jobOBtn.Size = new System.Drawing.Size(185, 40);
             this.jobOBtn.TabIndex = 8;
-            this.jobOBtn.Text = "Menu and Combo";
+            this.jobOBtn.Text = "Menu ";
             this.jobOBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.jobOBtn.UseVisualStyleBackColor = false;
             this.jobOBtn.Click += new System.EventHandler(this.jobOBtn_Click);
@@ -1432,6 +1438,7 @@
             this.clientBtn.Text = "Customer";
             this.clientBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.clientBtn.UseVisualStyleBackColor = false;
+            this.clientBtn.Click += new System.EventHandler(this.clientBtn_Click);
             // 
             // panel8
             // 
@@ -1489,42 +1496,56 @@
             this.lblHawks.TabIndex = 0;
             this.lblHawks.Text = "Mmwase";
             // 
-            // dgvDataGrid
+            // supplierBtn
             // 
-            this.dgvDataGrid.AutoGenerateColumns = false;
-            this.dgvDataGrid.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.col1,
-            this.col2,
-            this.col3});
-            this.dgvDataGrid.DataSource = this.jobOrderResultBindingSource;
-            this.dgvDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDataGrid.Location = new System.Drawing.Point(30, 30);
-            this.dgvDataGrid.Margin = new System.Windows.Forms.Padding(0);
-            this.dgvDataGrid.Name = "dgvDataGrid";
-            this.dgvDataGrid.Size = new System.Drawing.Size(658, 274);
-            this.dgvDataGrid.TabIndex = 0;
-            this.dgvDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataGrid_CellContentClick);
+            this.supplierBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.supplierBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.supplierBtn.FlatAppearance.BorderSize = 0;
+            this.supplierBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.supplierBtn.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.supplierBtn.Location = new System.Drawing.Point(0, 165);
+            this.supplierBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.supplierBtn.Name = "supplierBtn";
+            this.supplierBtn.Size = new System.Drawing.Size(185, 40);
+            this.supplierBtn.TabIndex = 10;
+            this.supplierBtn.Text = "Combo";
+            this.supplierBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.supplierBtn.UseVisualStyleBackColor = false;
+            this.supplierBtn.Click += new System.EventHandler(this.supplierBtn_Click);
             // 
-            // col1
+            // inventoryBtn
             // 
-            this.col1.HeaderText = "Sales ID";
-            this.col1.Name = "col1";
-            this.col1.Width = 150;
+            this.inventoryBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.inventoryBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.inventoryBtn.FlatAppearance.BorderSize = 0;
+            this.inventoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventoryBtn.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.inventoryBtn.Location = new System.Drawing.Point(0, 206);
+            this.inventoryBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.inventoryBtn.Name = "inventoryBtn";
+            this.inventoryBtn.Size = new System.Drawing.Size(185, 40);
+            this.inventoryBtn.TabIndex = 12;
+            this.inventoryBtn.Text = "Stock";
+            this.inventoryBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.inventoryBtn.UseVisualStyleBackColor = false;
+            this.inventoryBtn.Click += new System.EventHandler(this.inventoryBtn_Click);
             // 
-            // col2
+            // btnSuppliers11
             // 
-            this.col2.HeaderText = "Sale Date";
-            this.col2.Name = "col2";
-            this.col2.Width = 200;
-            // 
-            // col3
-            // 
-            this.col3.HeaderText = "Sale Amount";
-            this.col3.Name = "col3";
-            this.col3.Width = 200;
+            this.btnSuppliers11.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnSuppliers11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSuppliers11.FlatAppearance.BorderSize = 0;
+            this.btnSuppliers11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSuppliers11.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnSuppliers11.Location = new System.Drawing.Point(0, 370);
+            this.btnSuppliers11.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSuppliers11.Name = "btnSuppliers11";
+            this.btnSuppliers11.Size = new System.Drawing.Size(185, 40);
+            this.btnSuppliers11.TabIndex = 13;
+            this.btnSuppliers11.Text = "Suppliers";
+            this.btnSuppliers11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSuppliers11.UseVisualStyleBackColor = false;
+            this.btnSuppliers11.Click += new System.EventHandler(this.btnSuppliers11_Click);
             // 
             // Form1
             // 
@@ -1538,6 +1559,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.jobOrderPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataGrid)).EndInit();
             this.panel20.ResumeLayout(false);
             this.JobQuotePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
@@ -1587,7 +1609,6 @@
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobOrderResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quoteResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeResultBindingSource)).EndInit();
@@ -1698,9 +1719,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Button inventoryBtn;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Button supplierBtn;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Button jobOBtn;
         private System.Windows.Forms.Panel panel10;
@@ -1716,6 +1735,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col1;
         private System.Windows.Forms.DataGridViewTextBoxColumn col2;
         private System.Windows.Forms.DataGridViewTextBoxColumn col3;
+        private System.Windows.Forms.Button supplierBtn;
+        private System.Windows.Forms.Button inventoryBtn;
+        private System.Windows.Forms.Button btnSuppliers11;
     }
 }
 

@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication11
 {
-    partial class SupplierList
+    partial class Stock_ItemList
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SupplierList));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Stock_ItemList));
             this.dgvSupplierList = new System.Windows.Forms.DataGridView();
             this.header = new System.Windows.Forms.Label();
             this.jobQuotePanelActions = new System.Windows.Forms.Panel();
@@ -60,8 +60,8 @@
             this.dgvSupplierList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSupplierList.Location = new System.Drawing.Point(0, 136);
             this.dgvSupplierList.Name = "dgvSupplierList";
-            this.dgvSupplierList.Size = new System.Drawing.Size(688, 204);
-            this.dgvSupplierList.TabIndex = 26;
+            this.dgvSupplierList.Size = new System.Drawing.Size(635, 229);
+            this.dgvSupplierList.TabIndex = 29;
             // 
             // header
             // 
@@ -70,9 +70,9 @@
             this.header.ForeColor = System.Drawing.Color.White;
             this.header.Location = new System.Drawing.Point(25, 21);
             this.header.Name = "header";
-            this.header.Size = new System.Drawing.Size(118, 33);
+            this.header.Size = new System.Drawing.Size(164, 33);
             this.header.TabIndex = 1;
-            this.header.Text = "Supplier";
+            this.header.Text = "Stock Items";
             // 
             // jobQuotePanelActions
             // 
@@ -84,8 +84,8 @@
             this.jobQuotePanelActions.Dock = System.Windows.Forms.DockStyle.Top;
             this.jobQuotePanelActions.Location = new System.Drawing.Point(0, 76);
             this.jobQuotePanelActions.Name = "jobQuotePanelActions";
-            this.jobQuotePanelActions.Size = new System.Drawing.Size(688, 60);
-            this.jobQuotePanelActions.TabIndex = 25;
+            this.jobQuotePanelActions.Size = new System.Drawing.Size(635, 60);
+            this.jobQuotePanelActions.TabIndex = 28;
             // 
             // label3
             // 
@@ -163,19 +163,19 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(688, 76);
-            this.panel2.TabIndex = 24;
+            this.panel2.Size = new System.Drawing.Size(635, 76);
+            this.panel2.TabIndex = 27;
             // 
-            // SupplierList
+            // Stock_ItemList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 340);
+            this.ClientSize = new System.Drawing.Size(635, 365);
             this.Controls.Add(this.dgvSupplierList);
             this.Controls.Add(this.jobQuotePanelActions);
             this.Controls.Add(this.panel2);
-            this.Name = "SupplierList";
-            this.Text = "SupplierList";
+            this.Name = "Stock_ItemList";
+            this.Text = "Stock_ItemList";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplierList)).EndInit();
             this.jobQuotePanelActions.ResumeLayout(false);
             this.jobQuotePanelActions.PerformLayout();
@@ -192,10 +192,8 @@
 
         #endregion
 
-        private System.Windows.Forms.BindingSource inventoryResultBindingSource;
-        private System.Windows.Forms.BindingSource supplierResultBindingSource;
         private System.Windows.Forms.DataGridView dgvSupplierList;
-        private System.Windows.Forms.BindingSource clientResultBindingSource;
+        private System.Windows.Forms.BindingSource supplierResultBindingSource;
         private System.Windows.Forms.Label header;
         private System.Windows.Forms.Panel jobQuotePanelActions;
         private System.Windows.Forms.Label label3;
@@ -205,5 +203,7 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.BindingSource inventoryResultBindingSource;
+        private System.Windows.Forms.BindingSource clientResultBindingSource;
     }
 }
