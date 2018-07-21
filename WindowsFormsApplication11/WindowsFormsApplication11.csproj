@@ -220,6 +220,12 @@
     <Compile Include="SupplierTypeList.Designer.cs">
       <DependentUpon>SupplierTypeList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Take Stock Item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Take Stock Item.Designer.cs">
+      <DependentUpon>Take Stock Item.cs</DependentUpon>
+    </Compile>
     <Compile Include="update Employee Details.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SupplierTypeList.resx">
       <DependentUpon>SupplierTypeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Take Stock Item.resx">
+      <DependentUpon>Take Stock Item.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="update Employee Details.resx">
       <DependentUpon>update Employee Details.cs</DependentUpon>

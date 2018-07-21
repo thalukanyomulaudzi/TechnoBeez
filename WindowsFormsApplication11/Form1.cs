@@ -89,6 +89,47 @@ namespace WindowsFormsApplication11
             }
         }
 
+
+
+        //Maintain Stock Mouse Right Click
+        //Maintain Stock Mouse Right Click-------------------------------------------------------------------//
+
+        void Stock_mouse_click(Object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                ContextMenuStrip myMenu = new System.Windows.Forms.ContextMenuStrip();
+                int position_xy__row = dgvDataGrid.HitTest(e.X, e.Y).RowIndex;
+                if (position_xy__row >= 0)
+                {
+                    myMenu.Items.Add("Maintain").Name = "Maintain";
+                    myMenu.Items.Add("Check In").Name = "Check In";
+                    myMenu.Items.Add("Check Out").Name = "Check Out";
+                    myMenu.Items.Add("Take").Name = "Take";
+                    myMenu.Items.Add("Write Off").Name = "Write Off";
+
+
+                }
+
+                Add_New_Stock_Item myform = new Add_New_Stock_Item();
+
+                myMenu.Show(dgvDataGrid, new Point(e.X, e.Y));
+                myMenu.ItemClicked += new ToolStripItemClickedEventHandler(myMenu_ItemClicked);
+
+            }
+
+        }
+
+        //Maintain Stock Mouse Right Click
+        //Maintain Stock Mouse Right Click-------------------------------------------------------------------//
+
+
+
+
+
+
+
+
         void myMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             deleteForm deleteF = new deleteForm();
@@ -102,9 +143,57 @@ namespace WindowsFormsApplication11
                   //  MessageBox.Show("");
                 }
             }
+
+
             
-            MessageBox.Show(e.ClickedItem.Name.ToString());
+            //Stock Management Click Event Handlers
+            //
+            //-----------------------------------------------------------------------------------------------------//
+            if (e.ClickedItem.Name.ToString() == "Maintain")
+            {
+
+                Maintain_Stock_Item myform = new Maintain_Stock_Item();
+                myform.ShowDialog();
+            }
+
+            else if (e.ClickedItem.Name.ToString() == "Check In")
+            {
+
+                Check_In_Stock_Item myform = new Check_In_Stock_Item();
+                myform.ShowDialog();
+            }
+
+          else  if (e.ClickedItem.Name.ToString() == "Check Out")
+            {
+
+                Check_Out_Stock_Item myform = new Check_Out_Stock_Item();
+                myform.ShowDialog();
+            }
+
+            else if (e.ClickedItem.Name.ToString() == "Take")
+            {
+
+              Take_Stock_Item  myform = new Take_Stock_Item();
+                myform.ShowDialog();
+            }
+            else if (e.ClickedItem.Name.ToString() == "Write Off")
+            {
+
+                Write_Off_stock_Item myform = new Write_Off_stock_Item();
+                myform.ShowDialog();
+            }
+
         }
+
+
+        //Stock Management Click Event Handlers
+        //
+        //-----------------------------------------------------------------------//
+
+
+
+
+
         private void dgvDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -199,11 +288,15 @@ namespace WindowsFormsApplication11
             //clientPanel.BringToFront();
             //clientPanelActions.BringToFront();
             dgvDataGrid.Show();
-            dgvDataGrid.Columns[0].HeaderCell.Value = "Stock ID";
-            dgvDataGrid.Columns[1].HeaderCell.Value = "Stock Name";
-            dgvDataGrid.Columns[2].HeaderCell.Value = "Stock Description";
-            dgvDataGrid.MouseClick += new MouseEventHandler(mouse_click);
+            dgvDataGrid.Columns[0].HeaderCell.Value = "Stock Item ID";
+            dgvDataGrid.Columns[1].HeaderCell.Value = "Stock Item Name";
+            dgvDataGrid.Columns[2].HeaderCell.Value = "Stock Item Description";
+            dgvDataGrid.Columns.Add("Stock Item Price", "Stock Item Price");
+            dgvDataGrid.Columns.Add("Stock Item Quantity", "Stock Item Quantity");
+            dgvDataGrid.Columns.Add("Stock Item Type", "Stock Item Type");
+            dgvDataGrid.MouseClick += new MouseEventHandler(Stock_mouse_click);
            
+
         }
 
         private void btnSuppliers11_Click(object sender, EventArgs e)

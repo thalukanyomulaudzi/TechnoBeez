@@ -9,21 +9,16 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication11
 {
-    public partial class Write_Off_stock_Item : Form
+    public partial class Take_Stock_Item : Form
     {
-        public Write_Off_stock_Item()
+        public Take_Stock_Item()
         {
             InitializeComponent();
         }
 
-        private void Write_Off_stock_Item_Load(object sender, EventArgs e)
+        private void btnCheckIn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Stock item written off successfully");
+            MessageBox.Show("Stock item taken successfully");
             MessageBox.Show("Stock item details format invalid");
         }
     }
