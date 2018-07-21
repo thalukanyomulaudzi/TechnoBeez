@@ -141,6 +141,17 @@ namespace WindowsFormsApplication11
                 Menu_And_Combo menu = new Menu_And_Combo();
                 menu.ShowDialog();
             }
+            if (navButton == inventoryBtn)
+            {
+                Add_New_Stock_Item addStock = new Add_New_Stock_Item();
+                addStock.ShowDialog();
+                
+            }
+            if (navButton == empBtn)
+            {
+                Add_Employee employee = new Add_Employee();
+                employee.ShowDialog();
+            }
         }
 
         private void supplierBtn_Click(object sender, EventArgs e)
@@ -191,6 +202,7 @@ namespace WindowsFormsApplication11
             dgvDataGrid.Columns[1].HeaderCell.Value = "Stock Name";
             dgvDataGrid.Columns[2].HeaderCell.Value = "Stock Description";
             dgvDataGrid.MouseClick += new MouseEventHandler(mouse_click);
+           
         }
 
         private void btnSuppliers11_Click(object sender, EventArgs e)
@@ -206,6 +218,23 @@ namespace WindowsFormsApplication11
             dgvDataGrid.Columns[0].HeaderCell.Value = "Supplier ID";
             dgvDataGrid.Columns[1].HeaderCell.Value = "Supplier Name";
             dgvDataGrid.Columns[2].HeaderCell.Value = "Supplier Email";
+
+            dgvDataGrid.MouseClick += new MouseEventHandler(mouse_click);
+        }
+
+        private void empBtn_Click(object sender, EventArgs e)
+        {
+            header.Text = "Employees";
+            if (navButton != empBtn)
+            {
+                navigate(empBtn);
+            }
+            //clientPanel.BringToFront();
+            //clientPanelActions.BringToFront();
+            dgvDataGrid.Show();
+            dgvDataGrid.Columns[0].HeaderCell.Value = "Employee ID";
+            dgvDataGrid.Columns[1].HeaderCell.Value = "Employee Name";
+            dgvDataGrid.Columns[2].HeaderCell.Value = "Employee Email";
 
             dgvDataGrid.MouseClick += new MouseEventHandler(mouse_click);
         }

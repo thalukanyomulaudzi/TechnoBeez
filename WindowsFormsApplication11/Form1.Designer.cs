@@ -1515,6 +1515,7 @@
             this.empBtn.Text = "Employees";
             this.empBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.empBtn.UseVisualStyleBackColor = false;
+            this.empBtn.Click += new System.EventHandler(this.empBtn_Click);
             // 
             // panel7
             // 
