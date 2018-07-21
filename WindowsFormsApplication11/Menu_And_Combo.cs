@@ -21,5 +21,11 @@ namespace WindowsFormsApplication11
         {
             Process.Start(@"explorer.exe");
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MenuTypeList menuList = new MenuTypeList();
+            menuList.ShowDialog();
+        }
     }
 }

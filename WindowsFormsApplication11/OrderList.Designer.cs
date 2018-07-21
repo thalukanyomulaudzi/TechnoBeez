@@ -39,9 +39,6 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.supplierResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inventoryResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button18 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -49,18 +46,21 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvReceivedOrder = new System.Windows.Forms.DataGridView();
             this.dgvPlacedOrder = new System.Windows.Forms.DataGridView();
+            this.supplierResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inventoryResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.jobQuotePanelActions.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReceivedOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlacedOrder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // header
@@ -68,7 +68,7 @@
             this.header.AutoSize = true;
             this.header.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.header.ForeColor = System.Drawing.Color.White;
-            this.header.Location = new System.Drawing.Point(25, 21);
+            this.header.Location = new System.Drawing.Point(12, 9);
             this.header.Name = "header";
             this.header.Size = new System.Drawing.Size(101, 33);
             this.header.TabIndex = 1;
@@ -83,7 +83,7 @@
             this.jobQuotePanelActions.Controls.Add(this.comboBox3);
             this.jobQuotePanelActions.Controls.Add(this.label8);
             this.jobQuotePanelActions.Dock = System.Windows.Forms.DockStyle.Top;
-            this.jobQuotePanelActions.Location = new System.Drawing.Point(0, 76);
+            this.jobQuotePanelActions.Location = new System.Drawing.Point(0, 70);
             this.jobQuotePanelActions.Name = "jobQuotePanelActions";
             this.jobQuotePanelActions.Size = new System.Drawing.Size(633, 60);
             this.jobQuotePanelActions.TabIndex = 28;
@@ -164,7 +164,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(633, 76);
+            this.panel2.Size = new System.Drawing.Size(633, 70);
             this.panel2.TabIndex = 27;
             // 
             // button18
@@ -187,10 +187,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 136);
+            this.tabControl1.Location = new System.Drawing.Point(0, 130);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(633, 215);
+            this.tabControl1.Size = new System.Drawing.Size(633, 221);
             this.tabControl1.TabIndex = 29;
             // 
             // tabPage1
@@ -200,7 +200,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(625, 189);
+            this.tabPage1.Size = new System.Drawing.Size(625, 195);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Placed Orders";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -212,7 +212,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(619, 183);
+            this.dataGridView1.Size = new System.Drawing.Size(619, 189);
             this.dataGridView1.TabIndex = 17;
             // 
             // tabPage2
@@ -260,15 +260,15 @@
             this.panel22.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReceivedOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlacedOrder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

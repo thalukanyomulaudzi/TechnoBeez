@@ -48,11 +48,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnUpload = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.genderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeTypeBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtinventoryName = new System.Windows.Forms.TextBox();
@@ -60,20 +55,25 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.genderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeTypeBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // errorProvider
@@ -244,14 +244,6 @@
             this.label3.TabIndex = 54;
             this.label3.Text = "Menu Image:";
             // 
-            // genderBindingSource1
-            // 
-            this.genderBindingSource1.DataMember = "Gender";
-            // 
-            // employeeTypeBindingSource2
-            // 
-            this.employeeTypeBindingSource2.DataMember = "EmployeeType";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(143, 135);
@@ -320,6 +312,15 @@
             this.button2.TabIndex = 63;
             this.button2.Text = "Select Menu Type";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // genderBindingSource1
+            // 
+            this.genderBindingSource1.DataMember = "Gender";
+            // 
+            // employeeTypeBindingSource2
+            // 
+            this.employeeTypeBindingSource2.DataMember = "EmployeeType";
             // 
             // Menu_And_Combo
             // 
@@ -338,16 +339,16 @@
             this.panel17.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
