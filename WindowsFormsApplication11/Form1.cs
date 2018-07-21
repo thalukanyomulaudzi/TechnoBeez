@@ -35,7 +35,18 @@ namespace WindowsFormsApplication11
         }
         private void jobOBtn_Click(object sender, EventArgs e)
         {
-
+            header.Text = "Menu";
+            if (navButton != jobOBtn)
+            {
+                navigate(jobOBtn);
+            }
+            //clientPanel.BringToFront();
+            //clientPanelActions.BringToFront();
+            dgvDataGrid.Show();
+            dgvDataGrid.Columns[0].HeaderCell.Value = "Menu ID";
+            dgvDataGrid.Columns[1].HeaderCell.Value = "Menu Name";
+            dgvDataGrid.Columns[2].HeaderCell.Value = "Menu Price";
+            dgvDataGrid.MouseClick += new MouseEventHandler(mouse_click);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -124,7 +135,12 @@ namespace WindowsFormsApplication11
                 combo.ShowDialog();
             }
 
+            if (navButton == jobOBtn)
+            {
 
+                Menu_And_Combo menu = new Menu_And_Combo();
+                menu.ShowDialog();
+            }
         }
 
         private void supplierBtn_Click(object sender, EventArgs e)

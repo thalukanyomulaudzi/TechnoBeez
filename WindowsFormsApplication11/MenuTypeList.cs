@@ -5,21 +5,15 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace WindowsFormsApplication11
 {
-    public partial class Menu_And_Combo : Form
+    public partial class MenuTypeList : Form
     {
-        public Menu_And_Combo()
+        public MenuTypeList()
         {
             InitializeComponent();
-        }
-
-        private void btnUpload_Click(object sender, EventArgs e)
-        {
-            Process.Start(@"explorer.exe");
         }
     }
 }
