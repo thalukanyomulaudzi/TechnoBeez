@@ -18,7 +18,7 @@ namespace WindowsFormsApplication11
 
         private void button7_Click(object sender, EventArgs e)
         {
-            //To Save Suppplier information
+            MessageBox.Show("Supplier details successfully added");
         }
 
         private void panel17_Paint(object sender, PaintEventArgs e)
