@@ -12,7 +12,7 @@ namespace WindowsFormsApplication11
     
     public partial class Form1 : Form
     {
-        SalesAndOrdering parent;
+       // SalesAndOrdering parent;
         Button navButton;
 
 
@@ -35,17 +35,24 @@ namespace WindowsFormsApplication11
         }
         private void jobOBtn_Click(object sender, EventArgs e)
         {
-
+            header.Text = "Menu";
+            if (navButton != jobOBtn)
+            {
+                navigate(jobOBtn);
+            }
+            //clientPanel.BringToFront();
+            //clientPanelActions.BringToFront();
+            dgvDataGrid.Show();
+            dgvDataGrid.Columns[0].HeaderCell.Value = "Menu ID";
+            dgvDataGrid.Columns[1].HeaderCell.Value = "Menu Name";
+            dgvDataGrid.Columns[2].HeaderCell.Value = "Menu Price";
+            dgvDataGrid.MouseClick += new MouseEventHandler(mouse_click);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             dgvDataGrid.Hide();
         }
-
-        
-
-
 
         private void quoteBtn_Click(object sender, EventArgs e)
         {
@@ -105,19 +112,106 @@ namespace WindowsFormsApplication11
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SalesAndOrdering sales = new SalesAndOrdering();
-            sales.ShowDialog();
+            if (navButton == quoteBtn)
+            {
+                SalesAndOrdering sales = new SalesAndOrdering();
+                sales.ShowDialog();
+                //navigate(quoteBtn);
+            }
+            if(navButton==btnSuppliers11)
+            {
+                SupplierForm supplier = new SupplierForm();
+                supplier.ShowDialog();
+            }
+            if (navButton == clientBtn)
+            {
+                frmAddCustomer customer = new frmAddCustomer();
+                customer.ShowDialog();
+            }
+            if (navButton == supplierBtn)
+            {
 
-            
-                  
+                frmAddCombo combo = new frmAddCombo();
+                combo.ShowDialog();
+            }
+
+            if (navButton == jobOBtn)
+            {
+
+                Menu_And_Combo menu = new Menu_And_Combo();
+                menu.ShowDialog();
+            }
+            if (navButton == inventoryBtn)
+            {
+                Add_New_Stock_Item addStock = new Add_New_Stock_Item();
+                addStock.ShowDialog();
+                
+            }
+            if (navButton == empBtn)
+            {
+                Add_Employee employee = new Add_Employee();
+                employee.ShowDialog();
+            }
         }
 
         private void supplierBtn_Click(object sender, EventArgs e)
         {
-            header.Text = "Suppliers";
+            header.Text = "Combo";
             if (navButton != supplierBtn)
             {
                 navigate(supplierBtn);
+            }
+            //clientPanel.BringToFront();
+            //clientPanelActions.BringToFront();
+            dgvDataGrid.Show();
+            dgvDataGrid.Columns[0].HeaderCell.Value = "Combo ID";
+            dgvDataGrid.Columns[1].HeaderCell.Value = "Combo Name";
+            dgvDataGrid.Columns[2].HeaderCell.Value = "Combo Price ";
+
+            dgvDataGrid.MouseClick += new MouseEventHandler(mouse_click);
+        }
+
+        private void clientBtn_Click(object sender, EventArgs e)
+        {
+            header.Text = "Customer";
+            if (navButton != clientBtn)
+            {
+                navigate(clientBtn);
+            }
+            //clientPanel.BringToFront();
+            //clientPanelActions.BringToFront();
+            dgvDataGrid.Show();
+            dgvDataGrid.Columns[0].HeaderCell.Value = "Customer ID";
+            dgvDataGrid.Columns[1].HeaderCell.Value = "Customer Name";
+            dgvDataGrid.Columns[2].HeaderCell.Value = "Customer Phone Number";
+            dgvDataGrid.MouseClick += new MouseEventHandler(mouse_click);
+
+        }
+
+        private void inventoryBtn_Click(object sender, EventArgs e)
+        {
+            header.Text = "Stock";
+            if (navButton != inventoryBtn)
+            {
+                navigate(inventoryBtn);
+            }
+            btnorderList.Visible = true;
+            //clientPanel.BringToFront();
+            //clientPanelActions.BringToFront();
+            dgvDataGrid.Show();
+            dgvDataGrid.Columns[0].HeaderCell.Value = "Stock ID";
+            dgvDataGrid.Columns[1].HeaderCell.Value = "Stock Name";
+            dgvDataGrid.Columns[2].HeaderCell.Value = "Stock Description";
+            dgvDataGrid.MouseClick += new MouseEventHandler(mouse_click);
+           
+        }
+
+        private void btnSuppliers11_Click(object sender, EventArgs e)
+        {
+            header.Text = "Suppliers";
+            if (navButton != btnSuppliers11)
+            {
+                navigate(btnSuppliers11);
             }
             //clientPanel.BringToFront();
             //clientPanelActions.BringToFront();
@@ -127,6 +221,29 @@ namespace WindowsFormsApplication11
             dgvDataGrid.Columns[2].HeaderCell.Value = "Supplier Email";
 
             dgvDataGrid.MouseClick += new MouseEventHandler(mouse_click);
+        }
+
+        private void empBtn_Click(object sender, EventArgs e)
+        {
+            header.Text = "Employees";
+            if (navButton != empBtn)
+            {
+                navigate(empBtn);
+            }
+            //clientPanel.BringToFront();
+            //clientPanelActions.BringToFront();
+            dgvDataGrid.Show();
+            dgvDataGrid.Columns[0].HeaderCell.Value = "Employee ID";
+            dgvDataGrid.Columns[1].HeaderCell.Value = "Employee Name";
+            dgvDataGrid.Columns[2].HeaderCell.Value = "Employee Email";
+
+            dgvDataGrid.MouseClick += new MouseEventHandler(mouse_click);
+        }
+
+        private void btnorderList_Click(object sender, EventArgs e)
+        {
+            OrderList f = new OrderList();
+            f.ShowDialog();
         }
     }
 }

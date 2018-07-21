@@ -15,5 +15,17 @@ namespace WindowsFormsApplication11
         {
             InitializeComponent();
         }
+
+        private void btnSelectStock_Click(object sender, EventArgs e)
+        {
+            Stock_ItemList f = new Stock_ItemList();
+            f.ShowDialog();
+        }
+
+        private void btnSelectSupplier_Click(object sender, EventArgs e)
+        {
+            SupplierList f = new SupplierList();
+            f.ShowDialog();
+        }
     }
 }

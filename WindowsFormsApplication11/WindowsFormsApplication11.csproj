@@ -140,6 +140,12 @@
     <Compile Include="Make payment popUp.Designer.cs">
       <DependentUpon>Make payment popUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuTypeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuTypeList.Designer.cs">
+      <DependentUpon>MenuTypeList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu_And_Combo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,12 @@
     </Compile>
     <Compile Include="Menu_Item_LookUp.Designer.cs">
       <DependentUpon>Menu_Item_LookUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderList.Designer.cs">
+      <DependentUpon>OrderList.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -178,6 +190,12 @@
     <Compile Include="StockOrder.Designer.cs">
       <DependentUpon>StockOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Stock_ItemList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock_ItemList.Designer.cs">
+      <DependentUpon>Stock_ItemList.cs</DependentUpon>
+    </Compile>
     <Compile Include="SupplierForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +213,12 @@
     </Compile>
     <Compile Include="SupplierType.Designer.cs">
       <DependentUpon>SupplierType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierTypeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupplierTypeList.Designer.cs">
+      <DependentUpon>SupplierTypeList.cs</DependentUpon>
     </Compile>
     <Compile Include="update Employee Details.cs">
       <SubType>Form</SubType>
@@ -256,11 +280,17 @@
     <EmbeddedResource Include="Make payment popUp.resx">
       <DependentUpon>Make payment popUp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MenuTypeList.resx">
+      <DependentUpon>MenuTypeList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu_And_Combo.resx">
       <DependentUpon>Menu_And_Combo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu_Item_LookUp.resx">
       <DependentUpon>Menu_Item_LookUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderList.resx">
+      <DependentUpon>OrderList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -283,6 +313,9 @@
     <EmbeddedResource Include="StockOrder.resx">
       <DependentUpon>StockOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Stock_ItemList.resx">
+      <DependentUpon>Stock_ItemList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SupplierForm.resx">
       <DependentUpon>SupplierForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -291,6 +324,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SupplierType.resx">
       <DependentUpon>SupplierType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierTypeList.resx">
+      <DependentUpon>SupplierTypeList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="update Employee Details.resx">
       <DependentUpon>update Employee Details.cs</DependentUpon>
