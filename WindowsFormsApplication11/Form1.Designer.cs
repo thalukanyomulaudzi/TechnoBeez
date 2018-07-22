@@ -672,7 +672,6 @@
             this.label8.Size = new System.Drawing.Size(71, 21);
             this.label8.TabIndex = 4;
             this.label8.Text = "Sort by:";
-            this.label8.Visible = false;
             // 
             // employeePanelActions
             // 
@@ -1609,7 +1608,6 @@
             this.button4.Text = "Delete";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Visible = false;
             // 
             // btnorderList
             // 
@@ -1626,7 +1624,6 @@
             this.btnorderList.Text = "Order List";
             this.btnorderList.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnorderList.UseVisualStyleBackColor = true;
-            this.btnorderList.Visible = false;
             this.btnorderList.Click += new System.EventHandler(this.btnorderList_Click);
             // 
             // comboBox3
@@ -1650,7 +1647,6 @@
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(207, 24);
             this.comboBox3.TabIndex = 3;
-            this.comboBox3.Visible = false;
             // 
             // Form1
             // 
