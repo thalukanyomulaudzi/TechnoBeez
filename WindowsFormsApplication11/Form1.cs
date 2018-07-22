@@ -52,6 +52,8 @@ namespace WindowsFormsApplication11
         private void Form1_Load(object sender, EventArgs e)
         {
             dgvDataGrid.Hide();
+           
+            
         }
 
         private void quoteBtn_Click(object sender, EventArgs e)
@@ -284,7 +286,7 @@ namespace WindowsFormsApplication11
             {
                 navigate(inventoryBtn);
             }
-            btnorderList.Visible = true;
+           // btnorderList.Visible = true;
             //clientPanel.BringToFront();
             //clientPanelActions.BringToFront();
             dgvDataGrid.Show();

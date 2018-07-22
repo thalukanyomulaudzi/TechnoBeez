@@ -21,5 +21,15 @@ namespace WindowsFormsApplication11
             MessageBox.Show("Stock Item added successfully");
             MessageBox.Show("Stock Item details format not valid");
         }
+
+        private void lblStockQuantity_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
