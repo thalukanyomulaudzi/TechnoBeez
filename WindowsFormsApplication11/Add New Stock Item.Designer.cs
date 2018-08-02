@@ -42,13 +42,13 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtStockQuantity = new System.Windows.Forms.TextBox();
             this.lblCostPrice = new System.Windows.Forms.Label();
             this.lblStockQuantity = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtStockItemPrice = new System.Windows.Forms.TextBox();
             this.txtStockItemDescription = new System.Windows.Forms.TextBox();
             this.lblStockDescription = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -189,8 +189,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.txtStockQuantity);
             this.groupBox1.Controls.Add(this.lblCostPrice);
             this.groupBox1.Controls.Add(this.lblStockQuantity);
             this.groupBox1.Controls.Add(this.label1);
@@ -215,17 +215,6 @@
             this.textBox1.Size = new System.Drawing.Size(176, 22);
             this.textBox1.TabIndex = 94;
             // 
-            // txtStockQuantity
-            // 
-            this.txtStockQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStockQuantity.Location = new System.Drawing.Point(180, 145);
-            this.txtStockQuantity.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStockQuantity.Name = "txtStockQuantity";
-            this.txtStockQuantity.Size = new System.Drawing.Size(176, 22);
-            this.txtStockQuantity.TabIndex = 89;
-            // 
             // lblCostPrice
             // 
             this.lblCostPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -235,9 +224,9 @@
             this.lblCostPrice.Location = new System.Drawing.Point(23, 57);
             this.lblCostPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCostPrice.Name = "lblCostPrice";
-            this.lblCostPrice.Size = new System.Drawing.Size(145, 17);
+            this.lblCostPrice.Size = new System.Drawing.Size(118, 17);
             this.lblCostPrice.TabIndex = 84;
-            this.lblCostPrice.Text = "Stock Item Cost Price:";
+            this.lblCostPrice.Text = "Stock Item Name:";
             // 
             // lblStockQuantity
             // 
@@ -251,6 +240,7 @@
             this.lblStockQuantity.Size = new System.Drawing.Size(113, 17);
             this.lblStockQuantity.TabIndex = 88;
             this.lblStockQuantity.Text = "Stock Item Type:";
+            this.lblStockQuantity.Click += new System.EventHandler(this.lblStockQuantity_Click);
             // 
             // label1
             // 
@@ -300,6 +290,18 @@
             this.lblStockDescription.TabIndex = 86;
             this.lblStockDescription.Text = "Stock Item Description:";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Ingredient",
+            "Product"});
+            this.comboBox1.Location = new System.Drawing.Point(178, 139);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(176, 24);
+            this.comboBox1.TabIndex = 95;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // Add_New_Stock_Item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -337,12 +339,12 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox txtStockQuantity;
         private System.Windows.Forms.Label lblCostPrice;
         private System.Windows.Forms.Label lblStockQuantity;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtStockItemPrice;
         private System.Windows.Forms.TextBox txtStockItemDescription;
         private System.Windows.Forms.Label lblStockDescription;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

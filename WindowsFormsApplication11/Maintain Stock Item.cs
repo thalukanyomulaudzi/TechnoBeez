@@ -26,5 +26,10 @@ namespace WindowsFormsApplication11
         {
             MessageBox.Show("Stock Item deleted successfully");
         }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
