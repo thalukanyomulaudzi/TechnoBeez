@@ -159,9 +159,6 @@
   <metadata name="quoteResultBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>230, 134</value>
   </metadata>
-  <metadata name="quoteResultBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>230, 134</value>
-  </metadata>
   <data name="button10.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -175,17 +172,8 @@
   <metadata name="employeeResultBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>589, 134</value>
   </metadata>
-  <metadata name="employeeResultBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>589, 134</value>
-  </metadata>
   <metadata name="inventoryResultBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 173</value>
-  </metadata>
-  <metadata name="inventoryResultBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 173</value>
-  </metadata>
-  <metadata name="clientResultBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>232, 173</value>
   </metadata>
   <metadata name="clientResultBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>232, 173</value>
@@ -193,15 +181,14 @@
   <metadata name="supplierResultBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>425, 173</value>
   </metadata>
-  <metadata name="supplierResultBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>425, 173</value>
-  </metadata>
-  <data name="btnorderList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABUAAAAUCAYAAABiS3YzAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAGVJREFUOE9j+E8DMAQNvbkg5r+xsTEUN/7f8//m/wUxMD5uHLPgJtQEBBiChv7f
-        04hQHLMAaCRICNUAbLhxD0Q7MhiNKAigTURRESAZuud/I7rtyCkCKwb5CBOMRhT1wYg29P9/ANpFQGkr
-        Sg1UAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAOJJREFUOE/V1DELQVEYxvEjCoOZxcRgMyqbDHwLk1GyW2RQBh9AdsVqIBNZjLL5
+        AhaTMijh/8pw5XWdi8VTv+HUc97O6Xau+Yv4kETqLoavksXFYY8QPo4feRRRgwydY+zRCHE8JIIznCf2
+        Qg71lDW0sg11YA9a2YY6sAytbEMdmIZWtqEODOAAbcM7BaiZQdvgtMUSQ3RQQRhq2pBNE3RRRwk5JBCE
+        p1QhA6O31Q+ywQnai9A04JoBjphCntQrC0ivCdesIFfu31avY9szO0hRfhJuse2ZDFqQL+oW296nMeYK
+        +G2aLbLXwhgAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -211,16 +198,6 @@
         TUUH4QkIDBYg94REYgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAxSURBVDhP
         YyAADkAx2WDUAHoZAFOEDX+AYmxyMIxVEIaJMgAfIEoRPjBqAO0NYGAAALLULcGnClaBAAAAAElFTkSu
         QmCC
-</value>
-  </data>
-  <data name="button4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJ
-        TUUH4QkIDgY6Q6B7JwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAClSURBVDhP
-        7dOxCcJAGIbhA0EsFKytFBewESwcwg3MKBlFN9ENLC1tBNEh9H3NGZKLYmrxgwd+/nx3xUHCmwxwxT3h
-        zm8f08cYc9ziXOXOb852a5nAwqklu54ps8Iei5bseqbMEkdcsPvCjl3P1JJhU4zPx+qgFzm/HtCO3Uaq
-        FxwwQx45uzP/C377gjW2xRhG6GIYObszduw2MsUZ6W+csmOXhPAAI8tYvenC7gwAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="button11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

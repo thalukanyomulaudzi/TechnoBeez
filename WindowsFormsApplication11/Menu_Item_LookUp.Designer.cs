@@ -51,7 +51,6 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -228,7 +227,6 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
             this.Column5,
-            this.Column6,
             this.Column7});
             this.dataGridView1.Location = new System.Drawing.Point(481, 138);
             this.dataGridView1.Name = "dataGridView1";
@@ -250,15 +248,17 @@
             // 
             this.Column1.HeaderText = "Menu ID";
             this.Column1.Name = "Column1";
+            this.Column1.Width = 50;
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Menu name";
+            this.Column2.HeaderText = "Menu Name";
             this.Column2.Name = "Column2";
+            this.Column2.Width = 150;
             // 
             // Column3
             // 
-            this.Column3.HeaderText = "Menu Description";
+            this.Column3.HeaderText = "Menu Item Price";
             this.Column3.Name = "Column3";
             this.Column3.Width = 150;
             // 
@@ -266,20 +266,17 @@
             // 
             this.Column4.HeaderText = "Menu ID";
             this.Column4.Name = "Column4";
+            this.Column4.Width = 50;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Menu Name";
             this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Menu Description";
-            this.Column6.Name = "Column6";
+            this.Column5.Width = 150;
             // 
             // Column7
             // 
-            this.Column7.HeaderText = "Price";
+            this.Column7.HeaderText = "Menu Item Price";
             this.Column7.Name = "Column7";
             // 
             // Menu_Item_LookUp
@@ -332,7 +329,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }
