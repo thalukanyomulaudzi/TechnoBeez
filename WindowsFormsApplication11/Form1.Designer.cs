@@ -65,6 +65,7 @@
             this.jobQuotePanelActions = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel22 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -141,9 +142,9 @@
             this.lblHawks = new System.Windows.Forms.Label();
             this.quoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addressBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button4 = new System.Windows.Forms.Button();
             this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jobOrderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataGrid)).BeginInit();
@@ -211,6 +212,7 @@
             this.dgvDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col1,
             this.col2,
+            this.Column1,
             this.col3});
             this.dgvDataGrid.DataSource = this.jobOrderResultBindingSource;
             this.dgvDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -571,6 +573,21 @@
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(254, 61);
             this.panel19.TabIndex = 8;
+            // 
+            // button4
+            // 
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(89, 16);
+            this.button4.Name = "button4";
+            this.button4.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.button4.Size = new System.Drawing.Size(98, 28);
+            this.button4.TabIndex = 11;
+            this.button4.Text = "View Order";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -1515,32 +1532,22 @@
             this.lblHawks.TabIndex = 0;
             this.lblHawks.Text = "Mmwase";
             // 
-            // button4
-            // 
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(89, 16);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.button4.Size = new System.Drawing.Size(98, 28);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "View Order";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // col1
             // 
             this.col1.HeaderText = "Order ID";
             this.col1.Name = "col1";
-            this.col1.Width = 200;
             // 
             // col2
             // 
             this.col2.HeaderText = "Order Date";
             this.col2.Name = "col2";
             this.col2.Width = 200;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Order Status";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
             // 
             // col3
             // 
@@ -1735,10 +1742,11 @@
         private System.Windows.Forms.Button supplierBtn;
         private System.Windows.Forms.Button inventoryBtn;
         private System.Windows.Forms.Button btnSuppliers11;
+        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridViewTextBoxColumn col1;
         private System.Windows.Forms.DataGridViewTextBoxColumn col2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn col3;
-        private System.Windows.Forms.Button button4;
     }
 }
 
