@@ -12,27 +12,26 @@ namespace WindowsFormsApplication11
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer_Order
+    public partial class Combo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer_Order()
+        public Combo()
         {
             this.Customer_Order_Line = new HashSet<Customer_Order_Line>();
+            this.Stock_Combo_Line = new HashSet<Stock_Combo_Line>();
         }
     
-        public int Order_ID { get; set; }
-        public string Order_Status { get; set; }
-        public Nullable<System.DateTime> Order_Date { get; set; }
-        public Nullable<decimal> Sale_Vat_Amount { get; set; }
-        public Nullable<int> Customer_ID { get; set; }
-        public Nullable<int> Payment_ID { get; set; }
-        public Nullable<int> Employee_ID { get; set; }
-        public Nullable<int> Delivery_Status_ID { get; set; }
+        public int Combo_ID { get; set; }
+        public string Combo_Description { get; set; }
+        public decimal Combo_Price { get; set; }
+        public Nullable<int> Combo_Type_ID { get; set; }
+        public Nullable<int> Combo_Price_ID { get; set; }
     
-        public virtual Customer Customer { get; set; }
-        public virtual Delivery_Status Delivery_Status { get; set; }
-        public virtual Employee Employee { get; set; }
+        public virtual Combo_Price Combo_Price1 { get; set; }
+        public virtual Combo_Type Combo_Type { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customer_Order_Line> Customer_Order_Line { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Stock_Combo_Line> Stock_Combo_Line { get; set; }
     }
 }

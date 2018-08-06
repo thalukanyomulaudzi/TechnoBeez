@@ -12,26 +12,20 @@ namespace WindowsFormsApplication11
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer_Order
+    public partial class Special
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer_Order()
+        public Special()
         {
             this.Customer_Order_Line = new HashSet<Customer_Order_Line>();
         }
     
-        public int Order_ID { get; set; }
-        public string Order_Status { get; set; }
-        public Nullable<System.DateTime> Order_Date { get; set; }
-        public Nullable<decimal> Sale_Vat_Amount { get; set; }
-        public Nullable<int> Customer_ID { get; set; }
-        public Nullable<int> Payment_ID { get; set; }
-        public Nullable<int> Employee_ID { get; set; }
-        public Nullable<int> Delivery_Status_ID { get; set; }
+        public int Special_ID { get; set; }
+        public string Special_Description { get; set; }
+        public System.DateTime Special_Start_Date { get; set; }
+        public System.DateTime Special_End_Date { get; set; }
+        public decimal Special_Discount { get; set; }
     
-        public virtual Customer Customer { get; set; }
-        public virtual Delivery_Status Delivery_Status { get; set; }
-        public virtual Employee Employee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customer_Order_Line> Customer_Order_Line { get; set; }
     }

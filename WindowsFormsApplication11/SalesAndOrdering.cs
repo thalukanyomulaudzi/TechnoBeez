@@ -18,8 +18,7 @@ namespace WindowsFormsApplication11
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Customer_Order cus = new Customer_Order();
-            cus.ShowDialog();
+            
         }
     }
 }
