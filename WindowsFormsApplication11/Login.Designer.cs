@@ -31,12 +31,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.linkLabelRestPassword = new System.Windows.Forms.LinkLabel();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,19 +72,21 @@
             this.label14.TabIndex = 1;
             this.label14.Text = "Login";
             // 
-            // textBox1
+            // txtUsername
             // 
-            this.textBox1.Location = new System.Drawing.Point(139, 126);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 20);
-            this.textBox1.TabIndex = 18;
+            this.txtUsername.Location = new System.Drawing.Point(139, 126);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(167, 20);
+            this.txtUsername.TabIndex = 18;
+            this.txtUsername.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // txtPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(139, 166);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(149, 20);
-            this.textBox2.TabIndex = 19;
+            this.txtPassword.Location = new System.Drawing.Point(139, 166);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(167, 20);
+            this.txtPassword.TabIndex = 19;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // label1
             // 
@@ -104,36 +106,36 @@
             this.label2.TabIndex = 21;
             this.label2.Text = "Password";
             // 
-            // button1
+            // btnLogin
             // 
-            this.button1.Location = new System.Drawing.Point(139, 195);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(149, 23);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnLogin.Location = new System.Drawing.Point(172, 195);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(134, 23);
+            this.btnLogin.TabIndex = 22;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
             // 
-            // linkLabel1
+            // linkLabelRestPassword
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(169, 221);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(119, 13);
-            this.linkLabel1.TabIndex = 23;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Retrieve Lost Password";
+            this.linkLabelRestPassword.AutoSize = true;
+            this.linkLabelRestPassword.Location = new System.Drawing.Point(187, 221);
+            this.linkLabelRestPassword.Name = "linkLabelRestPassword";
+            this.linkLabelRestPassword.Size = new System.Drawing.Size(119, 13);
+            this.linkLabelRestPassword.TabIndex = 23;
+            this.linkLabelRestPassword.TabStop = true;
+            this.linkLabelRestPassword.Text = "Retrieve Lost Password";
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(330, 307);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.linkLabelRestPassword);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.panel2);
             this.Name = "Login";
             this.Text = "Login";
@@ -149,11 +151,11 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.LinkLabel linkLabelRestPassword;
     }
 }
