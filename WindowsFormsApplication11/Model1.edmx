@@ -29,7 +29,7 @@
           <Property Name="Audit_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Audit_Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Audit_Table" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Audit_Description" Type="varbinary" MaxLength="50" Nullable="false" />
+          <Property Name="Audit_Description" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="User_ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="City">
@@ -46,7 +46,7 @@
           </Key>
           <Property Name="Combo_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Combo_Description" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Combo_Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Combo_Price" Type="float" Nullable="false" />
           <Property Name="Combo_Type_ID" Type="int" />
           <Property Name="Combo_Price_ID" Type="int" />
         </EntityType>
@@ -55,7 +55,7 @@
             <PropertyRef Name="Combo_Price_ID" />
           </Key>
           <Property Name="Combo_Price_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Combo_Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Combo_Price" Type="float" Nullable="false" />
           <Property Name="Combo_Price_Date" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Combo_Type">
@@ -70,8 +70,8 @@
             <PropertyRef Name="Company_Info_ID" />
           </Key>
           <Property Name="Company_Info_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="VAT_Percentage" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="Mark_Up_Percentage" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="VAT_Percentage" Type="float" Nullable="false" />
+          <Property Name="Mark_Up_Percentage" Type="float" Nullable="false" />
           <Property Name="Adress" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Customer">
@@ -94,7 +94,7 @@
           <Property Name="Order_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Order_Status" Type="varchar" MaxLength="25" />
           <Property Name="Order_Date" Type="datetime" />
-          <Property Name="Sale_Vat_Amount" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Sale_Vat_Amount" Type="float" />
           <Property Name="Customer_ID" Type="int" />
           <Property Name="Payment_ID" Type="int" />
           <Property Name="Employee_ID" Type="int" />
@@ -122,7 +122,7 @@
             <PropertyRef Name="Delivery_Status_ID" />
           </Key>
           <Property Name="Delivery_Status_ID" Type="int" Nullable="false" />
-          <Property Name="Delivery_Description" Type="varbinary" MaxLength="50" Nullable="false" />
+          <Property Name="Delivery_Description" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -145,7 +145,7 @@
             <PropertyRef Name="Empployee_Attendence_ID" />
           </Key>
           <Property Name="Booking_ID" Type="int" />
-          <Property Name="Attendence_Description" Type="varbinary" MaxLength="50" Nullable="false" />
+          <Property Name="Attendence_Description" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Empployee_Attendence_ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Employee_Booking_Shift">
@@ -178,7 +178,7 @@
           <Property Name="Menu_Item_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Menu_Item_Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Menu_Item_Description" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Menu_Item_Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Menu_Item_Price" Type="float" Nullable="false" />
           <Property Name="Menu_Item_Type_ID" Type="int" />
           <Property Name="Menu_Price_ID" Type="int" />
         </EntityType>
@@ -187,25 +187,15 @@
             <PropertyRef Name="Menu_Price_ID" />
           </Key>
           <Property Name="Menu_Price_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Menu_Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Menu_Price" Type="float" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Menu_Item_Stock_Line">
-          <Key>
-            <PropertyRef Name="Menu_Item_Stock_Line_ID" />
-          </Key>
-          <Property Name="Stock_ID" Type="int" />
-          <Property Name="Stock_Item_Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Stock_Item_Quantity" Type="int" Nullable="false" />
-          <Property Name="Menu_Item_ID" Type="int" />
-          <Property Name="Menu_Item_Stock_Line_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Menu_Item_Type">
           <Key>
             <PropertyRef Name="Menu_Item_Type_ID" />
           </Key>
-          <Property Name="Menu_Item_Type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Menu_Item_Description" Type="varbinary" MaxLength="50" Nullable="false" />
+          <Property Name="Menu_Item_Type_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Menu_Item_Description" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Payment">
           <Key>
@@ -213,7 +203,7 @@
           </Key>
           <Property Name="Payment_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Payment_Date" Type="datetime" Nullable="false" />
-          <Property Name="Payment_Amount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Payment_Amount" Type="float" Nullable="false" />
           <Property Name="Payment_Type_ID" Type="int" />
         </EntityType>
         <EntityType Name="Payment_Type">
@@ -231,7 +221,7 @@
           <Property Name="Special_Description" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Special_Start_Date" Type="datetime" Nullable="false" />
           <Property Name="Special_End_Date" Type="datetime" Nullable="false" />
-          <Property Name="Special_Discount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Special_Discount" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Stock_Combo_Line">
           <Key>
@@ -281,14 +271,14 @@
             <PropertyRef Name="Stock_Order_Status_ID" />
           </Key>
           <Property Name="Stock_Order_Status_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Stock_Order_Status_Description" Type="varbinary" MaxLength="50" Nullable="false" />
+          <Property Name="Stock_Order_Status_Description" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Stock_Price">
           <Key>
             <PropertyRef Name="Stock_Price_ID" />
           </Key>
           <Property Name="Stock_Price_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Stock_Price" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Stock_Price" Type="float" Nullable="false" />
           <Property Name="Stock_Price_Date" Type="datetime" />
         </EntityType>
         <EntityType Name="Stock_Type">
@@ -313,7 +303,7 @@
             <PropertyRef Name="Suburb_ID" />
           </Key>
           <Property Name="Suburb_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Suburb_Description" Type="varbinary" MaxLength="50" Nullable="false" />
+          <Property Name="Suburb_Description" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Zip_Code" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Supplier">
@@ -633,30 +623,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Menu_Item_Stock_Line_Menu_Item">
-          <End Role="Menu_Item" Type="Self.Menu_Item" Multiplicity="0..1" />
-          <End Role="Menu_Item_Stock_Line" Type="Self.Menu_Item_Stock_Line" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Menu_Item">
-              <PropertyRef Name="Menu_Item_ID" />
-            </Principal>
-            <Dependent Role="Menu_Item_Stock_Line">
-              <PropertyRef Name="Menu_Item_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Menu_Item_Stock_Line_Stock_Item">
-          <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="0..1" />
-          <End Role="Menu_Item_Stock_Line" Type="Self.Menu_Item_Stock_Line" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Stock_Item">
-              <PropertyRef Name="Stock_ID" />
-            </Principal>
-            <Dependent Role="Menu_Item_Stock_Line">
-              <PropertyRef Name="Stock_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Payment_Payment_Type">
           <End Role="Payment_Type" Type="Self.Payment_Type" Multiplicity="0..1" />
           <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
@@ -861,37 +827,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="MmasweModelStoreContainer">
           <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Adress_Type" EntityType="Self.Adress_Type" Schema="dbo" store:Type="Tables" />
@@ -912,7 +847,6 @@
           <EntitySet Name="Employee_Shifts" EntityType="Self.Employee_Shifts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Menu_Item" EntityType="Self.Menu_Item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Menu_Item_Price" EntityType="Self.Menu_Item_Price" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Menu_Item_Stock_Line" EntityType="Self.Menu_Item_Stock_Line" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Menu_Item_Type" EntityType="Self.Menu_Item_Type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Payment_Type" EntityType="Self.Payment_Type" Schema="dbo" store:Type="Tables" />
@@ -1017,14 +951,6 @@
             <End Role="Menu_Item_Type" EntitySet="Menu_Item_Type" />
             <End Role="Menu_Item" EntitySet="Menu_Item" />
           </AssociationSet>
-          <AssociationSet Name="FK_Menu_Item_Stock_Line_Menu_Item" Association="Self.FK_Menu_Item_Stock_Line_Menu_Item">
-            <End Role="Menu_Item" EntitySet="Menu_Item" />
-            <End Role="Menu_Item_Stock_Line" EntitySet="Menu_Item_Stock_Line" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Menu_Item_Stock_Line_Stock_Item" Association="Self.FK_Menu_Item_Stock_Line_Stock_Item">
-            <End Role="Stock_Item" EntitySet="Stock_Item" />
-            <End Role="Menu_Item_Stock_Line" EntitySet="Menu_Item_Stock_Line" />
-          </AssociationSet>
           <AssociationSet Name="FK_Payment_Payment_Type" Association="Self.FK_Payment_Payment_Type">
             <End Role="Payment_Type" EntitySet="Payment_Type" />
             <End Role="Payment" EntitySet="Payment" />
@@ -1126,7 +1052,7 @@
           <Property Name="Audit_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Audit_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Audit_Table" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Audit_Description" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+          <Property Name="Audit_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="User_ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Users" Relationship="Self.FK_User_Audit" FromRole="Audit" ToRole="User" />
         </EntityType>
@@ -1146,7 +1072,7 @@
           </Key>
           <Property Name="Combo_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Combo_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Combo_Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Combo_Price" Type="Double" Nullable="false" />
           <Property Name="Combo_Type_ID" Type="Int32" />
           <Property Name="Combo_Price_ID" Type="Int32" />
           <NavigationProperty Name="Combo_Price1" Relationship="Self.FK_Combo_Combo_Price" FromRole="Combo" ToRole="Combo_Price" />
@@ -1159,7 +1085,7 @@
             <PropertyRef Name="Combo_Price_ID" />
           </Key>
           <Property Name="Combo_Price_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Combo_Price1" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Combo_Price1" Type="Double" Nullable="false" />
           <Property Name="Combo_Price_Date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Comboes" Relationship="Self.FK_Combo_Combo_Price" FromRole="Combo_Price" ToRole="Combo" />
         </EntityType>
@@ -1176,8 +1102,8 @@
             <PropertyRef Name="Company_Info_ID" />
           </Key>
           <Property Name="Company_Info_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="VAT_Percentage" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="Mark_Up_Percentage" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="VAT_Percentage" Type="Double" Nullable="false" />
+          <Property Name="Mark_Up_Percentage" Type="Double" Nullable="false" />
           <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Customer">
@@ -1201,7 +1127,7 @@
           <Property Name="Order_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Order_Status" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Order_Date" Type="DateTime" Precision="3" />
-          <Property Name="Sale_Vat_Amount" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="Sale_Vat_Amount" Type="Double" />
           <Property Name="Customer_ID" Type="Int32" />
           <Property Name="Payment_ID" Type="Int32" />
           <Property Name="Employee_ID" Type="Int32" />
@@ -1239,7 +1165,7 @@
             <PropertyRef Name="Delivery_Status_ID" />
           </Key>
           <Property Name="Delivery_Status_ID" Type="Int32" Nullable="false" />
-          <Property Name="Delivery_Description" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+          <Property Name="Delivery_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Customer_Order" Relationship="Self.FK_Customer_Order_Delivery_Status" FromRole="Delivery_Status" ToRole="Customer_Order" />
         </EntityType>
         <EntityType Name="Employee">
@@ -1268,7 +1194,7 @@
             <PropertyRef Name="Empployee_Attendence_ID" />
           </Key>
           <Property Name="Booking_ID" Type="Int32" />
-          <Property Name="Attendence_Description" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+          <Property Name="Attendence_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Empployee_Attendence_ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Employee_Booking_Shift" Relationship="Self.FK_Employee_Attendence_Status_Employee_Booking_Shift" FromRole="Employee_Attendence_Status" ToRole="Employee_Booking_Shift" />
         </EntityType>
@@ -1307,41 +1233,28 @@
           <Property Name="Menu_Item_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Menu_Item_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Menu_Item_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Menu_Item_Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Menu_Item_Price" Type="Double" Nullable="false" />
           <Property Name="Menu_Item_Type_ID" Type="Int32" />
           <Property Name="Menu_Price_ID" Type="Int32" />
           <NavigationProperty Name="Customer_Order_Line" Relationship="Self.FK_Customer_Order_Line_Menu_Item" FromRole="Menu_Item" ToRole="Customer_Order_Line" />
           <NavigationProperty Name="Menu_Item_Price1" Relationship="Self.FK_Menu_Item_Menu_Item_Price" FromRole="Menu_Item" ToRole="Menu_Item_Price" />
           <NavigationProperty Name="Menu_Item_Type" Relationship="Self.FK_Menu_Item_Menu_Item_Type" FromRole="Menu_Item" ToRole="Menu_Item_Type" />
-          <NavigationProperty Name="Menu_Item_Stock_Line" Relationship="Self.FK_Menu_Item_Stock_Line_Menu_Item" FromRole="Menu_Item" ToRole="Menu_Item_Stock_Line" />
         </EntityType>
         <EntityType Name="Menu_Item_Price">
           <Key>
             <PropertyRef Name="Menu_Price_ID" />
           </Key>
           <Property Name="Menu_Price_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Menu_Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Menu_Price" Type="Double" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Menu_Item" Relationship="Self.FK_Menu_Item_Menu_Item_Price" FromRole="Menu_Item_Price" ToRole="Menu_Item" />
-        </EntityType>
-        <EntityType Name="Menu_Item_Stock_Line">
-          <Key>
-            <PropertyRef Name="Menu_Item_Stock_Line_ID" />
-          </Key>
-          <Property Name="Stock_ID" Type="Int32" />
-          <Property Name="Stock_Item_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Stock_Item_Quantity" Type="Int32" Nullable="false" />
-          <Property Name="Menu_Item_ID" Type="Int32" />
-          <Property Name="Menu_Item_Stock_Line_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Menu_Item" Relationship="Self.FK_Menu_Item_Stock_Line_Menu_Item" FromRole="Menu_Item_Stock_Line" ToRole="Menu_Item" />
-          <NavigationProperty Name="Stock_Item" Relationship="Self.FK_Menu_Item_Stock_Line_Stock_Item" FromRole="Menu_Item_Stock_Line" ToRole="Stock_Item" />
         </EntityType>
         <EntityType Name="Menu_Item_Type">
           <Key>
             <PropertyRef Name="Menu_Item_Type_ID" />
           </Key>
           <Property Name="Menu_Item_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Menu_Item_Description" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+          <Property Name="Menu_Item_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Menu_Item" Relationship="Self.FK_Menu_Item_Menu_Item_Type" FromRole="Menu_Item_Type" ToRole="Menu_Item" />
         </EntityType>
         <EntityType Name="Payment">
@@ -1350,7 +1263,7 @@
           </Key>
           <Property Name="Payment_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Payment_Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Payment_Amount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Payment_Amount" Type="Double" Nullable="false" />
           <Property Name="Payment_Type_ID" Type="Int32" />
           <NavigationProperty Name="Customer_Order_Line" Relationship="Self.FK_Customer_Order_Line_Payment" FromRole="Payment" ToRole="Customer_Order_Line" />
           <NavigationProperty Name="Payment_Type" Relationship="Self.FK_Payment_Payment_Type" FromRole="Payment" ToRole="Payment_Type" />
@@ -1371,7 +1284,7 @@
           <Property Name="Special_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Special_Start_Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Special_End_Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Special_Discount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Special_Discount" Type="Double" Nullable="false" />
           <NavigationProperty Name="Customer_Order_Line" Relationship="Self.FK_Customer_Order_Line_Special" FromRole="Special" ToRole="Customer_Order_Line" />
         </EntityType>
         <EntityType Name="Stock_Combo_Line">
@@ -1398,7 +1311,6 @@
           <Property Name="Stock_Price_ID" Type="Int32" />
           <Property Name="Write_Off_ID" Type="Int32" />
           <NavigationProperty Name="Customer_Order_Line" Relationship="Self.FK_Customer_Order_Line_Stock_Item" FromRole="Stock_Item" ToRole="Customer_Order_Line" />
-          <NavigationProperty Name="Menu_Item_Stock_Line" Relationship="Self.FK_Menu_Item_Stock_Line_Stock_Item" FromRole="Stock_Item" ToRole="Menu_Item_Stock_Line" />
           <NavigationProperty Name="Stock_Combo_Line" Relationship="Self.FK_Stock_Combo_Line_Stock_Item" FromRole="Stock_Item" ToRole="Stock_Combo_Line" />
           <NavigationProperty Name="Stock_Price" Relationship="Self.FK_Stock_Item_Stock_Price" FromRole="Stock_Item" ToRole="Stock_Price" />
           <NavigationProperty Name="Stock_Type" Relationship="Self.FK_Stock_Item_Stock_Type" FromRole="Stock_Item" ToRole="Stock_Type" />
@@ -1437,7 +1349,7 @@
             <PropertyRef Name="Stock_Order_Status_ID" />
           </Key>
           <Property Name="Stock_Order_Status_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Stock_Order_Status_Description" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+          <Property Name="Stock_Order_Status_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Stock_Order" Relationship="Self.FK_Stock_Order_Stock_Order_Status" FromRole="Stock_Order_Status" ToRole="Stock_Order" />
         </EntityType>
         <EntityType Name="Stock_Price">
@@ -1445,7 +1357,7 @@
             <PropertyRef Name="Stock_Price_ID" />
           </Key>
           <Property Name="Stock_Price_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Stock_Price1" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+          <Property Name="Stock_Price1" Type="Double" Nullable="false" />
           <Property Name="Stock_Price_Date" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Stock_Item" Relationship="Self.FK_Stock_Item_Stock_Price" FromRole="Stock_Price" ToRole="Stock_Item" />
         </EntityType>
@@ -1454,7 +1366,7 @@
             <PropertyRef Name="Stock_Type_ID" />
           </Key>
           <Property Name="Stock_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Stock_Type_Description" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="Stock_Type_Description" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Stock_Item" Relationship="Self.FK_Stock_Item_Stock_Type" FromRole="Stock_Type" ToRole="Stock_Item" />
         </EntityType>
         <EntityType Name="Stock_Write_Off">
@@ -1473,7 +1385,7 @@
             <PropertyRef Name="Suburb_ID" />
           </Key>
           <Property Name="Suburb_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Suburb_Description" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+          <Property Name="Suburb_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Zip_Code" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Cities" Relationship="Self.FK_City_Suburb" FromRole="Suburb" ToRole="City" />
         </EntityType>
@@ -1854,30 +1766,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Menu_Item_Stock_Line_Menu_Item">
-          <End Role="Menu_Item" Type="Self.Menu_Item" Multiplicity="0..1" />
-          <End Role="Menu_Item_Stock_Line" Type="Self.Menu_Item_Stock_Line" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Menu_Item">
-              <PropertyRef Name="Menu_Item_ID" />
-            </Principal>
-            <Dependent Role="Menu_Item_Stock_Line">
-              <PropertyRef Name="Menu_Item_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Menu_Item_Stock_Line_Stock_Item">
-          <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="0..1" />
-          <End Role="Menu_Item_Stock_Line" Type="Self.Menu_Item_Stock_Line" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Stock_Item">
-              <PropertyRef Name="Stock_ID" />
-            </Principal>
-            <Dependent Role="Menu_Item_Stock_Line">
-              <PropertyRef Name="Stock_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Payment_Payment_Type">
           <End Role="Payment_Type" Type="Self.Payment_Type" Multiplicity="0..1" />
           <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
@@ -2034,7 +1922,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MmasweEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MmasweEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Adresses" EntityType="Self.Adress" />
           <EntitySet Name="Adress_Type" EntityType="Self.Adress_Type" />
           <EntitySet Name="Audits" EntityType="Self.Audit" />
@@ -2054,7 +1942,6 @@
           <EntitySet Name="Employee_Shifts" EntityType="Self.Employee_Shifts" />
           <EntitySet Name="Menu_Item" EntityType="Self.Menu_Item" />
           <EntitySet Name="Menu_Item_Price" EntityType="Self.Menu_Item_Price" />
-          <EntitySet Name="Menu_Item_Stock_Line" EntityType="Self.Menu_Item_Stock_Line" />
           <EntitySet Name="Menu_Item_Type" EntityType="Self.Menu_Item_Type" />
           <EntitySet Name="Payments" EntityType="Self.Payment" />
           <EntitySet Name="Payment_Type" EntityType="Self.Payment_Type" />
@@ -2175,14 +2062,6 @@
             <End Role="Menu_Item_Type" EntitySet="Menu_Item_Type" />
             <End Role="Menu_Item" EntitySet="Menu_Item" />
           </AssociationSet>
-          <AssociationSet Name="FK_Menu_Item_Stock_Line_Menu_Item" Association="Self.FK_Menu_Item_Stock_Line_Menu_Item">
-            <End Role="Menu_Item" EntitySet="Menu_Item" />
-            <End Role="Menu_Item_Stock_Line" EntitySet="Menu_Item_Stock_Line" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Menu_Item_Stock_Line_Stock_Item" Association="Self.FK_Menu_Item_Stock_Line_Stock_Item">
-            <End Role="Stock_Item" EntitySet="Stock_Item" />
-            <End Role="Menu_Item_Stock_Line" EntitySet="Menu_Item_Stock_Line" />
-          </AssociationSet>
           <AssociationSet Name="FK_Payment_Payment_Type" Association="Self.FK_Payment_Payment_Type">
             <End Role="Payment_Type" EntitySet="Payment_Type" />
             <End Role="Payment" EntitySet="Payments" />
@@ -2241,7 +2120,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MmasweModelStoreContainer" CdmEntityContainer="MmasweEntities1">
+        <EntityContainerMapping StorageEntityContainer="MmasweModelStoreContainer" CdmEntityContainer="MmasweEntities3">
           <EntitySetMapping Name="Adresses">
             <EntityTypeMapping TypeName="MmasweModel.Adress">
               <MappingFragment StoreEntitySet="Adress">
@@ -2446,17 +2325,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Menu_Item_Stock_Line">
-            <EntityTypeMapping TypeName="MmasweModel.Menu_Item_Stock_Line">
-              <MappingFragment StoreEntitySet="Menu_Item_Stock_Line">
-                <ScalarProperty Name="Stock_ID" ColumnName="Stock_ID" />
-                <ScalarProperty Name="Stock_Item_Name" ColumnName="Stock_Item_Name" />
-                <ScalarProperty Name="Stock_Item_Quantity" ColumnName="Stock_Item_Quantity" />
-                <ScalarProperty Name="Menu_Item_ID" ColumnName="Menu_Item_ID" />
-                <ScalarProperty Name="Menu_Item_Stock_Line_ID" ColumnName="Menu_Item_Stock_Line_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Menu_Item_Type">
             <EntityTypeMapping TypeName="MmasweModel.Menu_Item_Type">
               <MappingFragment StoreEntitySet="Menu_Item_Type">
@@ -2561,8 +2429,8 @@
           <EntitySetMapping Name="Stock_Type">
             <EntityTypeMapping TypeName="MmasweModel.Stock_Type">
               <MappingFragment StoreEntitySet="Stock_Type">
-                <ScalarProperty Name="Stock_Type_Description" ColumnName="Stock_Type_Description" />
                 <ScalarProperty Name="Stock_Type_ID" ColumnName="Stock_Type_ID" />
+                <ScalarProperty Name="Stock_Type_Description" ColumnName="Stock_Type_Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

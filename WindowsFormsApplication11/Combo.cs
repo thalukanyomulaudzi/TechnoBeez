@@ -23,7 +23,7 @@ namespace WindowsFormsApplication11
     
         public int Combo_ID { get; set; }
         public string Combo_Description { get; set; }
-        public decimal Combo_Price { get; set; }
+        public double Combo_Price { get; set; }
         public Nullable<int> Combo_Type_ID { get; set; }
         public Nullable<int> Combo_Price_ID { get; set; }
     

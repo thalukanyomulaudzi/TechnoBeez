@@ -112,8 +112,8 @@ namespace WindowsFormsApplication11
 
 
                 }
-
-                Add_New_Stock_Item myform = new Add_New_Stock_Item();
+                
+                frmAdd_New_Stock_Item myform = new frmAdd_New_Stock_Item();
 
                 myMenu.Show(dgvDataGrid, new Point(e.X, e.Y));
                 myMenu.ItemClicked += new ToolStripItemClickedEventHandler(myMenu_ItemClicked);
@@ -234,7 +234,8 @@ namespace WindowsFormsApplication11
             }
             if (navButton == inventoryBtn)
             {
-                Add_New_Stock_Item addStock = new Add_New_Stock_Item();
+                
+                frmAdd_New_Stock_Item addStock = new frmAdd_New_Stock_Item();
                 addStock.ShowDialog();
                 
             }

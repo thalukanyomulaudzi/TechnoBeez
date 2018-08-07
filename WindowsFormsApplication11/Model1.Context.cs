@@ -13,10 +13,10 @@ namespace WindowsFormsApplication11
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MmasweEntities1 : DbContext
+    public partial class MmasweEntities3 : DbContext
     {
-        public MmasweEntities1()
-            : base("name=MmasweEntities1")
+        public MmasweEntities3()
+            : base("name=MmasweEntities3")
         {
         }
     
@@ -44,7 +44,6 @@ namespace WindowsFormsApplication11
         public virtual DbSet<Employee_Shifts> Employee_Shifts { get; set; }
         public virtual DbSet<Menu_Item> Menu_Item { get; set; }
         public virtual DbSet<Menu_Item_Price> Menu_Item_Price { get; set; }
-        public virtual DbSet<Menu_Item_Stock_Line> Menu_Item_Stock_Line { get; set; }
         public virtual DbSet<Menu_Item_Type> Menu_Item_Type { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<Payment_Type> Payment_Type { get; set; }

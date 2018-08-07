@@ -15,7 +15,7 @@ namespace WindowsFormsApplication11
     public partial class Employee_Attendence_Status
     {
         public Nullable<int> Booking_ID { get; set; }
-        public byte[] Attendence_Description { get; set; }
+        public string Attendence_Description { get; set; }
         public int Empployee_Attendence_ID { get; set; }
     
         public virtual Employee_Booking_Shift Employee_Booking_Shift { get; set; }

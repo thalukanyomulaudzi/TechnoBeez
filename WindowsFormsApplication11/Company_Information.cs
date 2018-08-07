@@ -15,8 +15,8 @@ namespace WindowsFormsApplication11
     public partial class Company_Information
     {
         public int Company_Info_ID { get; set; }
-        public decimal VAT_Percentage { get; set; }
-        public decimal Mark_Up_Percentage { get; set; }
+        public double VAT_Percentage { get; set; }
+        public double Mark_Up_Percentage { get; set; }
         public string Adress { get; set; }
     }
 }

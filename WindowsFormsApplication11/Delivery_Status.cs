@@ -21,7 +21,7 @@ namespace WindowsFormsApplication11
         }
     
         public int Delivery_Status_ID { get; set; }
-        public byte[] Delivery_Description { get; set; }
+        public string Delivery_Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customer_Order> Customer_Order { get; set; }

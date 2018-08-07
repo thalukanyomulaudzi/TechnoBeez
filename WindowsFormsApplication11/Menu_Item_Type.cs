@@ -21,7 +21,7 @@ namespace WindowsFormsApplication11
         }
     
         public int Menu_Item_Type_ID { get; set; }
-        public byte[] Menu_Item_Description { get; set; }
+        public string Menu_Item_Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Menu_Item> Menu_Item { get; set; }
