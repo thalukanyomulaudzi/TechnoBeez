@@ -12,27 +12,21 @@ namespace WindowsFormsApplication11
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer_Order
+    public partial class Employee_Booking_Shift
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer_Order()
+        public Employee_Booking_Shift()
         {
-            this.Customer_Order_Line = new HashSet<Customer_Order_Line>();
+            this.Employee_Attendence_Status = new HashSet<Employee_Attendence_Status>();
         }
     
-        public int Order_ID { get; set; }
-        public string Order_Status { get; set; }
-        public Nullable<System.DateTime> Order_Date { get; set; }
-        public Nullable<decimal> Sale_Vat_Amount { get; set; }
-        public Nullable<int> Customer_ID { get; set; }
-        public Nullable<int> Payment_ID { get; set; }
         public Nullable<int> Employee_ID { get; set; }
-        public Nullable<int> Delivery_Status_ID { get; set; }
+        public Nullable<int> Employee_Shift_ID { get; set; }
+        public int Booking_ID { get; set; }
     
-        public virtual Customer Customer { get; set; }
-        public virtual Delivery_Status Delivery_Status { get; set; }
         public virtual Employee Employee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customer_Order_Line> Customer_Order_Line { get; set; }
+        public virtual ICollection<Employee_Attendence_Status> Employee_Attendence_Status { get; set; }
+        public virtual Employee_Shifts Employee_Shifts { get; set; }
     }
 }

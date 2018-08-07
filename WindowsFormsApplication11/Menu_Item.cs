@@ -12,27 +12,27 @@ namespace WindowsFormsApplication11
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer_Order
+    public partial class Menu_Item
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer_Order()
+        public Menu_Item()
         {
             this.Customer_Order_Line = new HashSet<Customer_Order_Line>();
+            this.Menu_Item_Stock_Line = new HashSet<Menu_Item_Stock_Line>();
         }
     
-        public int Order_ID { get; set; }
-        public string Order_Status { get; set; }
-        public Nullable<System.DateTime> Order_Date { get; set; }
-        public Nullable<decimal> Sale_Vat_Amount { get; set; }
-        public Nullable<int> Customer_ID { get; set; }
-        public Nullable<int> Payment_ID { get; set; }
-        public Nullable<int> Employee_ID { get; set; }
-        public Nullable<int> Delivery_Status_ID { get; set; }
+        public int Menu_Item_ID { get; set; }
+        public string Menu_Item_Name { get; set; }
+        public string Menu_Item_Description { get; set; }
+        public decimal Menu_Item_Price { get; set; }
+        public Nullable<int> Menu_Item_Type_ID { get; set; }
+        public Nullable<int> Menu_Price_ID { get; set; }
     
-        public virtual Customer Customer { get; set; }
-        public virtual Delivery_Status Delivery_Status { get; set; }
-        public virtual Employee Employee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customer_Order_Line> Customer_Order_Line { get; set; }
+        public virtual Menu_Item_Price Menu_Item_Price1 { get; set; }
+        public virtual Menu_Item_Type Menu_Item_Type { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Menu_Item_Stock_Line> Menu_Item_Stock_Line { get; set; }
     }
 }

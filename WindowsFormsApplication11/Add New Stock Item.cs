@@ -18,8 +18,36 @@ namespace WindowsFormsApplication11
 
         private void button7_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Stock Item added successfully");
-            MessageBox.Show("Stock Item details format not valid");
+
+            using (MmasweEntities1 context = new MmasweEntities1())
+            {
+
+
+                Stock_Price newPrice = new Stock_Price
+                {
+                    Stock_Price1 = Convert.ToDecimal(txtStockItemPrice.Text)
+
+                };
+                context.Stock_Price.Add(newPrice);
+
+
+                Stock_Type newType = new Stock_Type
+                {
+                    Stock_Type_Description = Convert.ToString(cmbStockType.Text)
+                };
+                context.Stock_Type.Add(newType);
+
+                Stock_Item newItem = new Stock_Item
+                { Stock_Item_Name = txtStockItemnName.Text,
+                    Stock_Item_Description = txtStockItemDescription.Text,
+                    Stock_Item_Quantity = 0
+
+                };
+                context.Stock_Item.Add(newItem);
+                
+                context.SaveChanges();
+
+            }
         }
 
         private void lblStockQuantity_Click(object sender, EventArgs e)

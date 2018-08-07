@@ -32,8 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,6 +71,15 @@
     <Compile Include="Add New Stock Item.Designer.cs">
       <DependentUpon>Add New Stock Item.cs</DependentUpon>
     </Compile>
+    <Compile Include="Adress.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Adress_Type.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Audit.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Book Employee Shift.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,17 +98,35 @@
     <Compile Include="Check Out Stock Item.Designer.cs">
       <DependentUpon>Check Out Stock Item.cs</DependentUpon>
     </Compile>
+    <Compile Include="City.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Clock in and ClockOut.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Clock in and ClockOut.Designer.cs">
       <DependentUpon>Clock in and ClockOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Combo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Combo_LookUp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Combo_LookUp.Designer.cs">
       <DependentUpon>Combo_LookUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Combo_Price.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Combo_Type.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Company_Information.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Customer_LookUp.cs">
       <SubType>Form</SubType>
@@ -99,16 +135,34 @@
       <DependentUpon>Customer_LookUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer_Order.cs">
-      <SubType>Form</SubType>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Customer_Order.Designer.cs">
-      <DependentUpon>Customer_Order.cs</DependentUpon>
+    <Compile Include="Customer_Order_Line.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="deleteForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="deleteForm.Designer.cs">
       <DependentUpon>deleteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery_Status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee_Attendence_Status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee_Booking_Shift.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee_Gender_.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee_Shifts.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -170,17 +224,50 @@
     <Compile Include="Menu_And_Combo.Designer.cs">
       <DependentUpon>Menu_And_Combo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu_Item.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Menu_Item_LookUp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Menu_Item_LookUp.Designer.cs">
       <DependentUpon>Menu_Item_LookUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu_Item_Price.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Item_Stock_Line.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Item_Type.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
     <Compile Include="OrderList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OrderList.Designer.cs">
       <DependentUpon>OrderList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Payment_Type.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -208,17 +295,50 @@
     <Compile Include="Setup Employee Shift Schedule.Designer.cs">
       <DependentUpon>Setup Employee Shift Schedule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Special.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="StockOrder.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="StockOrder.Designer.cs">
       <DependentUpon>StockOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Stock_Combo_Line.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stock_Item.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Stock_ItemList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Stock_ItemList.Designer.cs">
       <DependentUpon>Stock_ItemList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stock_Order.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stock_Order_Line.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stock_Order_Status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stock_Price.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stock_Type.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stock_Write_Off.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Suburb.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Supplier.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="SupplierForm.cs">
       <SubType>Form</SubType>
@@ -244,6 +364,15 @@
     <Compile Include="SupplierTypeList.Designer.cs">
       <DependentUpon>SupplierTypeList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Supplier_Contact_Details.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Supplier_Type.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Take Stock Item.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +384,15 @@
     </Compile>
     <Compile Include="update Employee Details.Designer.cs">
       <DependentUpon>update Employee Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User_Log.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User_Role.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Write Off stock Item.cs">
       <SubType>Form</SubType>
@@ -288,9 +426,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Customer_LookUp.resx">
       <DependentUpon>Customer_LookUp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Customer_Order.resx">
-      <DependentUpon>Customer_Order.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="deleteForm.resx">
       <DependentUpon>deleteForm.cs</DependentUpon>
@@ -379,6 +514,15 @@
     <EmbeddedResource Include="Write Off stock Item.resx">
       <DependentUpon>Write Off stock Item.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -388,6 +532,21 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -41,14 +41,14 @@
             this.lblName = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cmbStockType = new System.Windows.Forms.ComboBox();
+            this.txtStockItemPrice = new System.Windows.Forms.TextBox();
             this.lblCostPrice = new System.Windows.Forms.Label();
             this.lblStockQuantity = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtStockItemPrice = new System.Windows.Forms.TextBox();
+            this.txtStockItemnName = new System.Windows.Forms.TextBox();
             this.txtStockItemDescription = new System.Windows.Forms.TextBox();
             this.lblStockDescription = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -189,12 +189,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.cmbStockType);
+            this.groupBox1.Controls.Add(this.txtStockItemPrice);
             this.groupBox1.Controls.Add(this.lblCostPrice);
             this.groupBox1.Controls.Add(this.lblStockQuantity);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtStockItemPrice);
+            this.groupBox1.Controls.Add(this.txtStockItemnName);
             this.groupBox1.Controls.Add(this.txtStockItemDescription);
             this.groupBox1.Controls.Add(this.lblStockDescription);
             this.groupBox1.Location = new System.Drawing.Point(23, 90);
@@ -204,16 +204,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Stock Item Details";
             // 
-            // textBox1
+            // cmbStockType
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cmbStockType.FormattingEnabled = true;
+            this.cmbStockType.Items.AddRange(new object[] {
+            "Ingredient",
+            "Product"});
+            this.cmbStockType.Location = new System.Drawing.Point(178, 139);
+            this.cmbStockType.Name = "cmbStockType";
+            this.cmbStockType.Size = new System.Drawing.Size(176, 24);
+            this.cmbStockType.TabIndex = 95;
+            this.cmbStockType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // txtStockItemPrice
+            // 
+            this.txtStockItemPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(180, 186);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(176, 22);
-            this.textBox1.TabIndex = 94;
+            this.txtStockItemPrice.Location = new System.Drawing.Point(180, 186);
+            this.txtStockItemPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStockItemPrice.Name = "txtStockItemPrice";
+            this.txtStockItemPrice.Size = new System.Drawing.Size(176, 22);
+            this.txtStockItemPrice.TabIndex = 94;
             // 
             // lblCostPrice
             // 
@@ -255,16 +267,16 @@
             this.label1.TabIndex = 93;
             this.label1.Text = "Stock Item Cost Price:";
             // 
-            // txtStockItemPrice
+            // txtStockItemnName
             // 
-            this.txtStockItemPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtStockItemnName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStockItemPrice.Location = new System.Drawing.Point(178, 53);
-            this.txtStockItemPrice.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStockItemPrice.Name = "txtStockItemPrice";
-            this.txtStockItemPrice.Size = new System.Drawing.Size(176, 22);
-            this.txtStockItemPrice.TabIndex = 85;
+            this.txtStockItemnName.Location = new System.Drawing.Point(178, 53);
+            this.txtStockItemnName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStockItemnName.Name = "txtStockItemnName";
+            this.txtStockItemnName.Size = new System.Drawing.Size(176, 22);
+            this.txtStockItemnName.TabIndex = 85;
             // 
             // txtStockItemDescription
             // 
@@ -289,18 +301,6 @@
             this.lblStockDescription.Size = new System.Drawing.Size(152, 17);
             this.lblStockDescription.TabIndex = 86;
             this.lblStockDescription.Text = "Stock Item Description:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Ingredient",
-            "Product"});
-            this.comboBox1.Location = new System.Drawing.Point(178, 139);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(176, 24);
-            this.comboBox1.TabIndex = 95;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Add_New_Stock_Item
             // 
@@ -338,13 +338,13 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtStockItemPrice;
         private System.Windows.Forms.Label lblCostPrice;
         private System.Windows.Forms.Label lblStockQuantity;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtStockItemPrice;
+        private System.Windows.Forms.TextBox txtStockItemnName;
         private System.Windows.Forms.TextBox txtStockItemDescription;
         private System.Windows.Forms.Label lblStockDescription;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbStockType;
     }
 }
