@@ -98,6 +98,18 @@
     <Compile Include="Check Out Stock Item.Designer.cs">
       <DependentUpon>Check Out Stock Item.cs</DependentUpon>
     </Compile>
+    <Compile Include="Check_In.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Check_In_Line.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Check_Out.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Check_Out_Line.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="City.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -170,6 +182,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdd New Stock Item.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +206,19 @@
     <Compile Include="frmAddCustomer.Designer.cs">
       <DependentUpon>frmAddCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMaintainCombo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMaintainCombo.Designer.cs">
+      <DependentUpon>frmMaintainCombo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMaintainMenuItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMaintainMenuItem.Designer.cs">
+      <DependentUpon>frmMaintainMenuItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Globals.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +305,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quantity.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Retrieve Lost Password.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -334,6 +368,9 @@
     <Compile Include="Stock_Type.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Stock_WriteOff_Line.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Stock_Write_Off.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -371,9 +408,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Supplier_Type.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Take Stock Item.cs">
@@ -436,6 +470,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdd New Stock Item.resx">
       <DependentUpon>frmAdd New Stock Item.cs</DependentUpon>
     </EmbeddedResource>
@@ -444,6 +481,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddCustomer.resx">
       <DependentUpon>frmAddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMaintainCombo.resx">
+      <DependentUpon>frmMaintainCombo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMaintainMenuItem.resx">
+      <DependentUpon>frmMaintainMenuItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

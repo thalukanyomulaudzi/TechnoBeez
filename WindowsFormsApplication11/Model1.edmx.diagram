@@ -4,50 +4,59 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="dfe191b14df9403a8373cdd7973dd555" Name="Diagram1">
-        <EntityTypeShape EntityType="MmasweModel.Adress" Width="1.5" PointX="1.5" PointY="60.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Adress_Type" Width="1.5" PointX="1.5" PointY="57.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Audit" Width="1.5" PointX="1.5" PointY="37.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.City" Width="1.5" PointX="1.5" PointY="63.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Combo" Width="1.5" PointX="6" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Combo_Price" Width="1.5" PointX="3.75" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Combo_Type" Width="1.5" PointX="3.75" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Company_Information" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Customer" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Customer_Order" Width="1.5" PointX="3" PointY="20.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Customer_Order_Line" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Delivery_Status" Width="1.5" PointX="0.75" PointY="17.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Employee" Width="1.5" PointX="0.75" PointY="22.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Employee_Attendence_Status" Width="1.5" PointX="5.25" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Employee_Booking_Shift" Width="1.5" PointX="3" PointY="24.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Employee_Gender_" Width="1.5" PointX="1.5" PointY="27.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Employee_Shifts" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Menu_Item" Width="1.5" PointX="3" PointY="45.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Menu_Item_Price" Width="1.5" PointX="0.75" PointY="45.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Menu_Item_Type" Width="1.5" PointX="0.75" PointY="47.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Payment" Width="1.5" PointX="3" PointY="50.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Payment_Type" Width="1.5" PointX="0.75" PointY="50.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Special" Width="1.5" PointX="3" PointY="53.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Stock_Combo_Line" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Stock_Item" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Stock_Order" Width="1.5" PointX="6" PointY="60" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Stock_Order_Line" Width="1.5" PointX="8.25" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Stock_Order_Status" Width="1.5" PointX="3.75" PointY="56.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Stock_Price" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Stock_Type" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Stock_Write_Off" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Suburb" Width="1.5" PointX="1.5" PointY="66.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Supplier" Width="1.5" PointX="3.75" PointY="61.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Supplier_Contact_Details" Width="1.5" PointX="6" PointY="64.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Supplier_Type" Width="1.5" PointX="1.5" PointY="69.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.sysdiagram" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.User" Width="1.5" PointX="1.5" PointY="32.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.User_Log" Width="1.5" PointX="1.5" PointY="40" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.User_Role" Width="1.5" PointX="1.5" PointY="42.75" IsExpanded="true" />
+      <Diagram DiagramId="1e8b1939647f4fb69d6588c3b2f2c32e" Name="Diagram1">
+        <EntityTypeShape EntityType="MmasweModel.Adress" Width="1.5" PointX="1.5" PointY="63.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Adress_Type" Width="1.5" PointX="1.5" PointY="60.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Audit" Width="1.5" PointX="1.5" PointY="43.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Check_In" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Check_In_Line" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Check_Out" Width="1.5" PointX="6" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Check_Out_Line" Width="1.5" PointX="8.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.City" Width="1.5" PointX="1.5" PointY="67" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Combo" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Combo_Price" Width="1.5" PointX="0.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Combo_Type" Width="1.5" PointX="0.75" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Company_Information" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Customer" Width="1.5" PointX="0.75" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Customer_Order" Width="1.5" PointX="3" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Customer_Order_Line" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Delivery_Status" Width="1.5" PointX="0.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Employee" Width="1.5" PointX="0.75" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Employee_Attendence_Status" Width="1.5" PointX="5.25" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Employee_Booking_Shift" Width="1.5" PointX="3" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Employee_Gender_" Width="1.5" PointX="1.5" PointY="34.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Employee_Shifts" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Menu_Item" Width="1.5" PointX="3" PointY="52.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Menu_Item_Price" Width="1.5" PointX="0.75" PointY="51.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Menu_Item_Type" Width="1.5" PointX="0.75" PointY="54.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Payment" Width="1.5" PointX="3" PointY="56.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Payment_Type" Width="1.5" PointX="0.75" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Quantity" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Special" Width="1.5" PointX="3" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Stock_Combo_Line" Width="1.5" PointX="5.25" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Stock_Item" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Stock_Order" Width="1.5" PointX="6" PointY="63.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Stock_Order_Line" Width="1.5" PointX="8.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Stock_Order_Status" Width="1.5" PointX="3.75" PointY="60.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Stock_Price" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Stock_Type" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Stock_Write_Off" Width="1.5" PointX="6" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Stock_WriteOff_Line" Width="1.5" PointX="8.25" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Suburb" Width="1.5" PointX="1.5" PointY="70.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Supplier" Width="1.5" PointX="3.75" PointY="64.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Supplier_Contact_Details" Width="1.5" PointX="6" PointY="68" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Supplier_Type" Width="1.5" PointX="1.5" PointY="72.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.User" Width="1.5" PointX="1.5" PointY="38.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.User_Log" Width="1.5" PointX="1.5" PointY="46.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.User_Role" Width="1.5" PointX="1.5" PointY="49.125" IsExpanded="true" />
         <AssociationConnector Association="MmasweModel.FK_Adress_Adress_Type" ManuallyRouted="false" />
         <AssociationConnector Association="MmasweModel.FK_Adress_City" ManuallyRouted="false" />
         <AssociationConnector Association="MmasweModel.FK_Supplier_Adress" ManuallyRouted="false" />
         <AssociationConnector Association="MmasweModel.FK_User_Audit" ManuallyRouted="false" />
+        <AssociationConnector Association="MmasweModel.FK_Check_In_Line_Check_In" ManuallyRouted="false" />
+        <AssociationConnector Association="MmasweModel.FK_Check_In_Line_Stock_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="MmasweModel.FK_Check_Out_Line_Check_Out" ManuallyRouted="false" />
+        <AssociationConnector Association="MmasweModel.FK_Check_Out_Line_Stock_Item" ManuallyRouted="false" />
         <AssociationConnector Association="MmasweModel.FK_City_Suburb" ManuallyRouted="false" />
         <AssociationConnector Association="MmasweModel.FK_Combo_Combo_Price" ManuallyRouted="false" />
         <AssociationConnector Association="MmasweModel.FK_Combo_Combo_Type" ManuallyRouted="false" />
@@ -73,11 +82,12 @@
         <AssociationConnector Association="MmasweModel.FK_Stock_Combo_Line_Stock_Item" ManuallyRouted="false" />
         <AssociationConnector Association="MmasweModel.FK_Stock_Item_Stock_Price" ManuallyRouted="false" />
         <AssociationConnector Association="MmasweModel.FK_Stock_Item_Stock_Type" ManuallyRouted="false" />
-        <AssociationConnector Association="MmasweModel.FK_Stock_Item_Stock_Write_Off" ManuallyRouted="false" />
         <AssociationConnector Association="MmasweModel.FK_Stock_Order_Line_Stock_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="MmasweModel.FK_Stock_WriteOff_Line_Stock_Item" ManuallyRouted="false" />
         <AssociationConnector Association="MmasweModel.FK_Stock_Order_Line_Stock_Order" ManuallyRouted="false" />
         <AssociationConnector Association="MmasweModel.FK_Stock_Order_Stock_Order_Status" ManuallyRouted="false" />
         <AssociationConnector Association="MmasweModel.FK_Stock_Order_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="MmasweModel.FK_Stock_WriteOff_Line_Stock_Write_Off" ManuallyRouted="false" />
         <AssociationConnector Association="MmasweModel.FK_Supplier_Contact_Details_Supplier" ManuallyRouted="false" />
         <AssociationConnector Association="MmasweModel.FK_Supplier_Supplier_Type" ManuallyRouted="false" />
         <AssociationConnector Association="MmasweModel.FK_User_User_Log" ManuallyRouted="false" />

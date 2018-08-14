@@ -35,26 +35,24 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.txtInventoryPrice = new System.Windows.Forms.TextBox();
+            this.richDescription = new System.Windows.Forms.RichTextBox();
+            this.txtMenuPrice = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnUpload = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtinventoryName = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.cmbMenuItemType = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtMenuItemName = new System.Windows.Forms.TextBox();
+            this.btnUpload = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.genderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -62,13 +60,12 @@
             this.employeeTypeBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource)).BeginInit();
@@ -84,18 +81,20 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 56);
+            this.panel1.Location = new System.Drawing.Point(0, 69);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(437, 1);
+            this.panel1.Size = new System.Drawing.Size(677, 1);
             this.panel1.TabIndex = 2;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(12, 9);
+            this.label14.Location = new System.Drawing.Point(16, 11);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(157, 33);
+            this.label14.Size = new System.Drawing.Size(193, 40);
             this.label14.TabIndex = 1;
             this.label14.Text = "Menu Item";
             // 
@@ -109,32 +108,8 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(437, 57);
+            this.panel2.Size = new System.Drawing.Size(677, 70);
             this.panel2.TabIndex = 14;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.btnUpdateEmployee);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(121, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(209, 40);
-            this.panel4.TabIndex = 11;
-            // 
-            // btnUpdateEmployee
-            // 
-            this.btnUpdateEmployee.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnUpdateEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateEmployee.Image")));
-            this.btnUpdateEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdateEmployee.Location = new System.Drawing.Point(119, 8);
-            this.btnUpdateEmployee.Name = "btnUpdateEmployee";
-            this.btnUpdateEmployee.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.btnUpdateEmployee.Size = new System.Drawing.Size(84, 28);
-            this.btnUpdateEmployee.TabIndex = 10;
-            this.btnUpdateEmployee.Text = "Update";
-            this.btnUpdateEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpdateEmployee.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
@@ -142,76 +117,83 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(16, 6);
+            this.button7.Location = new System.Drawing.Point(21, 7);
+            this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.button7.Size = new System.Drawing.Size(70, 28);
+            this.button7.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.button7.Size = new System.Drawing.Size(93, 34);
             this.button7.TabIndex = 9;
             this.button7.Text = "Save";
             this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // panel17
             // 
             this.panel17.Controls.Add(this.button7);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel17.Location = new System.Drawing.Point(330, 0);
+            this.panel17.Location = new System.Drawing.Point(534, 0);
+            this.panel17.Margin = new System.Windows.Forms.Padding(4);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(107, 40);
+            this.panel17.Size = new System.Drawing.Size(143, 49);
             this.panel17.TabIndex = 8;
             // 
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.Gainsboro;
             this.panel15.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel15.Location = new System.Drawing.Point(0, 40);
+            this.panel15.Location = new System.Drawing.Point(0, 49);
+            this.panel15.Margin = new System.Windows.Forms.Padding(4);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(437, 1);
+            this.panel15.Size = new System.Drawing.Size(677, 1);
             this.panel15.TabIndex = 0;
             // 
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(171)))), ((int)(((byte)(241)))));
-            this.panel14.Controls.Add(this.panel4);
             this.panel14.Controls.Add(this.panel17);
             this.panel14.Controls.Add(this.panel15);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel14.Location = new System.Drawing.Point(0, 352);
+            this.panel14.Location = new System.Drawing.Point(0, 483);
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(437, 41);
+            this.panel14.Size = new System.Drawing.Size(677, 50);
             this.panel14.TabIndex = 15;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 51);
+            this.label2.Location = new System.Drawing.Point(9, 63);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 13);
+            this.label2.Size = new System.Drawing.Size(152, 17);
             this.label2.TabIndex = 53;
             this.label2.Text = "Menu Item Description:";
             // 
-            // richTextBox1
+            // richDescription
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(144, 48);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(213, 58);
-            this.richTextBox1.TabIndex = 52;
-            this.richTextBox1.Text = "";
+            this.richDescription.Location = new System.Drawing.Point(192, 59);
+            this.richDescription.Margin = new System.Windows.Forms.Padding(4);
+            this.richDescription.Name = "richDescription";
+            this.richDescription.Size = new System.Drawing.Size(283, 70);
+            this.richDescription.TabIndex = 52;
+            this.richDescription.Text = "";
             // 
-            // txtInventoryPrice
+            // txtMenuPrice
             // 
-            this.txtInventoryPrice.Location = new System.Drawing.Point(143, 109);
-            this.txtInventoryPrice.Name = "txtInventoryPrice";
-            this.txtInventoryPrice.Size = new System.Drawing.Size(213, 20);
-            this.txtInventoryPrice.TabIndex = 51;
+            this.txtMenuPrice.Location = new System.Drawing.Point(191, 134);
+            this.txtMenuPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMenuPrice.Name = "txtMenuPrice";
+            this.txtMenuPrice.Size = new System.Drawing.Size(283, 22);
+            this.txtMenuPrice.TabIndex = 51;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 112);
+            this.label1.Location = new System.Drawing.Point(8, 138);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 13);
+            this.label1.Size = new System.Drawing.Size(159, 17);
             this.label1.TabIndex = 50;
             this.label1.Text = "Menu Item Price:         R";
             // 
@@ -221,98 +203,112 @@
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(437, 393);
+            this.panel3.Size = new System.Drawing.Size(677, 533);
             this.panel3.TabIndex = 16;
             // 
-            // btnUpload
+            // groupBox2
             // 
-            this.btnUpload.Location = new System.Drawing.Point(293, 135);
-            this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(66, 30);
-            this.btnUpload.TabIndex = 57;
-            this.btnUpload.Text = "Upload";
-            this.btnUpload.UseVisualStyleBackColor = true;
-            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            this.groupBox2.Controls.Add(this.cmbMenuItemType);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Location = new System.Drawing.Point(28, 364);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(508, 59);
+            this.groupBox2.TabIndex = 60;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Menu Item Type";
             // 
-            // label3
+            // cmbMenuItemType
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 135);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 13);
-            this.label3.TabIndex = 54;
-            this.label3.Text = "Menu Image:";
+            this.cmbMenuItemType.FormattingEnabled = true;
+            this.cmbMenuItemType.Location = new System.Drawing.Point(191, 28);
+            this.cmbMenuItemType.Name = "cmbMenuItemType";
+            this.cmbMenuItemType.Size = new System.Drawing.Size(192, 24);
+            this.cmbMenuItemType.TabIndex = 62;
+            this.cmbMenuItemType.SelectedIndexChanged += new System.EventHandler(this.cmbMenuItemType_SelectedIndexChanged);
             // 
-            // pictureBox1
+            // label4
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(143, 135);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(144, 77);
-            this.pictureBox1.TabIndex = 58;
-            this.pictureBox1.TabStop = false;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(5, 28);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(122, 17);
+            this.label4.TabIndex = 63;
+            this.label4.Text = "Select Menu Type";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtinventoryName);
+            this.groupBox1.Controls.Add(this.txtMenuItemName);
             this.groupBox1.Controls.Add(this.btnUpload);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.richTextBox1);
-            this.groupBox1.Controls.Add(this.txtInventoryPrice);
+            this.groupBox1.Controls.Add(this.richDescription);
+            this.groupBox1.Controls.Add(this.txtMenuPrice);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(21, 73);
+            this.groupBox1.Location = new System.Drawing.Point(28, 90);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(381, 217);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(508, 267);
             this.groupBox1.TabIndex = 59;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menu Item";
             // 
-            // txtinventoryName
+            // txtMenuItemName
             // 
-            this.txtinventoryName.Location = new System.Drawing.Point(144, 22);
-            this.txtinventoryName.Name = "txtinventoryName";
-            this.txtinventoryName.Size = new System.Drawing.Size(213, 20);
-            this.txtinventoryName.TabIndex = 61;
+            this.txtMenuItemName.Location = new System.Drawing.Point(192, 27);
+            this.txtMenuItemName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMenuItemName.Name = "txtMenuItemName";
+            this.txtMenuItemName.Size = new System.Drawing.Size(283, 22);
+            this.txtMenuItemName.TabIndex = 61;
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.Location = new System.Drawing.Point(391, 166);
+            this.btnUpload.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(88, 37);
+            this.btnUpload.TabIndex = 57;
+            this.btnUpload.Text = "Upload";
+            this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Location = new System.Drawing.Point(191, 166);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(192, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 58;
+            this.pictureBox1.TabStop = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 29);
+            this.label6.Location = new System.Drawing.Point(9, 36);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 13);
+            this.label6.Size = new System.Drawing.Size(118, 17);
             this.label6.TabIndex = 60;
             this.label6.Text = "Menu Item Name:";
             // 
-            // groupBox2
+            // label3
             // 
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Location = new System.Drawing.Point(21, 296);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(381, 48);
-            this.groupBox2.TabIndex = 60;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Menu Item Type";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(10, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(213, 20);
-            this.textBox1.TabIndex = 62;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(243, 15);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 24);
-            this.button2.TabIndex = 63;
-            this.button2.Text = "Select Menu Type";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 166);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 17);
+            this.label3.TabIndex = 54;
+            this.label3.Text = "Menu Image:";
             // 
             // genderBindingSource1
             // 
@@ -324,26 +320,27 @@
             // 
             // Menu_And_Combo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(437, 393);
+            this.ClientSize = new System.Drawing.Size(677, 533);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel3);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Menu_And_Combo";
             this.Text = "Menu_And_Combo";
+            this.Load += new System.EventHandler(this.Menu_And_Combo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel4.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource)).EndInit();
@@ -362,15 +359,13 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button btnUpdateEmployee;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.TextBox txtInventoryPrice;
+        private System.Windows.Forms.RichTextBox richDescription;
+        private System.Windows.Forms.TextBox txtMenuPrice;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource employeeTypeBindingSource1;
         private System.Windows.Forms.BindingSource employeeTypeBindingSource;
@@ -379,11 +374,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtinventoryName;
+        private System.Windows.Forms.TextBox txtMenuItemName;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cmbMenuItemType;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -11,6 +11,7 @@ namespace WindowsFormsApplication11
 {
     public partial class frmAdd_New_Stock_Item : Form
     {
+        MmasweEntities4 db = new MmasweEntities4();
         public frmAdd_New_Stock_Item()
         {
             InitializeComponent();
@@ -18,59 +19,81 @@ namespace WindowsFormsApplication11
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (MmasweEntities3 context = new MmasweEntities3())
+
+            string phrase = txtStockItemPrice.Text;
+
+            double number;
+            bool isNumeric = double.TryParse(phrase, out number);
+            if ((phrase.Length < 9) && isNumeric == true)
             {
-                
-                Stock_Price newPrice = new Stock_Price
+
+                if ( cmbStockItemType.Text == "Ingredient")
                 {
-                    Stock_Price1 = Convert.ToDouble(txtStockItemPrice.Text),
+                    Stock_Price newPrice = new Stock_Price();
+                    newPrice.Stock_Price1 = Convert.ToDouble(txtStockItemPrice.Text);
+                    db.Stock_Price.Add(newPrice);
+                    newPrice.Stock_Price1 = Convert.ToDouble(txtStockItemPrice.Text);
 
-                };
-                context.Stock_Price.Add(newPrice);
 
-                if (cmbStockItemType.Text == "Ingredient")
-                {
-                    Stock_Item newItem = new Stock_Item
-                    {
+                    db.Stock_Price.Add(newPrice);
+                    Stock_Item newItem = new Stock_Item();
+                    Stock_Type idTracker = db.Stock_Type.FirstOrDefault(c => c.Stock_Type_Description == "Ingredient");
+                    newItem.Stock_Item_Name = txtStockItemnName.Text;
+                    newItem.Stock_Item_Description = txtStockItemDescription.Text;
+                    newItem.Stock_Item_Quantity = 0;
+                    newItem.Stock_Type_ID = idTracker.Stock_Type_ID;
+                    newItem.Stock_Price_ID = newPrice.Stock_Price_ID;
+                    db.Stock_Item.Add(newItem);
+                    db.SaveChanges();
+                    MessageBox.Show("Stock item added successfully");
+                    Globals.refresher = true;
+                    txtStockItemnName.Text = "";
+                    txtStockItemDescription.Text = "";
+                    txtStockItemPrice.Text = "";
+                    cmbStockItemType.Text = "";
 
-                        Stock_Item_Name = txtStockItemnName.Text,
-                        Stock_Item_Description = txtStockItemDescription.Text,
-                        Stock_Item_Quantity = 0,
-                        Stock_Type_ID = 18
-                        
-                    };
-                   
-                    context.Stock_Item.Add(newItem);
-
-                    context.SaveChanges();
                 }
 
-                if (cmbStockItemType.Text == "Product")
+
+                if ((phrase.Length < 9) && cmbStockItemType.Text == "Product")
                 {
-                    Stock_Item newItem = new Stock_Item
-                    {
+                    Stock_Price newPrice = new Stock_Price();
+                    newPrice.Stock_Price1 = Convert.ToDouble(txtStockItemPrice.Text);
+                    db.Stock_Price.Add(newPrice);
+                    newPrice.Stock_Price1 = Convert.ToDouble(txtStockItemPrice.Text);
 
 
-                        Stock_Item_Name = txtStockItemnName.Text,
-                        Stock_Item_Description = txtStockItemDescription.Text,
-                        Stock_Item_Quantity = 0,
-                        Stock_Type_ID = 19,
-                       // Stock_Price_ID = 
+                    db.Stock_Price.Add(newPrice);
+                    Stock_Item newItem = new Stock_Item();
+                    Stock_Type idTracker = db.Stock_Type.FirstOrDefault(c => c.Stock_Type_Description == "Product");
+                    newItem.Stock_Item_Name = txtStockItemnName.Text;
+                    newItem.Stock_Item_Description = txtStockItemDescription.Text;
+                    newItem.Stock_Item_Quantity = 0;
+                    newItem.Stock_Type_ID = idTracker.Stock_Type_ID;
+                    newItem.Stock_Price_ID = newPrice.Stock_Price_ID;
 
+                    db.Stock_Item.Add(newItem);
 
-                    };
-
-                    context.Stock_Item.Add(newItem);
-
-                    context.SaveChanges();
+                    db.SaveChanges();
+                    MessageBox.Show("Stock item added successfully");
+                    Globals.refresher = true;
+                    txtStockItemnName.Text = "";
+                    txtStockItemDescription.Text = "";
+                    txtStockItemPrice.Text = "";
+                    cmbStockItemType.Text = "";
                 }
-
             }
 
+            else
+            {
+                MessageBox.Show("Error: Price value entered is not in correct format or too large");
+            }
 
-           
+        }
 
-
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

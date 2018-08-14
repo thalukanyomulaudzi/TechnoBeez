@@ -12,12 +12,15 @@ namespace WindowsFormsApplication11
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class Stock_WriteOff_Line
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int Stock_WriteOff_LineID { get; set; }
+        public double Quantity { get; set; }
+        public Nullable<int> Stock_ID { get; set; }
+        public Nullable<int> Write_Off_ID { get; set; }
+        public byte[] Stock_Item_Name { get; set; }
+    
+        public virtual Stock_Item Stock_Item { get; set; }
+        public virtual Stock_Write_Off Stock_Write_Off { get; set; }
     }
 }

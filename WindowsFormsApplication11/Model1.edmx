@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MmasweModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MmasweModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Adress">
           <Key>
             <PropertyRef Name="Adress_ID" />
@@ -31,6 +31,42 @@
           <Property Name="Audit_Table" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Audit_Description" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="User_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Check_In">
+          <Key>
+            <PropertyRef Name="Check_In_ID" />
+          </Key>
+          <Property Name="Check_In_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Stock_Item_Name" Type="nchar" MaxLength="10" />
+          <Property Name="Check_In_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Check_In_Line">
+          <Key>
+            <PropertyRef Name="Check_In_Line_ID" />
+          </Key>
+          <Property Name="Check_In_Line_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Quantity" Type="float" Nullable="false" />
+          <Property Name="Stock_ID" Type="int" />
+          <Property Name="Check_In_ID" Type="int" />
+          <Property Name="Stock_Item_Name" Type="varbinary" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Check_Out">
+          <Key>
+            <PropertyRef Name="Check_Out_ID" />
+          </Key>
+          <Property Name="Check_Out_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Check_Out_Date" Type="datetime" Nullable="false" />
+          <Property Name="Stock_Item_Name" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Check_Out_Line">
+          <Key>
+            <PropertyRef Name="Check_Out_Line_ID" />
+          </Key>
+          <Property Name="Check_Out_Line_ID" Type="int" Nullable="false" />
+          <Property Name="Stock_ID" Type="int" />
+          <Property Name="Check_Out_ID" Type="int" />
+          <Property Name="Quaantity" Type="float" Nullable="false" />
+          <Property Name="Stock_Item_Name" Type="varbinary" MaxLength="50" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -188,13 +224,13 @@
           </Key>
           <Property Name="Menu_Price_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Menu_Price" Type="float" Nullable="false" />
-          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Date" Type="datetime" />
         </EntityType>
         <EntityType Name="Menu_Item_Type">
           <Key>
             <PropertyRef Name="Menu_Item_Type_ID" />
           </Key>
-          <Property Name="Menu_Item_Type_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Menu_Item_Type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Menu_Item_Description" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Payment">
@@ -212,6 +248,14 @@
           </Key>
           <Property Name="Payment_Type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Payment_Description" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Quantity">
+          <Key>
+            <PropertyRef Name="Check_In_Line_ID" />
+          </Key>
+          <Property Name="Check_In_Line_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Stock_ID" Type="int" />
+          <Property Name="Check_In_ID" Type="int" />
         </EntityType>
         <EntityType Name="Special">
           <Key>
@@ -243,7 +287,6 @@
           <Property Name="Stock_Item_Description" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Stock_Type_ID" Type="int" />
           <Property Name="Stock_Price_ID" Type="int" />
-          <Property Name="Write_Off_ID" Type="int" />
         </EntityType>
         <EntityType Name="Stock_Order">
           <Key>
@@ -295,8 +338,18 @@
           <Property Name="Write_Off_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="WriteOff_Stock_Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Stock_WriteOff_Quantity" Type="int" Nullable="false" />
+          <Property Name="Employee_ID" Type="nchar" MaxLength="10" />
           <Property Name="WriteOff_Reason" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Stock_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stock_WriteOff_Line">
+          <Key>
+            <PropertyRef Name="Stock_WriteOff_LineID" />
+          </Key>
+          <Property Name="Stock_WriteOff_LineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Quantity" Type="float" Nullable="false" />
+          <Property Name="Stock_ID" Type="int" />
+          <Property Name="Write_Off_ID" Type="int" />
+          <Property Name="Stock_Item_Name" Type="varbinary" MaxLength="50" />
         </EntityType>
         <EntityType Name="Suburb">
           <Key>
@@ -331,16 +384,6 @@
           </Key>
           <Property Name="Supplier_Type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Supplier_Type_Description" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -392,6 +435,54 @@
             </Principal>
             <Dependent Role="Adress">
               <PropertyRef Name="City_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Check_In_Line_Check_In">
+          <End Role="Check_In" Type="Self.Check_In" Multiplicity="0..1" />
+          <End Role="Check_In_Line" Type="Self.Check_In_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Check_In">
+              <PropertyRef Name="Check_In_ID" />
+            </Principal>
+            <Dependent Role="Check_In_Line">
+              <PropertyRef Name="Check_In_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Check_In_Line_Stock_Item">
+          <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="0..1" />
+          <End Role="Check_In_Line" Type="Self.Check_In_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Item">
+              <PropertyRef Name="Stock_ID" />
+            </Principal>
+            <Dependent Role="Check_In_Line">
+              <PropertyRef Name="Stock_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Check_Out_Line_Check_Out">
+          <End Role="Check_Out" Type="Self.Check_Out" Multiplicity="0..1" />
+          <End Role="Check_Out_Line" Type="Self.Check_Out_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Check_Out">
+              <PropertyRef Name="Check_Out_ID" />
+            </Principal>
+            <Dependent Role="Check_Out_Line">
+              <PropertyRef Name="Check_Out_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Check_Out_Line_Stock_Item">
+          <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="0..1" />
+          <End Role="Check_Out_Line" Type="Self.Check_Out_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Item">
+              <PropertyRef Name="Stock_ID" />
+            </Principal>
+            <Dependent Role="Check_Out_Line">
+              <PropertyRef Name="Stock_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -683,18 +774,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Stock_Item_Stock_Write_Off">
-          <End Role="Stock_Write_Off" Type="Self.Stock_Write_Off" Multiplicity="0..1" />
-          <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Stock_Write_Off">
-              <PropertyRef Name="Write_Off_ID" />
-            </Principal>
-            <Dependent Role="Stock_Item">
-              <PropertyRef Name="Write_Off_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Stock_Order_Employee">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="Stock_Order" Type="Self.Stock_Order" Multiplicity="*" />
@@ -752,6 +831,30 @@
             </Principal>
             <Dependent Role="Stock_Order">
               <PropertyRef Name="Supplier_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_WriteOff_Line_Stock_Item">
+          <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="0..1" />
+          <End Role="Stock_WriteOff_Line" Type="Self.Stock_WriteOff_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Item">
+              <PropertyRef Name="Stock_ID" />
+            </Principal>
+            <Dependent Role="Stock_WriteOff_Line">
+              <PropertyRef Name="Stock_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_WriteOff_Line_Stock_Write_Off">
+          <End Role="Stock_Write_Off" Type="Self.Stock_Write_Off" Multiplicity="0..1" />
+          <End Role="Stock_WriteOff_Line" Type="Self.Stock_WriteOff_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Write_Off">
+              <PropertyRef Name="Write_Off_ID" />
+            </Principal>
+            <Dependent Role="Stock_WriteOff_Line">
+              <PropertyRef Name="Write_Off_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -831,6 +934,10 @@
           <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Adress_Type" EntityType="Self.Adress_Type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Audit" EntityType="Self.Audit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Check_In" EntityType="Self.Check_In" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Check_In_Line" EntityType="Self.Check_In_Line" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Check_Out" EntityType="Self.Check_Out" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Check_Out_Line" EntityType="Self.Check_Out_Line" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Combo" EntityType="Self.Combo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Combo_Price" EntityType="Self.Combo_Price" Schema="dbo" store:Type="Tables" />
@@ -850,6 +957,7 @@
           <EntitySet Name="Menu_Item_Type" EntityType="Self.Menu_Item_Type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Payment_Type" EntityType="Self.Payment_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quantity" EntityType="Self.Quantity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Special" EntityType="Self.Special" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stock_Combo_Line" EntityType="Self.Stock_Combo_Line" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stock_Item" EntityType="Self.Stock_Item" Schema="dbo" store:Type="Tables" />
@@ -859,11 +967,11 @@
           <EntitySet Name="Stock_Price" EntityType="Self.Stock_Price" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stock_Type" EntityType="Self.Stock_Type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stock_Write_Off" EntityType="Self.Stock_Write_Off" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stock_WriteOff_Line" EntityType="Self.Stock_WriteOff_Line" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Suburb" EntityType="Self.Suburb" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplier_Contact_Details" EntityType="Self.Supplier_Contact_Details" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplier_Type" EntityType="Self.Supplier_Type" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User_Log" EntityType="Self.User_Log" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User_Role" EntityType="Self.User_Role" Schema="dbo" store:Type="Tables" />
@@ -874,6 +982,22 @@
           <AssociationSet Name="FK_Adress_City" Association="Self.FK_Adress_City">
             <End Role="City" EntitySet="City" />
             <End Role="Adress" EntitySet="Adress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Check_In_Line_Check_In" Association="Self.FK_Check_In_Line_Check_In">
+            <End Role="Check_In" EntitySet="Check_In" />
+            <End Role="Check_In_Line" EntitySet="Check_In_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Check_In_Line_Stock_Item" Association="Self.FK_Check_In_Line_Stock_Item">
+            <End Role="Stock_Item" EntitySet="Stock_Item" />
+            <End Role="Check_In_Line" EntitySet="Check_In_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Check_Out_Line_Check_Out" Association="Self.FK_Check_Out_Line_Check_Out">
+            <End Role="Check_Out" EntitySet="Check_Out" />
+            <End Role="Check_Out_Line" EntitySet="Check_Out_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Check_Out_Line_Stock_Item" Association="Self.FK_Check_Out_Line_Stock_Item">
+            <End Role="Stock_Item" EntitySet="Stock_Item" />
+            <End Role="Check_Out_Line" EntitySet="Check_Out_Line" />
           </AssociationSet>
           <AssociationSet Name="FK_City_Suburb" Association="Self.FK_City_Suburb">
             <End Role="Suburb" EntitySet="Suburb" />
@@ -971,10 +1095,6 @@
             <End Role="Stock_Type" EntitySet="Stock_Type" />
             <End Role="Stock_Item" EntitySet="Stock_Item" />
           </AssociationSet>
-          <AssociationSet Name="FK_Stock_Item_Stock_Write_Off" Association="Self.FK_Stock_Item_Stock_Write_Off">
-            <End Role="Stock_Write_Off" EntitySet="Stock_Write_Off" />
-            <End Role="Stock_Item" EntitySet="Stock_Item" />
-          </AssociationSet>
           <AssociationSet Name="FK_Stock_Order_Employee" Association="Self.FK_Stock_Order_Employee">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Stock_Order" EntitySet="Stock_Order" />
@@ -994,6 +1114,14 @@
           <AssociationSet Name="FK_Stock_Order_Supplier" Association="Self.FK_Stock_Order_Supplier">
             <End Role="Supplier" EntitySet="Supplier" />
             <End Role="Stock_Order" EntitySet="Stock_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_WriteOff_Line_Stock_Item" Association="Self.FK_Stock_WriteOff_Line_Stock_Item">
+            <End Role="Stock_Item" EntitySet="Stock_Item" />
+            <End Role="Stock_WriteOff_Line" EntitySet="Stock_WriteOff_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_WriteOff_Line_Stock_Write_Off" Association="Self.FK_Stock_WriteOff_Line_Stock_Write_Off">
+            <End Role="Stock_Write_Off" EntitySet="Stock_Write_Off" />
+            <End Role="Stock_WriteOff_Line" EntitySet="Stock_WriteOff_Line" />
           </AssociationSet>
           <AssociationSet Name="FK_Supplier_Adress" Association="Self.FK_Supplier_Adress">
             <End Role="Adress" EntitySet="Adress" />
@@ -1020,7 +1148,8 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MmasweModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1055,6 +1184,48 @@
           <Property Name="Audit_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="User_ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Users" Relationship="Self.FK_User_Audit" FromRole="Audit" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Check_In">
+          <Key>
+            <PropertyRef Name="Check_In_ID" />
+          </Key>
+          <Property Name="Check_In_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Stock_Item_Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Check_In_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Check_In_Line" Relationship="Self.FK_Check_In_Line_Check_In" FromRole="Check_In" ToRole="Check_In_Line" />
+        </EntityType>
+        <EntityType Name="Check_In_Line">
+          <Key>
+            <PropertyRef Name="Check_In_Line_ID" />
+          </Key>
+          <Property Name="Check_In_Line_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quantity" Type="Double" Nullable="false" />
+          <Property Name="Stock_ID" Type="Int32" />
+          <Property Name="Check_In_ID" Type="Int32" />
+          <Property Name="Stock_Item_Name" Type="Binary" MaxLength="50" FixedLength="false" />
+          <NavigationProperty Name="Check_In" Relationship="Self.FK_Check_In_Line_Check_In" FromRole="Check_In_Line" ToRole="Check_In" />
+          <NavigationProperty Name="Stock_Item" Relationship="Self.FK_Check_In_Line_Stock_Item" FromRole="Check_In_Line" ToRole="Stock_Item" />
+        </EntityType>
+        <EntityType Name="Check_Out">
+          <Key>
+            <PropertyRef Name="Check_Out_ID" />
+          </Key>
+          <Property Name="Check_Out_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Check_Out_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Stock_Item_Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Check_Out_Line" Relationship="Self.FK_Check_Out_Line_Check_Out" FromRole="Check_Out" ToRole="Check_Out_Line" />
+        </EntityType>
+        <EntityType Name="Check_Out_Line">
+          <Key>
+            <PropertyRef Name="Check_Out_Line_ID" />
+          </Key>
+          <Property Name="Check_Out_Line_ID" Type="Int32" Nullable="false" />
+          <Property Name="Stock_ID" Type="Int32" />
+          <Property Name="Check_Out_ID" Type="Int32" />
+          <Property Name="Quaantity" Type="Double" Nullable="false" />
+          <Property Name="Stock_Item_Name" Type="Binary" MaxLength="50" FixedLength="false" />
+          <NavigationProperty Name="Check_Out" Relationship="Self.FK_Check_Out_Line_Check_Out" FromRole="Check_Out_Line" ToRole="Check_Out" />
+          <NavigationProperty Name="Stock_Item" Relationship="Self.FK_Check_Out_Line_Stock_Item" FromRole="Check_Out_Line" ToRole="Stock_Item" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -1246,7 +1417,7 @@
           </Key>
           <Property Name="Menu_Price_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Menu_Price" Type="Double" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Menu_Item" Relationship="Self.FK_Menu_Item_Menu_Item_Price" FromRole="Menu_Item_Price" ToRole="Menu_Item" />
         </EntityType>
         <EntityType Name="Menu_Item_Type">
@@ -1275,6 +1446,14 @@
           <Property Name="Payment_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Payment_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Payments" Relationship="Self.FK_Payment_Payment_Type" FromRole="Payment_Type" ToRole="Payment" />
+        </EntityType>
+        <EntityType Name="Quantity">
+          <Key>
+            <PropertyRef Name="Check_In_Line_ID" />
+          </Key>
+          <Property Name="Check_In_Line_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Stock_ID" Type="Int32" />
+          <Property Name="Check_In_ID" Type="Int32" />
         </EntityType>
         <EntityType Name="Special">
           <Key>
@@ -1309,13 +1488,14 @@
           <Property Name="Stock_Item_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Stock_Type_ID" Type="Int32" />
           <Property Name="Stock_Price_ID" Type="Int32" />
-          <Property Name="Write_Off_ID" Type="Int32" />
+          <NavigationProperty Name="Check_In_Line" Relationship="Self.FK_Check_In_Line_Stock_Item" FromRole="Stock_Item" ToRole="Check_In_Line" />
+          <NavigationProperty Name="Check_Out_Line" Relationship="Self.FK_Check_Out_Line_Stock_Item" FromRole="Stock_Item" ToRole="Check_Out_Line" />
           <NavigationProperty Name="Customer_Order_Line" Relationship="Self.FK_Customer_Order_Line_Stock_Item" FromRole="Stock_Item" ToRole="Customer_Order_Line" />
           <NavigationProperty Name="Stock_Combo_Line" Relationship="Self.FK_Stock_Combo_Line_Stock_Item" FromRole="Stock_Item" ToRole="Stock_Combo_Line" />
           <NavigationProperty Name="Stock_Price" Relationship="Self.FK_Stock_Item_Stock_Price" FromRole="Stock_Item" ToRole="Stock_Price" />
           <NavigationProperty Name="Stock_Type" Relationship="Self.FK_Stock_Item_Stock_Type" FromRole="Stock_Item" ToRole="Stock_Type" />
-          <NavigationProperty Name="Stock_Write_Off" Relationship="Self.FK_Stock_Item_Stock_Write_Off" FromRole="Stock_Item" ToRole="Stock_Write_Off" />
           <NavigationProperty Name="Stock_Order_Line" Relationship="Self.FK_Stock_Order_Line_Stock_Item" FromRole="Stock_Item" ToRole="Stock_Order_Line" />
+          <NavigationProperty Name="Stock_WriteOff_Line" Relationship="Self.FK_Stock_WriteOff_Line_Stock_Item" FromRole="Stock_Item" ToRole="Stock_WriteOff_Line" />
         </EntityType>
         <EntityType Name="Stock_Order">
           <Key>
@@ -1376,9 +1556,21 @@
           <Property Name="Write_Off_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="WriteOff_Stock_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Stock_WriteOff_Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Employee_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="WriteOff_Reason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Stock_ID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Stock_Item" Relationship="Self.FK_Stock_Item_Stock_Write_Off" FromRole="Stock_Write_Off" ToRole="Stock_Item" />
+          <NavigationProperty Name="Stock_WriteOff_Line" Relationship="Self.FK_Stock_WriteOff_Line_Stock_Write_Off" FromRole="Stock_Write_Off" ToRole="Stock_WriteOff_Line" />
+        </EntityType>
+        <EntityType Name="Stock_WriteOff_Line">
+          <Key>
+            <PropertyRef Name="Stock_WriteOff_LineID" />
+          </Key>
+          <Property Name="Stock_WriteOff_LineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quantity" Type="Double" Nullable="false" />
+          <Property Name="Stock_ID" Type="Int32" />
+          <Property Name="Write_Off_ID" Type="Int32" />
+          <Property Name="Stock_Item_Name" Type="Binary" MaxLength="50" FixedLength="false" />
+          <NavigationProperty Name="Stock_Item" Relationship="Self.FK_Stock_WriteOff_Line_Stock_Item" FromRole="Stock_WriteOff_Line" ToRole="Stock_Item" />
+          <NavigationProperty Name="Stock_Write_Off" Relationship="Self.FK_Stock_WriteOff_Line_Stock_Write_Off" FromRole="Stock_WriteOff_Line" ToRole="Stock_Write_Off" />
         </EntityType>
         <EntityType Name="Suburb">
           <Key>
@@ -1420,16 +1612,6 @@
           <Property Name="Supplier_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Supplier_Type_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Suppliers" Relationship="Self.FK_Supplier_Supplier_Type" FromRole="Supplier_Type" ToRole="Supplier" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -1511,6 +1693,54 @@
             </Principal>
             <Dependent Role="User">
               <PropertyRef Name="Audit_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Check_In_Line_Check_In">
+          <End Role="Check_In" Type="Self.Check_In" Multiplicity="0..1" />
+          <End Role="Check_In_Line" Type="Self.Check_In_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Check_In">
+              <PropertyRef Name="Check_In_ID" />
+            </Principal>
+            <Dependent Role="Check_In_Line">
+              <PropertyRef Name="Check_In_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Check_In_Line_Stock_Item">
+          <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="0..1" />
+          <End Role="Check_In_Line" Type="Self.Check_In_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Item">
+              <PropertyRef Name="Stock_ID" />
+            </Principal>
+            <Dependent Role="Check_In_Line">
+              <PropertyRef Name="Stock_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Check_Out_Line_Check_Out">
+          <End Role="Check_Out" Type="Self.Check_Out" Multiplicity="0..1" />
+          <End Role="Check_Out_Line" Type="Self.Check_Out_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Check_Out">
+              <PropertyRef Name="Check_Out_ID" />
+            </Principal>
+            <Dependent Role="Check_Out_Line">
+              <PropertyRef Name="Check_Out_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Check_Out_Line_Stock_Item">
+          <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="0..1" />
+          <End Role="Check_Out_Line" Type="Self.Check_Out_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Item">
+              <PropertyRef Name="Stock_ID" />
+            </Principal>
+            <Dependent Role="Check_Out_Line">
+              <PropertyRef Name="Stock_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1814,18 +2044,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Stock_Item_Stock_Write_Off">
-          <End Role="Stock_Write_Off" Type="Self.Stock_Write_Off" Multiplicity="0..1" />
-          <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Stock_Write_Off">
-              <PropertyRef Name="Write_Off_ID" />
-            </Principal>
-            <Dependent Role="Stock_Item">
-              <PropertyRef Name="Write_Off_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Stock_Order_Line_Stock_Item">
           <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="0..1" />
           <End Role="Stock_Order_Line" Type="Self.Stock_Order_Line" Multiplicity="*" />
@@ -1834,6 +2052,18 @@
               <PropertyRef Name="Stock_ID" />
             </Principal>
             <Dependent Role="Stock_Order_Line">
+              <PropertyRef Name="Stock_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_WriteOff_Line_Stock_Item">
+          <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="0..1" />
+          <End Role="Stock_WriteOff_Line" Type="Self.Stock_WriteOff_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Item">
+              <PropertyRef Name="Stock_ID" />
+            </Principal>
+            <Dependent Role="Stock_WriteOff_Line">
               <PropertyRef Name="Stock_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -1871,6 +2101,18 @@
             </Principal>
             <Dependent Role="Stock_Order">
               <PropertyRef Name="Supplier_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_WriteOff_Line_Stock_Write_Off">
+          <End Role="Stock_Write_Off" Type="Self.Stock_Write_Off" Multiplicity="0..1" />
+          <End Role="Stock_WriteOff_Line" Type="Self.Stock_WriteOff_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Write_Off">
+              <PropertyRef Name="Write_Off_ID" />
+            </Principal>
+            <Dependent Role="Stock_WriteOff_Line">
+              <PropertyRef Name="Write_Off_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1922,10 +2164,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MmasweEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MmasweEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Adresses" EntityType="Self.Adress" />
           <EntitySet Name="Adress_Type" EntityType="Self.Adress_Type" />
           <EntitySet Name="Audits" EntityType="Self.Audit" />
+          <EntitySet Name="Check_In" EntityType="Self.Check_In" />
+          <EntitySet Name="Check_In_Line" EntityType="Self.Check_In_Line" />
+          <EntitySet Name="Check_Out" EntityType="Self.Check_Out" />
+          <EntitySet Name="Check_Out_Line" EntityType="Self.Check_Out_Line" />
           <EntitySet Name="Cities" EntityType="Self.City" />
           <EntitySet Name="Comboes" EntityType="Self.Combo" />
           <EntitySet Name="Combo_Price" EntityType="Self.Combo_Price" />
@@ -1945,6 +2191,7 @@
           <EntitySet Name="Menu_Item_Type" EntityType="Self.Menu_Item_Type" />
           <EntitySet Name="Payments" EntityType="Self.Payment" />
           <EntitySet Name="Payment_Type" EntityType="Self.Payment_Type" />
+          <EntitySet Name="Quantities" EntityType="Self.Quantity" />
           <EntitySet Name="Specials" EntityType="Self.Special" />
           <EntitySet Name="Stock_Combo_Line" EntityType="Self.Stock_Combo_Line" />
           <EntitySet Name="Stock_Item" EntityType="Self.Stock_Item" />
@@ -1954,11 +2201,11 @@
           <EntitySet Name="Stock_Price" EntityType="Self.Stock_Price" />
           <EntitySet Name="Stock_Type" EntityType="Self.Stock_Type" />
           <EntitySet Name="Stock_Write_Off" EntityType="Self.Stock_Write_Off" />
+          <EntitySet Name="Stock_WriteOff_Line" EntityType="Self.Stock_WriteOff_Line" />
           <EntitySet Name="Suburbs" EntityType="Self.Suburb" />
           <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
           <EntitySet Name="Supplier_Contact_Details" EntityType="Self.Supplier_Contact_Details" />
           <EntitySet Name="Supplier_Type" EntityType="Self.Supplier_Type" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="User_Log" EntityType="Self.User_Log" />
           <EntitySet Name="User_Role" EntityType="Self.User_Role" />
@@ -1977,6 +2224,22 @@
           <AssociationSet Name="FK_User_Audit" Association="Self.FK_User_Audit">
             <End Role="Audit" EntitySet="Audits" />
             <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Check_In_Line_Check_In" Association="Self.FK_Check_In_Line_Check_In">
+            <End Role="Check_In" EntitySet="Check_In" />
+            <End Role="Check_In_Line" EntitySet="Check_In_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Check_In_Line_Stock_Item" Association="Self.FK_Check_In_Line_Stock_Item">
+            <End Role="Stock_Item" EntitySet="Stock_Item" />
+            <End Role="Check_In_Line" EntitySet="Check_In_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Check_Out_Line_Check_Out" Association="Self.FK_Check_Out_Line_Check_Out">
+            <End Role="Check_Out" EntitySet="Check_Out" />
+            <End Role="Check_Out_Line" EntitySet="Check_Out_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Check_Out_Line_Stock_Item" Association="Self.FK_Check_Out_Line_Stock_Item">
+            <End Role="Stock_Item" EntitySet="Stock_Item" />
+            <End Role="Check_Out_Line" EntitySet="Check_Out_Line" />
           </AssociationSet>
           <AssociationSet Name="FK_City_Suburb" Association="Self.FK_City_Suburb">
             <End Role="Suburb" EntitySet="Suburbs" />
@@ -2078,13 +2341,13 @@
             <End Role="Stock_Type" EntitySet="Stock_Type" />
             <End Role="Stock_Item" EntitySet="Stock_Item" />
           </AssociationSet>
-          <AssociationSet Name="FK_Stock_Item_Stock_Write_Off" Association="Self.FK_Stock_Item_Stock_Write_Off">
-            <End Role="Stock_Write_Off" EntitySet="Stock_Write_Off" />
-            <End Role="Stock_Item" EntitySet="Stock_Item" />
-          </AssociationSet>
           <AssociationSet Name="FK_Stock_Order_Line_Stock_Item" Association="Self.FK_Stock_Order_Line_Stock_Item">
             <End Role="Stock_Item" EntitySet="Stock_Item" />
             <End Role="Stock_Order_Line" EntitySet="Stock_Order_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_WriteOff_Line_Stock_Item" Association="Self.FK_Stock_WriteOff_Line_Stock_Item">
+            <End Role="Stock_Item" EntitySet="Stock_Item" />
+            <End Role="Stock_WriteOff_Line" EntitySet="Stock_WriteOff_Line" />
           </AssociationSet>
           <AssociationSet Name="FK_Stock_Order_Line_Stock_Order" Association="Self.FK_Stock_Order_Line_Stock_Order">
             <End Role="Stock_Order" EntitySet="Stock_Order" />
@@ -2097,6 +2360,10 @@
           <AssociationSet Name="FK_Stock_Order_Supplier" Association="Self.FK_Stock_Order_Supplier">
             <End Role="Supplier" EntitySet="Suppliers" />
             <End Role="Stock_Order" EntitySet="Stock_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_WriteOff_Line_Stock_Write_Off" Association="Self.FK_Stock_WriteOff_Line_Stock_Write_Off">
+            <End Role="Stock_Write_Off" EntitySet="Stock_Write_Off" />
+            <End Role="Stock_WriteOff_Line" EntitySet="Stock_WriteOff_Line" />
           </AssociationSet>
           <AssociationSet Name="FK_Supplier_Contact_Details_Supplier" Association="Self.FK_Supplier_Contact_Details_Supplier">
             <End Role="Supplier" EntitySet="Suppliers" />
@@ -2120,7 +2387,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MmasweModelStoreContainer" CdmEntityContainer="MmasweEntities3">
+        <EntityContainerMapping StorageEntityContainer="MmasweModelStoreContainer" CdmEntityContainer="MmasweEntities4">
           <EntitySetMapping Name="Adresses">
             <EntityTypeMapping TypeName="MmasweModel.Adress">
               <MappingFragment StoreEntitySet="Adress">
@@ -2148,6 +2415,46 @@
                 <ScalarProperty Name="Audit_Table" ColumnName="Audit_Table" />
                 <ScalarProperty Name="Audit_Description" ColumnName="Audit_Description" />
                 <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Check_In">
+            <EntityTypeMapping TypeName="MmasweModel.Check_In">
+              <MappingFragment StoreEntitySet="Check_In">
+                <ScalarProperty Name="Check_In_ID" ColumnName="Check_In_ID" />
+                <ScalarProperty Name="Stock_Item_Name" ColumnName="Stock_Item_Name" />
+                <ScalarProperty Name="Check_In_Date" ColumnName="Check_In_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Check_In_Line">
+            <EntityTypeMapping TypeName="MmasweModel.Check_In_Line">
+              <MappingFragment StoreEntitySet="Check_In_Line">
+                <ScalarProperty Name="Check_In_Line_ID" ColumnName="Check_In_Line_ID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Stock_ID" ColumnName="Stock_ID" />
+                <ScalarProperty Name="Check_In_ID" ColumnName="Check_In_ID" />
+                <ScalarProperty Name="Stock_Item_Name" ColumnName="Stock_Item_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Check_Out">
+            <EntityTypeMapping TypeName="MmasweModel.Check_Out">
+              <MappingFragment StoreEntitySet="Check_Out">
+                <ScalarProperty Name="Check_Out_ID" ColumnName="Check_Out_ID" />
+                <ScalarProperty Name="Check_Out_Date" ColumnName="Check_Out_Date" />
+                <ScalarProperty Name="Stock_Item_Name" ColumnName="Stock_Item_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Check_Out_Line">
+            <EntityTypeMapping TypeName="MmasweModel.Check_Out_Line">
+              <MappingFragment StoreEntitySet="Check_Out_Line">
+                <ScalarProperty Name="Check_Out_Line_ID" ColumnName="Check_Out_Line_ID" />
+                <ScalarProperty Name="Stock_ID" ColumnName="Stock_ID" />
+                <ScalarProperty Name="Check_Out_ID" ColumnName="Check_Out_ID" />
+                <ScalarProperty Name="Quaantity" ColumnName="Quaantity" />
+                <ScalarProperty Name="Stock_Item_Name" ColumnName="Stock_Item_Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2351,6 +2658,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Quantities">
+            <EntityTypeMapping TypeName="MmasweModel.Quantity">
+              <MappingFragment StoreEntitySet="Quantity">
+                <ScalarProperty Name="Check_In_Line_ID" ColumnName="Check_In_Line_ID" />
+                <ScalarProperty Name="Stock_ID" ColumnName="Stock_ID" />
+                <ScalarProperty Name="Check_In_ID" ColumnName="Check_In_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Specials">
             <EntityTypeMapping TypeName="MmasweModel.Special">
               <MappingFragment StoreEntitySet="Special">
@@ -2382,7 +2698,6 @@
                 <ScalarProperty Name="Stock_Item_Description" ColumnName="Stock_Item_Description" />
                 <ScalarProperty Name="Stock_Type_ID" ColumnName="Stock_Type_ID" />
                 <ScalarProperty Name="Stock_Price_ID" ColumnName="Stock_Price_ID" />
-                <ScalarProperty Name="Write_Off_ID" ColumnName="Write_Off_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2440,8 +2755,19 @@
                 <ScalarProperty Name="Write_Off_ID" ColumnName="Write_Off_ID" />
                 <ScalarProperty Name="WriteOff_Stock_Name" ColumnName="WriteOff_Stock_Name" />
                 <ScalarProperty Name="Stock_WriteOff_Quantity" ColumnName="Stock_WriteOff_Quantity" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
                 <ScalarProperty Name="WriteOff_Reason" ColumnName="WriteOff_Reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stock_WriteOff_Line">
+            <EntityTypeMapping TypeName="MmasweModel.Stock_WriteOff_Line">
+              <MappingFragment StoreEntitySet="Stock_WriteOff_Line">
+                <ScalarProperty Name="Stock_WriteOff_LineID" ColumnName="Stock_WriteOff_LineID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="Stock_ID" ColumnName="Stock_ID" />
+                <ScalarProperty Name="Write_Off_ID" ColumnName="Write_Off_ID" />
+                <ScalarProperty Name="Stock_Item_Name" ColumnName="Stock_Item_Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2480,17 +2806,6 @@
               <MappingFragment StoreEntitySet="Supplier_Type">
                 <ScalarProperty Name="Supplier_Type_ID" ColumnName="Supplier_Type_ID" />
                 <ScalarProperty Name="Supplier_Type_Description" ColumnName="Supplier_Type_Description" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="MmasweModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
