@@ -31,22 +31,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Maintain_Stock_Item));
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cmbSTypeMaint = new System.Windows.Forms.ComboBox();
+            this.txtCostPrice = new System.Windows.Forms.TextBox();
             this.lblCostPrice = new System.Windows.Forms.Label();
             this.lblStockQuantity = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtStockItemPrice = new System.Windows.Forms.TextBox();
-            this.txtStockItemDescription = new System.Windows.Forms.TextBox();
+            this.txtStockItemNameMaint = new System.Windows.Forms.TextBox();
+            this.txtStockItemDescriptionMaint = new System.Windows.Forms.TextBox();
             this.lblStockDescription = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -67,13 +68,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.cmbSTypeMaint);
+            this.groupBox1.Controls.Add(this.txtCostPrice);
             this.groupBox1.Controls.Add(this.lblCostPrice);
             this.groupBox1.Controls.Add(this.lblStockQuantity);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtStockItemPrice);
-            this.groupBox1.Controls.Add(this.txtStockItemDescription);
+            this.groupBox1.Controls.Add(this.txtStockItemNameMaint);
+            this.groupBox1.Controls.Add(this.txtStockItemDescriptionMaint);
             this.groupBox1.Controls.Add(this.lblStockDescription);
             this.groupBox1.Location = new System.Drawing.Point(23, 25);
             this.groupBox1.Name = "groupBox1";
@@ -82,16 +83,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Stock Item Details";
             // 
-            // textBox1
+            // cmbSTypeMaint
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cmbSTypeMaint.FormattingEnabled = true;
+            this.cmbSTypeMaint.Items.AddRange(new object[] {
+            "Ingredient",
+            "Product"});
+            this.cmbSTypeMaint.Location = new System.Drawing.Point(178, 141);
+            this.cmbSTypeMaint.Name = "cmbSTypeMaint";
+            this.cmbSTypeMaint.Size = new System.Drawing.Size(176, 24);
+            this.cmbSTypeMaint.TabIndex = 97;
+            // 
+            // txtCostPrice
+            // 
+            this.txtCostPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(178, 184);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(176, 22);
-            this.textBox1.TabIndex = 94;
+            this.txtCostPrice.Location = new System.Drawing.Point(178, 184);
+            this.txtCostPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCostPrice.Name = "txtCostPrice";
+            this.txtCostPrice.Size = new System.Drawing.Size(176, 22);
+            this.txtCostPrice.TabIndex = 94;
             // 
             // lblCostPrice
             // 
@@ -132,27 +144,27 @@
             this.label1.TabIndex = 93;
             this.label1.Text = "Stock Item Cost Price:";
             // 
-            // txtStockItemPrice
+            // txtStockItemNameMaint
             // 
-            this.txtStockItemPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtStockItemNameMaint.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStockItemPrice.Location = new System.Drawing.Point(178, 53);
-            this.txtStockItemPrice.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStockItemPrice.Name = "txtStockItemPrice";
-            this.txtStockItemPrice.Size = new System.Drawing.Size(176, 22);
-            this.txtStockItemPrice.TabIndex = 85;
+            this.txtStockItemNameMaint.Location = new System.Drawing.Point(178, 53);
+            this.txtStockItemNameMaint.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStockItemNameMaint.Name = "txtStockItemNameMaint";
+            this.txtStockItemNameMaint.Size = new System.Drawing.Size(176, 22);
+            this.txtStockItemNameMaint.TabIndex = 85;
             // 
-            // txtStockItemDescription
+            // txtStockItemDescriptionMaint
             // 
-            this.txtStockItemDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtStockItemDescriptionMaint.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStockItemDescription.Location = new System.Drawing.Point(178, 100);
-            this.txtStockItemDescription.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStockItemDescription.Name = "txtStockItemDescription";
-            this.txtStockItemDescription.Size = new System.Drawing.Size(176, 22);
-            this.txtStockItemDescription.TabIndex = 87;
+            this.txtStockItemDescriptionMaint.Location = new System.Drawing.Point(178, 100);
+            this.txtStockItemDescriptionMaint.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStockItemDescriptionMaint.Name = "txtStockItemDescriptionMaint";
+            this.txtStockItemDescriptionMaint.Size = new System.Drawing.Size(176, 22);
+            this.txtStockItemDescriptionMaint.TabIndex = 87;
             // 
             // lblStockDescription
             // 
@@ -181,6 +193,7 @@
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(171)))), ((int)(((byte)(241)))));
+            this.panel14.Controls.Add(this.btnCancel);
             this.panel14.Controls.Add(this.panel17);
             this.panel14.Controls.Add(this.panel15);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -189,6 +202,22 @@
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(800, 75);
             this.panel14.TabIndex = 27;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(13, 28);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnCancel.Size = new System.Drawing.Size(107, 34);
+            this.btnCancel.TabIndex = 12;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // panel17
             // 
@@ -230,7 +259,7 @@
             this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.button1.Size = new System.Drawing.Size(108, 34);
             this.button1.TabIndex = 10;
-            this.button1.Text = "Submit";
+            this.button1.Text = "Update";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -268,17 +297,6 @@
             this.panel1.Size = new System.Drawing.Size(800, 1);
             this.panel1.TabIndex = 2;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Ingredient",
-            "Product"});
-            this.comboBox1.Location = new System.Drawing.Point(178, 141);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(176, 24);
-            this.comboBox1.TabIndex = 97;
-            // 
             // Maintain_Stock_Item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -289,6 +307,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "Maintain_Stock_Item";
             this.Text = "Maintain_Stock_Item";
+            this.Load += new System.EventHandler(this.Maintain_Stock_Item_Load);
             this.panel3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -311,14 +330,15 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCostPrice;
         private System.Windows.Forms.Label lblCostPrice;
         private System.Windows.Forms.Label lblStockQuantity;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtStockItemPrice;
-        private System.Windows.Forms.TextBox txtStockItemDescription;
+        private System.Windows.Forms.TextBox txtStockItemNameMaint;
+        private System.Windows.Forms.TextBox txtStockItemDescriptionMaint;
         private System.Windows.Forms.Label lblStockDescription;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbSTypeMaint;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

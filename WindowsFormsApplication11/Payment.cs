@@ -22,7 +22,7 @@ namespace WindowsFormsApplication11
     
         public int Payment_ID { get; set; }
         public System.DateTime Payment_Date { get; set; }
-        public decimal Payment_Amount { get; set; }
+        public double Payment_Amount { get; set; }
         public Nullable<int> Payment_Type_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

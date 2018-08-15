@@ -18,13 +18,12 @@ namespace WindowsFormsApplication11
         public Menu_Item()
         {
             this.Customer_Order_Line = new HashSet<Customer_Order_Line>();
-            this.Menu_Item_Stock_Line = new HashSet<Menu_Item_Stock_Line>();
         }
     
         public int Menu_Item_ID { get; set; }
         public string Menu_Item_Name { get; set; }
         public string Menu_Item_Description { get; set; }
-        public decimal Menu_Item_Price { get; set; }
+        public double Menu_Item_Price { get; set; }
         public Nullable<int> Menu_Item_Type_ID { get; set; }
         public Nullable<int> Menu_Price_ID { get; set; }
     
@@ -32,7 +31,5 @@ namespace WindowsFormsApplication11
         public virtual ICollection<Customer_Order_Line> Customer_Order_Line { get; set; }
         public virtual Menu_Item_Price Menu_Item_Price1 { get; set; }
         public virtual Menu_Item_Type Menu_Item_Type { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Menu_Item_Stock_Line> Menu_Item_Stock_Line { get; set; }
     }
 }

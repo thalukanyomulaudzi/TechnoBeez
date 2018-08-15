@@ -23,7 +23,7 @@ namespace WindowsFormsApplication11
         public int Audit_ID { get; set; }
         public string Audit_Name { get; set; }
         public string Audit_Table { get; set; }
-        public byte[] Audit_Description { get; set; }
+        public string Audit_Description { get; set; }
         public int User_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

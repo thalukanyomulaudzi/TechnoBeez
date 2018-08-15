@@ -23,7 +23,7 @@ namespace WindowsFormsApplication11
         public int Order_ID { get; set; }
         public string Order_Status { get; set; }
         public Nullable<System.DateTime> Order_Date { get; set; }
-        public Nullable<decimal> Sale_Vat_Amount { get; set; }
+        public Nullable<double> Sale_Vat_Amount { get; set; }
         public Nullable<int> Customer_ID { get; set; }
         public Nullable<int> Payment_ID { get; set; }
         public Nullable<int> Employee_ID { get; set; }

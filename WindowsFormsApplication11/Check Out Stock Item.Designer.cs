@@ -31,24 +31,25 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Check_Out_Stock_Item));
             this.label14 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtStockItemNamee = new System.Windows.Forms.TextBox();
             this.txtStockQuantity = new System.Windows.Forms.TextBox();
+            this.lblName = new System.Windows.Forms.Label();
+            this.txtStockItemID = new System.Windows.Forms.TextBox();
             this.lblStockQuantity = new System.Windows.Forms.Label();
             this.lblStockDescription = new System.Windows.Forms.Label();
-            this.txtStockItemPrice = new System.Windows.Forms.TextBox();
-            this.txtStockItemName = new System.Windows.Forms.TextBox();
-            this.lblName = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label14
@@ -69,8 +70,34 @@
             this.panel3.Location = new System.Drawing.Point(0, 70);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(800, 305);
+            this.panel3.Size = new System.Drawing.Size(1182, 305);
             this.panel3.TabIndex = 25;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtStockItemNamee);
+            this.groupBox1.Controls.Add(this.txtStockQuantity);
+            this.groupBox1.Controls.Add(this.lblName);
+            this.groupBox1.Controls.Add(this.txtStockItemID);
+            this.groupBox1.Controls.Add(this.lblStockQuantity);
+            this.groupBox1.Controls.Add(this.lblStockDescription);
+            this.groupBox1.Location = new System.Drawing.Point(23, 23);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(453, 246);
+            this.groupBox1.TabIndex = 78;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Stock Item Details";
+            // 
+            // txtStockItemNamee
+            // 
+            this.txtStockItemNamee.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtStockItemNamee.Location = new System.Drawing.Point(174, 111);
+            this.txtStockItemNamee.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStockItemNamee.Name = "txtStockItemNamee";
+            this.txtStockItemNamee.Size = new System.Drawing.Size(198, 22);
+            this.txtStockItemNamee.TabIndex = 75;
             // 
             // txtStockQuantity
             // 
@@ -82,6 +109,30 @@
             this.txtStockQuantity.Name = "txtStockQuantity";
             this.txtStockQuantity.Size = new System.Drawing.Size(198, 22);
             this.txtStockQuantity.TabIndex = 77;
+            // 
+            // lblName
+            // 
+            this.lblName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(19, 63);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(94, 17);
+            this.lblName.TabIndex = 70;
+            this.lblName.Text = "Stock Item ID:";
+            // 
+            // txtStockItemID
+            // 
+            this.txtStockItemID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtStockItemID.Location = new System.Drawing.Point(174, 63);
+            this.txtStockItemID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStockItemID.Name = "txtStockItemID";
+            this.txtStockItemID.Size = new System.Drawing.Size(198, 22);
+            this.txtStockItemID.TabIndex = 74;
             // 
             // lblStockQuantity
             // 
@@ -109,58 +160,39 @@
             this.lblStockDescription.TabIndex = 74;
             this.lblStockDescription.Text = "Stock Item Name:";
             // 
-            // txtStockItemPrice
-            // 
-            this.txtStockItemPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStockItemPrice.Location = new System.Drawing.Point(174, 107);
-            this.txtStockItemPrice.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStockItemPrice.Name = "txtStockItemPrice";
-            this.txtStockItemPrice.Size = new System.Drawing.Size(198, 22);
-            this.txtStockItemPrice.TabIndex = 73;
-            // 
-            // txtStockItemName
-            // 
-            this.txtStockItemName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStockItemName.Location = new System.Drawing.Point(174, 59);
-            this.txtStockItemName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStockItemName.Name = "txtStockItemName";
-            this.txtStockItemName.Size = new System.Drawing.Size(198, 22);
-            this.txtStockItemName.TabIndex = 71;
-            // 
-            // lblName
-            // 
-            this.lblName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(19, 63);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(94, 17);
-            this.lblName.TabIndex = 70;
-            this.lblName.Text = "Stock Item ID:";
-            // 
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(171)))), ((int)(((byte)(241)))));
+            this.panel14.Controls.Add(this.btnCancel);
             this.panel14.Controls.Add(this.panel17);
             this.panel14.Controls.Add(this.panel15);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel14.Location = new System.Drawing.Point(0, 375);
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(800, 75);
+            this.panel14.Size = new System.Drawing.Size(1182, 75);
             this.panel14.TabIndex = 24;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(23, 28);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnCancel.Size = new System.Drawing.Size(107, 34);
+            this.btnCancel.TabIndex = 14;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // panel17
             // 
             this.panel17.Controls.Add(this.button1);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel17.Location = new System.Drawing.Point(551, 0);
+            this.panel17.Location = new System.Drawing.Point(933, 0);
             this.panel17.Margin = new System.Windows.Forms.Padding(4);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(249, 74);
@@ -190,7 +222,7 @@
             this.panel15.Location = new System.Drawing.Point(0, 74);
             this.panel15.Margin = new System.Windows.Forms.Padding(4);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(800, 1);
+            this.panel15.Size = new System.Drawing.Size(1182, 1);
             this.panel15.TabIndex = 0;
             // 
             // panel2
@@ -203,7 +235,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 70);
+            this.panel2.Size = new System.Drawing.Size(1182, 70);
             this.panel2.TabIndex = 23;
             // 
             // panel1
@@ -213,41 +245,27 @@
             this.panel1.Location = new System.Drawing.Point(0, 69);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 1);
+            this.panel1.Size = new System.Drawing.Size(1182, 1);
             this.panel1.TabIndex = 2;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtStockItemPrice);
-            this.groupBox1.Controls.Add(this.txtStockQuantity);
-            this.groupBox1.Controls.Add(this.lblName);
-            this.groupBox1.Controls.Add(this.lblStockQuantity);
-            this.groupBox1.Controls.Add(this.txtStockItemName);
-            this.groupBox1.Controls.Add(this.lblStockDescription);
-            this.groupBox1.Location = new System.Drawing.Point(23, 23);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(453, 246);
-            this.groupBox1.TabIndex = 78;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Stock Item Details";
             // 
             // Check_Out_Stock_Item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1182, 450);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel2);
             this.Name = "Check_Out_Stock_Item";
             this.Text = "Check_Out_Stock_Item";
+            this.Load += new System.EventHandler(this.Check_Out_Stock_Item_Load);
             this.panel3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -259,8 +277,6 @@
         private System.Windows.Forms.TextBox txtStockQuantity;
         private System.Windows.Forms.Label lblStockQuantity;
         private System.Windows.Forms.Label lblStockDescription;
-        private System.Windows.Forms.TextBox txtStockItemPrice;
-        private System.Windows.Forms.TextBox txtStockItemName;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel17;
@@ -269,5 +285,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtStockItemNamee;
+        private System.Windows.Forms.TextBox txtStockItemID;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

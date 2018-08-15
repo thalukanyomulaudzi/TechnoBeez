@@ -21,7 +21,7 @@ namespace WindowsFormsApplication11
         }
     
         public int Combo_Price_ID { get; set; }
-        public decimal Combo_Price1 { get; set; }
+        public double Combo_Price1 { get; set; }
         public System.DateTime Combo_Price_Date { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

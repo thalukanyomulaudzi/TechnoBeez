@@ -13,10 +13,10 @@ namespace WindowsFormsApplication11
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MmasweEntities1 : DbContext
+    public partial class MmasweEntities4 : DbContext
     {
-        public MmasweEntities1()
-            : base("name=MmasweEntities1")
+        public MmasweEntities4()
+            : base("name=MmasweEntities4")
         {
         }
     
@@ -28,6 +28,10 @@ namespace WindowsFormsApplication11
         public virtual DbSet<Adress> Adresses { get; set; }
         public virtual DbSet<Adress_Type> Adress_Type { get; set; }
         public virtual DbSet<Audit> Audits { get; set; }
+        public virtual DbSet<Check_In> Check_In { get; set; }
+        public virtual DbSet<Check_In_Line> Check_In_Line { get; set; }
+        public virtual DbSet<Check_Out> Check_Out { get; set; }
+        public virtual DbSet<Check_Out_Line> Check_Out_Line { get; set; }
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Combo> Comboes { get; set; }
         public virtual DbSet<Combo_Price> Combo_Price { get; set; }
@@ -44,10 +48,10 @@ namespace WindowsFormsApplication11
         public virtual DbSet<Employee_Shifts> Employee_Shifts { get; set; }
         public virtual DbSet<Menu_Item> Menu_Item { get; set; }
         public virtual DbSet<Menu_Item_Price> Menu_Item_Price { get; set; }
-        public virtual DbSet<Menu_Item_Stock_Line> Menu_Item_Stock_Line { get; set; }
         public virtual DbSet<Menu_Item_Type> Menu_Item_Type { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<Payment_Type> Payment_Type { get; set; }
+        public virtual DbSet<Quantity> Quantities { get; set; }
         public virtual DbSet<Special> Specials { get; set; }
         public virtual DbSet<Stock_Combo_Line> Stock_Combo_Line { get; set; }
         public virtual DbSet<Stock_Item> Stock_Item { get; set; }
@@ -57,11 +61,11 @@ namespace WindowsFormsApplication11
         public virtual DbSet<Stock_Price> Stock_Price { get; set; }
         public virtual DbSet<Stock_Type> Stock_Type { get; set; }
         public virtual DbSet<Stock_Write_Off> Stock_Write_Off { get; set; }
+        public virtual DbSet<Stock_WriteOff_Line> Stock_WriteOff_Line { get; set; }
         public virtual DbSet<Suburb> Suburbs { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<Supplier_Contact_Details> Supplier_Contact_Details { get; set; }
         public virtual DbSet<Supplier_Type> Supplier_Type { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<User_Log> User_Log { get; set; }
         public virtual DbSet<User_Role> User_Role { get; set; }

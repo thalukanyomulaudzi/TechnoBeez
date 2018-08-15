@@ -21,8 +21,8 @@ namespace WindowsFormsApplication11
         }
     
         public int Menu_Price_ID { get; set; }
-        public decimal Menu_Price { get; set; }
-        public System.DateTime Date { get; set; }
+        public double Menu_Price { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Menu_Item> Menu_Item { get; set; }

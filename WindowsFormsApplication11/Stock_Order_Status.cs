@@ -21,7 +21,7 @@ namespace WindowsFormsApplication11
         }
     
         public int Stock_Order_Status_ID { get; set; }
-        public byte[] Stock_Order_Status_Description { get; set; }
+        public string Stock_Order_Status_Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stock_Order> Stock_Order { get; set; }

@@ -24,7 +24,7 @@ namespace WindowsFormsApplication11
         public string Special_Description { get; set; }
         public System.DateTime Special_Start_Date { get; set; }
         public System.DateTime Special_End_Date { get; set; }
-        public decimal Special_Discount { get; set; }
+        public double Special_Discount { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customer_Order_Line> Customer_Order_Line { get; set; }

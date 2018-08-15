@@ -17,10 +17,12 @@ namespace WindowsFormsApplication11
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Stock_Item()
         {
+            this.Check_In_Line = new HashSet<Check_In_Line>();
+            this.Check_Out_Line = new HashSet<Check_Out_Line>();
             this.Customer_Order_Line = new HashSet<Customer_Order_Line>();
-            this.Menu_Item_Stock_Line = new HashSet<Menu_Item_Stock_Line>();
             this.Stock_Combo_Line = new HashSet<Stock_Combo_Line>();
             this.Stock_Order_Line = new HashSet<Stock_Order_Line>();
+            this.Stock_WriteOff_Line = new HashSet<Stock_WriteOff_Line>();
         }
     
         public int Stock_ID { get; set; }
@@ -29,18 +31,20 @@ namespace WindowsFormsApplication11
         public string Stock_Item_Description { get; set; }
         public Nullable<int> Stock_Type_ID { get; set; }
         public Nullable<int> Stock_Price_ID { get; set; }
-        public Nullable<int> Write_Off_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customer_Order_Line> Customer_Order_Line { get; set; }
+        public virtual ICollection<Check_In_Line> Check_In_Line { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Menu_Item_Stock_Line> Menu_Item_Stock_Line { get; set; }
+        public virtual ICollection<Check_Out_Line> Check_Out_Line { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Customer_Order_Line> Customer_Order_Line { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stock_Combo_Line> Stock_Combo_Line { get; set; }
         public virtual Stock_Price Stock_Price { get; set; }
         public virtual Stock_Type Stock_Type { get; set; }
-        public virtual Stock_Write_Off Stock_Write_Off { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stock_Order_Line> Stock_Order_Line { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Stock_WriteOff_Line> Stock_WriteOff_Line { get; set; }
     }
 }
