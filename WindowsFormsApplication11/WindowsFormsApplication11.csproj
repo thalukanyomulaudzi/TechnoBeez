@@ -125,6 +125,12 @@
     <Compile Include="Company_Information.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Cusotmer Order Details %28Kitchen%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cusotmer Order Details %28Kitchen%29.Designer.cs">
+      <DependentUpon>Cusotmer Order Details %28Kitchen%29.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -277,11 +283,11 @@
     <Compile Include="Retrieve Lost Password.Designer.cs">
       <DependentUpon>Retrieve Lost Password.cs</DependentUpon>
     </Compile>
-    <Compile Include="SalesAndOrdering.cs">
+    <Compile Include="PlaceOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SalesAndOrdering.Designer.cs">
-      <DependentUpon>SalesAndOrdering.cs</DependentUpon>
+    <Compile Include="PlaceOrder.Designer.cs">
+      <DependentUpon>PlaceOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Search Employee Shift.cs">
       <SubType>Form</SubType>
@@ -424,6 +430,9 @@
     <EmbeddedResource Include="Combo_LookUp.resx">
       <DependentUpon>Combo_LookUp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cusotmer Order Details %28Kitchen%29.resx">
+      <DependentUpon>Cusotmer Order Details %28Kitchen%29.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Customer_LookUp.resx">
       <DependentUpon>Customer_LookUp.cs</DependentUpon>
     </EmbeddedResource>
@@ -478,8 +487,8 @@
     <EmbeddedResource Include="Retrieve Lost Password.resx">
       <DependentUpon>Retrieve Lost Password.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SalesAndOrdering.resx">
-      <DependentUpon>SalesAndOrdering.cs</DependentUpon>
+    <EmbeddedResource Include="PlaceOrder.resx">
+      <DependentUpon>PlaceOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Search Employee Shift.resx">
       <DependentUpon>Search Employee Shift.cs</DependentUpon>

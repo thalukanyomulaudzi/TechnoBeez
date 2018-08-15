@@ -205,7 +205,7 @@ namespace WindowsFormsApplication11
         {
             if (navButton == quoteBtn)
             {
-                SalesAndOrdering sales = new SalesAndOrdering();
+                PlaceOrder sales = new PlaceOrder();
                 sales.ShowDialog();
                 //navigate(quoteBtn);
             }

@@ -9,16 +9,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication11
 {
-    public partial class SalesAndOrdering : Form
+    public partial class Cusotmer_Order_Details__Kitchen_ : Form
     {
-        public SalesAndOrdering()
+        public Cusotmer_Order_Details__Kitchen_()
         {
             InitializeComponent();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }
