@@ -12,11 +12,14 @@ namespace WindowsFormsApplication11
     using System;
     using System.Collections.Generic;
     
-    public partial class Suburb
+    public partial class ItemsPicture
     {
-        public int Suburb_ID { get; set; }
-        public string Suburb_Name { get; set; }
-        public int Zip_Code { get; set; }
-        public Nullable<int> City_ID { get; set; }
+        public int ImageID { get; set; }
+        public string ItemName { get; set; }
+        public Nullable<int> Item_ID { get; set; }
+        public byte[] imageVar { get; set; }
+    
+        public virtual Combo Combo { get; set; }
+        public virtual Menu_Item Menu_Item { get; set; }
     }
 }

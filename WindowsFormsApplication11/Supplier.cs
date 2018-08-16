@@ -17,20 +17,23 @@ namespace WindowsFormsApplication11
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Supplier()
         {
+            this.Addresses = new HashSet<Address>();
+            this.Banking_Details = new HashSet<Banking_Details>();
             this.Stock_Order = new HashSet<Stock_Order>();
             this.Supplier_Contact_Details = new HashSet<Supplier_Contact_Details>();
         }
     
-        public int Supllier_ID { get; set; }
+        public int Supplier_ID { get; set; }
         public string Supplier_Name { get; set; }
-        public Nullable<int> Address_ID { get; set; }
         public Nullable<int> Supplier_Type_ID { get; set; }
     
-        public virtual Adress Adress { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Address> Addresses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Banking_Details> Banking_Details { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stock_Order> Stock_Order { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Supplier_Contact_Details> Supplier_Contact_Details { get; set; }
-        public virtual Supplier_Type Supplier_Type { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace WindowsFormsApplication11
 {
     public partial class frmAdd_New_Stock_Item : Form
     {
-        MmasweEntities4 db = new MmasweEntities4();
+        MmasweEntities5 db = new MmasweEntities5();
         public frmAdd_New_Stock_Item()
         {
             InitializeComponent();

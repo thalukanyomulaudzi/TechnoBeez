@@ -12,11 +12,12 @@ namespace WindowsFormsApplication11
     using System;
     using System.Collections.Generic;
     
-    public partial class Suburb
+    public partial class sysdiagram
     {
-        public int Suburb_ID { get; set; }
-        public string Suburb_Name { get; set; }
-        public int Zip_Code { get; set; }
-        public Nullable<int> City_ID { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

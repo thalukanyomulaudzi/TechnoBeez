@@ -17,7 +17,7 @@ namespace WindowsFormsApplication11
     public partial class Form2 : Form
     {
         Button navButton;
-        MmasweEntities4 db = new MmasweEntities4();
+        MmasweEntities5 db = new MmasweEntities5();
         public Form2()
         {
             InitializeComponent();
@@ -156,7 +156,7 @@ namespace WindowsFormsApplication11
                     {
                         int id = Globals.Supplierpassing;
 
-                        Supplier deieteItem = db.Suppliers.FirstOrDefault(c => c.Supllier_ID == id);
+                        Supplier deieteItem = db.Suppliers.FirstOrDefault(c => c.Supplier_ID == id);
 
                         if (deieteItem != null)
                         {
@@ -176,7 +176,7 @@ namespace WindowsFormsApplication11
                 {
                     Globals.menu.Hide();
                     int id = Globals.Supplierpassing;
-                    Supplier item = db.Suppliers.FirstOrDefault(c => c.Supllier_ID == id);
+                    Supplier item = db.Suppliers.FirstOrDefault(c => c.Supplier_ID == id);
                     if (item != null)
                     {
                         SupplierForm form = new SupplierForm();
@@ -784,9 +784,9 @@ namespace WindowsFormsApplication11
             var customers = from p in db.Suppliers
                             select new
                             {
-                                SupplierId = p.Supllier_ID,
+                                SupplierId = p.Supplier_ID,
                                 SupplierName = p.Supplier_Name,
-                                AdressId = p.Address_ID,
+                               // AdressId = p.,
                                 SupplierTypeId = p.Supplier_Type_ID,
                                 
 
@@ -1015,9 +1015,9 @@ namespace WindowsFormsApplication11
                     var customers = from p in db.Suppliers
                                     select new
                                     {
-                                        SupplierId = p.Supllier_ID,
+                                        SupplierId = p.Supplier_ID,
                                         SupplierName = p.Supplier_Name,
-                                        AdressId = p.Address_ID,
+                                       // AdressId = p.Address_ID,
                                         SupplierTypeId = p.Supplier_Type_ID,
 
 

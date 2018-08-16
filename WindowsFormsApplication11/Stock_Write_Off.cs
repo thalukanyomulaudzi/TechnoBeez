@@ -25,6 +25,7 @@ namespace WindowsFormsApplication11
         public int Stock_WriteOff_Quantity { get; set; }
         public string Employee_ID { get; set; }
         public string WriteOff_Reason { get; set; }
+        public System.DateTime WriteOffDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stock_WriteOff_Line> Stock_WriteOff_Line { get; set; }

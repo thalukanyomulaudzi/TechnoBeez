@@ -12,11 +12,14 @@ namespace WindowsFormsApplication11
     using System;
     using System.Collections.Generic;
     
-    public partial class Suburb
+    public partial class Banking_Details
     {
-        public int Suburb_ID { get; set; }
-        public string Suburb_Name { get; set; }
-        public int Zip_Code { get; set; }
-        public Nullable<int> City_ID { get; set; }
+        public int Banking_Details_ID { get; set; }
+        public string Bank_Name { get; set; }
+        public int Bank_Acc_No { get; set; }
+        public int Branch_Code { get; set; }
+        public Nullable<int> Supplier_ID { get; set; }
+    
+        public virtual Supplier Supplier { get; set; }
     }
 }

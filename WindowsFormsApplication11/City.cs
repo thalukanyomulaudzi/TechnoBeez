@@ -17,15 +17,13 @@ namespace WindowsFormsApplication11
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public City()
         {
-            this.Adresses = new HashSet<Adress>();
+            this.Addresses = new HashSet<Address>();
         }
     
         public int City_ID { get; set; }
-        public string City_Description { get; set; }
-        public Nullable<int> Suburb_ID { get; set; }
+        public string City_Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Adress> Adresses { get; set; }
-        public virtual Suburb Suburb { get; set; }
+        public virtual ICollection<Address> Addresses { get; set; }
     }
 }

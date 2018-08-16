@@ -12,23 +12,17 @@ namespace WindowsFormsApplication11
     using System;
     using System.Collections.Generic;
     
-    public partial class Adress
+    public partial class Address
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Adress()
-        {
-            this.Suppliers = new HashSet<Supplier>();
-        }
-    
-        public int Adress_ID { get; set; }
-        public int Street_Number { get; set; }
-        public string City { get; set; }
+        public int Address_ID { get; set; }
+        public string Street_Name { get; set; }
+        public string Province { get; set; }
         public Nullable<int> Address_Type_ID { get; set; }
         public Nullable<int> City_ID { get; set; }
+        public Nullable<int> Supplier_ID { get; set; }
     
+        public virtual Supplier Supplier { get; set; }
         public virtual Adress_Type Adress_Type { get; set; }
-        public virtual City City1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Supplier> Suppliers { get; set; }
+        public virtual City City { get; set; }
     }
 }

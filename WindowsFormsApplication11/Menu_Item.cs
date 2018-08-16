@@ -18,6 +18,7 @@ namespace WindowsFormsApplication11
         public Menu_Item()
         {
             this.Customer_Order_Line = new HashSet<Customer_Order_Line>();
+            this.ItemsPictures = new HashSet<ItemsPicture>();
         }
     
         public int Menu_Item_ID { get; set; }
@@ -29,6 +30,8 @@ namespace WindowsFormsApplication11
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customer_Order_Line> Customer_Order_Line { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ItemsPicture> ItemsPictures { get; set; }
         public virtual Menu_Item_Price Menu_Item_Price1 { get; set; }
         public virtual Menu_Item_Type Menu_Item_Type { get; set; }
     }

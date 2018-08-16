@@ -13,10 +13,10 @@ namespace WindowsFormsApplication11
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MmasweEntities4 : DbContext
+    public partial class MmasweEntities5 : DbContext
     {
-        public MmasweEntities4()
-            : base("name=MmasweEntities4")
+        public MmasweEntities5()
+            : base("name=MmasweEntities5")
         {
         }
     
@@ -25,9 +25,10 @@ namespace WindowsFormsApplication11
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Adress> Adresses { get; set; }
+        public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<Adress_Type> Adress_Type { get; set; }
         public virtual DbSet<Audit> Audits { get; set; }
+        public virtual DbSet<Banking_Details> Banking_Details { get; set; }
         public virtual DbSet<Check_In> Check_In { get; set; }
         public virtual DbSet<Check_In_Line> Check_In_Line { get; set; }
         public virtual DbSet<Check_Out> Check_Out { get; set; }
@@ -46,6 +47,7 @@ namespace WindowsFormsApplication11
         public virtual DbSet<Employee_Booking_Shift> Employee_Booking_Shift { get; set; }
         public virtual DbSet<Employee_Gender_> Employee_Gender_ { get; set; }
         public virtual DbSet<Employee_Shifts> Employee_Shifts { get; set; }
+        public virtual DbSet<ItemsPicture> ItemsPictures { get; set; }
         public virtual DbSet<Menu_Item> Menu_Item { get; set; }
         public virtual DbSet<Menu_Item_Price> Menu_Item_Price { get; set; }
         public virtual DbSet<Menu_Item_Type> Menu_Item_Type { get; set; }
@@ -66,6 +68,7 @@ namespace WindowsFormsApplication11
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<Supplier_Contact_Details> Supplier_Contact_Details { get; set; }
         public virtual DbSet<Supplier_Type> Supplier_Type { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<User_Log> User_Log { get; set; }
         public virtual DbSet<User_Role> User_Role { get; set; }

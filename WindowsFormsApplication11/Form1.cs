@@ -14,7 +14,7 @@ namespace WindowsFormsApplication11
     {
        
         Button navButton;
-        MmasweEntities4 db = new MmasweEntities4();
+        MmasweEntities5 db = new MmasweEntities5();
         
         public Form1()
         {
@@ -358,8 +358,8 @@ namespace WindowsFormsApplication11
     {
         if (navButton == quoteBtn)
         {
-            SalesAndOrdering sales = new SalesAndOrdering();
-            sales.ShowDialog();
+           // SalesAndOrdering sales = new SalesAndOrdering();
+            //sales.ShowDialog();
             //navigate(quoteBtn);
         }
         if (navButton == btnSuppliers11)

@@ -11,7 +11,7 @@ namespace WindowsFormsApplication11
 {
     public partial class Check_In_Stock_Item : Form
     {
-        MmasweEntities4 db = new MmasweEntities4();
+        MmasweEntities5 db = new MmasweEntities5();
         public Check_In_Stock_Item()
         {
             InitializeComponent();
@@ -31,37 +31,38 @@ namespace WindowsFormsApplication11
                 Stock_Item itemEdited = db.Stock_Item.FirstOrDefault(c => c.Stock_ID == id);
                 Check_In checkitem = new Check_In();
                 Check_In_Line checkitemline = new Check_In_Line();
-               
-                    if ((phrase.Length < 9) && (Convert.ToInt32(txtStockQuantity.Text) <= itemEdited.Stock_Item_Quantity) && (Convert.ToInt32(txtStockQuantity.Text) > 0))
-                    {
-                        itemEdited.Stock_Item_Quantity = itemEdited.Stock_Item_Quantity - Convert.ToInt32(txtStockQuantity.Text);
-                        checkitem.Stock_Item_Name = itemEdited.Stock_Item_Name;
-                        checkitem.Check_In_Date = DateTime.Today;
 
-                        checkitemline.Check_In_ID = checkitem.Check_In_ID;
-                        checkitemline.Stock_ID = itemEdited.Stock_ID;
-                        checkitemline.Quantity = Convert.ToInt32(txtStockQuantity.Text);
+                if ((phrase.Length < 9) && (Convert.ToInt32(txtStockQuantity.Text) <= itemEdited.Stock_Item_Quantity) && (Convert.ToInt32(txtStockQuantity.Text) > 0))
+                {
+                    itemEdited.Stock_Item_Quantity = itemEdited.Stock_Item_Quantity - Convert.ToInt32(txtStockQuantity.Text);
+                    checkitem.Stock_Item_Name = itemEdited.Stock_Item_Name;
+                    checkitem.Check_In_Date = DateTime.Today;
+
+                    checkitemline.Check_In_ID = checkitem.Check_In_ID;
+                    checkitemline.Stock_ID = itemEdited.Stock_ID;
+                    checkitemline.Quantity = Convert.ToInt32(txtStockQuantity.Text);
+                    checkitemline.Stock_Item_Name = itemEdited.Stock_Item_Name;
                     db.Check_In_Line.Add(checkitemline);
                     db.Check_In.Add(checkitem);
-                        db.SaveChanges();
-                        MessageBox.Show("Stock item checked in successfully,quantity: -" + txtStockQuantity.Text);
-                        Globals.refresher = true;
+                    db.SaveChanges();
+                    MessageBox.Show("Stock item checked in successfully,quantity: -" + txtStockQuantity.Text);
+                    Globals.refresher = true;
 
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error:Quantity exceeds stock items available/Quantity less than 1 or too large");
-                    }
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Error:Quantity exceeds stock items available/Quantity less than 1 or too large");
+                }
 
-                
+
 
             }
             else
             {
                 MessageBox.Show("Error: Value entered is not in correct format(not numeric)");
             }
-            
+
         }
 
         private void Check_In_Stock_Item_Load(object sender, EventArgs e)
@@ -74,7 +75,24 @@ namespace WindowsFormsApplication11
             txtStockItemID.Text = Convert.ToString(itemEdited.Stock_ID);
             txtStockItemNamee.Text = itemEdited.Stock_Item_Name;
 
-            dgvCheckin.DataSource = db.Check_In_Line.ToList();
+
+
+            var customers = from p in db.Check_In_Line
+                            select new
+                            {
+                                CheckInLineID = p.Check_In_Line_ID,
+                                StockItemName = p.Stock_Item_Name,
+                                Quantity = p.Quantity,
+                                CheckInID = p.Check_In_ID,
+                                StockItemID = p.Stock_ID,
+
+                            };
+            dgvCheckin.DataSource = customers.ToList();
+            dgvCheckin.ClearSelection();
+            // db.SaveChanges();
+
+
+            // dgvCheckin.DataSource = db.Check_In_Line.ToList();
 
             txtStockItemID.Enabled = false;
             txtStockItemNamee.Enabled = false;

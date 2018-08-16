@@ -18,6 +18,7 @@ namespace WindowsFormsApplication11
         public Combo()
         {
             this.Customer_Order_Line = new HashSet<Customer_Order_Line>();
+            this.ItemsPictures = new HashSet<ItemsPicture>();
             this.Stock_Combo_Line = new HashSet<Stock_Combo_Line>();
         }
     
@@ -31,6 +32,8 @@ namespace WindowsFormsApplication11
         public virtual Combo_Type Combo_Type { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customer_Order_Line> Customer_Order_Line { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ItemsPicture> ItemsPictures { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stock_Combo_Line> Stock_Combo_Line { get; set; }
     }

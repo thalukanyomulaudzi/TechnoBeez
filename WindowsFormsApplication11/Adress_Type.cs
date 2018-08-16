@@ -17,13 +17,13 @@ namespace WindowsFormsApplication11
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Adress_Type()
         {
-            this.Adresses = new HashSet<Adress>();
+            this.Addresses = new HashSet<Address>();
         }
     
         public int Adress_Type_ID { get; set; }
         public string Adress_Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Adress> Adresses { get; set; }
+        public virtual ICollection<Address> Addresses { get; set; }
     }
 }

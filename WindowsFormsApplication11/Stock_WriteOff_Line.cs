@@ -18,7 +18,7 @@ namespace WindowsFormsApplication11
         public double Quantity { get; set; }
         public Nullable<int> Stock_ID { get; set; }
         public Nullable<int> Write_Off_ID { get; set; }
-        public byte[] Stock_Item_Name { get; set; }
+        public string Stock_Item_Name { get; set; }
     
         public virtual Stock_Item Stock_Item { get; set; }
         public virtual Stock_Write_Off Stock_Write_Off { get; set; }

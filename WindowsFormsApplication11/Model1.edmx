@@ -4,16 +4,17 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MmasweModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Adress">
+    <Schema Namespace="MmasweModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Address">
           <Key>
-            <PropertyRef Name="Adress_ID" />
+            <PropertyRef Name="Address_ID" />
           </Key>
-          <Property Name="Adress_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Street_Number" Type="int" Nullable="false" />
-          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Street_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Province" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Address_Type_ID" Type="int" />
           <Property Name="City_ID" Type="int" />
+          <Property Name="Supplier_ID" Type="int" />
         </EntityType>
         <EntityType Name="Adress_Type">
           <Key>
@@ -32,6 +33,16 @@
           <Property Name="Audit_Description" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="User_ID" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Banking_Details">
+          <Key>
+            <PropertyRef Name="Banking_Details_ID" />
+          </Key>
+          <Property Name="Banking_Details_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bank_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Bank_Acc_No" Type="int" Nullable="false" />
+          <Property Name="Branch_Code" Type="int" Nullable="false" />
+          <Property Name="Supplier_ID" Type="int" />
+        </EntityType>
         <EntityType Name="Check_In">
           <Key>
             <PropertyRef Name="Check_In_ID" />
@@ -48,7 +59,7 @@
           <Property Name="Quantity" Type="float" Nullable="false" />
           <Property Name="Stock_ID" Type="int" />
           <Property Name="Check_In_ID" Type="int" />
-          <Property Name="Stock_Item_Name" Type="varbinary" MaxLength="50" />
+          <Property Name="Stock_Item_Name" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Check_Out">
           <Key>
@@ -62,19 +73,18 @@
           <Key>
             <PropertyRef Name="Check_Out_Line_ID" />
           </Key>
-          <Property Name="Check_Out_Line_ID" Type="int" Nullable="false" />
+          <Property Name="Check_Out_Line_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Stock_ID" Type="int" />
           <Property Name="Check_Out_ID" Type="int" />
           <Property Name="Quaantity" Type="float" Nullable="false" />
-          <Property Name="Stock_Item_Name" Type="varbinary" MaxLength="50" />
+          <Property Name="Stock_Item_Name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="City_ID" />
           </Key>
           <Property Name="City_ID" Type="int" Nullable="false" />
-          <Property Name="City_Description" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Suburb_ID" Type="int" />
+          <Property Name="City_Name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Combo">
           <Key>
@@ -206,6 +216,15 @@
           <Property Name="Employee_Shift_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Employee_Shift_Date" Type="datetime" Nullable="false" />
           <Property Name="Employee_Shift_Time_Slot" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemsPicture">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imageVar" Type="image" />
+          <Property Name="ItemName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Item_ID" Type="int" />
         </EntityType>
         <EntityType Name="Menu_Item">
           <Key>
@@ -340,6 +359,7 @@
           <Property Name="Stock_WriteOff_Quantity" Type="int" Nullable="false" />
           <Property Name="Employee_ID" Type="nchar" MaxLength="10" />
           <Property Name="WriteOff_Reason" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="WriteOffDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Stock_WriteOff_Line">
           <Key>
@@ -349,23 +369,23 @@
           <Property Name="Quantity" Type="float" Nullable="false" />
           <Property Name="Stock_ID" Type="int" />
           <Property Name="Write_Off_ID" Type="int" />
-          <Property Name="Stock_Item_Name" Type="varbinary" MaxLength="50" />
+          <Property Name="Stock_Item_Name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Suburb">
           <Key>
             <PropertyRef Name="Suburb_ID" />
           </Key>
           <Property Name="Suburb_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Suburb_Description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Suburb_Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Zip_Code" Type="int" Nullable="false" />
+          <Property Name="City_ID" Type="int" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
-            <PropertyRef Name="Supllier_ID" />
+            <PropertyRef Name="Supplier_ID" />
           </Key>
-          <Property Name="Supllier_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Supplier_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Supplier_Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Address_ID" Type="int" />
           <Property Name="Supplier_Type_ID" Type="int" />
         </EntityType>
         <EntityType Name="Supplier_Contact_Details">
@@ -384,6 +404,16 @@
           </Key>
           <Property Name="Supplier_Type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Supplier_Type_Description" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -414,27 +444,53 @@
           <Property Name="User_Role_Description" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="User_Role_Access_Level" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Address_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Supplier_ID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="Supplier_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Adress_Adress_Type">
           <End Role="Adress_Type" Type="Self.Adress_Type" Multiplicity="0..1" />
-          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Adress_Type">
               <PropertyRef Name="Adress_Type_ID" />
             </Principal>
-            <Dependent Role="Adress">
+            <Dependent Role="Address">
               <PropertyRef Name="Address_Type_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Adress_City">
           <End Role="City" Type="Self.City" Multiplicity="0..1" />
-          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="City">
               <PropertyRef Name="City_ID" />
             </Principal>
-            <Dependent Role="Adress">
+            <Dependent Role="Address">
               <PropertyRef Name="City_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Banking_Details_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="Banking_Details" Type="Self.Banking_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Supplier_ID" />
+            </Principal>
+            <Dependent Role="Banking_Details">
+              <PropertyRef Name="Supplier_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -483,18 +539,6 @@
             </Principal>
             <Dependent Role="Check_Out_Line">
               <PropertyRef Name="Stock_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_City_Suburb">
-          <End Role="Suburb" Type="Self.Suburb" Multiplicity="0..1" />
-          <End Role="City" Type="Self.City" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Suburb">
-              <PropertyRef Name="Suburb_ID" />
-            </Principal>
-            <Dependent Role="City">
-              <PropertyRef Name="Suburb_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -690,6 +734,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ItemsPicture_Combo">
+          <End Role="Combo" Type="Self.Combo" Multiplicity="0..1" />
+          <End Role="ItemsPicture" Type="Self.ItemsPicture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Combo">
+              <PropertyRef Name="Combo_ID" />
+            </Principal>
+            <Dependent Role="ItemsPicture">
+              <PropertyRef Name="Item_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemsPicture_Menu_Item">
+          <End Role="Menu_Item" Type="Self.Menu_Item" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ItemsPicture" Type="Self.ItemsPicture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu_Item">
+              <PropertyRef Name="Menu_Item_ID" />
+            </Principal>
+            <Dependent Role="ItemsPicture">
+              <PropertyRef Name="Item_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Menu_Item_Menu_Item_Price">
           <End Role="Menu_Item_Price" Type="Self.Menu_Item_Price" Multiplicity="0..1" />
           <End Role="Menu_Item" Type="Self.Menu_Item" Multiplicity="*" />
@@ -827,7 +897,7 @@
           <End Role="Stock_Order" Type="Self.Stock_Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Supplier">
-              <PropertyRef Name="Supllier_ID" />
+              <PropertyRef Name="Supplier_ID" />
             </Principal>
             <Dependent Role="Stock_Order">
               <PropertyRef Name="Supplier_ID" />
@@ -858,39 +928,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Supplier_Adress">
-          <End Role="Adress" Type="Self.Adress" Multiplicity="0..1" />
-          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Adress">
-              <PropertyRef Name="Adress_ID" />
-            </Principal>
-            <Dependent Role="Supplier">
-              <PropertyRef Name="Address_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Supplier_Contact_Details_Supplier">
           <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
           <End Role="Supplier_Contact_Details" Type="Self.Supplier_Contact_Details" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Supplier">
-              <PropertyRef Name="Supllier_ID" />
+              <PropertyRef Name="Supplier_ID" />
             </Principal>
             <Dependent Role="Supplier_Contact_Details">
               <PropertyRef Name="Supplier_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Supplier_Supplier_Type">
-          <End Role="Supplier_Type" Type="Self.Supplier_Type" Multiplicity="0..1" />
-          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Supplier_Type">
-              <PropertyRef Name="Supplier_Type_ID" />
-            </Principal>
-            <Dependent Role="Supplier">
-              <PropertyRef Name="Supplier_Type_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -931,9 +977,10 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="MmasweModelStoreContainer">
-          <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Adress_Type" EntityType="Self.Adress_Type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Audit" EntityType="Self.Audit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Banking_Details" EntityType="Self.Banking_Details" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Check_In" EntityType="Self.Check_In" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Check_In_Line" EntityType="Self.Check_In_Line" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Check_Out" EntityType="Self.Check_Out" Schema="dbo" store:Type="Tables" />
@@ -952,6 +999,7 @@
           <EntitySet Name="Employee_Booking_Shift" EntityType="Self.Employee_Booking_Shift" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee_Gender_" EntityType="Self.Employee_Gender_" Schema="dbo" Table="Employee_Gender." store:Type="Tables" />
           <EntitySet Name="Employee_Shifts" EntityType="Self.Employee_Shifts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemsPicture" EntityType="Self.ItemsPicture" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Menu_Item" EntityType="Self.Menu_Item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Menu_Item_Price" EntityType="Self.Menu_Item_Price" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Menu_Item_Type" EntityType="Self.Menu_Item_Type" Schema="dbo" store:Type="Tables" />
@@ -972,16 +1020,25 @@
           <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplier_Contact_Details" EntityType="Self.Supplier_Contact_Details" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplier_Type" EntityType="Self.Supplier_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User_Log" EntityType="Self.User_Log" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User_Role" EntityType="Self.User_Role" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Address_Supplier" Association="Self.FK_Address_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
           <AssociationSet Name="FK_Adress_Adress_Type" Association="Self.FK_Adress_Adress_Type">
             <End Role="Adress_Type" EntitySet="Adress_Type" />
-            <End Role="Adress" EntitySet="Adress" />
+            <End Role="Address" EntitySet="Address" />
           </AssociationSet>
           <AssociationSet Name="FK_Adress_City" Association="Self.FK_Adress_City">
             <End Role="City" EntitySet="City" />
-            <End Role="Adress" EntitySet="Adress" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Banking_Details_Supplier" Association="Self.FK_Banking_Details_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Banking_Details" EntitySet="Banking_Details" />
           </AssociationSet>
           <AssociationSet Name="FK_Check_In_Line_Check_In" Association="Self.FK_Check_In_Line_Check_In">
             <End Role="Check_In" EntitySet="Check_In" />
@@ -998,10 +1055,6 @@
           <AssociationSet Name="FK_Check_Out_Line_Stock_Item" Association="Self.FK_Check_Out_Line_Stock_Item">
             <End Role="Stock_Item" EntitySet="Stock_Item" />
             <End Role="Check_Out_Line" EntitySet="Check_Out_Line" />
-          </AssociationSet>
-          <AssociationSet Name="FK_City_Suburb" Association="Self.FK_City_Suburb">
-            <End Role="Suburb" EntitySet="Suburb" />
-            <End Role="City" EntitySet="City" />
           </AssociationSet>
           <AssociationSet Name="FK_Combo_Combo_Price" Association="Self.FK_Combo_Combo_Price">
             <End Role="Combo_Price" EntitySet="Combo_Price" />
@@ -1067,6 +1120,14 @@
             <End Role="User" EntitySet="User" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
+          <AssociationSet Name="FK_ItemsPicture_Combo" Association="Self.FK_ItemsPicture_Combo">
+            <End Role="Combo" EntitySet="Combo" />
+            <End Role="ItemsPicture" EntitySet="ItemsPicture" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsPicture_Menu_Item" Association="Self.FK_ItemsPicture_Menu_Item">
+            <End Role="Menu_Item" EntitySet="Menu_Item" />
+            <End Role="ItemsPicture" EntitySet="ItemsPicture" />
+          </AssociationSet>
           <AssociationSet Name="FK_Menu_Item_Menu_Item_Price" Association="Self.FK_Menu_Item_Menu_Item_Price">
             <End Role="Menu_Item_Price" EntitySet="Menu_Item_Price" />
             <End Role="Menu_Item" EntitySet="Menu_Item" />
@@ -1123,17 +1184,9 @@
             <End Role="Stock_Write_Off" EntitySet="Stock_Write_Off" />
             <End Role="Stock_WriteOff_Line" EntitySet="Stock_WriteOff_Line" />
           </AssociationSet>
-          <AssociationSet Name="FK_Supplier_Adress" Association="Self.FK_Supplier_Adress">
-            <End Role="Adress" EntitySet="Adress" />
-            <End Role="Supplier" EntitySet="Supplier" />
-          </AssociationSet>
           <AssociationSet Name="FK_Supplier_Contact_Details_Supplier" Association="Self.FK_Supplier_Contact_Details_Supplier">
             <End Role="Supplier" EntitySet="Supplier" />
             <End Role="Supplier_Contact_Details" EntitySet="Supplier_Contact_Details" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Supplier_Supplier_Type" Association="Self.FK_Supplier_Supplier_Type">
-            <End Role="Supplier_Type" EntitySet="Supplier_Type" />
-            <End Role="Supplier" EntitySet="Supplier" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Audit" Association="Self.FK_User_Audit">
             <End Role="Audit" EntitySet="Audit" />
@@ -1148,23 +1201,23 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MmasweModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Adress">
+        <EntityType Name="Address">
           <Key>
-            <PropertyRef Name="Adress_ID" />
+            <PropertyRef Name="Address_ID" />
           </Key>
-          <Property Name="Adress_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Street_Number" Type="Int32" Nullable="false" />
-          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Street_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Address_Type_ID" Type="Int32" />
           <Property Name="City_ID" Type="Int32" />
-          <NavigationProperty Name="Adress_Type" Relationship="Self.FK_Adress_Adress_Type" FromRole="Adress" ToRole="Adress_Type" />
-          <NavigationProperty Name="City1" Relationship="Self.FK_Adress_City" FromRole="Adress" ToRole="City" />
-          <NavigationProperty Name="Suppliers" Relationship="Self.FK_Supplier_Adress" FromRole="Adress" ToRole="Supplier" />
+          <Property Name="Supplier_ID" Type="Int32" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Address_Supplier" FromRole="Address" ToRole="Supplier" />
+          <NavigationProperty Name="Adress_Type" Relationship="Self.FK_Adress_Adress_Type" FromRole="Address" ToRole="Adress_Type" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Adress_City" FromRole="Address" ToRole="City" />
         </EntityType>
         <EntityType Name="Adress_Type">
           <Key>
@@ -1172,7 +1225,7 @@
           </Key>
           <Property Name="Adress_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Adress_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Adresses" Relationship="Self.FK_Adress_Adress_Type" FromRole="Adress_Type" ToRole="Adress" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK_Adress_Adress_Type" FromRole="Adress_Type" ToRole="Address" />
         </EntityType>
         <EntityType Name="Audit">
           <Key>
@@ -1184,6 +1237,17 @@
           <Property Name="Audit_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="User_ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Users" Relationship="Self.FK_User_Audit" FromRole="Audit" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Banking_Details">
+          <Key>
+            <PropertyRef Name="Banking_Details_ID" />
+          </Key>
+          <Property Name="Banking_Details_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bank_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Bank_Acc_No" Type="Int32" Nullable="false" />
+          <Property Name="Branch_Code" Type="Int32" Nullable="false" />
+          <Property Name="Supplier_ID" Type="Int32" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Banking_Details_Supplier" FromRole="Banking_Details" ToRole="Supplier" />
         </EntityType>
         <EntityType Name="Check_In">
           <Key>
@@ -1202,7 +1266,7 @@
           <Property Name="Quantity" Type="Double" Nullable="false" />
           <Property Name="Stock_ID" Type="Int32" />
           <Property Name="Check_In_ID" Type="Int32" />
-          <Property Name="Stock_Item_Name" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="Stock_Item_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Check_In" Relationship="Self.FK_Check_In_Line_Check_In" FromRole="Check_In_Line" ToRole="Check_In" />
           <NavigationProperty Name="Stock_Item" Relationship="Self.FK_Check_In_Line_Stock_Item" FromRole="Check_In_Line" ToRole="Stock_Item" />
         </EntityType>
@@ -1219,11 +1283,11 @@
           <Key>
             <PropertyRef Name="Check_Out_Line_ID" />
           </Key>
-          <Property Name="Check_Out_Line_ID" Type="Int32" Nullable="false" />
+          <Property Name="Check_Out_Line_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Stock_ID" Type="Int32" />
           <Property Name="Check_Out_ID" Type="Int32" />
           <Property Name="Quaantity" Type="Double" Nullable="false" />
-          <Property Name="Stock_Item_Name" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="Stock_Item_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Check_Out" Relationship="Self.FK_Check_Out_Line_Check_Out" FromRole="Check_Out_Line" ToRole="Check_Out" />
           <NavigationProperty Name="Stock_Item" Relationship="Self.FK_Check_Out_Line_Stock_Item" FromRole="Check_Out_Line" ToRole="Stock_Item" />
         </EntityType>
@@ -1232,10 +1296,8 @@
             <PropertyRef Name="City_ID" />
           </Key>
           <Property Name="City_ID" Type="Int32" Nullable="false" />
-          <Property Name="City_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Suburb_ID" Type="Int32" />
-          <NavigationProperty Name="Adresses" Relationship="Self.FK_Adress_City" FromRole="City" ToRole="Adress" />
-          <NavigationProperty Name="Suburb" Relationship="Self.FK_City_Suburb" FromRole="City" ToRole="Suburb" />
+          <Property Name="City_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK_Adress_City" FromRole="City" ToRole="Address" />
         </EntityType>
         <EntityType Name="Combo">
           <Key>
@@ -1249,6 +1311,7 @@
           <NavigationProperty Name="Combo_Price1" Relationship="Self.FK_Combo_Combo_Price" FromRole="Combo" ToRole="Combo_Price" />
           <NavigationProperty Name="Combo_Type" Relationship="Self.FK_Combo_Combo_Type" FromRole="Combo" ToRole="Combo_Type" />
           <NavigationProperty Name="Customer_Order_Line" Relationship="Self.FK_Customer_Order_Line_Combo" FromRole="Combo" ToRole="Customer_Order_Line" />
+          <NavigationProperty Name="ItemsPictures" Relationship="Self.FK_ItemsPicture_Combo" FromRole="Combo" ToRole="ItemsPicture" />
           <NavigationProperty Name="Stock_Combo_Line" Relationship="Self.FK_Stock_Combo_Line_Combo" FromRole="Combo" ToRole="Stock_Combo_Line" />
         </EntityType>
         <EntityType Name="Combo_Price">
@@ -1397,6 +1460,17 @@
           <Property Name="Employee_Shift_Time_Slot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Employee_Booking_Shift" Relationship="Self.FK_Employee_Booking_Shift_Employee_Shifts" FromRole="Employee_Shifts" ToRole="Employee_Booking_Shift" />
         </EntityType>
+        <EntityType Name="ItemsPicture">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Item_ID" Type="Int32" />
+          <NavigationProperty Name="Combo" Relationship="Self.FK_ItemsPicture_Combo" FromRole="ItemsPicture" ToRole="Combo" />
+          <NavigationProperty Name="Menu_Item" Relationship="Self.FK_ItemsPicture_Menu_Item" FromRole="ItemsPicture" ToRole="Menu_Item" />
+          <Property Name="imageVar" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="Menu_Item">
           <Key>
             <PropertyRef Name="Menu_Item_ID" />
@@ -1408,6 +1482,7 @@
           <Property Name="Menu_Item_Type_ID" Type="Int32" />
           <Property Name="Menu_Price_ID" Type="Int32" />
           <NavigationProperty Name="Customer_Order_Line" Relationship="Self.FK_Customer_Order_Line_Menu_Item" FromRole="Menu_Item" ToRole="Customer_Order_Line" />
+          <NavigationProperty Name="ItemsPictures" Relationship="Self.FK_ItemsPicture_Menu_Item" FromRole="Menu_Item" ToRole="ItemsPicture" />
           <NavigationProperty Name="Menu_Item_Price1" Relationship="Self.FK_Menu_Item_Menu_Item_Price" FromRole="Menu_Item" ToRole="Menu_Item_Price" />
           <NavigationProperty Name="Menu_Item_Type" Relationship="Self.FK_Menu_Item_Menu_Item_Type" FromRole="Menu_Item" ToRole="Menu_Item_Type" />
         </EntityType>
@@ -1558,6 +1633,7 @@
           <Property Name="Stock_WriteOff_Quantity" Type="Int32" Nullable="false" />
           <Property Name="Employee_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="WriteOff_Reason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WriteOffDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Stock_WriteOff_Line" Relationship="Self.FK_Stock_WriteOff_Line_Stock_Write_Off" FromRole="Stock_Write_Off" ToRole="Stock_WriteOff_Line" />
         </EntityType>
         <EntityType Name="Stock_WriteOff_Line">
@@ -1568,7 +1644,7 @@
           <Property Name="Quantity" Type="Double" Nullable="false" />
           <Property Name="Stock_ID" Type="Int32" />
           <Property Name="Write_Off_ID" Type="Int32" />
-          <Property Name="Stock_Item_Name" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="Stock_Item_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Stock_Item" Relationship="Self.FK_Stock_WriteOff_Line_Stock_Item" FromRole="Stock_WriteOff_Line" ToRole="Stock_Item" />
           <NavigationProperty Name="Stock_Write_Off" Relationship="Self.FK_Stock_WriteOff_Line_Stock_Write_Off" FromRole="Stock_WriteOff_Line" ToRole="Stock_Write_Off" />
         </EntityType>
@@ -1577,22 +1653,21 @@
             <PropertyRef Name="Suburb_ID" />
           </Key>
           <Property Name="Suburb_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Suburb_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Suburb_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Zip_Code" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cities" Relationship="Self.FK_City_Suburb" FromRole="Suburb" ToRole="City" />
+          <Property Name="City_ID" Type="Int32" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
-            <PropertyRef Name="Supllier_ID" />
+            <PropertyRef Name="Supplier_ID" />
           </Key>
-          <Property Name="Supllier_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Supplier_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Supplier_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Address_ID" Type="Int32" />
           <Property Name="Supplier_Type_ID" Type="Int32" />
-          <NavigationProperty Name="Adress" Relationship="Self.FK_Supplier_Adress" FromRole="Supplier" ToRole="Adress" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_Supplier" FromRole="Supplier" ToRole="Address" />
+          <NavigationProperty Name="Banking_Details" Relationship="Self.FK_Banking_Details_Supplier" FromRole="Supplier" ToRole="Banking_Details" />
           <NavigationProperty Name="Stock_Order" Relationship="Self.FK_Stock_Order_Supplier" FromRole="Supplier" ToRole="Stock_Order" />
           <NavigationProperty Name="Supplier_Contact_Details" Relationship="Self.FK_Supplier_Contact_Details_Supplier" FromRole="Supplier" ToRole="Supplier_Contact_Details" />
-          <NavigationProperty Name="Supplier_Type" Relationship="Self.FK_Supplier_Supplier_Type" FromRole="Supplier" ToRole="Supplier_Type" />
         </EntityType>
         <EntityType Name="Supplier_Contact_Details">
           <Key>
@@ -1611,7 +1686,16 @@
           </Key>
           <Property Name="Supplier_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Supplier_Type_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Suppliers" Relationship="Self.FK_Supplier_Supplier_Type" FromRole="Supplier_Type" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -1648,39 +1732,41 @@
           <Property Name="User_Role_Access_Level" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Users" Relationship="Self.FK_User_User_Role" FromRole="User_Role" ToRole="User" />
         </EntityType>
+        <Association Name="FK_Address_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Supplier_ID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="Supplier_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Adress_Adress_Type">
           <End Role="Adress_Type" Type="Self.Adress_Type" Multiplicity="0..1" />
-          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Adress_Type">
               <PropertyRef Name="Adress_Type_ID" />
             </Principal>
-            <Dependent Role="Adress">
+            <Dependent Role="Address">
               <PropertyRef Name="Address_Type_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Adress_City">
           <End Role="City" Type="Self.City" Multiplicity="0..1" />
-          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="City">
               <PropertyRef Name="City_ID" />
             </Principal>
-            <Dependent Role="Adress">
+            <Dependent Role="Address">
               <PropertyRef Name="City_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Supplier_Adress">
-          <End Role="Adress" Type="Self.Adress" Multiplicity="0..1" />
-          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Adress">
-              <PropertyRef Name="Adress_ID" />
-            </Principal>
-            <Dependent Role="Supplier">
-              <PropertyRef Name="Address_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1693,6 +1779,18 @@
             </Principal>
             <Dependent Role="User">
               <PropertyRef Name="Audit_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Banking_Details_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="Banking_Details" Type="Self.Banking_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Supplier_ID" />
+            </Principal>
+            <Dependent Role="Banking_Details">
+              <PropertyRef Name="Supplier_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1744,18 +1842,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_City_Suburb">
-          <End Role="Suburb" Type="Self.Suburb" Multiplicity="0..1" />
-          <End Role="City" Type="Self.City" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Suburb">
-              <PropertyRef Name="Suburb_ID" />
-            </Principal>
-            <Dependent Role="City">
-              <PropertyRef Name="Suburb_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Combo_Combo_Price">
           <End Role="Combo_Price" Type="Self.Combo_Price" Multiplicity="0..1" />
           <End Role="Combo" Type="Self.Combo" Multiplicity="*" />
@@ -1789,6 +1875,18 @@
             </Principal>
             <Dependent Role="Customer_Order_Line">
               <PropertyRef Name="Combo_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemsPicture_Combo">
+          <End Role="Combo" Type="Self.Combo" Multiplicity="0..1" />
+          <End Role="ItemsPicture" Type="Self.ItemsPicture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Combo">
+              <PropertyRef Name="Combo_ID" />
+            </Principal>
+            <Dependent Role="ItemsPicture">
+              <PropertyRef Name="Item_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1972,6 +2070,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ItemsPicture_Menu_Item">
+          <End Role="Menu_Item" Type="Self.Menu_Item" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ItemsPicture" Type="Self.ItemsPicture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu_Item">
+              <PropertyRef Name="Menu_Item_ID" />
+            </Principal>
+            <Dependent Role="ItemsPicture">
+              <PropertyRef Name="Item_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Menu_Item_Menu_Item_Price">
           <End Role="Menu_Item_Price" Type="Self.Menu_Item_Price" Multiplicity="0..1" />
           <End Role="Menu_Item" Type="Self.Menu_Item" Multiplicity="*" />
@@ -2097,7 +2209,7 @@
           <End Role="Stock_Order" Type="Self.Stock_Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Supplier">
-              <PropertyRef Name="Supllier_ID" />
+              <PropertyRef Name="Supplier_ID" />
             </Principal>
             <Dependent Role="Stock_Order">
               <PropertyRef Name="Supplier_ID" />
@@ -2121,22 +2233,10 @@
           <End Role="Supplier_Contact_Details" Type="Self.Supplier_Contact_Details" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Supplier">
-              <PropertyRef Name="Supllier_ID" />
+              <PropertyRef Name="Supplier_ID" />
             </Principal>
             <Dependent Role="Supplier_Contact_Details">
               <PropertyRef Name="Supplier_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Supplier_Supplier_Type">
-          <End Role="Supplier_Type" Type="Self.Supplier_Type" Multiplicity="0..1" />
-          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Supplier_Type">
-              <PropertyRef Name="Supplier_Type_ID" />
-            </Principal>
-            <Dependent Role="Supplier">
-              <PropertyRef Name="Supplier_Type_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2164,10 +2264,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MmasweEntities4" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Adresses" EntityType="Self.Adress" />
+        <EntityContainer Name="MmasweEntities5" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Address" />
           <EntitySet Name="Adress_Type" EntityType="Self.Adress_Type" />
           <EntitySet Name="Audits" EntityType="Self.Audit" />
+          <EntitySet Name="Banking_Details" EntityType="Self.Banking_Details" />
           <EntitySet Name="Check_In" EntityType="Self.Check_In" />
           <EntitySet Name="Check_In_Line" EntityType="Self.Check_In_Line" />
           <EntitySet Name="Check_Out" EntityType="Self.Check_Out" />
@@ -2186,6 +2287,7 @@
           <EntitySet Name="Employee_Booking_Shift" EntityType="Self.Employee_Booking_Shift" />
           <EntitySet Name="Employee_Gender_" EntityType="Self.Employee_Gender_" />
           <EntitySet Name="Employee_Shifts" EntityType="Self.Employee_Shifts" />
+          <EntitySet Name="ItemsPictures" EntityType="Self.ItemsPicture" />
           <EntitySet Name="Menu_Item" EntityType="Self.Menu_Item" />
           <EntitySet Name="Menu_Item_Price" EntityType="Self.Menu_Item_Price" />
           <EntitySet Name="Menu_Item_Type" EntityType="Self.Menu_Item_Type" />
@@ -2206,24 +2308,29 @@
           <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
           <EntitySet Name="Supplier_Contact_Details" EntityType="Self.Supplier_Contact_Details" />
           <EntitySet Name="Supplier_Type" EntityType="Self.Supplier_Type" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="User_Log" EntityType="Self.User_Log" />
           <EntitySet Name="User_Role" EntityType="Self.User_Role" />
+          <AssociationSet Name="FK_Address_Supplier" Association="Self.FK_Address_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
           <AssociationSet Name="FK_Adress_Adress_Type" Association="Self.FK_Adress_Adress_Type">
             <End Role="Adress_Type" EntitySet="Adress_Type" />
-            <End Role="Adress" EntitySet="Adresses" />
+            <End Role="Address" EntitySet="Addresses" />
           </AssociationSet>
           <AssociationSet Name="FK_Adress_City" Association="Self.FK_Adress_City">
             <End Role="City" EntitySet="Cities" />
-            <End Role="Adress" EntitySet="Adresses" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Supplier_Adress" Association="Self.FK_Supplier_Adress">
-            <End Role="Adress" EntitySet="Adresses" />
-            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Address" EntitySet="Addresses" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Audit" Association="Self.FK_User_Audit">
             <End Role="Audit" EntitySet="Audits" />
             <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Banking_Details_Supplier" Association="Self.FK_Banking_Details_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Banking_Details" EntitySet="Banking_Details" />
           </AssociationSet>
           <AssociationSet Name="FK_Check_In_Line_Check_In" Association="Self.FK_Check_In_Line_Check_In">
             <End Role="Check_In" EntitySet="Check_In" />
@@ -2241,10 +2348,6 @@
             <End Role="Stock_Item" EntitySet="Stock_Item" />
             <End Role="Check_Out_Line" EntitySet="Check_Out_Line" />
           </AssociationSet>
-          <AssociationSet Name="FK_City_Suburb" Association="Self.FK_City_Suburb">
-            <End Role="Suburb" EntitySet="Suburbs" />
-            <End Role="City" EntitySet="Cities" />
-          </AssociationSet>
           <AssociationSet Name="FK_Combo_Combo_Price" Association="Self.FK_Combo_Combo_Price">
             <End Role="Combo_Price" EntitySet="Combo_Price" />
             <End Role="Combo" EntitySet="Comboes" />
@@ -2256,6 +2359,10 @@
           <AssociationSet Name="FK_Customer_Order_Line_Combo" Association="Self.FK_Customer_Order_Line_Combo">
             <End Role="Combo" EntitySet="Comboes" />
             <End Role="Customer_Order_Line" EntitySet="Customer_Order_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsPicture_Combo" Association="Self.FK_ItemsPicture_Combo">
+            <End Role="Combo" EntitySet="Comboes" />
+            <End Role="ItemsPicture" EntitySet="ItemsPictures" />
           </AssociationSet>
           <AssociationSet Name="FK_Stock_Combo_Line_Combo" Association="Self.FK_Stock_Combo_Line_Combo">
             <End Role="Combo" EntitySet="Comboes" />
@@ -2317,6 +2424,10 @@
             <End Role="Employee_Shifts" EntitySet="Employee_Shifts" />
             <End Role="Employee_Booking_Shift" EntitySet="Employee_Booking_Shift" />
           </AssociationSet>
+          <AssociationSet Name="FK_ItemsPicture_Menu_Item" Association="Self.FK_ItemsPicture_Menu_Item">
+            <End Role="Menu_Item" EntitySet="Menu_Item" />
+            <End Role="ItemsPicture" EntitySet="ItemsPictures" />
+          </AssociationSet>
           <AssociationSet Name="FK_Menu_Item_Menu_Item_Price" Association="Self.FK_Menu_Item_Menu_Item_Price">
             <End Role="Menu_Item_Price" EntitySet="Menu_Item_Price" />
             <End Role="Menu_Item" EntitySet="Menu_Item" />
@@ -2369,10 +2480,6 @@
             <End Role="Supplier" EntitySet="Suppliers" />
             <End Role="Supplier_Contact_Details" EntitySet="Supplier_Contact_Details" />
           </AssociationSet>
-          <AssociationSet Name="FK_Supplier_Supplier_Type" Association="Self.FK_Supplier_Supplier_Type">
-            <End Role="Supplier_Type" EntitySet="Supplier_Type" />
-            <End Role="Supplier" EntitySet="Suppliers" />
-          </AssociationSet>
           <AssociationSet Name="FK_User_User_Log" Association="Self.FK_User_User_Log">
             <End Role="User_Log" EntitySet="User_Log" />
             <End Role="User" EntitySet="Users" />
@@ -2387,15 +2494,16 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MmasweModelStoreContainer" CdmEntityContainer="MmasweEntities4">
-          <EntitySetMapping Name="Adresses">
-            <EntityTypeMapping TypeName="MmasweModel.Adress">
-              <MappingFragment StoreEntitySet="Adress">
-                <ScalarProperty Name="Adress_ID" ColumnName="Adress_ID" />
-                <ScalarProperty Name="Street_Number" ColumnName="Street_Number" />
-                <ScalarProperty Name="City" ColumnName="City" />
+        <EntityContainerMapping StorageEntityContainer="MmasweModelStoreContainer" CdmEntityContainer="MmasweEntities5">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="MmasweModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="Address_ID" ColumnName="Address_ID" />
+                <ScalarProperty Name="Street_Name" ColumnName="Street_Name" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
                 <ScalarProperty Name="Address_Type_ID" ColumnName="Address_Type_ID" />
                 <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+                <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2415,6 +2523,17 @@
                 <ScalarProperty Name="Audit_Table" ColumnName="Audit_Table" />
                 <ScalarProperty Name="Audit_Description" ColumnName="Audit_Description" />
                 <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Banking_Details">
+            <EntityTypeMapping TypeName="MmasweModel.Banking_Details">
+              <MappingFragment StoreEntitySet="Banking_Details">
+                <ScalarProperty Name="Banking_Details_ID" ColumnName="Banking_Details_ID" />
+                <ScalarProperty Name="Bank_Name" ColumnName="Bank_Name" />
+                <ScalarProperty Name="Bank_Acc_No" ColumnName="Bank_Acc_No" />
+                <ScalarProperty Name="Branch_Code" ColumnName="Branch_Code" />
+                <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2462,8 +2581,7 @@
             <EntityTypeMapping TypeName="MmasweModel.City">
               <MappingFragment StoreEntitySet="City">
                 <ScalarProperty Name="City_ID" ColumnName="City_ID" />
-                <ScalarProperty Name="City_Description" ColumnName="City_Description" />
-                <ScalarProperty Name="Suburb_ID" ColumnName="Suburb_ID" />
+                <ScalarProperty Name="City_Name" ColumnName="City_Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2608,6 +2726,16 @@
                 <ScalarProperty Name="Employee_Shift_ID" ColumnName="Employee_Shift_ID" />
                 <ScalarProperty Name="Employee_Shift_Date" ColumnName="Employee_Shift_Date" />
                 <ScalarProperty Name="Employee_Shift_Time_Slot" ColumnName="Employee_Shift_Time_Slot" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemsPictures">
+            <EntityTypeMapping TypeName="MmasweModel.ItemsPicture">
+              <MappingFragment StoreEntitySet="ItemsPicture">
+                <ScalarProperty Name="imageVar" ColumnName="imageVar" />
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2757,6 +2885,7 @@
                 <ScalarProperty Name="Stock_WriteOff_Quantity" ColumnName="Stock_WriteOff_Quantity" />
                 <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
                 <ScalarProperty Name="WriteOff_Reason" ColumnName="WriteOff_Reason" />
+                <ScalarProperty Name="WriteOffDate" ColumnName="WriteOffDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2775,17 +2904,17 @@
             <EntityTypeMapping TypeName="MmasweModel.Suburb">
               <MappingFragment StoreEntitySet="Suburb">
                 <ScalarProperty Name="Suburb_ID" ColumnName="Suburb_ID" />
-                <ScalarProperty Name="Suburb_Description" ColumnName="Suburb_Description" />
+                <ScalarProperty Name="Suburb_Name" ColumnName="Suburb_Name" />
                 <ScalarProperty Name="Zip_Code" ColumnName="Zip_Code" />
+                <ScalarProperty Name="City_ID" ColumnName="City_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Suppliers">
             <EntityTypeMapping TypeName="MmasweModel.Supplier">
               <MappingFragment StoreEntitySet="Supplier">
-                <ScalarProperty Name="Supllier_ID" ColumnName="Supllier_ID" />
+                <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
                 <ScalarProperty Name="Supplier_Name" ColumnName="Supplier_Name" />
-                <ScalarProperty Name="Address_ID" ColumnName="Address_ID" />
                 <ScalarProperty Name="Supplier_Type_ID" ColumnName="Supplier_Type_ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2806,6 +2935,17 @@
               <MappingFragment StoreEntitySet="Supplier_Type">
                 <ScalarProperty Name="Supplier_Type_ID" ColumnName="Supplier_Type_ID" />
                 <ScalarProperty Name="Supplier_Type_Description" ColumnName="Supplier_Type_Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MmasweModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
