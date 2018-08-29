@@ -42,14 +42,14 @@
             this.supplierResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventoryResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dgvStockList = new System.Windows.Forms.DataGridView();
+            this.dgvListStock = new System.Windows.Forms.DataGridView();
             this.jobQuotePanelActions.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStockList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListStock)).BeginInit();
             this.SuspendLayout();
             // 
             // header
@@ -155,27 +155,25 @@
             this.panel2.Size = new System.Drawing.Size(635, 76);
             this.panel2.TabIndex = 27;
             // 
-            // dgvStockList
+            // dgvListStock
             // 
-            this.dgvStockList.AutoGenerateColumns = false;
-            this.dgvStockList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStockList.DataSource = this.supplierResultBindingSource;
-            this.dgvStockList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvStockList.Location = new System.Drawing.Point(0, 136);
-            this.dgvStockList.Name = "dgvStockList";
-            this.dgvStockList.Size = new System.Drawing.Size(635, 229);
-            this.dgvStockList.TabIndex = 29;
+            this.dgvListStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListStock.Location = new System.Drawing.Point(0, 142);
+            this.dgvListStock.Name = "dgvListStock";
+            this.dgvListStock.Size = new System.Drawing.Size(635, 219);
+            this.dgvListStock.TabIndex = 29;
             // 
             // Stock_ItemList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(635, 365);
-            this.Controls.Add(this.dgvStockList);
+            this.Controls.Add(this.dgvListStock);
             this.Controls.Add(this.jobQuotePanelActions);
             this.Controls.Add(this.panel2);
             this.Name = "Stock_ItemList";
             this.Text = "Stock_ItemList";
+            this.Load += new System.EventHandler(this.Stock_ItemList_Load);
             this.jobQuotePanelActions.ResumeLayout(false);
             this.jobQuotePanelActions.PerformLayout();
             this.panel22.ResumeLayout(false);
@@ -185,7 +183,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStockList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListStock)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -203,6 +201,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.BindingSource inventoryResultBindingSource;
         private System.Windows.Forms.BindingSource clientResultBindingSource;
-        private System.Windows.Forms.DataGridView dgvStockList;
+        private System.Windows.Forms.DataGridView dgvListStock;
     }
 }

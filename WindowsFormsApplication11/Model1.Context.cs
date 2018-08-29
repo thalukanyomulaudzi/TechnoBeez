@@ -13,10 +13,10 @@ namespace WindowsFormsApplication11
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MmasweEntities5 : DbContext
+    public partial class MmasweEntities9 : DbContext
     {
-        public MmasweEntities5()
-            : base("name=MmasweEntities5")
+        public MmasweEntities9()
+            : base("name=MmasweEntities9")
         {
         }
     

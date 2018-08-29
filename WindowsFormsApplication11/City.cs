@@ -18,6 +18,7 @@ namespace WindowsFormsApplication11
         public City()
         {
             this.Addresses = new HashSet<Address>();
+            this.Suburbs = new HashSet<Suburb>();
         }
     
         public int City_ID { get; set; }
@@ -25,5 +26,7 @@ namespace WindowsFormsApplication11
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Address> Addresses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Suburb> Suburbs { get; set; }
     }
 }

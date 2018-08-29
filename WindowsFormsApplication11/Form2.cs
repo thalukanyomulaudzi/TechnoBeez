@@ -1,4 +1,4 @@
-﻿
+﻿//using FastMember;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +17,7 @@ namespace WindowsFormsApplication11
     public partial class Form2 : Form
     {
         Button navButton;
-        MmasweEntities5 db = new MmasweEntities5();
+        MmasweEntities9 db = new MmasweEntities9();
         public Form2()
         {
             InitializeComponent();
@@ -162,7 +162,7 @@ namespace WindowsFormsApplication11
                         {
                             db.Suppliers.Remove(deieteItem);
                             db.SaveChanges();
-                            MessageBox.Show("Stock item(" + deieteItem.Supplier_Name + ") deleted successfully");
+                            MessageBox.Show("Supplier (" + deieteItem.Supplier_Name + ") deleted successfully");
                         }
                         else
                         {
@@ -179,7 +179,7 @@ namespace WindowsFormsApplication11
                     Supplier item = db.Suppliers.FirstOrDefault(c => c.Supplier_ID == id);
                     if (item != null)
                     {
-                        SupplierForm form = new SupplierForm();
+                        SupplierForm form = new SupplierForm(this);
                         form.ShowDialog();
                         
                     }
@@ -501,7 +501,7 @@ namespace WindowsFormsApplication11
 
         /*Combo Grid Mouse Click Func*/
 
-        void supplierClick(Object sender, MouseEventArgs e)
+        void supplierRightClick(Object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
@@ -509,20 +509,47 @@ namespace WindowsFormsApplication11
                 int position_xy__row = dgvSupplier.HitTest(e.X, e.Y).RowIndex;
                 if (position_xy__row >= 0)
                 {
-                    myMenu.Items.Add("Delete").Name = "Deleted";
+                    myMenu.Items.Add("Delete").Name = "Delete";
                     myMenu.Items.Add("View").Name = "View";
                 }
-
-
                 myMenu.Show(dgvSupplier, new Point(e.X, e.Y));
-                myMenu.ItemClicked += new ToolStripItemClickedEventHandler(myMenu_ItemClicked);
-                Globals.menu = myMenu;
+                int index = int.Parse(dgvSupplier.Rows[position_xy__row].Cells[0].Value.ToString());
+
+              
+                myMenu.ItemClicked += new ToolStripItemClickedEventHandler((x,y)=>supplierClick(x,y,index,myMenu));
+               //Globals.menu = myMenu;
+
+
             }
         }
+        void supplierClick(Object sender, ToolStripItemClickedEventArgs e, int index, ContextMenuStrip my_menu)
+        {
+            if (e.ClickedItem.Name.ToString() == "Delete")
+            {
+                my_menu.Hide();
+                if (MessageBox.Show("Do you want to delete Supplier?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    //Supplier sp = new Supplier();
+                    //int id = Globals.Supplierpassing;
 
+                    Supplier sp = db.Suppliers.FirstOrDefault(c => c.Supplier_ID == index);
+                    db.Suppliers.Remove(sp);
+                    db.SaveChanges();
+                    Globals.refresher = true;
+                    MessageBox.Show("Supplier Deleted");
+                }
+            }
+            else if (e.ClickedItem.Name.ToString() == "View")
+            {
+                my_menu.Hide();
+                SupplierForm f = new SupplierForm(this);
+                f.View(index);
+                f.ShowDialog();
+            }
 
+        }
 
-        void Stock_mouse_click(Object sender, MouseEventArgs e)
+            void Stock_mouse_click(Object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
@@ -640,11 +667,16 @@ namespace WindowsFormsApplication11
         {
             header.Text = "Stock";
             btnTheAdd.Text = "Add Stock Item";
+            
             if (navButton != btnStock)
             {
                 navigate(btnStock);
             }
+            LoadStock();
 
+        }
+        public void LoadStock()
+        {
             var customers = from p in db.Stock_Item
                             select new
                             {
@@ -657,18 +689,17 @@ namespace WindowsFormsApplication11
                                 //ItemWrietOffId = p.Write_Off_ID
 
                             };
-         
+
             dgvSupplier.DataSource = customers.ToList();
             dgvSupplier.ClearSelection();
             db.SaveChanges();
             //if (dgvSupplier.Rows.Count != 0)
             //{
-               
+
             //    Globals.MStockpassing = dgvSupplier.Rows[0].Cells[0].Value;
             //}
             dgvSupplier.MouseClick += new MouseEventHandler(Stock_mouse_click);
         }
-
         private void Form2_Load(object sender, EventArgs e)
         {
             
@@ -780,16 +811,24 @@ namespace WindowsFormsApplication11
             {
                 navigate(btnSuppliers11);
             }
+            loadSuppliers();
 
+        }
+        public void loadSuppliers()
+        {
             var customers = from p in db.Suppliers
+                            join q in db.Addresses
+                                on p.Supplier_ID equals q.Address_ID
+
+                            join y in db.Supplier_Contact_Details
+                                on p.Supplier_ID equals y.Supplier_Contact_ID
                             select new
                             {
                                 SupplierId = p.Supplier_ID,
                                 SupplierName = p.Supplier_Name,
-                               // AdressId = p.,
-                                SupplierTypeId = p.Supplier_Type_ID,
-                                
-
+                                SupplierEmail = y.Supplier_Email_Adress,
+                                SupplierContactNumber = y.Supplier_Contact_Number,
+                                Province = q.Province,
                             };
             dgvSupplier.DataSource = customers.ToList();
             dgvSupplier.ClearSelection();
@@ -798,7 +837,7 @@ namespace WindowsFormsApplication11
             //{
             //    Globals.Supplierpassing = dgvSupplier.Rows[0].Cells[0].Value;
             //}
-            dgvSupplier.MouseClick += new MouseEventHandler(supplierClick);
+            dgvSupplier.MouseClick += new MouseEventHandler(supplierRightClick);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -815,6 +854,12 @@ namespace WindowsFormsApplication11
             else if(navButton == btnMenu)
             {
                 Menu_And_Combo form = new Menu_And_Combo();
+                form.ShowDialog();
+
+            }
+            else if (navButton == btnSuppliers11)
+            {
+                SupplierForm form = new SupplierForm(this);
                 form.ShowDialog();
 
             }
@@ -1013,14 +1058,20 @@ namespace WindowsFormsApplication11
                 else if (navButton == btnSuppliers11)
                 {
                     var customers = from p in db.Suppliers
+                                    join q in db.Addresses
+                                        on p.Supplier_ID equals q.Address_ID
+                                    join x in db.Cities
+                                        on p.Supplier_ID equals x.City_ID
+                                    join y in db.Supplier_Contact_Details
+                                        on p.Supplier_ID equals y.Supplier_Contact_ID
                                     select new
                                     {
                                         SupplierId = p.Supplier_ID,
                                         SupplierName = p.Supplier_Name,
-                                       // AdressId = p.Address_ID,
-                                        SupplierTypeId = p.Supplier_Type_ID,
-
-
+                                        SupplierEmail = y.Supplier_Email_Adress,
+                                        SupplierContactNumber = y.Supplier_Contact_Number,
+                                        Province = q.Province,
+                                        CityName = x.City_Name,
                                     };
                     dgvSupplier.DataSource = customers.ToList();
                     dgvSupplier.ClearSelection();
@@ -1113,6 +1164,12 @@ namespace WindowsFormsApplication11
                 Globals.refresher = false;
                
             }
+        }
+
+        private void btnOrderList_Click(object sender, EventArgs e)
+        {
+            OrderList f = new OrderList(this);
+            f.ShowDialog();
         }
     }
 }

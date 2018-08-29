@@ -14,7 +14,7 @@ namespace WindowsFormsApplication11
     {
        
         Button navButton;
-        MmasweEntities5 db = new MmasweEntities5();
+        MmasweEntities9 db = new MmasweEntities9();
         
         public Form1()
         {
@@ -364,7 +364,7 @@ namespace WindowsFormsApplication11
         }
         if (navButton == btnSuppliers11)
         {
-            SupplierForm supplier = new SupplierForm();
+            SupplierForm supplier = new SupplierForm(this);
             supplier.ShowDialog();
         }
         if (navButton == clientBtn)

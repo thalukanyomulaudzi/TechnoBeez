@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MmasweModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MmasweModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="Address_ID" />
@@ -83,7 +83,7 @@
           <Key>
             <PropertyRef Name="City_ID" />
           </Key>
-          <Property Name="City_ID" Type="int" Nullable="false" />
+          <Property Name="City_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="City_Name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Combo">
@@ -314,9 +314,9 @@
           <Property Name="Stock_Order_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Stock_Order_Description" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Stock_Order_Issue_Date" Type="datetime" Nullable="false" />
-          <Property Name="Employee_ID" Type="int" />
           <Property Name="Stock_Order_Status_ID" Type="int" />
           <Property Name="Supplier_ID" Type="int" />
+          <Property Name="DateReceived" Type="datetime" />
         </EntityType>
         <EntityType Name="Stock_Order_Line">
           <Key>
@@ -471,7 +471,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Adress_City">
-          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Address" Type="Self.Address" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="City">
@@ -483,7 +485,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Banking_Details_Supplier">
-          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Banking_Details" Type="Self.Banking_Details" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Supplier">
@@ -844,18 +848,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Stock_Order_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="Stock_Order" Type="Self.Stock_Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Employee_ID" />
-            </Principal>
-            <Dependent Role="Stock_Order">
-              <PropertyRef Name="Employee_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Stock_Order_Line_Stock_Item">
           <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="0..1" />
           <End Role="Stock_Order_Line" Type="Self.Stock_Order_Line" Multiplicity="*" />
@@ -928,8 +920,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Suburb_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Suburb" Type="Self.Suburb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="City_ID" />
+            </Principal>
+            <Dependent Role="Suburb">
+              <PropertyRef Name="City_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Supplier_Contact_Details_Supplier">
-          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Supplier_Contact_Details" Type="Self.Supplier_Contact_Details" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Supplier">
@@ -937,6 +945,18 @@
             </Principal>
             <Dependent Role="Supplier_Contact_Details">
               <PropertyRef Name="Supplier_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supplier_Supplier_Type">
+          <End Role="Supplier_Type" Type="Self.Supplier_Type" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier_Type">
+              <PropertyRef Name="Supplier_Type_ID" />
+            </Principal>
+            <Dependent Role="Supplier">
+              <PropertyRef Name="Supplier_Type_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1156,10 +1176,6 @@
             <End Role="Stock_Type" EntitySet="Stock_Type" />
             <End Role="Stock_Item" EntitySet="Stock_Item" />
           </AssociationSet>
-          <AssociationSet Name="FK_Stock_Order_Employee" Association="Self.FK_Stock_Order_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Stock_Order" EntitySet="Stock_Order" />
-          </AssociationSet>
           <AssociationSet Name="FK_Stock_Order_Line_Stock_Item" Association="Self.FK_Stock_Order_Line_Stock_Item">
             <End Role="Stock_Item" EntitySet="Stock_Item" />
             <End Role="Stock_Order_Line" EntitySet="Stock_Order_Line" />
@@ -1184,9 +1200,17 @@
             <End Role="Stock_Write_Off" EntitySet="Stock_Write_Off" />
             <End Role="Stock_WriteOff_Line" EntitySet="Stock_WriteOff_Line" />
           </AssociationSet>
+          <AssociationSet Name="FK_Suburb_City" Association="Self.FK_Suburb_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Suburb" EntitySet="Suburb" />
+          </AssociationSet>
           <AssociationSet Name="FK_Supplier_Contact_Details_Supplier" Association="Self.FK_Supplier_Contact_Details_Supplier">
             <End Role="Supplier" EntitySet="Supplier" />
             <End Role="Supplier_Contact_Details" EntitySet="Supplier_Contact_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supplier_Supplier_Type" Association="Self.FK_Supplier_Supplier_Type">
+            <End Role="Supplier_Type" EntitySet="Supplier_Type" />
+            <End Role="Supplier" EntitySet="Supplier" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Audit" Association="Self.FK_User_Audit">
             <End Role="Audit" EntitySet="Audit" />
@@ -1201,7 +1225,8 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MmasweModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1295,9 +1320,10 @@
           <Key>
             <PropertyRef Name="City_ID" />
           </Key>
-          <Property Name="City_ID" Type="Int32" Nullable="false" />
+          <Property Name="City_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="City_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Addresses" Relationship="Self.FK_Adress_City" FromRole="City" ToRole="Address" />
+          <NavigationProperty Name="Suburbs" Relationship="Self.FK_Suburb_City" FromRole="City" ToRole="Suburb" />
         </EntityType>
         <EntityType Name="Combo">
           <Key>
@@ -1421,7 +1447,6 @@
           <NavigationProperty Name="Employee_Booking_Shift" Relationship="Self.FK_Employee_Booking_Shift_Employee" FromRole="Employee" ToRole="Employee_Booking_Shift" />
           <NavigationProperty Name="Employee_Gender_" Relationship="Self.FK_Employee_Employee_Gender_" FromRole="Employee" ToRole="Employee_Gender_" />
           <NavigationProperty Name="User" Relationship="Self.FK_Employee_User" FromRole="Employee" ToRole="User" />
-          <NavigationProperty Name="Stock_Order" Relationship="Self.FK_Stock_Order_Employee" FromRole="Employee" ToRole="Stock_Order" />
         </EntityType>
         <EntityType Name="Employee_Attendence_Status">
           <Key>
@@ -1465,11 +1490,11 @@
             <PropertyRef Name="ImageID" />
           </Key>
           <Property Name="ImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imageVar" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Item_ID" Type="Int32" />
           <NavigationProperty Name="Combo" Relationship="Self.FK_ItemsPicture_Combo" FromRole="ItemsPicture" ToRole="Combo" />
           <NavigationProperty Name="Menu_Item" Relationship="Self.FK_ItemsPicture_Menu_Item" FromRole="ItemsPicture" ToRole="Menu_Item" />
-          <Property Name="imageVar" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Menu_Item">
           <Key>
@@ -1579,10 +1604,9 @@
           <Property Name="Stock_Order_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Stock_Order_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Stock_Order_Issue_Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Employee_ID" Type="Int32" />
           <Property Name="Stock_Order_Status_ID" Type="Int32" />
           <Property Name="Supplier_ID" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Stock_Order_Employee" FromRole="Stock_Order" ToRole="Employee" />
+          <Property Name="DateReceived" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Stock_Order_Line" Relationship="Self.FK_Stock_Order_Line_Stock_Order" FromRole="Stock_Order" ToRole="Stock_Order_Line" />
           <NavigationProperty Name="Stock_Order_Status" Relationship="Self.FK_Stock_Order_Stock_Order_Status" FromRole="Stock_Order" ToRole="Stock_Order_Status" />
           <NavigationProperty Name="Supplier" Relationship="Self.FK_Stock_Order_Supplier" FromRole="Stock_Order" ToRole="Supplier" />
@@ -1656,6 +1680,7 @@
           <Property Name="Suburb_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Zip_Code" Type="Int32" Nullable="false" />
           <Property Name="City_ID" Type="Int32" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Suburb_City" FromRole="Suburb" ToRole="City" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
@@ -1668,6 +1693,7 @@
           <NavigationProperty Name="Banking_Details" Relationship="Self.FK_Banking_Details_Supplier" FromRole="Supplier" ToRole="Banking_Details" />
           <NavigationProperty Name="Stock_Order" Relationship="Self.FK_Stock_Order_Supplier" FromRole="Supplier" ToRole="Stock_Order" />
           <NavigationProperty Name="Supplier_Contact_Details" Relationship="Self.FK_Supplier_Contact_Details_Supplier" FromRole="Supplier" ToRole="Supplier_Contact_Details" />
+          <NavigationProperty Name="Supplier_Type" Relationship="Self.FK_Supplier_Supplier_Type" FromRole="Supplier" ToRole="Supplier_Type" />
         </EntityType>
         <EntityType Name="Supplier_Contact_Details">
           <Key>
@@ -1686,6 +1712,7 @@
           </Key>
           <Property Name="Supplier_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Supplier_Type_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Suppliers" Relationship="Self.FK_Supplier_Supplier_Type" FromRole="Supplier_Type" ToRole="Supplier" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -1759,7 +1786,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Adress_City">
-          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Address" Type="Self.Address" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="City">
@@ -1783,7 +1812,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Banking_Details_Supplier">
-          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Banking_Details" Type="Self.Banking_Details" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Supplier">
@@ -1839,6 +1870,20 @@
             </Principal>
             <Dependent Role="Check_Out_Line">
               <PropertyRef Name="Stock_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Suburb_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Suburb" Type="Self.Suburb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="City_ID" />
+            </Principal>
+            <Dependent Role="Suburb">
+              <PropertyRef Name="City_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2034,18 +2079,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Stock_Order_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="Stock_Order" Type="Self.Stock_Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Employee_ID" />
-            </Principal>
-            <Dependent Role="Stock_Order">
-              <PropertyRef Name="Employee_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Employee_Attendence_Status_Employee_Booking_Shift">
           <End Role="Employee_Booking_Shift" Type="Self.Employee_Booking_Shift" Multiplicity="0..1" />
           <End Role="Employee_Attendence_Status" Type="Self.Employee_Attendence_Status" Multiplicity="*" />
@@ -2229,7 +2262,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Supplier_Contact_Details_Supplier">
-          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Supplier_Contact_Details" Type="Self.Supplier_Contact_Details" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Supplier">
@@ -2237,6 +2272,18 @@
             </Principal>
             <Dependent Role="Supplier_Contact_Details">
               <PropertyRef Name="Supplier_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supplier_Supplier_Type">
+          <End Role="Supplier_Type" Type="Self.Supplier_Type" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier_Type">
+              <PropertyRef Name="Supplier_Type_ID" />
+            </Principal>
+            <Dependent Role="Supplier">
+              <PropertyRef Name="Supplier_Type_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2264,7 +2311,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MmasweEntities5" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MmasweEntities9" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Addresses" EntityType="Self.Address" />
           <EntitySet Name="Adress_Type" EntityType="Self.Adress_Type" />
           <EntitySet Name="Audits" EntityType="Self.Audit" />
@@ -2348,6 +2395,10 @@
             <End Role="Stock_Item" EntitySet="Stock_Item" />
             <End Role="Check_Out_Line" EntitySet="Check_Out_Line" />
           </AssociationSet>
+          <AssociationSet Name="FK_Suburb_City" Association="Self.FK_Suburb_City">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Suburb" EntitySet="Suburbs" />
+          </AssociationSet>
           <AssociationSet Name="FK_Combo_Combo_Price" Association="Self.FK_Combo_Combo_Price">
             <End Role="Combo_Price" EntitySet="Combo_Price" />
             <End Role="Combo" EntitySet="Comboes" />
@@ -2411,10 +2462,6 @@
           <AssociationSet Name="FK_Employee_User" Association="Self.FK_Employee_User">
             <End Role="User" EntitySet="Users" />
             <End Role="Employee" EntitySet="Employees" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Stock_Order_Employee" Association="Self.FK_Stock_Order_Employee">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="Stock_Order" EntitySet="Stock_Order" />
           </AssociationSet>
           <AssociationSet Name="FK_Employee_Attendence_Status_Employee_Booking_Shift" Association="Self.FK_Employee_Attendence_Status_Employee_Booking_Shift">
             <End Role="Employee_Booking_Shift" EntitySet="Employee_Booking_Shift" />
@@ -2480,6 +2527,10 @@
             <End Role="Supplier" EntitySet="Suppliers" />
             <End Role="Supplier_Contact_Details" EntitySet="Supplier_Contact_Details" />
           </AssociationSet>
+          <AssociationSet Name="FK_Supplier_Supplier_Type" Association="Self.FK_Supplier_Supplier_Type">
+            <End Role="Supplier_Type" EntitySet="Supplier_Type" />
+            <End Role="Supplier" EntitySet="Suppliers" />
+          </AssociationSet>
           <AssociationSet Name="FK_User_User_Log" Association="Self.FK_User_User_Log">
             <End Role="User_Log" EntitySet="User_Log" />
             <End Role="User" EntitySet="Users" />
@@ -2494,7 +2545,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MmasweModelStoreContainer" CdmEntityContainer="MmasweEntities5">
+        <EntityContainerMapping StorageEntityContainer="MmasweModelStoreContainer" CdmEntityContainer="MmasweEntities9">
           <EntitySetMapping Name="Addresses">
             <EntityTypeMapping TypeName="MmasweModel.Address">
               <MappingFragment StoreEntitySet="Address">
@@ -2732,8 +2783,8 @@
           <EntitySetMapping Name="ItemsPictures">
             <EntityTypeMapping TypeName="MmasweModel.ItemsPicture">
               <MappingFragment StoreEntitySet="ItemsPicture">
-                <ScalarProperty Name="imageVar" ColumnName="imageVar" />
                 <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+                <ScalarProperty Name="imageVar" ColumnName="imageVar" />
                 <ScalarProperty Name="ItemName" ColumnName="ItemName" />
                 <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
               </MappingFragment>
@@ -2835,9 +2886,9 @@
                 <ScalarProperty Name="Stock_Order_ID" ColumnName="Stock_Order_ID" />
                 <ScalarProperty Name="Stock_Order_Description" ColumnName="Stock_Order_Description" />
                 <ScalarProperty Name="Stock_Order_Issue_Date" ColumnName="Stock_Order_Issue_Date" />
-                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
                 <ScalarProperty Name="Stock_Order_Status_ID" ColumnName="Stock_Order_Status_ID" />
                 <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+                <ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

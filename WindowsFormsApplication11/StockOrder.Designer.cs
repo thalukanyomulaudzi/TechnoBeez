@@ -30,9 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockOrder));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnOrder = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
@@ -40,73 +38,54 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.employeeTypeBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.genderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.panel3.SuspendLayout();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtOrderQuantity = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnStockSelect = new System.Windows.Forms.Button();
+            this.txtSelectStock = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSupplierSelect = new System.Windows.Forms.Button();
+            this.txtSelectSupplier = new System.Windows.Forms.TextBox();
             this.panel17.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource)).BeginInit();
-            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // btnOrder
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(164, 20);
-            this.textBox1.TabIndex = 63;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.groupBox4);
-            this.panel3.Controls.Add(this.groupBox3);
-            this.panel3.Controls.Add(this.groupBox2);
-            this.panel3.Controls.Add(this.groupBox1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 57);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(425, 258);
-            this.panel3.TabIndex = 19;
-            // 
-            // button7
-            // 
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(118, 3);
-            this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.button7.Size = new System.Drawing.Size(70, 34);
-            this.button7.TabIndex = 9;
-            this.button7.Text = "Order";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnOrder.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnOrder.Image")));
+            this.btnOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOrder.Location = new System.Drawing.Point(118, 3);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnOrder.Size = new System.Drawing.Size(70, 34);
+            this.btnOrder.TabIndex = 9;
+            this.btnOrder.Text = "Order";
+            this.btnOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOrder.UseVisualStyleBackColor = true;
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
             // panel17
             // 
-            this.panel17.Controls.Add(this.button7);
+            this.panel17.Controls.Add(this.btnOrder);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel17.Location = new System.Drawing.Point(225, 0);
+            this.panel17.Location = new System.Drawing.Point(180, 0);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(200, 39);
             this.panel17.TabIndex = 8;
@@ -117,10 +96,10 @@
             this.panel14.Controls.Add(this.panel17);
             this.panel14.Controls.Add(this.panel15);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel14.Location = new System.Drawing.Point(0, 315);
+            this.panel14.Location = new System.Drawing.Point(0, 313);
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(425, 40);
+            this.panel14.Size = new System.Drawing.Size(380, 40);
             this.panel14.TabIndex = 18;
             // 
             // panel15
@@ -129,7 +108,7 @@
             this.panel15.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel15.Location = new System.Drawing.Point(0, 39);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(425, 1);
+            this.panel15.Size = new System.Drawing.Size(380, 1);
             this.panel15.TabIndex = 0;
             // 
             // panel2
@@ -142,7 +121,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(425, 57);
+            this.panel2.Size = new System.Drawing.Size(380, 57);
             this.panel2.TabIndex = 17;
             // 
             // panel1
@@ -151,7 +130,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 56);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(425, 1);
+            this.panel1.Size = new System.Drawing.Size(380, 1);
             this.panel1.TabIndex = 2;
             // 
             // label14
@@ -168,36 +147,6 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Location = new System.Drawing.Point(21, 17);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(263, 57);
-            this.groupBox1.TabIndex = 64;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Supplier";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Location = new System.Drawing.Point(21, 80);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(263, 53);
-            this.groupBox2.TabIndex = 65;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Stock";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Location = new System.Drawing.Point(21, 198);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(206, 47);
-            this.groupBox3.TabIndex = 66;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Quantity";
-            // 
             // employeeTypeBindingSource2
             // 
             this.employeeTypeBindingSource2.DataMember = "EmployeeType";
@@ -206,66 +155,111 @@
             // 
             this.genderBindingSource1.DataMember = "Gender";
             // 
-            // comboBox1
+            // groupBox3
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(224, 21);
-            this.comboBox1.TabIndex = 0;
+            this.groupBox3.Controls.Add(this.txtOrderQuantity);
+            this.groupBox3.Location = new System.Drawing.Point(12, 201);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(179, 63);
+            this.groupBox3.TabIndex = 21;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Quantity";
             // 
-            // comboBox2
+            // txtOrderQuantity
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(6, 19);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(224, 21);
-            this.comboBox2.TabIndex = 1;
+            this.txtOrderQuantity.Location = new System.Drawing.Point(17, 24);
+            this.txtOrderQuantity.Name = "txtOrderQuantity";
+            this.txtOrderQuantity.Size = new System.Drawing.Size(142, 20);
+            this.txtOrderQuantity.TabIndex = 5;
             // 
-            // groupBox4
+            // groupBox2
             // 
-            this.groupBox4.Controls.Add(this.textBox2);
-            this.groupBox4.Location = new System.Drawing.Point(21, 139);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(263, 53);
-            this.groupBox4.TabIndex = 67;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Stock Description";
+            this.groupBox2.Controls.Add(this.btnStockSelect);
+            this.groupBox2.Controls.Add(this.txtSelectStock);
+            this.groupBox2.Location = new System.Drawing.Point(12, 132);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(357, 63);
+            this.groupBox2.TabIndex = 20;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Stock";
             // 
-            // textBox2
+            // btnStockSelect
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 20);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(224, 20);
-            this.textBox2.TabIndex = 0;
+            this.btnStockSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStockSelect.Location = new System.Drawing.Point(230, 22);
+            this.btnStockSelect.Name = "btnStockSelect";
+            this.btnStockSelect.Size = new System.Drawing.Size(110, 23);
+            this.btnStockSelect.TabIndex = 6;
+            this.btnStockSelect.Text = "Select Stock";
+            this.btnStockSelect.UseVisualStyleBackColor = true;
+            this.btnStockSelect.Click += new System.EventHandler(this.btnStockSelect_Click);
+            // 
+            // txtSelectStock
+            // 
+            this.txtSelectStock.Location = new System.Drawing.Point(17, 24);
+            this.txtSelectStock.Name = "txtSelectStock";
+            this.txtSelectStock.ReadOnly = true;
+            this.txtSelectStock.Size = new System.Drawing.Size(201, 20);
+            this.txtSelectStock.TabIndex = 5;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnSupplierSelect);
+            this.groupBox1.Controls.Add(this.txtSelectSupplier);
+            this.groupBox1.Location = new System.Drawing.Point(12, 63);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(357, 63);
+            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Supplier";
+            // 
+            // btnSupplierSelect
+            // 
+            this.btnSupplierSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSupplierSelect.Location = new System.Drawing.Point(231, 22);
+            this.btnSupplierSelect.Name = "btnSupplierSelect";
+            this.btnSupplierSelect.Size = new System.Drawing.Size(110, 23);
+            this.btnSupplierSelect.TabIndex = 6;
+            this.btnSupplierSelect.Text = "Select Supplier";
+            this.btnSupplierSelect.UseVisualStyleBackColor = true;
+            this.btnSupplierSelect.Click += new System.EventHandler(this.btnSupplierSelect_Click);
+            // 
+            // txtSelectSupplier
+            // 
+            this.txtSelectSupplier.Location = new System.Drawing.Point(18, 24);
+            this.txtSelectSupplier.Name = "txtSelectSupplier";
+            this.txtSelectSupplier.ReadOnly = true;
+            this.txtSelectSupplier.Size = new System.Drawing.Size(201, 20);
+            this.txtSelectSupplier.TabIndex = 5;
             // 
             // StockOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 355);
-            this.Controls.Add(this.panel3);
+            this.ClientSize = new System.Drawing.Size(380, 353);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel2);
             this.Name = "StockOrder";
             this.Text = "StockOrder";
-            this.panel3.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -277,9 +271,7 @@
         private System.Windows.Forms.BindingSource genderBindingSource;
         private System.Windows.Forms.BindingSource employeeTypeBindingSource1;
         private System.Windows.Forms.BindingSource employeeTypeBindingSource;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel15;
@@ -288,11 +280,12 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtOrderQuantity;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnStockSelect;
+        private System.Windows.Forms.TextBox txtSelectStock;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btnSupplierSelect;
+        private System.Windows.Forms.TextBox txtSelectSupplier;
     }
 }

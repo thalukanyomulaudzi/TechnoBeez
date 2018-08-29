@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderList));
             this.header = new System.Windows.Forms.Label();
             this.jobQuotePanelActions = new System.Windows.Forms.Panel();
+            this.button18 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -39,13 +40,12 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button18 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dgvPlacedOrder = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvReceivedOrder = new System.Windows.Forms.DataGridView();
-            this.dgvPlacedOrder = new System.Windows.Forms.DataGridView();
             this.supplierResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventoryResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -54,10 +54,10 @@
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlacedOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReceivedOrder)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlacedOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).BeginInit();
@@ -87,6 +87,22 @@
             this.jobQuotePanelActions.Name = "jobQuotePanelActions";
             this.jobQuotePanelActions.Size = new System.Drawing.Size(633, 60);
             this.jobQuotePanelActions.TabIndex = 28;
+            // 
+            // button18
+            // 
+            this.button18.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button18.Image = ((System.Drawing.Image)(resources.GetObject("button18.Image")));
+            this.button18.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button18.Location = new System.Drawing.Point(545, 17);
+            this.button18.Name = "button18";
+            this.button18.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.button18.Size = new System.Drawing.Size(76, 28);
+            this.button18.TabIndex = 11;
+            this.button18.Text = "Order";
+            this.button18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // label3
             // 
@@ -167,22 +183,6 @@
             this.panel2.Size = new System.Drawing.Size(633, 70);
             this.panel2.TabIndex = 27;
             // 
-            // button18
-            // 
-            this.button18.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.Image = ((System.Drawing.Image)(resources.GetObject("button18.Image")));
-            this.button18.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button18.Location = new System.Drawing.Point(545, 17);
-            this.button18.Name = "button18";
-            this.button18.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.button18.Size = new System.Drawing.Size(76, 28);
-            this.button18.TabIndex = 11;
-            this.button18.Text = "Order";
-            this.button18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -205,6 +205,14 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Placed Orders";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dgvPlacedOrder
+            // 
+            this.dgvPlacedOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPlacedOrder.Location = new System.Drawing.Point(6, 6);
+            this.dgvPlacedOrder.Name = "dgvPlacedOrder";
+            this.dgvPlacedOrder.Size = new System.Drawing.Size(613, 175);
+            this.dgvPlacedOrder.TabIndex = 18;
             // 
             // dataGridView1
             // 
@@ -237,14 +245,6 @@
             this.dgvReceivedOrder.Size = new System.Drawing.Size(619, 189);
             this.dgvReceivedOrder.TabIndex = 17;
             // 
-            // dgvPlacedOrder
-            // 
-            this.dgvPlacedOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPlacedOrder.Location = new System.Drawing.Point(6, 6);
-            this.dgvPlacedOrder.Name = "dgvPlacedOrder";
-            this.dgvPlacedOrder.Size = new System.Drawing.Size(613, 175);
-            this.dgvPlacedOrder.TabIndex = 18;
-            // 
             // OrderList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,6 +255,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "OrderList";
             this.Text = "OrderList";
+            this.Load += new System.EventHandler(this.OrderList_Load);
             this.jobQuotePanelActions.ResumeLayout(false);
             this.jobQuotePanelActions.PerformLayout();
             this.panel22.ResumeLayout(false);
@@ -263,10 +264,10 @@
             this.panel2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlacedOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReceivedOrder)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlacedOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientResultBindingSource)).EndInit();
