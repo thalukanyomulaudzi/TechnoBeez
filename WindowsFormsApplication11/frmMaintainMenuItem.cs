@@ -25,7 +25,7 @@ namespace WindowsFormsApplication11
             txtMenuItemName.Text = item.Menu_Item_Name;
             txtMenuPrice.Text = Convert.ToString(item.Menu_Item_Price);
             richDescription.Text = item.Menu_Item_Description;
-            cmbMenuItemType.Text = type.Menu_Item_Description;
+           // cmbMenuItemType.Text = type.Menu_Item_Description;
 
         }
     }

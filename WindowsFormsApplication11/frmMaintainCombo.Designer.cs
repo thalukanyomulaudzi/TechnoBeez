@@ -328,6 +328,7 @@
             this.Controls.Add(this.panel3);
             this.Name = "frmMaintainCombo";
             this.Text = "frmMaintainCombo";
+            this.Load += new System.EventHandler(this.frmMaintainCombo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);

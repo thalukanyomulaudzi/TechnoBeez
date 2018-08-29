@@ -27,6 +27,7 @@ namespace WindowsFormsApplication11
         public double Combo_Price { get; set; }
         public Nullable<int> Combo_Type_ID { get; set; }
         public Nullable<int> Combo_Price_ID { get; set; }
+        public string Combo_Name { get; set; }
     
         public virtual Combo_Price Combo_Price1 { get; set; }
         public virtual Combo_Type Combo_Type { get; set; }

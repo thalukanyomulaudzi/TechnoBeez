@@ -58,6 +58,7 @@
             this.employeeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -151,6 +152,7 @@
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(171)))), ((int)(((byte)(241)))));
+            this.panel14.Controls.Add(this.button1);
             this.panel14.Controls.Add(this.panel17);
             this.panel14.Controls.Add(this.panel15);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -175,7 +177,7 @@
             this.richDescription.Location = new System.Drawing.Point(192, 59);
             this.richDescription.Margin = new System.Windows.Forms.Padding(4);
             this.richDescription.Name = "richDescription";
-            this.richDescription.Size = new System.Drawing.Size(283, 70);
+            this.richDescription.Size = new System.Drawing.Size(308, 70);
             this.richDescription.TabIndex = 52;
             this.richDescription.Text = "";
             // 
@@ -184,7 +186,7 @@
             this.txtMenuPrice.Location = new System.Drawing.Point(191, 134);
             this.txtMenuPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtMenuPrice.Name = "txtMenuPrice";
-            this.txtMenuPrice.Size = new System.Drawing.Size(283, 22);
+            this.txtMenuPrice.Size = new System.Drawing.Size(309, 22);
             this.txtMenuPrice.TabIndex = 51;
             // 
             // label1
@@ -265,7 +267,7 @@
             this.txtMenuItemName.Location = new System.Drawing.Point(192, 27);
             this.txtMenuItemName.Margin = new System.Windows.Forms.Padding(4);
             this.txtMenuItemName.Name = "txtMenuItemName";
-            this.txtMenuItemName.Size = new System.Drawing.Size(283, 22);
+            this.txtMenuItemName.Size = new System.Drawing.Size(308, 22);
             this.txtMenuItemName.TabIndex = 61;
             // 
             // btnUpload
@@ -273,9 +275,9 @@
             this.btnUpload.Location = new System.Drawing.Point(391, 166);
             this.btnUpload.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(88, 37);
+            this.btnUpload.Size = new System.Drawing.Size(109, 29);
             this.btnUpload.TabIndex = 57;
-            this.btnUpload.Text = "Upload";
+            this.btnUpload.Text = "Browse";
             this.btnUpload.UseVisualStyleBackColor = true;
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
@@ -317,6 +319,22 @@
             // employeeTypeBindingSource2
             // 
             this.employeeTypeBindingSource2.DataMember = "EmployeeType";
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(13, 7);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.button1.Size = new System.Drawing.Size(93, 34);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Close";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Menu_And_Combo
             // 
@@ -380,5 +398,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbMenuItemType;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
     }
 }

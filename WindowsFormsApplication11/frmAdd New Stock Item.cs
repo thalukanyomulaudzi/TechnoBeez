@@ -32,10 +32,10 @@ namespace WindowsFormsApplication11
                     Stock_Price newPrice = new Stock_Price();
                     newPrice.Stock_Price1 = Convert.ToDouble(txtStockItemPrice.Text);
                     db.Stock_Price.Add(newPrice);
-                    newPrice.Stock_Price1 = Convert.ToDouble(txtStockItemPrice.Text);
+                    //newPrice.Stock_Price1 = Convert.ToDouble(txtStockItemPrice.Text);
 
 
-                    db.Stock_Price.Add(newPrice);
+                    //db.Stock_Price.Add(newPrice);
                     Stock_Item newItem = new Stock_Item();
                     Stock_Type idTracker = db.Stock_Type.FirstOrDefault(c => c.Stock_Type_Description == "Ingredient");
                     newItem.Stock_Item_Name = txtStockItemnName.Text;
@@ -94,6 +94,11 @@ namespace WindowsFormsApplication11
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmAdd_New_Stock_Item_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
