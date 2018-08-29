@@ -91,10 +91,11 @@
             <PropertyRef Name="Combo_ID" />
           </Key>
           <Property Name="Combo_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Combo_Description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Combo_Description" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="Combo_Price" Type="float" Nullable="false" />
           <Property Name="Combo_Type_ID" Type="int" />
           <Property Name="Combo_Price_ID" Type="int" />
+          <Property Name="Combo_Name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Combo_Price">
           <Key>
@@ -102,7 +103,7 @@
           </Key>
           <Property Name="Combo_Price_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Combo_Price" Type="float" Nullable="false" />
-          <Property Name="Combo_Price_Date" Type="datetime" Nullable="false" />
+          <Property Name="Combo_Price_Date" Type="datetime" />
         </EntityType>
         <EntityType Name="Combo_Type">
           <Key>
@@ -224,7 +225,8 @@
           <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="imageVar" Type="image" />
           <Property Name="ItemName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Item_ID" Type="int" />
+          <Property Name="Combo_Item_ID" Type="int" />
+          <Property Name="Menu_Item_ID" Type="int" />
         </EntityType>
         <EntityType Name="Menu_Item">
           <Key>
@@ -739,14 +741,16 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ItemsPicture_Combo">
-          <End Role="Combo" Type="Self.Combo" Multiplicity="0..1" />
+          <End Role="Combo" Type="Self.Combo" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ItemsPicture" Type="Self.ItemsPicture" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Combo">
               <PropertyRef Name="Combo_ID" />
             </Principal>
             <Dependent Role="ItemsPicture">
-              <PropertyRef Name="Item_ID" />
+              <PropertyRef Name="Combo_Item_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -760,7 +764,7 @@
               <PropertyRef Name="Menu_Item_ID" />
             </Principal>
             <Dependent Role="ItemsPicture">
-              <PropertyRef Name="Item_ID" />
+              <PropertyRef Name="Menu_Item_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1330,10 +1334,11 @@
             <PropertyRef Name="Combo_ID" />
           </Key>
           <Property Name="Combo_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Combo_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Combo_Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Combo_Price" Type="Double" Nullable="false" />
           <Property Name="Combo_Type_ID" Type="Int32" />
           <Property Name="Combo_Price_ID" Type="Int32" />
+          <Property Name="Combo_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Combo_Price1" Relationship="Self.FK_Combo_Combo_Price" FromRole="Combo" ToRole="Combo_Price" />
           <NavigationProperty Name="Combo_Type" Relationship="Self.FK_Combo_Combo_Type" FromRole="Combo" ToRole="Combo_Type" />
           <NavigationProperty Name="Customer_Order_Line" Relationship="Self.FK_Customer_Order_Line_Combo" FromRole="Combo" ToRole="Customer_Order_Line" />
@@ -1346,7 +1351,7 @@
           </Key>
           <Property Name="Combo_Price_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Combo_Price1" Type="Double" Nullable="false" />
-          <Property Name="Combo_Price_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Combo_Price_Date" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Comboes" Relationship="Self.FK_Combo_Combo_Price" FromRole="Combo_Price" ToRole="Combo" />
         </EntityType>
         <EntityType Name="Combo_Type">
@@ -1492,7 +1497,8 @@
           <Property Name="ImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="imageVar" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Item_ID" Type="Int32" />
+          <Property Name="Combo_Item_ID" Type="Int32" />
+          <Property Name="Menu_Item_ID" Type="Int32" />
           <NavigationProperty Name="Combo" Relationship="Self.FK_ItemsPicture_Combo" FromRole="ItemsPicture" ToRole="Combo" />
           <NavigationProperty Name="Menu_Item" Relationship="Self.FK_ItemsPicture_Menu_Item" FromRole="ItemsPicture" ToRole="Menu_Item" />
         </EntityType>
@@ -1924,14 +1930,16 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ItemsPicture_Combo">
-          <End Role="Combo" Type="Self.Combo" Multiplicity="0..1" />
+          <End Role="Combo" Type="Self.Combo" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ItemsPicture" Type="Self.ItemsPicture" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Combo">
               <PropertyRef Name="Combo_ID" />
             </Principal>
             <Dependent Role="ItemsPicture">
-              <PropertyRef Name="Item_ID" />
+              <PropertyRef Name="Combo_Item_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2113,7 +2121,7 @@
               <PropertyRef Name="Menu_Item_ID" />
             </Principal>
             <Dependent Role="ItemsPicture">
-              <PropertyRef Name="Item_ID" />
+              <PropertyRef Name="Menu_Item_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2644,6 +2652,7 @@
                 <ScalarProperty Name="Combo_Price" ColumnName="Combo_Price" />
                 <ScalarProperty Name="Combo_Type_ID" ColumnName="Combo_Type_ID" />
                 <ScalarProperty Name="Combo_Price_ID" ColumnName="Combo_Price_ID" />
+                <ScalarProperty Name="Combo_Name" ColumnName="Combo_Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2786,7 +2795,8 @@
                 <ScalarProperty Name="ImageID" ColumnName="ImageID" />
                 <ScalarProperty Name="imageVar" ColumnName="imageVar" />
                 <ScalarProperty Name="ItemName" ColumnName="ItemName" />
-                <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+                <ScalarProperty Name="Combo_Item_ID" ColumnName="Combo_Item_ID" />
+                <ScalarProperty Name="Menu_Item_ID" ColumnName="Menu_Item_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

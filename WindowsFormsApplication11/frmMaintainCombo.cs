@@ -15,5 +15,10 @@ namespace WindowsFormsApplication11
         {
             InitializeComponent();
         }
+
+        private void frmMaintainCombo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

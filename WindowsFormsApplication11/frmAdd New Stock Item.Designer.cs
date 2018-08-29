@@ -33,6 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
@@ -46,7 +47,6 @@
             this.txtStockItemDescription = new System.Windows.Forms.TextBox();
             this.lblStockDescription = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -100,6 +100,21 @@
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(800, 75);
             this.panel14.TabIndex = 33;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(23, 21);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnCancel.Size = new System.Drawing.Size(107, 34);
+            this.btnCancel.TabIndex = 15;
+            this.btnCancel.Text = "Close";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // panel17
             // 
@@ -261,21 +276,6 @@
             this.panel3.Size = new System.Drawing.Size(800, 450);
             this.panel3.TabIndex = 34;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(23, 21);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnCancel.Size = new System.Drawing.Size(107, 34);
-            this.btnCancel.TabIndex = 15;
-            this.btnCancel.Text = "Close";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // frmAdd_New_Stock_Item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -286,6 +286,7 @@
             this.Controls.Add(this.panel3);
             this.Name = "frmAdd_New_Stock_Item";
             this.Text = "frmAdd_New_Stock_Item";
+            this.Load += new System.EventHandler(this.frmAdd_New_Stock_Item_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel14.ResumeLayout(false);
