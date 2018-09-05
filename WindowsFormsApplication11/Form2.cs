@@ -594,39 +594,47 @@ namespace WindowsFormsApplication11
 
         private void empBtn_Click(object sender, EventArgs e)
         {
-            header.Text = "Employee";
-
-
-         
-            if (navButton != btnEmployees)
+            try
             {
-                navigate(btnEmployees);
+                header.Text = "Employee";
+
+
+
+                if (navButton != btnEmployees)
+                {
+                    navigate(btnEmployees);
+                }
+
+                var customers = from p in db.Employees
+                                select new
+                                {
+                                    EmpId = p.Employee_ID,
+                                    EmpName = p.Employee_Name,
+                                    EmpSurname = p.Employee_Surname,
+                                    EmpIdentity = p.Employee_Identity_Number,
+                                    Adress = p.Adress,
+                                    EmailAdree = p.Email_Adress,
+                                    ContactNo = p.Contact_Number,
+                                    NextOfKinName = p.Next_Of_Kin_Name,
+                                    NextOfKinNumber = p.Next_Of_Kin_Contact_Number,
+                                    GenderId = p.Gender_ID,
+                                    UserId = p.User_ID
+
+                                };
+                dgvSupplier.DataSource = customers.ToList();
+                dgvSupplier.ClearSelection();
+                db.SaveChanges();
+                //if (dgvSupplier.Rows.Count != 0)
+                //{
+                //    Globals.Employeepassing = dgvSupplier.Rows[0].Cells[0].Value;
+                //}
+                dgvSupplier.MouseClick += new MouseEventHandler(employeeClick);
             }
+            catch
+            {
 
-            var customers = from p in db.Employees
-                            select new
-                            {
-                                EmpId = p.Employee_ID,
-                                EmpName = p.Employee_Name,
-                                EmpSurname = p.Employee_Surname,
-                                EmpIdentity = p.Employee_Identity_Number,
-                                Adress = p.Adress,
-                                EmailAdree = p.Email_Adress,
-                                ContactNo = p.Contact_Number,
-                                NextOfKinName = p.Next_Of_Kin_Name,
-                                NextOfKinNumber = p.Next_Of_Kin_Contact_Number,
-                                GenderId = p.Gender_ID,
-                                UserId = p.User_ID
 
-                            };
-            dgvSupplier.DataSource = customers.ToList();
-            dgvSupplier.ClearSelection();
-            db.SaveChanges();
-            //if (dgvSupplier.Rows.Count != 0)
-            //{
-            //    Globals.Employeepassing = dgvSupplier.Rows[0].Cells[0].Value;
-            //}
-            dgvSupplier.MouseClick += new MouseEventHandler(employeeClick);
+            }
         }
 
         private void clientBtn_Click(object sender, EventArgs e)
@@ -737,41 +745,49 @@ namespace WindowsFormsApplication11
 
         private void jobOBtn_Click(object sender, EventArgs e)
         {
-            header.Text = "Menu";
-
-            if (navButton != btnMenu)
+            try
             {
-                navigate(btnMenu);
+
+                header.Text = "Menu";
+                txtSearchNew.Clear();
+                if (navButton != btnMenu)
+                {
+                    navigate(btnMenu);
+                }
+
+                var customers = from p in db.Menu_Item
+                                select new
+                                {
+                                    MenuItemId = p.Menu_Item_ID,
+                                    MenuItemName = p.Menu_Item_Name,
+                                    MeniItemDescription = p.Menu_Item_Description,
+                                    MenuItemPrice = p.Menu_Item_Price,
+                                    MenuItemTypeId = p.Menu_Item_Type_ID,
+                                    MenuPriceId = p.Menu_Price_ID
+
+
+                                };
+                dgvSupplier.DataSource = customers.ToList();
+                dgvSupplier.ClearSelection();
+                db.SaveChanges();
+                //if (dgvSupplier.Rows.Count != 0)
+                //{
+                //    Globals.MenuCombopassing = dgvSupplier.Rows[0].Cells[0].Value;
+                //}
+
+                dgvSupplier.MouseClick += new MouseEventHandler(Menu);
             }
+            catch
+            {
 
-            var customers = from p in db.Menu_Item
-                            select new
-                            {
-                                MenuItemId = p.Menu_Item_ID,
-                                MenuItemName = p.Menu_Item_Name,
-                                MeniItemDescription = p.Menu_Item_Description,
-                                MenuItemPrice = p.Menu_Item_Price,
-                                MenuItemTypeId = p.Menu_Item_Type_ID,
-                                MenuPriceId = p.Menu_Price_ID
-                               
-
-                            };
-            dgvSupplier.DataSource = customers.ToList();
-            dgvSupplier.ClearSelection();
-            db.SaveChanges();
-            //if (dgvSupplier.Rows.Count != 0)
-            //{
-            //    Globals.MenuCombopassing = dgvSupplier.Rows[0].Cells[0].Value;
-            //}
-
-            dgvSupplier.MouseClick += new MouseEventHandler(Menu);
+            }
         }
 
         private void quoteBtn_Click(object sender, EventArgs e)
         {
             header.Text = "Orders";
 
-
+            txtSearchNew.Clear();
 
             if (navButton != btnSalesOrders)
             {
@@ -803,15 +819,23 @@ namespace WindowsFormsApplication11
 
         private void btnSuppliers11_Click(object sender, EventArgs e)
         {
-            header.Text = "Suppliers";
-
-
-
-            if (navButton != btnSuppliers11)
+            try
             {
-                navigate(btnSuppliers11);
+                header.Text = "Suppliers";
+                txtSearchNew.Clear();
+
+
+
+                if (navButton != btnSuppliers11)
+                {
+                    navigate(btnSuppliers11);
+                }
+                loadSuppliers();
             }
-            loadSuppliers();
+            catch
+            {
+
+            }
 
         }
         public void loadSuppliers()
@@ -862,6 +886,10 @@ namespace WindowsFormsApplication11
                 SupplierForm form = new SupplierForm(this);
                 form.ShowDialog();
 
+            }
+            else if(navButton == btnCombo)
+            {
+                
             }
         }
        

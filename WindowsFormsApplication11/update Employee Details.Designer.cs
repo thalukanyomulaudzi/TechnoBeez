@@ -156,7 +156,6 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 0;
-            this.textBox3.Text = "Ashley";
             // 
             // groupBox1
             // 
@@ -195,7 +194,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "Edwin@gmail.com";
             // 
             // textBox1
             // 
@@ -203,7 +201,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "07123456";
             // 
             // groupBox2
             // 
@@ -240,7 +237,6 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(100, 21);
             this.comboBox2.TabIndex = 8;
-            this.comboBox2.Text = "Cashier";
             // 
             // comboBox1
             // 
@@ -252,7 +248,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 21);
             this.comboBox1.TabIndex = 7;
-            this.comboBox1.Text = "Female";
             // 
             // label9
             // 
@@ -296,7 +291,6 @@
             this.txtIdNumber.Name = "txtIdNumber";
             this.txtIdNumber.Size = new System.Drawing.Size(100, 20);
             this.txtIdNumber.TabIndex = 2;
-            this.txtIdNumber.Text = "9805255458081";
             // 
             // txtSurname
             // 
@@ -304,7 +298,6 @@
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(100, 20);
             this.txtSurname.TabIndex = 1;
-            this.txtSurname.Text = "Smith";
             // 
             // txtName
             // 
@@ -312,7 +305,6 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 20);
             this.txtName.TabIndex = 0;
-            this.txtName.Text = "Edwina";
             // 
             // panel2
             // 
@@ -359,6 +351,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "update_Employee_Details";
             this.Text = "update_Employee_Details";
+            this.Load += new System.EventHandler(this.update_Employee_Details_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);

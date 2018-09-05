@@ -77,6 +77,11 @@ namespace WindowsFormsApplication11
             MessageBox.Show("New Order Placed");
 
         }
+
+        private void StockOrder_Load(object sender, EventArgs e)
+        {
+
+        }
         //private void groupBox1_Validating(object sender, CancelEventArgs e)
         //{
         //    if (string.IsNullOrEmpty(txtSelectSupplier.Text) || supplierID == -1)
