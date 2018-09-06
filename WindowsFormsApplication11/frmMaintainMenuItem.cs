@@ -15,7 +15,7 @@ namespace WindowsFormsApplication11
         {
             InitializeComponent();
         }
-        MmasweEntities5 db = new MmasweEntities5();
+        MmasweEntities9 db = new MmasweEntities9();
 
         private void frmMaintainMenuItem_Load(object sender, EventArgs e)
         {

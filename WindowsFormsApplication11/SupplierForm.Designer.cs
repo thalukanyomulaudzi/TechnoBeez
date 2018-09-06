@@ -53,16 +53,20 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtCode = new System.Windows.Forms.TextBox();
             this.txtProvince = new System.Windows.Forms.TextBox();
-            this.txtCity = new System.Windows.Forms.TextBox();
-            this.txtSuburb = new System.Windows.Forms.TextBox();
             this.txtStreetName = new System.Windows.Forms.TextBox();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnUpdateEmployee = new System.Windows.Forms.Button();
+            this.btnUpdateSupplier = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
             this.btnSaveSupplier = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnSelectSupplierType = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtSupplierContactName = new System.Windows.Forms.Label();
+            this.txtSupplierContactP = new System.Windows.Forms.TextBox();
             this.txtSupplierPhone = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.employeeTypeBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
@@ -70,10 +74,8 @@
             this.employeeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.genderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnSelectSupplierType = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -81,14 +83,14 @@
             this.panel4.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource1)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -99,9 +101,9 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtBankName);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(12, 156);
+            this.groupBox1.Location = new System.Drawing.Point(12, 191);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(295, 116);
+            this.groupBox1.Size = new System.Drawing.Size(340, 116);
             this.groupBox1.TabIndex = 52;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Banking Details";
@@ -112,6 +114,7 @@
             this.txtBranchCode.Name = "txtBranchCode";
             this.txtBranchCode.Size = new System.Drawing.Size(150, 20);
             this.txtBranchCode.TabIndex = 57;
+            this.txtBranchCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtBranchCode_Validating);
             // 
             // label2
             // 
@@ -128,6 +131,7 @@
             this.txtAccNumber.Name = "txtAccNumber";
             this.txtAccNumber.Size = new System.Drawing.Size(150, 20);
             this.txtAccNumber.TabIndex = 55;
+            this.txtAccNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtBankAccNo_Validating);
             // 
             // label3
             // 
@@ -144,6 +148,7 @@
             this.txtBankName.Name = "txtBankName";
             this.txtBankName.Size = new System.Drawing.Size(150, 20);
             this.txtBankName.TabIndex = 53;
+            this.txtBankName.Validating += new System.ComponentModel.CancelEventHandler(this.txtBankName_Validating);
             // 
             // label4
             // 
@@ -157,7 +162,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 75);
+            this.label1.Location = new System.Drawing.Point(12, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(122, 13);
             this.label1.TabIndex = 50;
@@ -165,15 +170,16 @@
             // 
             // txtSupplierEmail
             // 
-            this.txtSupplierEmail.Location = new System.Drawing.Point(134, 46);
+            this.txtSupplierEmail.Location = new System.Drawing.Point(134, 83);
             this.txtSupplierEmail.Name = "txtSupplierEmail";
             this.txtSupplierEmail.Size = new System.Drawing.Size(150, 20);
             this.txtSupplierEmail.TabIndex = 49;
+            this.txtSupplierEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtSupplierEmail_Validating);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(12, 49);
+            this.label15.Location = new System.Drawing.Point(12, 86);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(76, 13);
             this.label15.TabIndex = 48;
@@ -185,6 +191,7 @@
             this.txtSupplierName.Name = "txtSupplierName";
             this.txtSupplierName.Size = new System.Drawing.Size(150, 20);
             this.txtSupplierName.TabIndex = 46;
+            this.txtSupplierName.Validating += new System.ComponentModel.CancelEventHandler(this.txtSupplierName_Validating);
             // 
             // panel2
             // 
@@ -196,7 +203,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(661, 41);
+            this.panel2.Size = new System.Drawing.Size(735, 41);
             this.panel2.TabIndex = 17;
             // 
             // panel1
@@ -205,7 +212,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(661, 1);
+            this.panel1.Size = new System.Drawing.Size(735, 1);
             this.panel1.TabIndex = 2;
             // 
             // label14
@@ -229,6 +236,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
@@ -236,12 +245,10 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtCode);
             this.groupBox2.Controls.Add(this.txtProvince);
-            this.groupBox2.Controls.Add(this.txtCity);
-            this.groupBox2.Controls.Add(this.txtSuburb);
             this.groupBox2.Controls.Add(this.txtStreetName);
-            this.groupBox2.Location = new System.Drawing.Point(343, 47);
+            this.groupBox2.Location = new System.Drawing.Point(417, 50);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(241, 182);
+            this.groupBox2.Size = new System.Drawing.Size(292, 182);
             this.groupBox2.TabIndex = 44;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Address";
@@ -297,6 +304,7 @@
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(87, 20);
             this.txtCode.TabIndex = 4;
+            this.txtCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtCode_Validating);
             // 
             // txtProvince
             // 
@@ -304,20 +312,7 @@
             this.txtProvince.Name = "txtProvince";
             this.txtProvince.Size = new System.Drawing.Size(155, 20);
             this.txtProvince.TabIndex = 3;
-            // 
-            // txtCity
-            // 
-            this.txtCity.Location = new System.Drawing.Point(79, 84);
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(155, 20);
-            this.txtCity.TabIndex = 2;
-            // 
-            // txtSuburb
-            // 
-            this.txtSuburb.Location = new System.Drawing.Point(79, 54);
-            this.txtSuburb.Name = "txtSuburb";
-            this.txtSuburb.Size = new System.Drawing.Size(155, 20);
-            this.txtSuburb.TabIndex = 1;
+            this.txtProvince.Validating += new System.ComponentModel.CancelEventHandler(this.txtProvince_Validating);
             // 
             // txtStreetName
             // 
@@ -325,6 +320,7 @@
             this.txtStreetName.Name = "txtStreetName";
             this.txtStreetName.Size = new System.Drawing.Size(155, 20);
             this.txtStreetName.TabIndex = 0;
+            this.txtStreetName.Validating += new System.ComponentModel.CancelEventHandler(this.txtStreetName_Validating);
             // 
             // panel14
             // 
@@ -336,38 +332,39 @@
             this.panel14.Location = new System.Drawing.Point(0, 337);
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(661, 39);
+            this.panel14.Size = new System.Drawing.Size(735, 39);
             this.panel14.TabIndex = 18;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.btnUpdateEmployee);
+            this.panel4.Controls.Add(this.btnUpdateSupplier);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(343, 0);
+            this.panel4.Location = new System.Drawing.Point(417, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(209, 38);
             this.panel4.TabIndex = 10;
             // 
-            // btnUpdateEmployee
+            // btnUpdateSupplier
             // 
-            this.btnUpdateEmployee.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnUpdateEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateEmployee.Image")));
-            this.btnUpdateEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdateEmployee.Location = new System.Drawing.Point(119, 7);
-            this.btnUpdateEmployee.Name = "btnUpdateEmployee";
-            this.btnUpdateEmployee.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.btnUpdateEmployee.Size = new System.Drawing.Size(84, 28);
-            this.btnUpdateEmployee.TabIndex = 10;
-            this.btnUpdateEmployee.Text = "Update";
-            this.btnUpdateEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpdateEmployee.UseVisualStyleBackColor = true;
+            this.btnUpdateSupplier.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnUpdateSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateSupplier.Image")));
+            this.btnUpdateSupplier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdateSupplier.Location = new System.Drawing.Point(119, 7);
+            this.btnUpdateSupplier.Name = "btnUpdateSupplier";
+            this.btnUpdateSupplier.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnUpdateSupplier.Size = new System.Drawing.Size(84, 28);
+            this.btnUpdateSupplier.TabIndex = 10;
+            this.btnUpdateSupplier.Text = "Update";
+            this.btnUpdateSupplier.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdateSupplier.UseVisualStyleBackColor = true;
+            this.btnUpdateSupplier.Click += new System.EventHandler(this.btnUpdateSupplier_Click);
             // 
             // panel17
             // 
             this.panel17.Controls.Add(this.btnSaveSupplier);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel17.Location = new System.Drawing.Point(552, 0);
+            this.panel17.Location = new System.Drawing.Point(626, 0);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(109, 38);
             this.panel17.TabIndex = 8;
@@ -395,7 +392,7 @@
             this.panel15.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel15.Location = new System.Drawing.Point(0, 38);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(661, 1);
+            this.panel15.Size = new System.Drawing.Size(735, 1);
             this.panel15.TabIndex = 0;
             // 
             // panel3
@@ -407,42 +404,19 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(661, 376);
+            this.panel3.Size = new System.Drawing.Size(735, 376);
             this.panel3.TabIndex = 19;
             // 
-            // txtSupplierPhone
+            // groupBox4
             // 
-            this.txtSupplierPhone.Location = new System.Drawing.Point(134, 72);
-            this.txtSupplierPhone.Name = "txtSupplierPhone";
-            this.txtSupplierPhone.Size = new System.Drawing.Size(150, 20);
-            this.txtSupplierPhone.TabIndex = 51;
-            // 
-            // errorProvider
-            // 
-            this.errorProvider.ContainerControl = this;
-            // 
-            // employeeTypeBindingSource2
-            // 
-            this.employeeTypeBindingSource2.DataMember = "EmployeeType";
-            // 
-            // genderBindingSource1
-            // 
-            this.genderBindingSource1.DataMember = "Gender";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.txtSupplierName);
-            this.groupBox3.Controls.Add(this.txtSupplierPhone);
-            this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.txtSupplierEmail);
-            this.groupBox3.Location = new System.Drawing.Point(12, 44);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(295, 106);
-            this.groupBox3.TabIndex = 53;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Supplier Details";
+            this.groupBox4.Controls.Add(this.btnSelectSupplierType);
+            this.groupBox4.Controls.Add(this.textBox1);
+            this.groupBox4.Location = new System.Drawing.Point(417, 239);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(302, 56);
+            this.groupBox4.TabIndex = 61;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Supplier Type";
             // 
             // btnSelectSupplierType
             // 
@@ -460,22 +434,81 @@
             this.textBox1.Size = new System.Drawing.Size(177, 20);
             this.textBox1.TabIndex = 62;
             // 
-            // groupBox4
+            // groupBox3
             // 
-            this.groupBox4.Controls.Add(this.btnSelectSupplierType);
-            this.groupBox4.Controls.Add(this.textBox1);
-            this.groupBox4.Location = new System.Drawing.Point(5, 278);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(302, 56);
-            this.groupBox4.TabIndex = 61;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Supplier Type";
+            this.groupBox3.Controls.Add(this.txtSupplierContactName);
+            this.groupBox3.Controls.Add(this.txtSupplierContactP);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.txtSupplierName);
+            this.groupBox3.Controls.Add(this.txtSupplierPhone);
+            this.groupBox3.Controls.Add(this.label15);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.txtSupplierEmail);
+            this.groupBox3.Location = new System.Drawing.Point(12, 44);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(340, 141);
+            this.groupBox3.TabIndex = 53;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Supplier Details";
+            // 
+            // txtSupplierContactName
+            // 
+            this.txtSupplierContactName.AutoSize = true;
+            this.txtSupplierContactName.Location = new System.Drawing.Point(10, 56);
+            this.txtSupplierContactName.Name = "txtSupplierContactName";
+            this.txtSupplierContactName.Size = new System.Drawing.Size(124, 13);
+            this.txtSupplierContactName.TabIndex = 52;
+            this.txtSupplierContactName.Text = "Supplier Contact Person:";
+            // 
+            // txtSupplierContactP
+            // 
+            this.txtSupplierContactP.Location = new System.Drawing.Point(134, 53);
+            this.txtSupplierContactP.Name = "txtSupplierContactP";
+            this.txtSupplierContactP.Size = new System.Drawing.Size(150, 20);
+            this.txtSupplierContactP.TabIndex = 53;
+            this.txtSupplierContactP.Validating += new System.ComponentModel.CancelEventHandler(this.txtSupplierContactPerson_Validating);
+            // 
+            // txtSupplierPhone
+            // 
+            this.txtSupplierPhone.Location = new System.Drawing.Point(134, 109);
+            this.txtSupplierPhone.Name = "txtSupplierPhone";
+            this.txtSupplierPhone.Size = new System.Drawing.Size(150, 20);
+            this.txtSupplierPhone.TabIndex = 51;
+            this.txtSupplierPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtSupplierPhoneNumber_Validating);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
+            // employeeTypeBindingSource2
+            // 
+            this.employeeTypeBindingSource2.DataMember = "EmployeeType";
+            // 
+            // genderBindingSource1
+            // 
+            this.genderBindingSource1.DataMember = "Gender";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(79, 57);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(155, 21);
+            this.comboBox1.TabIndex = 10;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(79, 84);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(155, 21);
+            this.comboBox2.TabIndex = 11;
             // 
             // SupplierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 376);
+            this.ClientSize = new System.Drawing.Size(735, 376);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel3);
@@ -492,16 +525,16 @@
             this.panel4.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeTypeBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource1)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -531,12 +564,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCode;
         private System.Windows.Forms.TextBox txtProvince;
-        private System.Windows.Forms.TextBox txtCity;
-        private System.Windows.Forms.TextBox txtSuburb;
         private System.Windows.Forms.TextBox txtStreetName;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button btnUpdateEmployee;
+        private System.Windows.Forms.Button btnUpdateSupplier;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Button btnSaveSupplier;
         private System.Windows.Forms.Panel panel15;
@@ -552,5 +583,9 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnSelectSupplierType;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label txtSupplierContactName;
+        private System.Windows.Forms.TextBox txtSupplierContactP;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

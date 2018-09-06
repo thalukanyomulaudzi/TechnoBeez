@@ -14,7 +14,7 @@ namespace WindowsFormsApplication11
     {
        
         Button navButton;
-        MmasweEntities5 db = new MmasweEntities5();
+        MmasweEntities9 db = new MmasweEntities9();
         
         public Form1()
         {
@@ -364,7 +364,7 @@ namespace WindowsFormsApplication11
         }
         if (navButton == btnSuppliers11)
         {
-            SupplierForm supplier = new SupplierForm();
+            SupplierForm supplier = new SupplierForm(this);
             supplier.ShowDialog();
         }
         if (navButton == clientBtn)
@@ -448,57 +448,64 @@ namespace WindowsFormsApplication11
 
         private void empBtn_Click_1(object sender, EventArgs e)
         {
-            header.Text = "Employee";
-
-
-            //EmployeePan.Visible = false;
-
-
-            CustomerPan.Visible = false;
-
-
-            SalesPan.Visible = false;
-
-
-            MenuPan.Visible = false;
-
-
-            ComboPan.Visible = false;
-
-
-            StockPan.Visible = false;
-
-
-
-
-            EmployeePan.Visible = true;
-            EmployeePan.BringToFront();
-            if (navButton != empBtn)
+            try
             {
-                navigate(empBtn);
+                header.Text = "Employee";
+
+
+                //EmployeePan.Visible = false;
+
+
+                CustomerPan.Visible = false;
+
+
+                SalesPan.Visible = false;
+
+
+                MenuPan.Visible = false;
+
+
+                ComboPan.Visible = false;
+
+
+                StockPan.Visible = false;
+
+
+
+
+                EmployeePan.Visible = true;
+                EmployeePan.BringToFront();
+                if (navButton != empBtn)
+                {
+                    navigate(empBtn);
+                }
+
+                var customers = from p in db.Employees
+                                select new
+                                {
+                                    ID = p.Employee_ID,
+                                    NAME = p.Employee_Name,
+                                    SURNAME = p.Employee_Surname,
+                                    IDENTITY = p.Employee_Identity_Number,
+                                    ADRESS = p.Adress,
+                                    EMAIL = p.Email_Adress,
+                                    CONTACTNO = p.Contact_Number,
+                                    NEXTOFKINNAME = p.Next_Of_Kin_Name,
+                                    NEXTOFKINNUMBER = p.Next_Of_Kin_Contact_Number,
+                                    GENDERID = p.Gender_ID,
+                                    USERID = p.User_ID
+
+                                };
+                dgvEmployee.DataSource = customers.ToList();
+                db.SaveChanges();
+
+                ;
+                dgvEmployee.MouseClick += new MouseEventHandler(employeeClick);
             }
+            catch
+            {
 
-            var customers = from p in db.Employees
-                            select new
-                            {
-                               ID = p.Employee_ID,
-                               NAME = p.Employee_Name,
-                               SURNAME = p.Employee_Surname,
-                               IDENTITY = p.Employee_Identity_Number,
-                               ADRESS = p.Adress,
-                               EMAIL = p.Email_Adress,
-                               CONTACTNO = p.Contact_Number,
-                               NEXTOFKINNAME = p.Next_Of_Kin_Name,
-                               NEXTOFKINNUMBER = p.Next_Of_Kin_Contact_Number,
-                               GENDERID = p.Gender_ID,
-                               USERID = p.User_ID
-
-                            };
-            dgvEmployee.DataSource = customers.ToList();
-            db.SaveChanges();
-
-            ;
-            dgvEmployee.MouseClick += new MouseEventHandler(employeeClick);
+            }
         }
 
         private void clientBtn_Click_1(object sender, EventArgs e)
@@ -521,54 +528,61 @@ namespace WindowsFormsApplication11
 
         private void inventoryBtn_Click_1(object sender, EventArgs e)
         {
-            header.Text = "Stock";
-
-
-            EmployeePan.Visible = false;
-         
-
-            CustomerPan.Visible = false;
-
-
-            SalesPan.Visible = false;
-
-
-            MenuPan.Visible = false;
-
-
-            ComboPan.Visible = false;
-
-
-            //StockPan.Visible = false;
-
-
-            SupplierPan.Visible = false;
-
-            StockPan.Visible = true;
-            StockPan.BringToFront();
-            //Form2 fr = new Form2();
-            //fr.ShowDialog();
-            if (navButton != inventoryBtn)
+            try
             {
-                navigate(inventoryBtn);
+                header.Text = "Stock";
+
+
+                EmployeePan.Visible = false;
+
+
+                CustomerPan.Visible = false;
+
+
+                SalesPan.Visible = false;
+
+
+                MenuPan.Visible = false;
+
+
+                ComboPan.Visible = false;
+
+
+                //StockPan.Visible = false;
+
+
+                SupplierPan.Visible = false;
+
+                StockPan.Visible = true;
+                StockPan.BringToFront();
+                //Form2 fr = new Form2();
+                //fr.ShowDialog();
+                if (navButton != inventoryBtn)
+                {
+                    navigate(inventoryBtn);
+                }
+
+                var customers = from p in db.Stock_Item
+                                select new
+                                {
+                                    CustomerId = p.Stock_ID,
+                                    ContactName = p.Stock_Item_Name,
+                                    Quantity = p.Stock_Item_Quantity,
+                                    Description = p.Stock_Item_Description,
+                                    StockTypeId = p.Stock_Type_ID,
+                                    StockPriceId = p.Stock_Price_ID,
+                                    //StockWrietOffId = p.Write_Off_ID
+
+                                };
+                dgvStock.DataSource = customers.ToList();
+                db.SaveChanges();
+
+                dgvStock.MouseClick += new MouseEventHandler(Stock_mouse_click);
             }
+            catch
+            {
 
-            var customers = from p in db.Stock_Item
-                            select new
-                            {
-                                CustomerId = p.Stock_ID,
-                                ContactName = p.Stock_Item_Name,
-                                Quantity = p.Stock_Item_Quantity,
-                                Description = p.Stock_Item_Description,
-                                StockTypeId = p.Stock_Type_ID,
-                                StockPriceId = p.Stock_Price_ID,
-                                //StockWrietOffId = p.Write_Off_ID
-
-                            };
-            dgvStock.DataSource = customers.ToList();
-            db.SaveChanges();
-
-            dgvStock.MouseClick += new MouseEventHandler(Stock_mouse_click);
+            }
         }
 
         private void btnSuppliers11_Click_1(object sender, EventArgs e)
@@ -590,6 +604,16 @@ namespace WindowsFormsApplication11
         }
 
         private void SupplierPan_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void CustomerPannel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }
