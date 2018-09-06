@@ -244,6 +244,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "StockOrder";
             this.Text = "StockOrder";
+            this.Load += new System.EventHandler(this.StockOrder_Load);
             this.panel17.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

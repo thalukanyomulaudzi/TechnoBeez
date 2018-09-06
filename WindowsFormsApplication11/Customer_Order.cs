@@ -28,6 +28,7 @@ namespace WindowsFormsApplication11
         public Nullable<int> Payment_ID { get; set; }
         public Nullable<int> Employee_ID { get; set; }
         public Nullable<int> Delivery_Status_ID { get; set; }
+        public int ItemType { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Delivery_Status Delivery_Status { get; set; }

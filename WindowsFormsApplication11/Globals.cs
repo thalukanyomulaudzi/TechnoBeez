@@ -161,6 +161,7 @@ namespace WindowsFormsApplication11
         public static bool DisplayShelfs = false;
 
         public static dynamic SalesPaymentID = 0;
+        public static double AmountDue = 0;
 
         //Employee Passing
         public static dynamic Employeepassing =0;

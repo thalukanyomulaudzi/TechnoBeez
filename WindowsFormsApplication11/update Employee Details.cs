@@ -15,5 +15,10 @@ namespace WindowsFormsApplication11
         {
             InitializeComponent();
         }
+
+        private void update_Employee_Details_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

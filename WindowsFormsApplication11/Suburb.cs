@@ -18,7 +18,5 @@ namespace WindowsFormsApplication11
         public string Suburb_Name { get; set; }
         public int Zip_Code { get; set; }
         public Nullable<int> City_ID { get; set; }
-    
-        public virtual City City { get; set; }
     }
 }
