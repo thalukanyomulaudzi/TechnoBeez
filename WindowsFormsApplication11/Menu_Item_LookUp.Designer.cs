@@ -37,7 +37,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.richTextB = new System.Windows.Forms.RichTextBox();
             this.dgvMenuItems = new System.Windows.Forms.DataGridView();
-            this.txtQuantity = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
@@ -49,12 +48,14 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenuItems)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -145,14 +146,6 @@
             this.dgvMenuItems.TabIndex = 45;
             this.dgvMenuItems.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellClick);
             // 
-            // txtQuantity
-            // 
-            this.txtQuantity.Location = new System.Drawing.Point(7, 59);
-            this.txtQuantity.Margin = new System.Windows.Forms.Padding(4);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(177, 22);
-            this.txtQuantity.TabIndex = 1;
-            // 
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(1057, 512);
@@ -166,10 +159,10 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.numericUpDown1);
             this.panel8.Controls.Add(this.groupBox4);
             this.panel8.Controls.Add(this.button8);
             this.panel8.Controls.Add(this.button7);
-            this.panel8.Controls.Add(this.txtQuantity);
             this.panel8.Controls.Add(this.label10);
             this.panel8.Location = new System.Drawing.Point(453, 186);
             this.panel8.Margin = new System.Windows.Forms.Padding(4);
@@ -285,6 +278,13 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(75, 37);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(106, 22);
+            this.numericUpDown1.TabIndex = 44;
+            // 
             // Menu_Item_LookUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -311,6 +311,7 @@
             this.panel7.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -325,7 +326,6 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.RichTextBox richTextB;
         private System.Windows.Forms.DataGridView dgvMenuItems;
-        private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label10;
@@ -337,5 +337,6 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

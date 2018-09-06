@@ -38,7 +38,7 @@
         <EntityTypeShape EntityType="MmasweModel.Stock_Combo_Line" Width="1.5" PointX="5.25" PointY="16" IsExpanded="true" />
         <EntityTypeShape EntityType="MmasweModel.Stock_Item" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MmasweModel.Stock_Order" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Stock_Order_Line" Width="1.5" PointX="8.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Stock_Order_Line" Width="2" PointX="8.25" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="MmasweModel.Stock_Order_Status" Width="1.5" PointX="3.75" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="MmasweModel.Stock_Price" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MmasweModel.Stock_Type" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />

@@ -21,27 +21,33 @@ namespace WindowsFormsApplication11
 
         private void button7_Click(object sender, EventArgs e)
         {
-
-            int id = Globals.OrderMenuItem;
-
-            Menu_Item item = db.Menu_Item.FirstOrDefault(c => c.Menu_Item_ID == id);
-            Menu_Item_Price price = db.Menu_Item_Price.FirstOrDefault(c => c.Menu_Price_ID == id);
-          
-            if ((item != null) && (price != null))
+            if (numericUpDown1.Text != "0")
             {
-                string itemDesc = "ID:  " + Convert.ToString(item.Menu_Item_ID) + " Name:  " + item.Menu_Item_Name
-                + " Description:  " + item.Menu_Item_Description + " Quantity:  " + txtQuantity.Text + " Notes:  " + richTextB.Text;
-                listBox1.Items.Add(itemDesc);
-                Globals menu = new Globals();
+                int id = Globals.OrderMenuItem;
 
-                menu.OrderItemId = id;
-                menu.OrderItemName = item.Menu_Item_Name;
-                menu.OrderItemDescription = item.Menu_Item_Description;
+                Menu_Item item = db.Menu_Item.FirstOrDefault(c => c.Menu_Item_ID == id);
+                Menu_Item_Price price = db.Menu_Item_Price.FirstOrDefault(c => c.Menu_Price_ID == id);
 
-                menu.OrderItemPrice = price.Menu_Price;
-                menu.OrderItemNotes = richTextB.Text;
-                menu.OrderQuantity = Convert.ToInt32(txtQuantity.Text);
-                itemsA.Add(menu);
+                if ((item != null) && (price != null))
+                {
+                    string itemDesc = "ID:  " + Convert.ToString(item.Menu_Item_ID) + " Name:  " + item.Menu_Item_Name
+                    + " Description:  " + item.Menu_Item_Description + " Quantity:  " + numericUpDown1.Text + " Notes:  " + richTextB.Text;
+                    listBox1.Items.Add(itemDesc);
+                    Globals menu = new Globals();
+
+                    menu.OrderItemId = id;
+                    menu.OrderItemName = item.Menu_Item_Name;
+                    menu.OrderItemDescription = item.Menu_Item_Description;
+
+                    menu.OrderItemPrice = price.Menu_Price;
+                    menu.OrderItemNotes = richTextB.Text;
+                    menu.OrderQuantity = Convert.ToInt32(numericUpDown1.Text);
+                    itemsA.Add(menu);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error:Quantity can't be zero");
             }
         }
 
@@ -75,11 +81,16 @@ namespace WindowsFormsApplication11
         private void button8_Click(object sender, EventArgs e)
         {
 
-          MessageBox.Show(Convert.ToString(listBox1.SelectedIndex));
-          itemsA.RemoveRange(listBox1.SelectedIndex, 1);
-
-          foreach (string s in listBox1.SelectedItems.OfType<string>().ToList())
-          listBox1.Items.Remove(s);
+            try
+            {
+                itemsA.RemoveRange(listBox1.SelectedIndex, 1);
+                foreach (string s in listBox1.SelectedItems.OfType<string>().ToList())
+                listBox1.Items.Remove(s);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Error:No item selected");
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -87,11 +98,12 @@ namespace WindowsFormsApplication11
             foreach(var item in itemsA)
             {
                 Globals.MenuItems.Add(item);
+                Globals.AmountDue = Globals.AmountDue + item.OrderItemPrice * item.OrderQuantity;
             }
 
             Globals.DisplayMenus = true;
             Globals.refresher2 = true;
-           
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)

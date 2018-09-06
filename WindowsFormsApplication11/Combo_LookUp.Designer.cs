@@ -44,17 +44,18 @@
             this.comboRichTextBox = new System.Windows.Forms.RichTextBox();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.txtQuantity = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComboItems)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel7.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -235,14 +236,6 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // txtQuantity
-            // 
-            this.txtQuantity.Location = new System.Drawing.Point(7, 59);
-            this.txtQuantity.Margin = new System.Windows.Forms.Padding(4);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(177, 22);
-            this.txtQuantity.TabIndex = 1;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -255,10 +248,10 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.numericUpDown1);
             this.panel8.Controls.Add(this.groupBox4);
             this.panel8.Controls.Add(this.button8);
             this.panel8.Controls.Add(this.button7);
-            this.panel8.Controls.Add(this.txtQuantity);
             this.panel8.Controls.Add(this.label10);
             this.panel8.Location = new System.Drawing.Point(468, 183);
             this.panel8.Margin = new System.Windows.Forms.Padding(4);
@@ -287,6 +280,13 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(72, 39);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(106, 22);
+            this.numericUpDown1.TabIndex = 43;
+            // 
             // Combo_LookUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -313,6 +313,7 @@
             this.groupBox4.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -333,10 +334,10 @@
         private System.Windows.Forms.RichTextBox comboRichTextBox;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
