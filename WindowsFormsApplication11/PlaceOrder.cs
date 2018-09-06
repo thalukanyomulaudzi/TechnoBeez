@@ -369,7 +369,7 @@ namespace WindowsFormsApplication11
             //Order Order Order details//----Line----//
 
             orderLine.Customer_Order_ID = order.Order_ID;
-            orderLine.Combo_ID = com
+           // orderLine.Combo_ID = 
 
             //orderLine.Combo_ID;
 
