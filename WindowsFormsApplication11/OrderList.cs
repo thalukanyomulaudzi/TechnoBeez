@@ -12,8 +12,8 @@ namespace WindowsFormsApplication11
     public partial class OrderList : Form
     {
         Form2 mainForm;
-       // int index = -1;
-        MmasweEntities9 db = new MmasweEntities9();
+        // int index = -1;
+        MmasweEntities5 db = new MmasweEntities5();
         public OrderList()
         {
             InitializeComponent();
@@ -70,7 +70,7 @@ namespace WindowsFormsApplication11
                                 Supplier_Name = y.Supplier_Name,
                                 Quantity = q.Stock_Order_Quantity,
                                 Order_Date = p.Stock_Order_Issue_Date,
-                                Date_Received = p.DateReceived ?? DateTime.Now,
+                                //Date_Received = p.DateReceived ?? DateTime.Now,
                             };
 
             dgvReceivedOrder.DataSource = orderL.ToList();

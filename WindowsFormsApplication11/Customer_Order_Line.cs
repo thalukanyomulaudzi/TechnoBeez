@@ -26,6 +26,7 @@ namespace WindowsFormsApplication11
         public Nullable<int> Special_ID { get; set; }
         public Nullable<int> Payment_ID { get; set; }
         public int Customer_Order_Line_ID { get; set; }
+        public Nullable<int> Customer_ID { get; set; }
     
         public virtual Combo Combo { get; set; }
         public virtual Customer_Order Customer_Order { get; set; }

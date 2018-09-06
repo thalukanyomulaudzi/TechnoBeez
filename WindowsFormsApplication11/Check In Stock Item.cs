@@ -11,7 +11,7 @@ namespace WindowsFormsApplication11
 {
     public partial class Check_In_Stock_Item : Form
     {
-        MmasweEntities9 db = new MmasweEntities9();
+        MmasweEntities5 db = new MmasweEntities5();
         public Check_In_Stock_Item()
         {
             InitializeComponent();

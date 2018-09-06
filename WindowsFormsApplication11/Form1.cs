@@ -14,7 +14,7 @@ namespace WindowsFormsApplication11
     {
        
         Button navButton;
-        MmasweEntities9 db = new MmasweEntities9();
+        MmasweEntities5 db = new MmasweEntities5();
         
         public Form1()
         {

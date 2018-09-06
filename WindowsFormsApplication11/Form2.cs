@@ -17,7 +17,7 @@ namespace WindowsFormsApplication11
     public partial class Form2 : Form
     {
         Button navButton;
-        MmasweEntities9 db = new MmasweEntities9();
+        MmasweEntities5 db = new MmasweEntities5();
         public Form2()
         {
             InitializeComponent();
@@ -1198,6 +1198,12 @@ namespace WindowsFormsApplication11
         {
             OrderList f = new OrderList(this);
             f.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            PlaceOrder frm = new PlaceOrder();
+            frm.ShowDialog();
         }
     }
 }

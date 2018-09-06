@@ -15,7 +15,7 @@ namespace WindowsFormsApplication11
         {
             InitializeComponent();
         }
-        MmasweEntities9 db = new MmasweEntities9();
+        MmasweEntities5 db = new MmasweEntities5();
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -310,9 +310,9 @@ namespace WindowsFormsApplication11
 
             Customer_Order order = new Customer_Order();
             Company_Information inf = new Company_Information();
-            Customer cust = db.Customers.FirstOrDefault(c=> (c.Customer_Name == txtCustName.Text) && (c.Customer_Adress == txtAdress.Text));
-            Customer newCustomer = new Customer();
-            Customer_Order_Line orderLine = new Customer_Order_Line();
+            //Customer cust = db.Customers.FirstOrDefault(c=> (c.Customer_Name == txtCustName.Text) && (c.Customer_Adress == txtAdress.Text));
+           // Customer newCustomer = new Customer();
+           
 
             //--------------------------------------------------//
 
@@ -363,16 +363,47 @@ namespace WindowsFormsApplication11
             order.Sale_Vat_Amount = VatAmount;
             order.Payment_ID = Globals.SalesPaymentID;
             order.Delivery_Status_ID = 2;
-            order.Customer_ID = cust.Customer_ID;
+            // order.Customer_ID = cust.Customer_ID;
             //---------------------------------------------------------//
 
             //Order Order Order details//----Line----//
+            db.Customer_Order.Add(order);
+            db.SaveChanges();
 
-            orderLine.Customer_Order_ID = order.Order_ID;
-           // orderLine.Combo_ID = 
+            for(int i = 0;i< Globals.ComboItems.Count;i++)
+            {
+                Customer_Order_Line orderLine = new Customer_Order_Line();
+                orderLine.Customer_Order_ID = order.Order_ID;
+                orderLine.Combo_Quantity = Globals.ComboItems[i].OrderQuantity;
+                orderLine.Combo_ID = Globals.ComboItems[i].OrderItemId;
+                orderLine.Picked_Up = "";
+                db.Customer_Order_Line.Add(orderLine);
+                db.SaveChanges();
 
-            //orderLine.Combo_ID;
+            }
 
+            for (int i = 0; i < Globals.StockItems.Count; i++)
+            {
+                Customer_Order_Line orderLine = new Customer_Order_Line();
+                orderLine.Customer_Order_ID = order.Order_ID;
+                orderLine.Stock_Item_Quantity = Globals.StockItems[i].OrderQuantity;
+                orderLine.Stock_ID = Globals.StockItems[i].OrderItemId;
+                orderLine.Picked_Up = "";
+                db.Customer_Order_Line.Add(orderLine);
+                db.SaveChanges();
+            }
+
+            for (int i = 0; i < Globals.MenuItems.Count; i++)
+            {
+                Customer_Order_Line orderLine = new Customer_Order_Line();
+                orderLine.Customer_Order_ID = order.Order_ID;
+                orderLine.Menu_Item_Quantity = Globals.MenuItems[i].OrderQuantity;
+                orderLine.Menu_Item_ID = Globals.MenuItems[i].OrderItemId;
+                orderLine.Picked_Up = "";
+                db.Customer_Order_Line.Add(orderLine);
+                db.SaveChanges();
+
+            }
 
         }
 
