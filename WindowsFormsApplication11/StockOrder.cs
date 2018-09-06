@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Net.Mail;
 
 namespace WindowsFormsApplication11
 {
@@ -62,9 +63,10 @@ namespace WindowsFormsApplication11
             sOrder.Stock_Order_Description = "Description";
             sOrder.Stock_Order_Issue_Date = DateTime.Now;
             sOrder.Stock_Order_Status_ID = 1;
-            
 
-
+            StockOrder f = new StockOrder();
+          //  if (this.Close())
+                
             orderLine.Stock_Order_ID = sOrder.Stock_Order_ID;
             
 
@@ -73,8 +75,44 @@ namespace WindowsFormsApplication11
             db.SaveChanges();
 
             parent.load();
+            SendEmail();
             // parent.loadReceivedOrder();
             MessageBox.Show("New Order Placed");
+
+        }
+        public void SendEmail()
+        {
+            Supplier s = db.Suppliers.Where(x => x.Supplier_ID == supplierID).FirstOrDefault();
+            Supplier_Contact_Details sc = db.Supplier_Contact_Details.Where(x => x.Supplier_Contact_ID == supplierID).FirstOrDefault();
+            Stock_Item st = db.Stock_Item.Where(x=>x.Stock_ID==stockID).FirstOrDefault();
+            Stock_Order_Line so = db.Stock_Order_Line.Where(x => x.Stock_Order_Line_ID == stockID).FirstOrDefault();
+
+            try
+            {
+                SmtpClient client = new SmtpClient("smtp.gmail.com",587);
+                MailMessage message = new MailMessage();
+
+                string myEmail = "thalu.tuks@gmail.com";
+                string pswd = "@mulaudzi";
+                message.From = new MailAddress(myEmail);
+                message.Subject = "Placing an order";
+                message.Body = "Dear \n"+s.Supplier_Name+"\nWe are very interested in making an order for the following item: \n"+
+                                st.Stock_Item_Name +" Quantity"+ so.Stock_Order_Quantity +
+                                "\n\nWe look forward to your reply \n\nKind Regards Mr Mafokwane (Manager)";
+                //message.To.Add(sc.Supplier_Email_Adress);
+                message.To.Add("thalu0014@gmail.com");
+                client.UseDefaultCredentials = false;
+                client.EnableSsl = true;
+
+                client.Credentials = new System.Net.NetworkCredential(myEmail,pswd);
+                client.Send(message);
+                message = null;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error "+ ex);
+            }
 
         }
         //private void groupBox1_Validating(object sender, CancelEventArgs e)

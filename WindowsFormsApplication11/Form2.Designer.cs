@@ -38,6 +38,7 @@
             this.dgvCustomer = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.topBarPannel2 = new System.Windows.Forms.Panel();
+            this.btnOrderList = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.btnTheAdd = new System.Windows.Forms.Button();
             this.panel22 = new System.Windows.Forms.Panel();
@@ -73,7 +74,6 @@
             this.dgvCustomer2 = new System.Windows.Forms.DataGridView();
             this.dgvEmp = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnOrderList = new System.Windows.Forms.Button();
             this.MmaswePannel.SuspendLayout();
             this.topBarPannel.SuspendLayout();
             this.CustomerPan.SuspendLayout();
@@ -152,7 +152,7 @@
             // 
             this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployee.Location = new System.Drawing.Point(51, 27);
-            this.dgvEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvEmployee.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEmployee.Name = "dgvEmployee";
             this.dgvEmployee.RowTemplate.Height = 24;
             this.dgvEmployee.Size = new System.Drawing.Size(664, 304);
@@ -194,6 +194,21 @@
             this.topBarPannel2.Size = new System.Drawing.Size(306, 63);
             this.topBarPannel2.TabIndex = 8;
             // 
+            // btnOrderList
+            // 
+            this.btnOrderList.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnOrderList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrderList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOrderList.Location = new System.Drawing.Point(3, 29);
+            this.btnOrderList.Name = "btnOrderList";
+            this.btnOrderList.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnOrderList.Size = new System.Drawing.Size(80, 25);
+            this.btnOrderList.TabIndex = 12;
+            this.btnOrderList.Text = "OrderList";
+            this.btnOrderList.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOrderList.UseVisualStyleBackColor = true;
+            this.btnOrderList.Click += new System.EventHandler(this.btnOrderList_Click);
+            // 
             // button4
             // 
             this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
@@ -208,7 +223,6 @@
             this.button4.Text = "View Order";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // btnTheAdd
             // 
@@ -342,7 +356,7 @@
             this.panel1.Controls.Add(this.btnEmployees);
             this.panel1.Controls.Add(this.btnSuppliers11);
             this.panel1.Location = new System.Drawing.Point(0, 123);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(195, 421);
             this.panel1.TabIndex = 3;
@@ -477,7 +491,7 @@
             // 
             this.panel2.Controls.Add(this.EmployeePanel);
             this.panel2.Location = new System.Drawing.Point(197, 125);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(831, 418);
             this.panel2.TabIndex = 4;
@@ -488,7 +502,7 @@
             this.EmployeePanel.Controls.Add(this.dgvEmp);
             this.EmployeePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EmployeePanel.Location = new System.Drawing.Point(0, 0);
-            this.EmployeePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EmployeePanel.Margin = new System.Windows.Forms.Padding(2);
             this.EmployeePanel.Name = "EmployeePanel";
             this.EmployeePanel.Size = new System.Drawing.Size(831, 418);
             this.EmployeePanel.TabIndex = 3;
@@ -499,7 +513,7 @@
             this.CustomerPanel.Controls.Add(this.dgvCustomer2);
             this.CustomerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomerPanel.Location = new System.Drawing.Point(0, 0);
-            this.CustomerPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CustomerPanel.Margin = new System.Windows.Forms.Padding(2);
             this.CustomerPanel.Name = "CustomerPanel";
             this.CustomerPanel.Size = new System.Drawing.Size(831, 418);
             this.CustomerPanel.TabIndex = 2;
@@ -510,7 +524,7 @@
             this.SalesPan.Controls.Add(this.dgvSales);
             this.SalesPan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SalesPan.Location = new System.Drawing.Point(0, 0);
-            this.SalesPan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SalesPan.Margin = new System.Windows.Forms.Padding(2);
             this.SalesPan.Name = "SalesPan";
             this.SalesPan.Size = new System.Drawing.Size(831, 418);
             this.SalesPan.TabIndex = 3;
@@ -521,7 +535,7 @@
             this.ComboPan.Controls.Add(this.dgvCombo);
             this.ComboPan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ComboPan.Location = new System.Drawing.Point(0, 0);
-            this.ComboPan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ComboPan.Margin = new System.Windows.Forms.Padding(2);
             this.ComboPan.Name = "ComboPan";
             this.ComboPan.Size = new System.Drawing.Size(831, 418);
             this.ComboPan.TabIndex = 3;
@@ -532,7 +546,7 @@
             this.MenuPan.Controls.Add(this.dgvMenu);
             this.MenuPan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MenuPan.Location = new System.Drawing.Point(0, 0);
-            this.MenuPan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MenuPan.Margin = new System.Windows.Forms.Padding(2);
             this.MenuPan.Name = "MenuPan";
             this.MenuPan.Size = new System.Drawing.Size(831, 418);
             this.MenuPan.TabIndex = 3;
@@ -543,7 +557,7 @@
             this.StockPan.Controls.Add(this.dgvStock);
             this.StockPan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StockPan.Location = new System.Drawing.Point(0, 0);
-            this.StockPan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.StockPan.Margin = new System.Windows.Forms.Padding(2);
             this.StockPan.Name = "StockPan";
             this.StockPan.Size = new System.Drawing.Size(831, 418);
             this.StockPan.TabIndex = 3;
@@ -553,7 +567,7 @@
             this.SupplierPan.Controls.Add(this.dgvSupplier);
             this.SupplierPan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SupplierPan.Location = new System.Drawing.Point(0, 0);
-            this.SupplierPan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SupplierPan.Margin = new System.Windows.Forms.Padding(2);
             this.SupplierPan.Name = "SupplierPan";
             this.SupplierPan.Size = new System.Drawing.Size(831, 418);
             this.SupplierPan.TabIndex = 1;
@@ -562,7 +576,7 @@
             // 
             this.dgvSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSupplier.Location = new System.Drawing.Point(22, 20);
-            this.dgvSupplier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvSupplier.Margin = new System.Windows.Forms.Padding(2);
             this.dgvSupplier.Name = "dgvSupplier";
             this.dgvSupplier.RowTemplate.Height = 24;
             this.dgvSupplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -576,7 +590,7 @@
             // 
             this.dgvStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStock.Location = new System.Drawing.Point(17, 20);
-            this.dgvStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvStock.Margin = new System.Windows.Forms.Padding(2);
             this.dgvStock.Name = "dgvStock";
             this.dgvStock.RowTemplate.Height = 24;
             this.dgvStock.Size = new System.Drawing.Size(706, 286);
@@ -586,7 +600,7 @@
             // 
             this.dgvMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMenu.Location = new System.Drawing.Point(22, 20);
-            this.dgvMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvMenu.Margin = new System.Windows.Forms.Padding(2);
             this.dgvMenu.Name = "dgvMenu";
             this.dgvMenu.RowTemplate.Height = 24;
             this.dgvMenu.Size = new System.Drawing.Size(701, 301);
@@ -596,7 +610,7 @@
             // 
             this.dgvCombo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCombo.Location = new System.Drawing.Point(22, 20);
-            this.dgvCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvCombo.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCombo.Name = "dgvCombo";
             this.dgvCombo.RowTemplate.Height = 24;
             this.dgvCombo.Size = new System.Drawing.Size(689, 310);
@@ -606,7 +620,7 @@
             // 
             this.dgvSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSales.Location = new System.Drawing.Point(17, 20);
-            this.dgvSales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvSales.Margin = new System.Windows.Forms.Padding(2);
             this.dgvSales.Name = "dgvSales";
             this.dgvSales.RowTemplate.Height = 24;
             this.dgvSales.Size = new System.Drawing.Size(706, 310);
@@ -616,7 +630,7 @@
             // 
             this.dgvCustomer2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomer2.Location = new System.Drawing.Point(17, 20);
-            this.dgvCustomer2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvCustomer2.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCustomer2.Name = "dgvCustomer2";
             this.dgvCustomer2.RowTemplate.Height = 24;
             this.dgvCustomer2.Size = new System.Drawing.Size(698, 310);
@@ -626,7 +640,7 @@
             // 
             this.dgvEmp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmp.Location = new System.Drawing.Point(22, 26);
-            this.dgvEmp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvEmp.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEmp.Name = "dgvEmp";
             this.dgvEmp.RowTemplate.Height = 24;
             this.dgvEmp.Size = new System.Drawing.Size(701, 312);
@@ -638,21 +652,6 @@
             this.timer1.Interval = 5;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btnOrderList
-            // 
-            this.btnOrderList.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnOrderList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrderList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrderList.Location = new System.Drawing.Point(3, 29);
-            this.btnOrderList.Name = "btnOrderList";
-            this.btnOrderList.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.btnOrderList.Size = new System.Drawing.Size(80, 25);
-            this.btnOrderList.TabIndex = 12;
-            this.btnOrderList.Text = "OrderList";
-            this.btnOrderList.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOrderList.UseVisualStyleBackColor = true;
-            this.btnOrderList.Click += new System.EventHandler(this.btnOrderList_Click);
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -661,7 +660,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.MmaswePannel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);

@@ -31,7 +31,7 @@ namespace WindowsFormsApplication11
         }
         public void load()
         {
-            var orderList = from p in db.Stock_Order
+            var orderList = from p in db.Stock_Order.Where(x => x.Stock_Order_Status_ID == 1)
                             join q in db.Stock_Order_Line
                                 on p.Stock_Order_ID equals q.Stock_Order_Line_ID
                             join x in db.Stock_Order_Status
@@ -39,8 +39,7 @@ namespace WindowsFormsApplication11
 
                             join y in db.Suppliers
                                 on p.Supplier_ID equals y.Supplier_ID
-                            //join y in db.Supplier_Contact_Details
-                            //    on p.Supplier_ID equals y.Supplier_Contact_ID
+
                             select new
                             {
                                 Order_No = p.Stock_Order_ID,
@@ -55,20 +54,21 @@ namespace WindowsFormsApplication11
            dgvPlacedOrder.ClearSelection();
             db.SaveChanges();
 
-            var orderL = from p in db.Stock_Order
-                            join q in db.Stock_Order_Line
+            var orderL = from p in db.Stock_Order.Where(x =>x.Stock_Order_Status_ID==2)
+                         join q in db.Stock_Order_Line
                                 on p.Stock_Order_ID equals q.Stock_Order_Line_ID
-                         join x in db.Stock_Order_Status
-                             on p.Stock_Order_ID equals x.Stock_Order_Status_ID
-                         join y in db.Suppliers
-                                on p.Stock_Order_ID equals y.Supplier_ID
+                            join x in db.Stock_Order_Status
+                                on p.Stock_Order_Status_ID equals x.Stock_Order_Status_ID
+
+                            join y in db.Suppliers
+                                on p.Supplier_ID equals y.Supplier_ID
 
                             select new
                             {
                                 Order_No = p.Stock_Order_ID,
                                 Stock_Item = q.Stock_Item.Stock_Item_Name,
                                 Supplier_Name = y.Supplier_Name,
-                                Quantity = q.Stock_Order_Quantity,
+                                QuantityReceived = q.Stock_Order_Quantity,
                                 Order_Date = p.Stock_Order_Issue_Date,
                                 Date_Received = p.DateReceived ?? DateTime.Now,
                             };
@@ -120,25 +120,15 @@ namespace WindowsFormsApplication11
         }
         void UpdateOrder(int index)
         {
-            //using (database = new HBSDataContext())
-            //{
-            //    var order = database.OrdersMades.Where(x => x.OrderId == index).Single<OrdersMade>();
-            //    order.DateReceived = DateTime.Now;
-            //    order.SupplierOrderStatusId = 2;
-
-            //    var inventory = database.Inventories.Where(x => x.InventoryId == order.InventoryId).Single<Inventory>();
-            //    inventory.Units += order.Quantity;
-
-            //    database.SubmitChanges();
-            //}
-            //load();
-            //parent.loadInventories();
-            Stock_Order_Line orderLine = new Stock_Order_Line();
+           
             var order = db.Stock_Order.Where(x => x.Stock_Order_ID == index).Single<Stock_Order>();
+            order.DateReceived = DateTime.Now;
             order.Stock_Order_Status_ID = 2;
 
-            var stock = db.Stock_Item.Where(x => x.Stock_ID ==orderLine.Stock_ID ).Single<Stock_Item>();
-            stock.Stock_Item_Quantity += orderLine.Stock_Order_Quantity;
+           // Stock_Order_Line orderLine = new Stock_Order_Line();
+            var orderL = db.Stock_Order_Line.Where(x => x.Stock_Order_Line_ID == order.Stock_Order_ID).Single<Stock_Order_Line>();
+            var stock = db.Stock_Item.Where(x => x.Stock_ID ==orderL.Stock_ID).Single<Stock_Item>();
+            stock.Stock_Item_Quantity += orderL.Stock_Order_Quantity;
             db.SaveChanges();
             load();
             mainForm.LoadStock();

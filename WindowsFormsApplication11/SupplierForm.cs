@@ -98,11 +98,11 @@ namespace WindowsFormsApplication11
 
             foreach(var item in db.Cities.Where(a=>a.City_Name!=null).ToList())
             {
-                comboBox1.Items.Add(item.City_Name);
+                cbxSuburb.Items.Add(item.City_Name);
             }
             foreach (var item in db.Suburbs.Where(a => a.Suburb_Name != null).ToList())
             {
-                comboBox2.Items.Add(item.Suburb_Name);
+                cbxCity.Items.Add(item.Suburb_Name);
             }
            
             if (index!=-1)
@@ -132,8 +132,8 @@ namespace WindowsFormsApplication11
                 txtSupplierContactP.Text = supplierContact.Supplier_Contact_Name;
                 txtStreetName.Text = supplierAddress.Street_Name;
                 txtProvince.Text= supplierAddress.Province;
-                comboBox1.SelectedIndex.ToString(); //= supplierCity.City_Name;//supplierCity.City_Name;
-                comboBox2.SelectedIndex.ToString(); //txtSuburb.Text = supplierSuburb.Suburb_Name;
+                cbxSuburb.SelectedIndex.ToString(); //= supplierCity.City_Name;//supplierCity.City_Name;
+                cbxCity.SelectedIndex.ToString(); //txtSuburb.Text = supplierSuburb.Suburb_Name;
 
                 txtBankName.Text= bank.Bank_Name;
                 txtAccNumber.Text = bank.Bank_Acc_No.ToString();

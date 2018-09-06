@@ -30,7 +30,7 @@ namespace WindowsFormsApplication11
         private void Stock_ItemList_Load(object sender, EventArgs e)
         {
 
-
+            
             var stockList = from p in db.Stock_Item
                             join q in db.Stock_Price
                                 on p.Stock_ID equals q.Stock_Price_ID
