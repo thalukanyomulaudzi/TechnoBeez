@@ -15,7 +15,7 @@ namespace WindowsFormsApplication11
         {
             InitializeComponent();
         }
-        MmasweEntities13 db = new MmasweEntities13();
+        MmasweEntities5 db = new MmasweEntities5();
        
         List<Globals> another = new List<Globals>();
 
@@ -33,8 +33,6 @@ namespace WindowsFormsApplication11
                         };
             dgvComboItems.DataSource = items.ToList();
             dgvComboItems.ClearSelection();
-            Globals.refresher2 = -1;
-
         }
 
         private void dgvComboItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -44,32 +42,27 @@ namespace WindowsFormsApplication11
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (numericUpDown1.Text != "0")
+
+            int id = Globals.OrderComboItem;
+
+           
+            Combo item = db.Comboes.FirstOrDefault(c => c.Combo_ID == id);
+            Combo_Price price = db.Combo_Price.FirstOrDefault(c => c.Combo_Price_ID == id);
+
+            if ((item != null) && (price != null))
             {
-                int id = Globals.OrderComboItem;
-
-                Combo item = db.Comboes.FirstOrDefault(c => c.Combo_ID == id);
-                Combo_Price price = db.Combo_Price.FirstOrDefault(c => c.Combo_Price_ID == id);
-
-                if ((item != null) && (price != null))
-                {
-                    string itemDesc = "ID:  " + Convert.ToString(item.Combo_ID) + " Name:  " + item.Combo_Name
-                    + " Description:  " + item.Combo_Description + " Quantity:  " + numericUpDown1.Text + " Notes:  " ;
-                    listBox1.Items.Add(itemDesc);
-                    Globals ComboItem = new Globals();
-                    ComboItem.OrderItemId = id;
-                    ComboItem.OrderItemName = item.Combo_Name;
-                    ComboItem.OrderItemDescription = item.Combo_Description;
-                    ComboItem.OrderItemPrice = price.Combo_Price1;
-                   
-                    ComboItem.OrderQuantity = Convert.ToInt32(numericUpDown1.Text);
-                    another.Add(ComboItem);
-
-                }
-            }
-            else
-            {
-                MessageBox.Show("Error:Quantity can't be zero");
+                string itemDesc = "ID:  " + Convert.ToString(item.Combo_ID) + " Name:  " + item.Combo_Name
+                + " Description:  " + item.Combo_Description + " Quantity:  " + txtQuantity.Text + " Notes:  " + comboRichTextBox.Text;
+                listBox1.Items.Add(itemDesc);
+                Globals ComboItem = new Globals();
+                ComboItem.OrderItemId = id;
+                ComboItem.OrderItemName = item.Combo_Name;
+                ComboItem.OrderItemDescription = item.Combo_Description;
+                ComboItem.OrderItemPrice = price.Combo_Price1;
+                ComboItem.OrderItemNotes = comboRichTextBox.Text;
+                ComboItem.OrderQuantity = Convert.ToInt32(txtQuantity.Text);
+                another.Add(ComboItem);
+           
             }
            
         }
@@ -78,34 +71,23 @@ namespace WindowsFormsApplication11
 
         private void button8_Click(object sender, EventArgs e)
         {
-
-            try
-            {
-                another.RemoveRange(listBox1.SelectedIndex, 1);
-                foreach (string s in listBox1.SelectedItems.OfType<string>().ToList())
-                listBox1.Items.Remove(s);
-            }
-            catch(Exception )
-            {
-                MessageBox.Show("Error:No item selected");
-
-            }
-               
-            
+            //MessageBox.Show(Convert.ToString(listBox1.SelectedIndex));
+            another.RemoveRange(listBox1.SelectedIndex, 1);
+            foreach (string s in listBox1.SelectedItems.OfType<string>().ToList())
+            listBox1.Items.Remove(s);
         }
 
 
         private void button6_Click(object sender, EventArgs e)
         {
-            
-            foreach (var item in another)
+            foreach(var item in another)
             {
 
                 Globals.ComboItems.Add(item);
-                Globals.AmountDue = Globals.AmountDue + item.OrderItemPrice * item.OrderQuantity;
             }
-            
-            this.Close();
+
+            Globals.DisplayCombos = true;
+            Globals.refresher2 = true;
           
         }
 
