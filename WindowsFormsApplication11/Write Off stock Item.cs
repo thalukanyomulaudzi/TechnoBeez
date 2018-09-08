@@ -15,7 +15,7 @@ namespace WindowsFormsApplication11
         {
             InitializeComponent();
         }
-        MmasweEntities5 db = new MmasweEntities5();
+        MmasweEntities13 db = new MmasweEntities13();
 
         private void Write_Off_stock_Item_Load(object sender, EventArgs e)
         {

@@ -12,7 +12,7 @@ namespace WindowsFormsApplication11
     public partial class SupplierList : Form
     {
         StockOrder parent;
-        MmasweEntities5 db = new MmasweEntities5();
+        MmasweEntities13 db = new MmasweEntities13();
         public SupplierList()
         {
             InitializeComponent();
@@ -31,10 +31,10 @@ namespace WindowsFormsApplication11
         {
             var customers = from p in db.Suppliers
                             join q in db.Addresses
-                                on p.Supplier_ID equals q.Address_ID
+                                on p.Supplier_ID equals q.Supplier_ID
 
                             join y in db.Supplier_Contact_Details
-                                on p.Supplier_ID equals y.Supplier_Contact_ID
+                                on p.Supplier_ID equals y.Supplier_ID
                             select new
                             {
                                 SupplierId = p.Supplier_ID,

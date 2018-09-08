@@ -15,7 +15,7 @@ namespace WindowsFormsApplication11
         {
             InitializeComponent();
         }
-        MmasweEntities9 db = new MmasweEntities9();
+        MmasweEntities13 db = new MmasweEntities13();
        
         List<Globals> another = new List<Globals>();
 
