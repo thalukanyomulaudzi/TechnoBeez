@@ -140,8 +140,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 23);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView3.Location = new System.Drawing.Point(0, 19);
             this.dataGridView3.Name = "dataGridView3";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -151,7 +150,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView3.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView3.Size = new System.Drawing.Size(1017, 191);
+            this.dataGridView3.Size = new System.Drawing.Size(763, 155);
             this.dataGridView3.TabIndex = 6;
             // 
             // dataGridViewTextBoxColumn5
@@ -198,10 +197,9 @@
             // button5
             // 
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(884, 756);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Location = new System.Drawing.Point(663, 614);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(133, 28);
+            this.button5.Size = new System.Drawing.Size(100, 23);
             this.button5.TabIndex = 15;
             this.button5.Text = "Make Paymnet";
             this.button5.UseVisualStyleBackColor = true;
@@ -212,19 +210,17 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Cash",
             "Card"});
-            this.comboBox1.Location = new System.Drawing.Point(884, 726);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Location = new System.Drawing.Point(663, 590);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(132, 24);
+            this.comboBox1.Size = new System.Drawing.Size(100, 21);
             this.comboBox1.TabIndex = 14;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(716, 730);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(537, 593);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 17);
+            this.label4.Size = new System.Drawing.Size(119, 13);
             this.label4.TabIndex = 13;
             this.label4.Text = "Select Payment method";
             // 
@@ -234,20 +230,19 @@
             this.panel14.Controls.Add(this.panel17);
             this.panel14.Controls.Add(this.panel15);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel14.Location = new System.Drawing.Point(0, 510);
+            this.panel14.Location = new System.Drawing.Point(0, 414);
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(1055, 64);
+            this.panel14.Size = new System.Drawing.Size(791, 52);
             this.panel14.TabIndex = 21;
             // 
             // panel17
             // 
             this.panel17.Controls.Add(this.button7);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel17.Location = new System.Drawing.Point(872, 0);
-            this.panel17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel17.Location = new System.Drawing.Point(654, 0);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(183, 63);
+            this.panel17.Size = new System.Drawing.Size(137, 51);
             this.panel17.TabIndex = 8;
             // 
             // button7
@@ -256,24 +251,23 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(15, 21);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button7.Location = new System.Drawing.Point(11, 17);
             this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.button7.Size = new System.Drawing.Size(143, 34);
+            this.button7.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.button7.Size = new System.Drawing.Size(107, 28);
             this.button7.TabIndex = 9;
             this.button7.Text = "Start Order";
             this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.Gainsboro;
             this.panel15.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel15.Location = new System.Drawing.Point(0, 63);
-            this.panel15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel15.Location = new System.Drawing.Point(0, 51);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(1055, 1);
+            this.panel15.Size = new System.Drawing.Size(791, 1);
             this.panel15.TabIndex = 0;
             // 
             // errorProvider
@@ -288,11 +282,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 289);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Location = new System.Drawing.Point(9, 235);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(1027, 213);
+            this.groupBox2.Size = new System.Drawing.Size(770, 173);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Menu Items";
@@ -325,8 +317,7 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 20);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 16);
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
@@ -336,7 +327,7 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridView1.Size = new System.Drawing.Size(1019, 186);
+            this.dataGridView1.Size = new System.Drawing.Size(764, 151);
             this.dataGridView1.TabIndex = 15;
             // 
             // dataGridViewTextBoxColumn1
@@ -348,11 +339,9 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dataGridView3);
-            this.groupBox4.Location = new System.Drawing.Point(12, 68);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Location = new System.Drawing.Point(9, 55);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox4.Size = new System.Drawing.Size(1027, 222);
+            this.groupBox4.Size = new System.Drawing.Size(770, 180);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Combo Items ";
@@ -370,34 +359,31 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1055, 69);
+            this.panel2.Size = new System.Drawing.Size(791, 56);
             this.panel2.TabIndex = 22;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(669, 27);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Location = new System.Drawing.Point(502, 22);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 22);
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 17;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(896, 32);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(672, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 17);
+            this.label2.Size = new System.Drawing.Size(94, 13);
             this.label2.TabIndex = 16;
             this.label2.Text = "Date: 12/07/2018";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(595, 32);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(446, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 17);
+            this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "Order ID:";
             // 
@@ -405,20 +391,18 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 68);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(0, 55);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1055, 1);
+            this.panel1.Size = new System.Drawing.Size(791, 1);
             this.panel1.TabIndex = 2;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(16, 11);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(12, 9);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(229, 40);
+            this.label14.Size = new System.Drawing.Size(174, 31);
             this.label14.TabIndex = 1;
             this.label14.Text = "Order Details";
             // 
@@ -433,26 +417,23 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1055, 574);
+            this.panel3.Size = new System.Drawing.Size(791, 466);
             this.panel3.TabIndex = 23;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(885, 686);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Location = new System.Drawing.Point(664, 557);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(131, 22);
+            this.textBox4.Size = new System.Drawing.Size(99, 20);
             this.textBox4.TabIndex = 13;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(740, 694);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(555, 564);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 17);
+            this.label3.Size = new System.Drawing.Size(80, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Amount Due: R";
             // 
@@ -466,13 +447,12 @@
             // 
             // Cusotmer_Order_Details__Kitchen_
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1055, 574);
+            this.ClientSize = new System.Drawing.Size(791, 466);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Cusotmer_Order_Details__Kitchen_";
             this.Text = "Cusotmer_Order_Details__Kitchen_";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
