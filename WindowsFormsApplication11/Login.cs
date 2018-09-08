@@ -25,5 +25,53 @@ namespace WindowsFormsApplication11
         {
 
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (IsvalidUser(txtUsername.Text, txtPassword.Text))
+
+            {
+
+                Form2 F = new Form2();
+
+                F.Show();
+
+
+
+            }
+        }
+        private bool IsvalidUser(string userName, string password)
+
+        {
+
+            MmasweEntities5 db = new MmasweEntities5();
+            ;
+
+            var q = from p in db.Users
+
+                    where p.nme == txtUsername.Text
+
+                    && p.passw == txtPassword.Text
+
+                    select p;
+
+
+
+            if (q.Any())
+
+            {
+
+                return true;
+
+            }
+
+            else
+
+            {
+
+                return false;
+
+            }
+        }
     }
-}
+    }

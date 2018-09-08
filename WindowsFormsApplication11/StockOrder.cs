@@ -14,7 +14,7 @@ namespace WindowsFormsApplication11
     public partial class StockOrder : Form
     {
         OrderList parent;
-        MmasweEntities9 db = new MmasweEntities9();
+        MmasweEntities5 db = new MmasweEntities5();
         int stockID = -1;
         int supplierID = -1;
        // int index = -1;

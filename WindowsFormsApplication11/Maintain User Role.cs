@@ -20,5 +20,20 @@ namespace WindowsFormsApplication11
         {
 
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //add user
+        }
+
+        private void Maintain_User_Role_Load(object sender, EventArgs e)
+        {
+            //populate combobox
+        }
     }
 }
