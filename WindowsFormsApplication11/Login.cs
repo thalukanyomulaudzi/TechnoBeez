@@ -35,9 +35,6 @@ namespace WindowsFormsApplication11
                 Form2 F = new Form2();
 
                 F.Show();
-
-
-
             }
         }
         private bool IsvalidUser(string userName, string password)

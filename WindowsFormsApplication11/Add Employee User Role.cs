@@ -11,6 +11,7 @@ namespace WindowsFormsApplication11
 {
     public partial class Add_Employee_User_Role : Form
     {
+      
         public Add_Employee_User_Role()
         {
             InitializeComponent();
@@ -24,6 +25,13 @@ namespace WindowsFormsApplication11
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Add_Employee_User_Role_Load(object sender, EventArgs e)
+        {
+            User_Role role = new User_Role();
+            role.User_Role_Description = txtdes.Text;
+            
         }
     }
 }
