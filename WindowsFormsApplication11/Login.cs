@@ -32,7 +32,7 @@ namespace WindowsFormsApplication11
 
             {
 
-                Form2 F = new Form2();
+                 Form2 F = new Form2();
 
                 F.Show();
             }
