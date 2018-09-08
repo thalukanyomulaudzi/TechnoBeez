@@ -65,7 +65,7 @@ namespace WindowsFormsApplication11
 
             //StockOrder f = new StockOrder();
             newGlobal.OrderNo = stockID;
-            newGlobal.OrderQuantity = Convert.ToInt32(txtOrderQuantity.Text);
+            newGlobal.sOrderQuantity = Convert.ToInt32(txtOrderQuantity.Text);
             newGlobal.SupplierName = txtSelectSupplier.Text;
             newGlobal.StockItemName = txtSelectStock.Text;
             newGlobal.StockOrderDescription = "Description";
@@ -99,7 +99,7 @@ namespace WindowsFormsApplication11
                 foreach (var order in Globals.StockOrders)
                 {
                     message.Body = "Dear " + s.Supplier_Name + "\nWe are very interested in making an order for the following item: \n" +
-                    order.StockItemName + " Quantity: " + order.OrderQuantity;
+                    order.StockItemName + " Quantity: " + order.sOrderQuantity;
                 }
 
                 //message.Body = "Dear \n"+s.Supplier_Name+"\nWe are very interested in making an order for the following item: \n"+
@@ -139,7 +139,7 @@ namespace WindowsFormsApplication11
                 orderLine.Stock_ID = item.OrderNo;
 
 
-                orderLine.Stock_Order_Quantity = item.OrderQuantity;
+                orderLine.Stock_Order_Quantity = item.sOrderQuantity;
 
                 orderLine.Stock_Order_ID = sOrder.Stock_Order_ID;
                // sOrder.Stock_Order_ID = item.OrderNo;
