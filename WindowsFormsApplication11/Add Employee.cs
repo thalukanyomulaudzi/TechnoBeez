@@ -30,7 +30,7 @@ namespace WindowsFormsApplication11
             NewE.Employee_Name = txtName.Text;
             NewE.Employee_Surname = txtSurname.Text;
             NewE.Employee_Identity_Number = Convert.ToInt32(txtIdNumber.Text);
-            NewE.Gender_ID = gender;
+            NewE.Gender_ID = 1;
             NewE.Adress = txtAddress.Text;
             NewE.Email_Adress = txtEmail.Text;
             NewE.Next_Of_Kin_Name = txtNextOfKin.Text;

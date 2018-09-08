@@ -729,7 +729,7 @@ namespace WindowsFormsApplication11
 
                             };
 
-            dgvSupplier.DataSource = customers;
+            dgvSupplier.DataSource = customers.ToList();
             dgvSupplier.ClearSelection();
             db.SaveChanges();
             //if (dgvSupplier.Rows.Count != 0)

@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 09/08/2018 04:28:00
--- Generated from EDMX file: C:\Users\Press Play\Source\Repos\TechnoBeez\WindowsFormsApplication11\Model1.edmx
+-- Date Created: 09/08/2018 07:11:31
+-- Generated from EDMX file: C:\Users\Press Play\source\repos\TechnoBeez\WindowsFormsApplication11\Model1.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,14 +17,20 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_User_Role_Access_level]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[User_Role] DROP CONSTRAINT [FK_User_Role_Access_level];
+GO
 IF OBJECT_ID(N'[dbo].[FK_Address_Suburb]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Address] DROP CONSTRAINT [FK_Address_Suburb];
+    ALTER TABLE [dbo].[Addresses] DROP CONSTRAINT [FK_Address_Suburb];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Address_Supplier]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Address] DROP CONSTRAINT [FK_Address_Supplier];
+    ALTER TABLE [dbo].[Addresses] DROP CONSTRAINT [FK_Address_Supplier];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Adress_Adress_Type]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Address] DROP CONSTRAINT [FK_Adress_Adress_Type];
+    ALTER TABLE [dbo].[Addresses] DROP CONSTRAINT [FK_Adress_Adress_Type];
+GO
+IF OBJECT_ID(N'[dbo].[FK_User_Audit]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Users] DROP CONSTRAINT [FK_User_Audit];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Banking_Details_Supplier]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Banking_Details] DROP CONSTRAINT [FK_Banking_Details_Supplier];
@@ -42,10 +48,19 @@ IF OBJECT_ID(N'[dbo].[FK_Check_Out_Line_Stock_Item]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Check_Out_Line] DROP CONSTRAINT [FK_Check_Out_Line_Stock_Item];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Combo_Combo_Price]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Combo] DROP CONSTRAINT [FK_Combo_Combo_Price];
+    ALTER TABLE [dbo].[Comboes] DROP CONSTRAINT [FK_Combo_Combo_Price];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Combo_Combo_Type]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Combo] DROP CONSTRAINT [FK_Combo_Combo_Type];
+    ALTER TABLE [dbo].[Comboes] DROP CONSTRAINT [FK_Combo_Combo_Type];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Customer_Order_Line_Combo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Customer_Order_Line] DROP CONSTRAINT [FK_Customer_Order_Line_Combo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ItemsPicture_Combo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ItemsPictures] DROP CONSTRAINT [FK_ItemsPicture_Combo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Stock_Combo_Line_Combo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Stock_Combo_Line] DROP CONSTRAINT [FK_Stock_Combo_Line_Combo];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Customer_Order_Customer]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Customer_Order] DROP CONSTRAINT [FK_Customer_Order_Customer];
@@ -56,11 +71,11 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Customer_Order_Employee]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Customer_Order] DROP CONSTRAINT [FK_Customer_Order_Employee];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Customer_Order_Line_Combo]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Customer_Order_Line] DROP CONSTRAINT [FK_Customer_Order_Line_Combo];
-GO
 IF OBJECT_ID(N'[dbo].[FK_Customer_Order_Line_Customer_Order]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Customer_Order_Line] DROP CONSTRAINT [FK_Customer_Order_Line_Customer_Order];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Customer_Order_Payment]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Customer_Order] DROP CONSTRAINT [FK_Customer_Order_Payment];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Customer_Order_Line_Menu_Item]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Customer_Order_Line] DROP CONSTRAINT [FK_Customer_Order_Line_Menu_Item];
@@ -68,32 +83,29 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Customer_Order_Line_Stock_Item]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Customer_Order_Line] DROP CONSTRAINT [FK_Customer_Order_Line_Stock_Item];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Customer_Order_Payment]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Customer_Order] DROP CONSTRAINT [FK_Customer_Order_Payment];
-GO
 IF OBJECT_ID(N'[dbo].[FK_DeliveryLine_DeliveryTable]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[DeliveryLine] DROP CONSTRAINT [FK_DeliveryLine_DeliveryTable];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Employee_Attendence_Status_Employee_Booking_Shift]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Employee_Attendence_Status] DROP CONSTRAINT [FK_Employee_Attendence_Status_Employee_Booking_Shift];
+    ALTER TABLE [dbo].[DeliveryLines] DROP CONSTRAINT [FK_DeliveryLine_DeliveryTable];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Employee_Booking_Shift_Employee]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Employee_Booking_Shift] DROP CONSTRAINT [FK_Employee_Booking_Shift_Employee];
 GO
+IF OBJECT_ID(N'[dbo].[FK_Employee_Employee_Gender_]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Employees] DROP CONSTRAINT [FK_Employee_Employee_Gender_];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Employee_User]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Employees] DROP CONSTRAINT [FK_Employee_User];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Stock_Order_Employee]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Stock_Order] DROP CONSTRAINT [FK_Stock_Order_Employee];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Employee_Attendence_Status_Employee_Booking_Shift]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Employee_Attendence_Status] DROP CONSTRAINT [FK_Employee_Attendence_Status_Employee_Booking_Shift];
+GO
 IF OBJECT_ID(N'[dbo].[FK_Employee_Booking_Shift_Employee_Shifts]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Employee_Booking_Shift] DROP CONSTRAINT [FK_Employee_Booking_Shift_Employee_Shifts];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Employee_Employee_Gender_]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Employee] DROP CONSTRAINT [FK_Employee_Employee_Gender_];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Employee_User]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Employee] DROP CONSTRAINT [FK_Employee_User];
-GO
-IF OBJECT_ID(N'[dbo].[FK_ItemsPicture_Combo]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ItemsPicture] DROP CONSTRAINT [FK_ItemsPicture_Combo];
-GO
 IF OBJECT_ID(N'[dbo].[FK_ItemsPicture_Menu_Item]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ItemsPicture] DROP CONSTRAINT [FK_ItemsPicture_Menu_Item];
+    ALTER TABLE [dbo].[ItemsPictures] DROP CONSTRAINT [FK_ItemsPicture_Menu_Item];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Menu_Item_Menu_Item_Price]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Menu_Item] DROP CONSTRAINT [FK_Menu_Item_Menu_Item_Price];
@@ -102,10 +114,7 @@ IF OBJECT_ID(N'[dbo].[FK_Menu_Item_Menu_Item_Type]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Menu_Item] DROP CONSTRAINT [FK_Menu_Item_Menu_Item_Type];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Payment_Payment_Type]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Payment] DROP CONSTRAINT [FK_Payment_Payment_Type];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Stock_Combo_Line_Combo]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Stock_Combo_Line] DROP CONSTRAINT [FK_Stock_Combo_Line_Combo];
+    ALTER TABLE [dbo].[Payments] DROP CONSTRAINT [FK_Payment_Payment_Type];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Stock_Combo_Line_Stock_Item]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Stock_Combo_Line] DROP CONSTRAINT [FK_Stock_Combo_Line_Stock_Item];
@@ -116,11 +125,11 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Stock_Item_Stock_Type]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Stock_Item] DROP CONSTRAINT [FK_Stock_Item_Stock_Type];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Stock_Order_Employee]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Stock_Order] DROP CONSTRAINT [FK_Stock_Order_Employee];
-GO
 IF OBJECT_ID(N'[dbo].[FK_Stock_Order_Line_Stock_Item]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Stock_Order_Line] DROP CONSTRAINT [FK_Stock_Order_Line_Stock_Item];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Stock_WriteOff_Line_Stock_Item]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Stock_WriteOff_Line] DROP CONSTRAINT [FK_Stock_WriteOff_Line_Stock_Item];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Stock_Order_Line_Stock_Order]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Stock_Order_Line] DROP CONSTRAINT [FK_Stock_Order_Line_Stock_Order];
@@ -131,26 +140,17 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Stock_Order_Supplier]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Stock_Order] DROP CONSTRAINT [FK_Stock_Order_Supplier];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Stock_WriteOff_Line_Stock_Item]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Stock_WriteOff_Line] DROP CONSTRAINT [FK_Stock_WriteOff_Line_Stock_Item];
-GO
 IF OBJECT_ID(N'[dbo].[FK_Stock_WriteOff_Line_Stock_Write_Off]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Stock_WriteOff_Line] DROP CONSTRAINT [FK_Stock_WriteOff_Line_Stock_Write_Off];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Supplier_Contact_Details_Supplier]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Supplier_Contact_Details] DROP CONSTRAINT [FK_Supplier_Contact_Details_Supplier];
 GO
-IF OBJECT_ID(N'[dbo].[FK_User_Audit]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[User] DROP CONSTRAINT [FK_User_Audit];
-GO
-IF OBJECT_ID(N'[dbo].[FK_User_Role_Access_level]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[User_Role] DROP CONSTRAINT [FK_User_Role_Access_level];
-GO
 IF OBJECT_ID(N'[dbo].[FK_User_Us]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[User] DROP CONSTRAINT [FK_User_Us];
+    ALTER TABLE [dbo].[Users] DROP CONSTRAINT [FK_User_Us];
 GO
 IF OBJECT_ID(N'[dbo].[FK_User_User_Log]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[User] DROP CONSTRAINT [FK_User_User_Log];
+    ALTER TABLE [dbo].[Users] DROP CONSTRAINT [FK_User_User_Log];
 GO
 
 -- --------------------------------------------------
@@ -160,14 +160,14 @@ GO
 IF OBJECT_ID(N'[dbo].[Access_level]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Access_level];
 GO
-IF OBJECT_ID(N'[dbo].[Address]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Address];
+IF OBJECT_ID(N'[dbo].[Addresses]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Addresses];
 GO
 IF OBJECT_ID(N'[dbo].[Adress_Type]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Adress_Type];
 GO
-IF OBJECT_ID(N'[dbo].[Audit]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Audit];
+IF OBJECT_ID(N'[dbo].[Audits]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Audits];
 GO
 IF OBJECT_ID(N'[dbo].[Banking_Details]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Banking_Details];
@@ -184,11 +184,11 @@ GO
 IF OBJECT_ID(N'[dbo].[Check_Out_Line]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Check_Out_Line];
 GO
-IF OBJECT_ID(N'[dbo].[City]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[City];
+IF OBJECT_ID(N'[dbo].[Cities]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Cities];
 GO
-IF OBJECT_ID(N'[dbo].[Combo]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Combo];
+IF OBJECT_ID(N'[dbo].[Comboes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Comboes];
 GO
 IF OBJECT_ID(N'[dbo].[Combo_Price]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Combo_Price];
@@ -199,8 +199,8 @@ GO
 IF OBJECT_ID(N'[dbo].[Company_Information]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Company_Information];
 GO
-IF OBJECT_ID(N'[dbo].[Customer]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Customer];
+IF OBJECT_ID(N'[dbo].[Customers]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Customers];
 GO
 IF OBJECT_ID(N'[dbo].[Customer_Order]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Customer_Order];
@@ -211,14 +211,14 @@ GO
 IF OBJECT_ID(N'[dbo].[Delivery_Status]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Delivery_Status];
 GO
-IF OBJECT_ID(N'[dbo].[DeliveryLine]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[DeliveryLine];
+IF OBJECT_ID(N'[dbo].[DeliveryLines]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DeliveryLines];
 GO
-IF OBJECT_ID(N'[dbo].[DeliveryTable]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[DeliveryTable];
+IF OBJECT_ID(N'[dbo].[DeliveryTables]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DeliveryTables];
 GO
-IF OBJECT_ID(N'[dbo].[Employee]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Employee];
+IF OBJECT_ID(N'[dbo].[Employees]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Employees];
 GO
 IF OBJECT_ID(N'[dbo].[Employee_Attendence_Status]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Employee_Attendence_Status];
@@ -226,14 +226,14 @@ GO
 IF OBJECT_ID(N'[dbo].[Employee_Booking_Shift]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Employee_Booking_Shift];
 GO
-IF OBJECT_ID(N'[dbo].[Employee_Gender.]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Employee_Gender.];
+IF OBJECT_ID(N'[dbo].[Employee_Gender_]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Employee_Gender_];
 GO
 IF OBJECT_ID(N'[dbo].[Employee_Shifts]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Employee_Shifts];
 GO
-IF OBJECT_ID(N'[dbo].[ItemsPicture]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ItemsPicture];
+IF OBJECT_ID(N'[dbo].[ItemsPictures]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ItemsPictures];
 GO
 IF OBJECT_ID(N'[dbo].[Menu_Item]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Menu_Item];
@@ -244,17 +244,17 @@ GO
 IF OBJECT_ID(N'[dbo].[Menu_Item_Type]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Menu_Item_Type];
 GO
-IF OBJECT_ID(N'[dbo].[Payment]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Payment];
+IF OBJECT_ID(N'[dbo].[Payments]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Payments];
 GO
 IF OBJECT_ID(N'[dbo].[Payment_Type]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Payment_Type];
 GO
-IF OBJECT_ID(N'[dbo].[Quantity]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Quantity];
+IF OBJECT_ID(N'[dbo].[Quantities]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Quantities];
 GO
-IF OBJECT_ID(N'[dbo].[Special]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Special];
+IF OBJECT_ID(N'[dbo].[Specials]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Specials];
 GO
 IF OBJECT_ID(N'[dbo].[Stock_Combo_Line]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Stock_Combo_Line];
@@ -283,11 +283,11 @@ GO
 IF OBJECT_ID(N'[dbo].[Stock_WriteOff_Line]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Stock_WriteOff_Line];
 GO
-IF OBJECT_ID(N'[dbo].[Suburb]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Suburb];
+IF OBJECT_ID(N'[dbo].[Suburbs]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Suburbs];
 GO
-IF OBJECT_ID(N'[dbo].[Supplier]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Supplier];
+IF OBJECT_ID(N'[dbo].[Suppliers]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Suppliers];
 GO
 IF OBJECT_ID(N'[dbo].[Supplier_Contact_Details]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Supplier_Contact_Details];
@@ -298,8 +298,8 @@ GO
 IF OBJECT_ID(N'[dbo].[sysdiagrams]', 'U') IS NOT NULL
     DROP TABLE [dbo].[sysdiagrams];
 GO
-IF OBJECT_ID(N'[dbo].[User]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[User];
+IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Users];
 GO
 IF OBJECT_ID(N'[dbo].[User_Log]', 'U') IS NOT NULL
     DROP TABLE [dbo].[User_Log];
@@ -307,8 +307,8 @@ GO
 IF OBJECT_ID(N'[dbo].[User_Role]', 'U') IS NOT NULL
     DROP TABLE [dbo].[User_Role];
 GO
-IF OBJECT_ID(N'[MmasweModelStoreContainer].[DeliveryOrder]', 'U') IS NOT NULL
-    DROP TABLE [MmasweModelStoreContainer].[DeliveryOrder];
+IF OBJECT_ID(N'[dbo].[DeliveryOrders]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DeliveryOrders];
 GO
 
 -- --------------------------------------------------

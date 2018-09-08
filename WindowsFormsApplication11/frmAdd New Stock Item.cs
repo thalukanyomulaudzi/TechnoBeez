@@ -69,7 +69,7 @@ namespace WindowsFormsApplication11
                     newItem.Stock_Item_Name = txtStockItemnName.Text;
                     newItem.Stock_Item_Description = txtStockItemDescription.Text;
                     newItem.Stock_Item_Quantity = 0;
-                    newItem.Stock_Type_ID = idTracker.Stock_Type_ID;
+                    newItem.Stock_Type_ID = cmbStockItemType.SelectedIndex;
                     newItem.Stock_Price_ID = newPrice.Stock_Price_ID;
 
                     db.Stock_Item.Add(newItem);
