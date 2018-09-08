@@ -24,27 +24,75 @@ namespace WindowsFormsApplication11
 
         private void button12_Click(object sender, EventArgs e)
         {
-            Combo_LookUp form = new Combo_LookUp();
-            form.ShowDialog();
+
+            using (Combo_LookUp frm = new Combo_LookUp() { })
+            {
+                if(frm.ShowDialog() == DialogResult.OK)
+                {
+                    List<Globals> something = new List<Globals>();
+                    something = Globals.ComboItems;
+                    var items = from obj in something
+                                select new
+                                {
+                                    Id = obj.OrderItemId,
+                                    Name = obj.OrderItemName,
+                                    Description = obj.OrderItemDescription,
+                                    ItemQuantity = obj.OrderQuantity,
+                                    ItemPrice = obj.OrderItemPrice
+
+                                };
+
+
+                    dgvCombo.DataSource = items.ToList();
+                    dgvCombo.ClearSelection();
+              
+
+                    lblAmountDue.Text = Convert.ToString(Globals.AmountDue);
+                }
+
+            }
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Menu_Item_LookUp form = new Menu_Item_LookUp();
-            form.ShowDialog();
+            using (Menu_Item_LookUp frm = new Menu_Item_LookUp() { })
+            {
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+     
+
+                    List<Globals> something2 = new List<Globals>();
+                    something2 = Globals.MenuItems;
+                    var items2 = from obj2 in something2
+                                 select new
+                                 {
+                                     Id = obj2.OrderItemId,
+                                     Name = obj2.OrderItemName,
+                                     Description = obj2.OrderItemDescription,
+                                     ItemQuantity = obj2.OrderQuantity,
+                                     ItemPrice = obj2.OrderItemPrice
+                                 };
+
+                    dgvMenuItemz.DataSource = items2.ToList();
+                    dgvMenuItemz.ClearSelection();
+                    lblAmountDue.Text = Convert.ToString(Globals.AmountDue);
+                }
+
+            }
+
         }
 
         private void PlaceOrder_Load(object sender, EventArgs e)
         {
-
+            //Globals.refresher2 = false;
+            groupBox1.Visible = false;
+            Globals.addCustomer = false;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
-
-
-            if (Globals.refresher2 == true)
+            if (Globals.refresher2 == 1)
             {
                 List<Globals> something = new List<Globals>();
                 something = Globals.ComboItems;
@@ -56,15 +104,14 @@ namespace WindowsFormsApplication11
                                 Description = obj.OrderItemDescription,
                                 ItemQuantity = obj.OrderQuantity,
                                 ItemPrice = obj.OrderItemPrice
+
                             };
+
 
                 dgvCombo.DataSource = items.ToList();
                 dgvCombo.ClearSelection();
 
-
-
                 List<Globals> something2 = new List<Globals>();
-
                 something2 = Globals.MenuItems;
                 var items2 = from obj2 in something2
                              select new
@@ -76,16 +123,15 @@ namespace WindowsFormsApplication11
                                  ItemPrice = obj2.OrderItemPrice
                              };
 
+
                 dgvMenuItemz.DataSource = items2.ToList();
                 dgvMenuItemz.ClearSelection();
                 lblAmountDue.Text = Convert.ToString(Globals.AmountDue);
-                Globals.refresher2 = false;
 
-
+                
             }
-            Globals.refresher2 = false;
 
-
+            Globals.refresher2 = -1;
         }
 
         private void dgvCombo_Click(object sender, EventArgs e)
@@ -290,93 +336,120 @@ namespace WindowsFormsApplication11
            
             pay.Payment_Amount = Convert.ToDouble(Globals.AmountDue);
             pay.Payment_Date = DateTime.Today;
+
             if (cmbType.Text != "")
             { pay.Payment_Type_ID = type.Payment_Type_ID;
             }
+
             else
             {
                 MessageBox.Show("Error:Select payment type");
-                this.Close();
+                return;
             }
 
             db.Payments.Add(pay);
             db.SaveChanges();
+            Globals.SalesPaymentID = pay.Payment_ID;
 
-            //int value1 = db.Payments.Last().Payment_ID;
-
-            //Globals.SalesPaymentID = value1;
-
-            //Object Declaration---------------------------------//
+            int contact = Convert.ToInt32(txtContact.Text);
 
             Customer_Order order = new Customer_Order();
-            Company_Information inf = new Company_Information();
-            //Customer cust = db.Customers.FirstOrDefault(c=> (c.Customer_Name == txtCustName.Text) && (c.Customer_Adress == txtAdress.Text));
-           // Customer newCustomer = new Customer();
-           
+            Customer cust = db.Customers.FirstOrDefault(c => ((c.Customer_Name == txtCustName.Text) && (c.Customer_Contact_Number == contact)));
+            if (cust == null)
+            {
+                MessageBox.Show("Customer does not exist,Add customer");
+                using (frmAddCustomer frm = new frmAddCustomer() { })
+                {
+                    if ((frm.ShowDialog() == DialogResult.OK) && (Globals.addCustomer == true))
+                    {
 
-            //--------------------------------------------------//
+                        var some = db.Customers.ToList();
+                        cust = some.LastOrDefault();
 
-            //
-            //Vat Calculation------------------------------------//
-            //if (cust == null)
-            //{
-            //    //newCustomer.Customer_Name = txtCustName.Text;
-            //    //newCustomer.Customer_Adress = txtAdress.Text;
-            //    //cust = newCustomer;
-            //    //db.Customers.Add(cust);
+                    }
 
-            //    this.Close();
-            //}
+                    else
+                    {
+                        
+                        return;
+                    }
+
+                }
+
+  
+
+            }
             
-            double VatAmount = 0;
-            if (Globals.ComboItems.Count != 0)
+            //Object Declaration---------------------------------//
+
+            try
             {
-                foreach (var item in Globals.ComboItems)
-                {
-                    VatAmount = VatAmount + item.OrderItemPrice * inf.VAT_Percentage;
-                }
-            }
 
-            if (Globals.ComboItems.Count != 0)
+                Company_Information inf = db.Company_Information.FirstOrDefault(c => c.Company_Info_ID == 1);
+
+
+                double VatAmount = 0;
+                if (Globals.ComboItems.Count != 0)
+                {
+                    foreach (var item in Globals.ComboItems)
+                    {
+
+                        VatAmount = VatAmount + item.OrderItemPrice * inf.VAT_Percentage;
+
+                        MessageBox.Show(Convert.ToString(inf.VAT_Percentage));
+                    }
+                }
+
+                if (Globals.ComboItems.Count != 0)
+                {
+                    foreach (var item in Globals.MenuItems)
+                    {
+                        VatAmount = VatAmount + item.OrderItemPrice * inf.VAT_Percentage;
+
+                    }
+                }
+
+                if (Globals.StockItems.Count != 0)
+                {
+                    foreach (var item in Globals.StockItems)
+                    {
+                        VatAmount = VatAmount + item.OrderItemPrice * inf.VAT_Percentage;
+
+                    }
+                }
+
+                //-----------------------------------------------------//
+                VatAmount = Math.Round(VatAmount,2);
+                //Order Details insert------------------------------------//
+                order.Order_Status = "N";
+                order.Order_Date = DateTime.Today;
+                order.Sale_Vat_Amount = VatAmount;
+                order.Payment_ID = Globals.SalesPaymentID;
+                order.Delivery_Status_ID = 2;
+                order.OrderNotes = richTextBox1.Text;
+                order.OrderTotal = Globals.AmountDue;
+                order.TotalItems = Globals.ComboItems.Count + Globals.MenuItems.Count + Globals.StockItems.Count;
+                order.Cash = Convert.ToDouble(txtCash.Text);
+                order.Change = Convert.ToDouble(txtCash.Text) - Globals.AmountDue;
+                order.Customer_ID = cust.Customer_ID;
+                //---------------------------------------------------------//
+
+                db.Customer_Order.Add(order);
+                db.SaveChanges();
+               
+
+            }
+            catch(Exception i)
             {
-                foreach (var item in Globals.MenuItems)
-                {
-                    VatAmount = VatAmount + item.OrderItemPrice * inf.VAT_Percentage;
-
-                }
+                MessageBox.Show(Convert.ToString(i));
             }
-
-            if (Globals.StockItems.Count != 0)
-            {
-                foreach (var item in Globals.StockItems)
-                {
-                    VatAmount = VatAmount + item.OrderItemPrice * inf.VAT_Percentage;
-
-                }
-            }
-
-            //-----------------------------------------------------//
-
-            //Order Details insert------------------------------------//
-            order.Order_Status = "N";
-            order.Order_Date = DateTime.Today;
-            order.Sale_Vat_Amount = VatAmount;
-            order.Payment_ID = Globals.SalesPaymentID;
-            order.Delivery_Status_ID = 2;
-            // order.Customer_ID = cust.Customer_ID;
-            //---------------------------------------------------------//
-
-            //Order Order Order details//----Line----//
-            db.Customer_Order.Add(order);
-            db.SaveChanges();
-
             for(int i = 0;i< Globals.ComboItems.Count;i++)
             {
                 Customer_Order_Line orderLine = new Customer_Order_Line();
                 orderLine.Customer_Order_ID = order.Order_ID;
                 orderLine.Combo_Quantity = Globals.ComboItems[i].OrderQuantity;
                 orderLine.Combo_ID = Globals.ComboItems[i].OrderItemId;
-                orderLine.Picked_Up = "";
+                
                 db.Customer_Order_Line.Add(orderLine);
                 db.SaveChanges();
 
@@ -388,7 +461,7 @@ namespace WindowsFormsApplication11
                 orderLine.Customer_Order_ID = order.Order_ID;
                 orderLine.Stock_Item_Quantity = Globals.StockItems[i].OrderQuantity;
                 orderLine.Stock_ID = Globals.StockItems[i].OrderItemId;
-                orderLine.Picked_Up = "";
+              
                 db.Customer_Order_Line.Add(orderLine);
                 db.SaveChanges();
             }
@@ -399,12 +472,23 @@ namespace WindowsFormsApplication11
                 orderLine.Customer_Order_ID = order.Order_ID;
                 orderLine.Menu_Item_Quantity = Globals.MenuItems[i].OrderQuantity;
                 orderLine.Menu_Item_ID = Globals.MenuItems[i].OrderItemId;
-                orderLine.Picked_Up = "";
+          
                 db.Customer_Order_Line.Add(orderLine);
                 db.SaveChanges();
+               
 
             }
 
+            Globals.ComboItems.Clear();
+            Globals.MenuItems.Clear();
+            Globals.StockItems.Clear();
+            
+            Globals.refresher = true;
+
+            Globals.AmountDue = 0;
+            
+            this.Close();
+            MessageBox.Show("Order created successfully");
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -416,6 +500,67 @@ namespace WindowsFormsApplication11
         private void button1_Click(object sender, EventArgs e)
         {
          
+        }
+
+        private void timez_Tick(object sender, EventArgs e)
+        {
+            if (Globals.refr == 1)
+            {
+                List<Globals> something = new List<Globals>();
+                something = Globals.ComboItems;
+                var items = from obj in something
+                            select new
+                            {
+                                Id = obj.OrderItemId,
+                                Name = obj.OrderItemName,
+                                Description = obj.OrderItemDescription,
+                                ItemQuantity = obj.OrderQuantity,
+                                ItemPrice = obj.OrderItemPrice
+
+                            };
+
+
+                dgvCombo.DataSource = items.ToList();
+                dgvCombo.ClearSelection();
+
+                List<Globals> something2 = new List<Globals>();
+                something2 = Globals.MenuItems;
+                var items2 = from obj2 in something2
+                             select new
+                             {
+                                 Id = obj2.OrderItemId,
+                                 Name = obj2.OrderItemName,
+                                 Description = obj2.OrderItemDescription,
+                                 ItemQuantity = obj2.OrderQuantity,
+                                 ItemPrice = obj2.OrderItemPrice
+                             };
+
+
+                dgvMenuItemz.DataSource = items2.ToList();
+                dgvMenuItemz.ClearSelection();
+                lblAmountDue.Text = Convert.ToString(Globals.AmountDue);
+
+
+            }
+
+            Globals.refr = -1;
+        }
+
+        private void cbxYes_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbxYes.Checked)
+            {
+                groupBox1.Visible = true;
+            }
+            else
+            {
+                groupBox1.Visible = false;
+            }
+        }
+
+        private void cbxNo_CheckedChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

@@ -14,9 +14,17 @@ namespace WindowsFormsApplication11
     
     public partial class Suburb
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Suburb()
+        {
+            this.Addresses = new HashSet<Address>();
+        }
+    
         public int Suburb_ID { get; set; }
         public string Suburb_Name { get; set; }
-        public int Zip_Code { get; set; }
-        public Nullable<int> City_ID { get; set; }
+        public string Zip_Code { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Address> Addresses { get; set; }
     }
 }

@@ -16,13 +16,15 @@ namespace WindowsFormsApplication11
     {
         public int Address_ID { get; set; }
         public string Street_Name { get; set; }
-        public string Province { get; set; }
         public Nullable<int> Address_Type_ID { get; set; }
-        public Nullable<int> City_ID { get; set; }
+        public Nullable<int> House_No { get; set; }
+        public string Province { get; set; }
+        public string City_Name { get; set; }
         public Nullable<int> Supplier_ID { get; set; }
+        public Nullable<int> Suburb_ID { get; set; }
     
+        public virtual Suburb Suburb { get; set; }
         public virtual Supplier Supplier { get; set; }
         public virtual Adress_Type Adress_Type { get; set; }
-        public virtual City City { get; set; }
     }
 }

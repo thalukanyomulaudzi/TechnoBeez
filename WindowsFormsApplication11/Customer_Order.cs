@@ -22,18 +22,23 @@ namespace WindowsFormsApplication11
     
         public int Order_ID { get; set; }
         public string Order_Status { get; set; }
-        public Nullable<System.DateTime> Order_Date { get; set; }
-        public Nullable<double> Sale_Vat_Amount { get; set; }
+        public System.DateTime Order_Date { get; set; }
+        public double Sale_Vat_Amount { get; set; }
         public Nullable<int> Customer_ID { get; set; }
-        public Nullable<int> Payment_ID { get; set; }
         public Nullable<int> Employee_ID { get; set; }
         public Nullable<int> Delivery_Status_ID { get; set; }
-        public int ItemType { get; set; }
+        public string OrderNotes { get; set; }
+        public Nullable<double> OrderTotal { get; set; }
+        public Nullable<int> TotalItems { get; set; }
+        public Nullable<double> Cash { get; set; }
+        public Nullable<double> Change { get; set; }
+        public Nullable<int> Payment_ID { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Delivery_Status Delivery_Status { get; set; }
         public virtual Employee Employee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customer_Order_Line> Customer_Order_Line { get; set; }
+        public virtual Payment Payment { get; set; }
     }
 }

@@ -124,9 +124,9 @@
             this.topBarPannel.Controls.Add(this.comboBox3);
             this.topBarPannel.Controls.Add(this.label8);
             this.topBarPannel.Location = new System.Drawing.Point(257, 73);
-            this.topBarPannel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.topBarPannel.Margin = new System.Windows.Forms.Padding(4);
             this.topBarPannel.Name = "topBarPannel";
-            this.topBarPannel.Size = new System.Drawing.Size(1003, 78);
+            this.topBarPannel.Size = new System.Drawing.Size(1003, 74);
             this.topBarPannel.TabIndex = 12;
             // 
             // CustomerPan
@@ -135,7 +135,7 @@
             this.CustomerPan.Controls.Add(this.EmployeePan);
             this.CustomerPan.Controls.Add(this.dgvCustomer);
             this.CustomerPan.Location = new System.Drawing.Point(0, 74);
-            this.CustomerPan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CustomerPan.Margin = new System.Windows.Forms.Padding(4);
             this.CustomerPan.Name = "CustomerPan";
             this.CustomerPan.Padding = new System.Windows.Forms.Padding(40, 37, 40, 0);
             this.CustomerPan.Size = new System.Drawing.Size(993, 398);
@@ -145,7 +145,7 @@
             // 
             this.EmployeePan.Controls.Add(this.dgvEmployee);
             this.EmployeePan.Location = new System.Drawing.Point(732, 316);
-            this.EmployeePan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EmployeePan.Margin = new System.Windows.Forms.Padding(4);
             this.EmployeePan.Name = "EmployeePan";
             this.EmployeePan.Padding = new System.Windows.Forms.Padding(40, 37, 40, 0);
             this.EmployeePan.Size = new System.Drawing.Size(993, 398);
@@ -194,9 +194,9 @@
             this.topBarPannel2.Controls.Add(this.btnTheAdd);
             this.topBarPannel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.topBarPannel2.Location = new System.Drawing.Point(595, 0);
-            this.topBarPannel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.topBarPannel2.Margin = new System.Windows.Forms.Padding(4);
             this.topBarPannel2.Name = "topBarPannel2";
-            this.topBarPannel2.Size = new System.Drawing.Size(408, 78);
+            this.topBarPannel2.Size = new System.Drawing.Size(408, 74);
             this.topBarPannel2.TabIndex = 8;
             // 
             // btnOrderList
@@ -205,7 +205,7 @@
             this.btnOrderList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOrderList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOrderList.Location = new System.Drawing.Point(4, 36);
-            this.btnOrderList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOrderList.Margin = new System.Windows.Forms.Padding(4);
             this.btnOrderList.Name = "btnOrderList";
             this.btnOrderList.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnOrderList.Size = new System.Drawing.Size(107, 31);
@@ -222,7 +222,7 @@
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.Location = new System.Drawing.Point(265, 36);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.button4.Size = new System.Drawing.Size(133, 31);
@@ -239,7 +239,7 @@
             this.btnTheAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnTheAdd.Image")));
             this.btnTheAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTheAdd.Location = new System.Drawing.Point(119, 36);
-            this.btnTheAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTheAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnTheAdd.Name = "btnTheAdd";
             this.btnTheAdd.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnTheAdd.Size = new System.Drawing.Size(139, 31);
@@ -255,7 +255,7 @@
             this.panel22.Controls.Add(this.txtSearchNew);
             this.panel22.Controls.Add(this.button11);
             this.panel22.Location = new System.Drawing.Point(93, 38);
-            this.panel22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel22.Margin = new System.Windows.Forms.Padding(4);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(216, 26);
             this.panel22.TabIndex = 2;
@@ -265,7 +265,7 @@
             this.txtSearchNew.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearchNew.ForeColor = System.Drawing.Color.Black;
             this.txtSearchNew.Location = new System.Drawing.Point(5, 6);
-            this.txtSearchNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearchNew.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearchNew.Name = "txtSearchNew";
             this.txtSearchNew.Size = new System.Drawing.Size(164, 15);
             this.txtSearchNew.TabIndex = 0;
@@ -278,7 +278,7 @@
             this.button11.ForeColor = System.Drawing.Color.Transparent;
             this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
             this.button11.Location = new System.Drawing.Point(177, -1);
-            this.button11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button11.Margin = new System.Windows.Forms.Padding(4);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(32, 30);
             this.button11.TabIndex = 1;
@@ -302,7 +302,7 @@
             "Quote Client Descending",
             "Quote Status Descending"});
             this.comboBox3.Location = new System.Drawing.Point(399, 37);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(187, 24);
             this.comboBox3.TabIndex = 3;

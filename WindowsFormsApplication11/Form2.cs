@@ -655,9 +655,9 @@ namespace WindowsFormsApplication11
                                 CustomerName = p.Customer_Name,
                                 CustomerSurname = p.Customer_Surname,
                                 CustContactNo = p.Customer_Contact_Number,
-                                CustomerAdress = p.Customer_Adress,
+                               
                                 SuburbId = p.Suburb_ID,
-                                CityId = p.City_ID
+                                
 
 
                             };
@@ -1088,8 +1088,7 @@ namespace WindowsFormsApplication11
                     var customers = from p in db.Suppliers
                                     join q in db.Addresses
                                         on p.Supplier_ID equals q.Address_ID
-                                    join x in db.Cities
-                                        on p.Supplier_ID equals x.City_ID
+                                   
                                     join y in db.Supplier_Contact_Details
                                         on p.Supplier_ID equals y.Supplier_Contact_ID
                                     select new
@@ -1099,7 +1098,7 @@ namespace WindowsFormsApplication11
                                         SupplierEmail = y.Supplier_Email_Adress,
                                         SupplierContactNumber = y.Supplier_Contact_Number,
                                         Province = q.Province,
-                                        CityName = x.City_Name,
+                                        CityName = q.City_Name,
                                     };
                     dgvSupplier.DataSource = customers.ToList();
                     dgvSupplier.ClearSelection();

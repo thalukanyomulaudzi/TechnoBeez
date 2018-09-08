@@ -40,20 +40,17 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.comboRichTextBox = new System.Windows.Forms.RichTextBox();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComboItems)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -184,6 +181,7 @@
             // 
             // button6
             // 
+            this.button6.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button6.Location = new System.Drawing.Point(1028, 523);
             this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
@@ -193,30 +191,9 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.comboRichTextBox);
-            this.groupBox4.Location = new System.Drawing.Point(5, 103);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox4.Size = new System.Drawing.Size(180, 103);
-            this.groupBox4.TabIndex = 42;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Order Notes";
-            // 
-            // comboRichTextBox
-            // 
-            this.comboRichTextBox.Location = new System.Drawing.Point(3, 23);
-            this.comboRichTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.comboRichTextBox.Name = "comboRichTextBox";
-            this.comboRichTextBox.Size = new System.Drawing.Size(173, 72);
-            this.comboRichTextBox.TabIndex = 0;
-            this.comboRichTextBox.Text = "";
-            // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(4, 279);
+            this.button8.Location = new System.Drawing.Point(6, 207);
             this.button8.Margin = new System.Windows.Forms.Padding(4);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(179, 28);
@@ -227,7 +204,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(7, 214);
+            this.button7.Location = new System.Drawing.Point(6, 138);
             this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(180, 28);
@@ -249,7 +226,6 @@
             // panel8
             // 
             this.panel8.Controls.Add(this.numericUpDown1);
-            this.panel8.Controls.Add(this.groupBox4);
             this.panel8.Controls.Add(this.button8);
             this.panel8.Controls.Add(this.button7);
             this.panel8.Controls.Add(this.label10);
@@ -258,6 +234,13 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(192, 322);
             this.panel8.TabIndex = 49;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(72, 39);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(106, 22);
+            this.numericUpDown1.TabIndex = 43;
             // 
             // listBox1
             // 
@@ -271,6 +254,7 @@
             // 
             // button1
             // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Location = new System.Drawing.Point(13, 523);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
@@ -279,13 +263,6 @@
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(72, 39);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(106, 22);
-            this.numericUpDown1.TabIndex = 43;
             // 
             // Combo_LookUp
             // 
@@ -310,7 +287,6 @@
             this.panel9.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -330,8 +306,6 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.RichTextBox comboRichTextBox;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label10;

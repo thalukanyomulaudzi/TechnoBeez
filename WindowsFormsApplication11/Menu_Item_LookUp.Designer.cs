@@ -34,11 +34,10 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.richTextB = new System.Windows.Forms.RichTextBox();
             this.dgvMenuItems = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -48,14 +47,12 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel2.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenuItems)).BeginInit();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -83,7 +80,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(4, 265);
+            this.button8.Location = new System.Drawing.Point(8, 204);
             this.button8.Margin = new System.Windows.Forms.Padding(4);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(179, 28);
@@ -94,7 +91,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(5, 212);
+            this.button7.Location = new System.Drawing.Point(8, 123);
             this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(180, 28);
@@ -115,27 +112,6 @@
             this.label9.TabIndex = 4;
             this.label9.Text = "Sort by:";
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.richTextB);
-            this.groupBox4.Location = new System.Drawing.Point(5, 91);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox4.Size = new System.Drawing.Size(180, 103);
-            this.groupBox4.TabIndex = 41;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Order Notes";
-            // 
-            // richTextB
-            // 
-            this.richTextB.Location = new System.Drawing.Point(3, 23);
-            this.richTextB.Margin = new System.Windows.Forms.Padding(4);
-            this.richTextB.Name = "richTextB";
-            this.richTextB.Size = new System.Drawing.Size(173, 72);
-            this.richTextB.TabIndex = 0;
-            this.richTextB.Text = "";
-            // 
             // dgvMenuItems
             // 
             this.dgvMenuItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -148,6 +124,7 @@
             // 
             // button6
             // 
+            this.button6.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button6.Location = new System.Drawing.Point(1057, 512);
             this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
@@ -160,7 +137,6 @@
             // panel8
             // 
             this.panel8.Controls.Add(this.numericUpDown1);
-            this.panel8.Controls.Add(this.groupBox4);
             this.panel8.Controls.Add(this.button8);
             this.panel8.Controls.Add(this.button7);
             this.panel8.Controls.Add(this.label10);
@@ -169,6 +145,13 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(192, 315);
             this.panel8.TabIndex = 44;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(75, 37);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(106, 22);
+            this.numericUpDown1.TabIndex = 44;
             // 
             // label10
             // 
@@ -269,6 +252,7 @@
             // 
             // button1
             // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Location = new System.Drawing.Point(13, 512);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
@@ -277,13 +261,6 @@
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(75, 37);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(106, 22);
-            this.numericUpDown1.TabIndex = 44;
             // 
             // Menu_Item_LookUp
             // 
@@ -303,15 +280,14 @@
             this.Load += new System.EventHandler(this.Menu_Item_LookUp_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenuItems)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -323,8 +299,6 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.RichTextBox richTextB;
         private System.Windows.Forms.DataGridView dgvMenuItems;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Panel panel8;

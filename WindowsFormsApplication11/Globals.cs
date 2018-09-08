@@ -17,12 +17,14 @@ namespace WindowsFormsApplication11
     {
         //General
         public static bool refresher = false;
+        public static int refresher2 = -1;
+        public static int refr = -1;
         public static ContextMenuStrip menu;
-       public static Image converBinToImage (byte[] Data)          
+        public static Image converBinToImage(byte[] Data)
         {
 
-            using (MemoryStream ms = new MemoryStream(Data)) 
-            return Image.FromStream(ms);
+            using (MemoryStream ms = new MemoryStream(Data))
+                return Image.FromStream(ms);
         }
 
         public static byte[] ConvertImageToBinary(Image img)
@@ -36,7 +38,6 @@ namespace WindowsFormsApplication11
 
         }
 
-        public static bool refresher2 = false;
         private int mOrderItemId;
         private string mOrderItemName;
         private string mOrderItemDescription;
@@ -123,13 +124,13 @@ namespace WindowsFormsApplication11
         public static List<Globals> MenuItems = new List<Globals>();
         public static List<Globals> StockItems = new List<Globals>();
 
-        public static string fileName ;
+        public static string fileName;
 
 
         //Stock Passing
-        public static dynamic MStockpassing = 0 ;
+        public static dynamic MStockpassing = 0;
         public static int checkinout = 0;
-        
+
         //Menu Passing
         public static dynamic MenuCombopassing = 0;
 
@@ -150,7 +151,7 @@ namespace WindowsFormsApplication11
 
 
         //Sales Passing
-        public static dynamic Salespassing =0;
+        public static dynamic Salespassing = 0;
 
         public static dynamic SalesComboSelect = 0;
         public static dynamic SalesMenuSelect = 0;
@@ -163,16 +164,21 @@ namespace WindowsFormsApplication11
         public static dynamic SalesPaymentID = 0;
         public static double AmountDue = 0;
 
+        public static bool addCustomer = false;
+        public static int custId = -1;
+
+
         //Employee Passing
-        public static dynamic Employeepassing =0;
+        public static dynamic Employeepassing = 0;
 
         //Customer Passing
-        public static dynamic Customerpassing =0;
+        public static dynamic Customerpassing = 0;
+
 
         //Supplier Passing
-        public static dynamic Supplierpassing =0;
+        public static dynamic Supplierpassing = 0;
 
-        
+
 
 
     }

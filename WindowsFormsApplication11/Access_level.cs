@@ -12,21 +12,19 @@ namespace WindowsFormsApplication11
     using System;
     using System.Collections.Generic;
     
-    public partial class Payment
+    public partial class Access_level
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Payment()
+        public Access_level()
         {
-            this.Customer_Order = new HashSet<Customer_Order>();
+            this.User_Role = new HashSet<User_Role>();
         }
     
-        public int Payment_ID { get; set; }
-        public Nullable<System.DateTime> Payment_Date { get; set; }
-        public Nullable<double> Payment_Amount { get; set; }
-        public Nullable<int> Payment_Type_ID { get; set; }
+        public int Access_Level_ID { get; set; }
+        public string Access_Level_Name { get; set; }
+        public string Acess_Level_Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customer_Order> Customer_Order { get; set; }
-        public virtual Payment_Type Payment_Type { get; set; }
+        public virtual ICollection<User_Role> User_Role { get; set; }
     }
 }
