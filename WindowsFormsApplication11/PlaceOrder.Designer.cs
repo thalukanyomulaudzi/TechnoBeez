@@ -32,10 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlaceOrder));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlaceOrder));
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -43,7 +43,9 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
+            this.btnDeliverySubmit = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -79,8 +81,6 @@
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.tm2 = new System.Windows.Forms.Timer(this.components);
             this.timez = new System.Windows.Forms.Timer(this.components);
-            this.btnDeliverySubmit = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCombo)).BeginInit();
             this.panel14.SuspendLayout();
@@ -205,6 +205,23 @@
             this.panel14.Size = new System.Drawing.Size(1076, 64);
             this.panel14.TabIndex = 21;
             // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(659, 21);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.button1.Size = new System.Drawing.Size(107, 34);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Submit";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // panel17
             // 
             this.panel17.Controls.Add(this.btnDeliverySubmit);
@@ -215,6 +232,23 @@
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(286, 63);
             this.panel17.TabIndex = 8;
+            // 
+            // btnDeliverySubmit
+            // 
+            this.btnDeliverySubmit.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnDeliverySubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeliverySubmit.Image = ((System.Drawing.Image)(resources.GetObject("btnDeliverySubmit.Image")));
+            this.btnDeliverySubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeliverySubmit.Location = new System.Drawing.Point(151, 21);
+            this.btnDeliverySubmit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeliverySubmit.Name = "btnDeliverySubmit";
+            this.btnDeliverySubmit.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnDeliverySubmit.Size = new System.Drawing.Size(107, 34);
+            this.btnDeliverySubmit.TabIndex = 10;
+            this.btnDeliverySubmit.Text = "Save";
+            this.btnDeliverySubmit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeliverySubmit.UseVisualStyleBackColor = true;
+            this.btnDeliverySubmit.Click += new System.EventHandler(this.btnDeliverySubmit_Click);
             // 
             // button7
             // 
@@ -616,39 +650,6 @@
             this.timez.Enabled = true;
             this.timez.Interval = 5;
             this.timez.Tick += new System.EventHandler(this.timez_Tick);
-            // 
-            // btnDeliverySubmit
-            // 
-            this.btnDeliverySubmit.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnDeliverySubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeliverySubmit.Image = ((System.Drawing.Image)(resources.GetObject("btnDeliverySubmit.Image")));
-            this.btnDeliverySubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeliverySubmit.Location = new System.Drawing.Point(151, 21);
-            this.btnDeliverySubmit.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDeliverySubmit.Name = "btnDeliverySubmit";
-            this.btnDeliverySubmit.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnDeliverySubmit.Size = new System.Drawing.Size(107, 34);
-            this.btnDeliverySubmit.TabIndex = 10;
-            this.btnDeliverySubmit.Text = "Save";
-            this.btnDeliverySubmit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDeliverySubmit.UseVisualStyleBackColor = true;
-            this.btnDeliverySubmit.Click += new System.EventHandler(this.btnDeliverySubmit_Click);
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(659, 21);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.button1.Size = new System.Drawing.Size(107, 34);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Submit";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // PlaceOrder
             // 

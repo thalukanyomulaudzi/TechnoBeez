@@ -138,10 +138,10 @@
           <Property Name="Customer_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Customer_Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Customer_Surname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Customer_Email" Type="varchar" MaxLength="50" />
           <Property Name="Customer_Contact_Number" Type="int" Nullable="false" />
           <Property Name="Suburb_ID" Type="int" Nullable="false" />
           <Property Name="Customer_Address" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="City_ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Customer_Order">
           <Key>
@@ -180,6 +180,34 @@
           </Key>
           <Property Name="Delivery_Status_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Delivery_Description" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeliveryLine">
+          <Key>
+            <PropertyRef Name="LineId" />
+          </Key>
+          <Property Name="LineId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="comboItemId" Type="int" />
+          <Property Name="stockItemId" Type="int" />
+          <Property Name="menuItemId" Type="int" />
+          <Property Name="comboItemQuantity" Type="int" />
+          <Property Name="stockItemQuantity" Type="int" />
+          <Property Name="menuItemQuantity" Type="int" />
+          <Property Name="orderId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DeliveryOrder">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeliveryTable">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemName" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -676,6 +704,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DeliveryLine_DeliveryTable">
+          <End Role="DeliveryTable" Type="Self.DeliveryTable" Multiplicity="0..1" />
+          <End Role="DeliveryLine" Type="Self.DeliveryLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryTable">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="DeliveryLine">
+              <PropertyRef Name="orderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Employee_Attendence_Status_Employee_Booking_Shift">
           <End Role="Employee_Booking_Shift" Type="Self.Employee_Booking_Shift" Multiplicity="0..1" />
           <End Role="Employee_Attendence_Status" Type="Self.Employee_Attendence_Status" Multiplicity="*" />
@@ -1011,6 +1051,8 @@
           <EntitySet Name="Customer_Order" EntityType="Self.Customer_Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer_Order_Line" EntityType="Self.Customer_Order_Line" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Delivery_Status" EntityType="Self.Delivery_Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryLine" EntityType="Self.DeliveryLine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryTable" EntityType="Self.DeliveryTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee_Attendence_Status" EntityType="Self.Employee_Attendence_Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee_Booking_Shift" EntityType="Self.Employee_Booking_Shift" Schema="dbo" store:Type="Tables" />
@@ -1041,6 +1083,11 @@
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User_Log" EntityType="Self.User_Log" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User_Role" EntityType="Self.User_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryOrder" EntityType="Self.DeliveryOrder" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DeliveryOrder].[OrderId] AS [OrderId]
+    FROM [dbo].[DeliveryOrder] AS [DeliveryOrder]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Address_Suburb" Association="Self.FK_Address_Suburb">
             <End Role="Suburb" EntitySet="Suburb" />
             <End Role="Address" EntitySet="Address" />
@@ -1112,6 +1159,10 @@
           <AssociationSet Name="FK_Customer_Order_Payment" Association="Self.FK_Customer_Order_Payment">
             <End Role="Payment" EntitySet="Payment" />
             <End Role="Customer_Order" EntitySet="Customer_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryLine_DeliveryTable" Association="Self.FK_DeliveryLine_DeliveryTable">
+            <End Role="DeliveryTable" EntitySet="DeliveryTable" />
+            <End Role="DeliveryLine" EntitySet="DeliveryLine" />
           </AssociationSet>
           <AssociationSet Name="FK_Employee_Attendence_Status_Employee_Booking_Shift" Association="Self.FK_Employee_Attendence_Status_Employee_Booking_Shift">
             <End Role="Employee_Booking_Shift" EntitySet="Employee_Booking_Shift" />
@@ -1376,10 +1427,10 @@
           <Property Name="Customer_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Customer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Customer_Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Customer_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Customer_Contact_Number" Type="Int32" Nullable="false" />
           <Property Name="Suburb_ID" Type="Int32" Nullable="false" />
           <Property Name="Customer_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="City_ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Customer_Order" Relationship="Self.FK_Customer_Order_Customer" FromRole="Customer" ToRole="Customer_Order" />
         </EntityType>
         <EntityType Name="Customer_Order">
@@ -1429,6 +1480,28 @@
           <Property Name="Delivery_Status_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Delivery_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Customer_Order" Relationship="Self.FK_Customer_Order_Delivery_Status" FromRole="Delivery_Status" ToRole="Customer_Order" />
+        </EntityType>
+        <EntityType Name="DeliveryLine">
+          <Key>
+            <PropertyRef Name="LineId" />
+          </Key>
+          <Property Name="LineId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="comboItemId" Type="Int32" />
+          <Property Name="stockItemId" Type="Int32" />
+          <Property Name="menuItemId" Type="Int32" />
+          <Property Name="comboItemQuantity" Type="Int32" />
+          <Property Name="stockItemQuantity" Type="Int32" />
+          <Property Name="menuItemQuantity" Type="Int32" />
+          <Property Name="orderId" Type="Int32" />
+          <NavigationProperty Name="DeliveryTable" Relationship="Self.FK_DeliveryLine_DeliveryTable" FromRole="DeliveryLine" ToRole="DeliveryTable" />
+        </EntityType>
+        <EntityType Name="DeliveryTable">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DeliveryLines" Relationship="Self.FK_DeliveryLine_DeliveryTable" FromRole="DeliveryTable" ToRole="DeliveryLine" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -1760,6 +1833,12 @@
           <NavigationProperty Name="Access_level" Relationship="Self.FK_User_Role_Access_level" FromRole="User_Role" ToRole="Access_level" />
           <NavigationProperty Name="Users" Relationship="Self.FK_User_Us" FromRole="User_Role" ToRole="User" />
         </EntityType>
+        <EntityType Name="DeliveryOrder">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+        </EntityType>
         <Association Name="FK_User_Role_Access_level">
           <End Role="Access_level" Type="Self.Access_level" Multiplicity="0..1" />
           <End Role="User_Role" Type="Self.User_Role" Multiplicity="*" />
@@ -2029,6 +2108,18 @@
             </Principal>
             <Dependent Role="Customer_Order_Line">
               <PropertyRef Name="Stock_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryLine_DeliveryTable">
+          <End Role="DeliveryTable" Type="Self.DeliveryTable" Multiplicity="0..1" />
+          <End Role="DeliveryLine" Type="Self.DeliveryLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryTable">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="DeliveryLine">
+              <PropertyRef Name="orderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2317,6 +2408,8 @@
           <EntitySet Name="Customer_Order" EntityType="Self.Customer_Order" />
           <EntitySet Name="Customer_Order_Line" EntityType="Self.Customer_Order_Line" />
           <EntitySet Name="Delivery_Status" EntityType="Self.Delivery_Status" />
+          <EntitySet Name="DeliveryLines" EntityType="Self.DeliveryLine" />
+          <EntitySet Name="DeliveryTables" EntityType="Self.DeliveryTable" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="Employee_Attendence_Status" EntityType="Self.Employee_Attendence_Status" />
           <EntitySet Name="Employee_Booking_Shift" EntityType="Self.Employee_Booking_Shift" />
@@ -2347,6 +2440,7 @@
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="User_Log" EntityType="Self.User_Log" />
           <EntitySet Name="User_Role" EntityType="Self.User_Role" />
+          <EntitySet Name="DeliveryOrders" EntityType="Self.DeliveryOrder" />
           <AssociationSet Name="FK_User_Role_Access_level" Association="Self.FK_User_Role_Access_level">
             <End Role="Access_level" EntitySet="Access_level" />
             <End Role="User_Role" EntitySet="User_Role" />
@@ -2434,6 +2528,10 @@
           <AssociationSet Name="FK_Customer_Order_Line_Stock_Item" Association="Self.FK_Customer_Order_Line_Stock_Item">
             <End Role="Stock_Item" EntitySet="Stock_Item" />
             <End Role="Customer_Order_Line" EntitySet="Customer_Order_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryLine_DeliveryTable" Association="Self.FK_DeliveryLine_DeliveryTable">
+            <End Role="DeliveryTable" EntitySet="DeliveryTables" />
+            <End Role="DeliveryLine" EntitySet="DeliveryLines" />
           </AssociationSet>
           <AssociationSet Name="FK_Employee_Booking_Shift_Employee" Association="Self.FK_Employee_Booking_Shift_Employee">
             <End Role="Employee" EntitySet="Employees" />
@@ -2676,10 +2774,10 @@
                 <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
                 <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
                 <ScalarProperty Name="Customer_Surname" ColumnName="Customer_Surname" />
+                <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
                 <ScalarProperty Name="Customer_Contact_Number" ColumnName="Customer_Contact_Number" />
                 <ScalarProperty Name="Suburb_ID" ColumnName="Suburb_ID" />
                 <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
-                <ScalarProperty Name="City_ID" ColumnName="City_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2721,6 +2819,28 @@
               <MappingFragment StoreEntitySet="Delivery_Status">
                 <ScalarProperty Name="Delivery_Status_ID" ColumnName="Delivery_Status_ID" />
                 <ScalarProperty Name="Delivery_Description" ColumnName="Delivery_Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryLines">
+            <EntityTypeMapping TypeName="MmasweModel.DeliveryLine">
+              <MappingFragment StoreEntitySet="DeliveryLine">
+                <ScalarProperty Name="LineId" ColumnName="LineId" />
+                <ScalarProperty Name="comboItemId" ColumnName="comboItemId" />
+                <ScalarProperty Name="stockItemId" ColumnName="stockItemId" />
+                <ScalarProperty Name="menuItemId" ColumnName="menuItemId" />
+                <ScalarProperty Name="comboItemQuantity" ColumnName="comboItemQuantity" />
+                <ScalarProperty Name="stockItemQuantity" ColumnName="stockItemQuantity" />
+                <ScalarProperty Name="menuItemQuantity" ColumnName="menuItemQuantity" />
+                <ScalarProperty Name="orderId" ColumnName="orderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryTables">
+            <EntityTypeMapping TypeName="MmasweModel.DeliveryTable">
+              <MappingFragment StoreEntitySet="DeliveryTable">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3024,6 +3144,13 @@
                 <ScalarProperty Name="User_Role_ID" ColumnName="User_Role_ID" />
                 <ScalarProperty Name="User_Role_Description" ColumnName="User_Role_Description" />
                 <ScalarProperty Name="Access_Level_ID" ColumnName="Access_Level_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryOrders">
+            <EntityTypeMapping TypeName="MmasweModel.DeliveryOrder">
+              <MappingFragment StoreEntitySet="DeliveryOrder">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

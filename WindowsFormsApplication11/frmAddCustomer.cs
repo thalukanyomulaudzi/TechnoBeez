@@ -22,14 +22,14 @@ namespace WindowsFormsApplication11
             Customer cust = new Customer();
             try
             {
-                City city = db.Cities.FirstOrDefault(c => c.City_Name == txtCity.Text);
+                //City city = db.Cities.FirstOrDefault(c => c.City_Name == txtCity.Text);
                 Suburb suburb = db.Suburbs.FirstOrDefault(c => c.Suburb_Name == txtSurburb.Text);
 
                 cust.Customer_Name = txtCustomerNames.Text;
                 cust.Customer_Surname = txtCustomerSurname.Text;
-                if ((city != null) && (suburb != null))
+                if ( (suburb != null))
                 {
-                    cust.City_ID =  city.City_ID;
+                   // cust.City_ID =  city.City_ID;
                     cust.Suburb_ID =  suburb.Suburb_ID;
                   
                 }
@@ -39,8 +39,8 @@ namespace WindowsFormsApplication11
                     return;
 
                 }
-                cust.Customer_Address = txtProvimce.Text + " " + city.City_Name
-                + "\n " + suburb.Suburb_Name + " " + txtStreeName.Text;
+                cust.Customer_Address = txtProvimce.Text + " " + 
+               "\n " + suburb.Suburb_Name + " " + txtStreeName.Text;
 
                 cust.Customer_Contact_Number = Convert.ToInt32(txtContactNo.Text);
 

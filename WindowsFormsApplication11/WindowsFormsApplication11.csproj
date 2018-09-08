@@ -172,6 +172,15 @@
     <Compile Include="deleteForm.Designer.cs">
       <DependentUpon>deleteForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeliveryLine.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeliveryOrder.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeliveryTable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Delivery_Status.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
