@@ -17,7 +17,7 @@ namespace WindowsFormsApplication11
         {
             InitializeComponent();
         }
-        MmasweEntities13 db = new MmasweEntities13();
+        MmasweEntities5 db = new MmasweEntities5();
 
         private void button1_Click(object sender, EventArgs e)
         {

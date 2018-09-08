@@ -17,10 +17,10 @@ namespace WindowsFormsApplication11
         public Nullable<int> Stock_ID { get; set; }
         public Nullable<int> Stock_Order_ID { get; set; }
         public int Stock_Order_Quantity { get; set; }
+        public int Quantity_Received { get; set; }
         public int Stock_Order_Line_ID { get; set; }
     
         public virtual Stock_Item Stock_Item { get; set; }
-        public virtual Stock_Item Stock_Item1 { get; set; }
         public virtual Stock_Order Stock_Order { get; set; }
     }
 }

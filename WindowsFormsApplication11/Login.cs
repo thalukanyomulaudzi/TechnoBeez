@@ -40,35 +40,38 @@ namespace WindowsFormsApplication11
         private bool IsvalidUser(string userName, string password)
 
         {
-
-            MmasweEntities5 db = new MmasweEntities5();
-            ;
-
-            var q = from p in db.Users
-
-                    where p.UserName == txtUsername.Text
-
-                    && p.User_Password == txtPassword.Text
-
-                    select p;
+            
 
 
+                MmasweEntities5 db = new MmasweEntities5();
 
-            if (q.Any())
 
-            {
+                var q = from p in db.Users
 
-                return true;
+                        where p.UserName == txtUsername.Text
 
-            }
+                        && p.User_Password == txtPassword.Text
 
-            else
+                        select p;
 
-            {
 
-                return false;
 
-            }
+                if (q.Any())
+    
+               {
+
+                    return true;
+
+                }
+
+                else
+
+                {
+
+                    return false;
+
+                }
+                        
         }
 
         private void linkLabelRestPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

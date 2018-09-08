@@ -16,7 +16,7 @@ namespace WindowsFormsApplication11
             InitializeComponent();
         }
 
-        MmasweEntities13 db = new MmasweEntities13();
+        MmasweEntities5 db = new MmasweEntities5();
         List<Globals> itemsA = new List<Globals>();
 
         private void button7_Click(object sender, EventArgs e)

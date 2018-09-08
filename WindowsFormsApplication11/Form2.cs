@@ -17,7 +17,7 @@ namespace WindowsFormsApplication11
     public partial class Form2 : Form
     {
         Button navButton;
-        MmasweEntities13 db = new MmasweEntities13();
+        MmasweEntities5 db = new MmasweEntities5();
         public Form2()
         {
             InitializeComponent();
@@ -451,8 +451,8 @@ namespace WindowsFormsApplication11
             else if (e.ClickedItem.Name.ToString() == "View")
             {
                 my_menu.Hide();
-                frmAddCustomer f = new frmAddCustomer(this);
-                f.View(index);
+                frmAddCustomer f = new frmAddCustomer();
+                
                 f.ShowDialog();
             }
 
@@ -729,7 +729,7 @@ namespace WindowsFormsApplication11
 
                             };
 
-            dgvSupplier.DataSource = customers.ToList();
+            dgvSupplier.DataSource = customers;
             dgvSupplier.ClearSelection();
             db.SaveChanges();
             //if (dgvSupplier.Rows.Count != 0)

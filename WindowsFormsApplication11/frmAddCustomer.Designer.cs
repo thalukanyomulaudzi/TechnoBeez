@@ -297,7 +297,7 @@
             this.button7.Text = "Save";
             this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            
             // 
             // panel15
             // 
