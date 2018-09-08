@@ -45,7 +45,7 @@ namespace WindowsFormsApplication11
 
                 MmasweEntities5 db = new MmasweEntities5();
 
-
+            
                 var q = from p in db.Users
 
                         where p.UserName == txtUsername.Text

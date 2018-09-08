@@ -24,7 +24,7 @@
         <EntityTypeShape EntityType="MmasweModel.Customer_Order_Line" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MmasweModel.Delivery_Status" Width="1.5" PointX="0.75" PointY="27" IsExpanded="true" />
         <EntityTypeShape EntityType="MmasweModel.DeliveryLine" Width="1.5" PointX="11" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.DeliveryTable" Width="1.5" PointX="8.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.DeliveryTable" Width="1.5" PointX="8.75" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="MmasweModel.Employee" Width="1.5" PointX="0.75" PointY="32.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MmasweModel.Employee_Attendence_Status" Width="1.5" PointX="6.25" PointY="36.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MmasweModel.Employee_Booking_Shift" Width="1.5" PointX="4" PointY="36.25" IsExpanded="true" />

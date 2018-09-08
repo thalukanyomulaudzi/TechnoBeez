@@ -625,7 +625,7 @@ namespace WindowsFormsApplication11
             try
             {
                 header.Text = "Employee";
-
+                
 
 
                 if (navButton != btnEmployees)
@@ -640,7 +640,7 @@ namespace WindowsFormsApplication11
                                     EmpName = p.Employee_Name,
                                     EmpSurname = p.Employee_Surname,
                                     EmpIdentity = p.Employee_Identity_Number,
-                                    Adress = p.Adress,
+                                    Adrress = p.Adress,
                                     EmailAdree = p.Email_Adress,
                                     ContactNo = p.Contact_Number,
                                     NextOfKinName = p.Next_Of_Kin_Name,
@@ -658,9 +658,9 @@ namespace WindowsFormsApplication11
                 //}
                 dgvSupplier.MouseClick += new MouseEventHandler(employeeClick);
             }
-            catch
+            catch(Exception E)
             {
-
+                MessageBox.Show(E.Message);
 
             }
         }
@@ -921,6 +921,12 @@ namespace WindowsFormsApplication11
             else if(navButton == btnCombo)
             {
                 
+            }
+            else if(navButton == btnEmployees)
+            {
+                Add_Employee f = new Add_Employee();
+                f.ShowDialog();
+
             }
         }
        

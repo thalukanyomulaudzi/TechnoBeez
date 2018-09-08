@@ -11,7 +11,7 @@ namespace WindowsFormsApplication11
 {
     public partial class Add_Employee : Form
     {
-        MmasweEntities5 db = new MmasweEntities5();
+        
         public Add_Employee()
         {
             InitializeComponent();
@@ -24,6 +24,7 @@ namespace WindowsFormsApplication11
 
         private void btnSaveCombo_Click(object sender, EventArgs e)
         {
+            MmasweEntities5 db = new MmasweEntities5();
             Employee NewE = new Employee();
             int gender = comboBox1.SelectedIndex;
             NewE.Employee_Name = txtName.Text;
@@ -53,6 +54,8 @@ namespace WindowsFormsApplication11
 
             MessageBox.Show("Employee Login details has been sent to their email address");
             SendEmail(txtEmail.Text, txtName.Text, username, password.ToString());
+            db.Employees.Add(NewE);
+            db.Users.Add(NewU);
             db.SaveChanges();
 
         }

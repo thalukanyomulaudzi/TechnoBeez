@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 09/08/2018 03:27:53
+-- Date Created: 09/08/2018 04:28:00
 -- Generated from EDMX file: C:\Users\Press Play\Source\Repos\TechnoBeez\WindowsFormsApplication11\Model1.edmx
 -- --------------------------------------------------
 
@@ -70,6 +70,9 @@ IF OBJECT_ID(N'[dbo].[FK_Customer_Order_Line_Stock_Item]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_Customer_Order_Payment]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Customer_Order] DROP CONSTRAINT [FK_Customer_Order_Payment];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DeliveryLine_DeliveryTable]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[DeliveryLine] DROP CONSTRAINT [FK_DeliveryLine_DeliveryTable];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Employee_Attendence_Status_Employee_Booking_Shift]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Employee_Attendence_Status] DROP CONSTRAINT [FK_Employee_Attendence_Status_Employee_Booking_Shift];
@@ -208,6 +211,12 @@ GO
 IF OBJECT_ID(N'[dbo].[Delivery_Status]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Delivery_Status];
 GO
+IF OBJECT_ID(N'[dbo].[DeliveryLine]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DeliveryLine];
+GO
+IF OBJECT_ID(N'[dbo].[DeliveryTable]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DeliveryTable];
+GO
 IF OBJECT_ID(N'[dbo].[Employee]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Employee];
 GO
@@ -297,6 +306,9 @@ IF OBJECT_ID(N'[dbo].[User_Log]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[User_Role]', 'U') IS NOT NULL
     DROP TABLE [dbo].[User_Role];
+GO
+IF OBJECT_ID(N'[MmasweModelStoreContainer].[DeliveryOrder]', 'U') IS NOT NULL
+    DROP TABLE [MmasweModelStoreContainer].[DeliveryOrder];
 GO
 
 -- --------------------------------------------------
@@ -434,10 +446,10 @@ CREATE TABLE [dbo].[Customers] (
     [Customer_ID] int IDENTITY(1,1) NOT NULL,
     [Customer_Name] varchar(50)  NOT NULL,
     [Customer_Surname] varchar(50)  NOT NULL,
+    [Customer_Email] varchar(50)  NULL,
     [Customer_Contact_Number] int  NOT NULL,
     [Suburb_ID] int  NOT NULL,
-    [Customer_Address] varchar(50)  NOT NULL,
-    [City_ID] int  NOT NULL
+    [Customer_Address] varchar(50)  NOT NULL
 );
 GO
 
@@ -476,6 +488,26 @@ GO
 CREATE TABLE [dbo].[Delivery_Status] (
     [Delivery_Status_ID] int IDENTITY(1,1) NOT NULL,
     [Delivery_Description] varchar(50)  NOT NULL
+);
+GO
+
+-- Creating table 'DeliveryLines'
+CREATE TABLE [dbo].[DeliveryLines] (
+    [LineId] int IDENTITY(1,1) NOT NULL,
+    [comboItemId] int  NULL,
+    [stockItemId] int  NULL,
+    [menuItemId] int  NULL,
+    [comboItemQuantity] int  NULL,
+    [stockItemQuantity] int  NULL,
+    [menuItemQuantity] int  NULL,
+    [orderId] int  NULL
+);
+GO
+
+-- Creating table 'DeliveryTables'
+CREATE TABLE [dbo].[DeliveryTables] (
+    [OrderId] int IDENTITY(1,1) NOT NULL,
+    [ItemName] varchar(50)  NOT NULL
 );
 GO
 
@@ -752,6 +784,12 @@ CREATE TABLE [dbo].[User_Role] (
 );
 GO
 
+-- Creating table 'DeliveryOrders'
+CREATE TABLE [dbo].[DeliveryOrders] (
+    [OrderId] int  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -862,6 +900,18 @@ GO
 ALTER TABLE [dbo].[Delivery_Status]
 ADD CONSTRAINT [PK_Delivery_Status]
     PRIMARY KEY CLUSTERED ([Delivery_Status_ID] ASC);
+GO
+
+-- Creating primary key on [LineId] in table 'DeliveryLines'
+ALTER TABLE [dbo].[DeliveryLines]
+ADD CONSTRAINT [PK_DeliveryLines]
+    PRIMARY KEY CLUSTERED ([LineId] ASC);
+GO
+
+-- Creating primary key on [OrderId] in table 'DeliveryTables'
+ALTER TABLE [dbo].[DeliveryTables]
+ADD CONSTRAINT [PK_DeliveryTables]
+    PRIMARY KEY CLUSTERED ([OrderId] ASC);
 GO
 
 -- Creating primary key on [Employee_ID] in table 'Employees'
@@ -1042,6 +1092,12 @@ GO
 ALTER TABLE [dbo].[User_Role]
 ADD CONSTRAINT [PK_User_Role]
     PRIMARY KEY CLUSTERED ([User_Role_ID] ASC);
+GO
+
+-- Creating primary key on [OrderId] in table 'DeliveryOrders'
+ALTER TABLE [dbo].[DeliveryOrders]
+ADD CONSTRAINT [PK_DeliveryOrders]
+    PRIMARY KEY CLUSTERED ([OrderId] ASC);
 GO
 
 -- --------------------------------------------------
@@ -1376,6 +1432,21 @@ GO
 CREATE INDEX [IX_FK_Customer_Order_Line_Stock_Item]
 ON [dbo].[Customer_Order_Line]
     ([Stock_ID]);
+GO
+
+-- Creating foreign key on [orderId] in table 'DeliveryLines'
+ALTER TABLE [dbo].[DeliveryLines]
+ADD CONSTRAINT [FK_DeliveryLine_DeliveryTable]
+    FOREIGN KEY ([orderId])
+    REFERENCES [dbo].[DeliveryTables]
+        ([OrderId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_DeliveryLine_DeliveryTable'
+CREATE INDEX [IX_FK_DeliveryLine_DeliveryTable]
+ON [dbo].[DeliveryLines]
+    ([orderId]);
 GO
 
 -- Creating foreign key on [Employee_ID] in table 'Employee_Booking_Shift'
