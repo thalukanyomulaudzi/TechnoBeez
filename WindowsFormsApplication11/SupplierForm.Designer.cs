@@ -46,6 +46,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbxCity = new System.Windows.Forms.ComboBox();
+            this.cbxSuburb = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -62,8 +64,6 @@
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnSelectSupplierType = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtSupplierContactName = new System.Windows.Forms.Label();
             this.txtSupplierContactP = new System.Windows.Forms.TextBox();
@@ -74,8 +74,7 @@
             this.employeeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.genderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbxSupplierType = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -236,8 +235,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.cbxCity);
+            this.groupBox2.Controls.Add(this.cbxSuburb);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
@@ -252,6 +251,22 @@
             this.groupBox2.TabIndex = 44;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Address";
+            // 
+            // cbxCity
+            // 
+            this.cbxCity.FormattingEnabled = true;
+            this.cbxCity.Location = new System.Drawing.Point(79, 84);
+            this.cbxCity.Name = "cbxCity";
+            this.cbxCity.Size = new System.Drawing.Size(155, 21);
+            this.cbxCity.TabIndex = 11;
+            // 
+            // cbxSuburb
+            // 
+            this.cbxSuburb.FormattingEnabled = true;
+            this.cbxSuburb.Location = new System.Drawing.Point(79, 57);
+            this.cbxSuburb.Name = "cbxSuburb";
+            this.cbxSuburb.Size = new System.Drawing.Size(155, 21);
+            this.cbxSuburb.TabIndex = 10;
             // 
             // label11
             // 
@@ -409,30 +424,13 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.btnSelectSupplierType);
-            this.groupBox4.Controls.Add(this.textBox1);
+            this.groupBox4.Controls.Add(this.cbxSupplierType);
             this.groupBox4.Location = new System.Drawing.Point(417, 239);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(302, 56);
+            this.groupBox4.Size = new System.Drawing.Size(292, 56);
             this.groupBox4.TabIndex = 61;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Supplier Type";
-            // 
-            // btnSelectSupplierType
-            // 
-            this.btnSelectSupplierType.Location = new System.Drawing.Point(201, 6);
-            this.btnSelectSupplierType.Name = "btnSelectSupplierType";
-            this.btnSelectSupplierType.Size = new System.Drawing.Size(94, 44);
-            this.btnSelectSupplierType.TabIndex = 63;
-            this.btnSelectSupplierType.Text = "Select Supplier Type";
-            this.btnSelectSupplierType.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(10, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(177, 20);
-            this.textBox1.TabIndex = 62;
             // 
             // groupBox3
             // 
@@ -488,21 +486,13 @@
             // 
             this.genderBindingSource1.DataMember = "Gender";
             // 
-            // comboBox1
+            // cbxSupplierType
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(79, 57);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(155, 21);
-            this.comboBox1.TabIndex = 10;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(79, 84);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(155, 21);
-            this.comboBox2.TabIndex = 11;
+            this.cbxSupplierType.FormattingEnabled = true;
+            this.cbxSupplierType.Location = new System.Drawing.Point(6, 19);
+            this.cbxSupplierType.Name = "cbxSupplierType";
+            this.cbxSupplierType.Size = new System.Drawing.Size(213, 21);
+            this.cbxSupplierType.TabIndex = 12;
             // 
             // SupplierForm
             // 
@@ -526,7 +516,6 @@
             this.panel17.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
@@ -581,11 +570,10 @@
         private System.Windows.Forms.BindingSource genderBindingSource1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button btnSelectSupplierType;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label txtSupplierContactName;
         private System.Windows.Forms.TextBox txtSupplierContactP;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxCity;
+        private System.Windows.Forms.ComboBox cbxSuburb;
+        private System.Windows.Forms.ComboBox cbxSupplierType;
     }
 }

@@ -96,7 +96,7 @@
             this.panel14.Controls.Add(this.panel17);
             this.panel14.Controls.Add(this.panel15);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel14.Location = new System.Drawing.Point(0, 313);
+            this.panel14.Location = new System.Drawing.Point(0, 275);
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(380, 40);
@@ -158,7 +158,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtOrderQuantity);
-            this.groupBox3.Location = new System.Drawing.Point(12, 201);
+            this.groupBox3.Location = new System.Drawing.Point(12, 206);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(179, 63);
             this.groupBox3.TabIndex = 21;
@@ -178,7 +178,7 @@
             this.groupBox2.Controls.Add(this.txtSelectStock);
             this.groupBox2.Location = new System.Drawing.Point(12, 132);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(357, 63);
+            this.groupBox2.Size = new System.Drawing.Size(357, 68);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Stock";
@@ -236,7 +236,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(380, 353);
+            this.ClientSize = new System.Drawing.Size(380, 315);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
