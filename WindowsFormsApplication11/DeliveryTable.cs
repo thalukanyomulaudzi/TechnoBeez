@@ -22,6 +22,14 @@ namespace WindowsFormsApplication11
     
         public int OrderId { get; set; }
         public string ItemName { get; set; }
+        public double orderTotal { get; set; }
+        public string customerName { get; set; }
+        public Nullable<int> customerContact { get; set; }
+        public Nullable<System.DateTime> orderDatef { get; set; }
+        public Nullable<double> vatAmountf { get; set; }
+        public string orderNotesf { get; set; }
+        public Nullable<int> totalItemsf { get; set; }
+        public Nullable<double> vatTot { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DeliveryLine> DeliveryLines { get; set; }

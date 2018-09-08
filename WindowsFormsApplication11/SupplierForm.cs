@@ -13,8 +13,7 @@ namespace WindowsFormsApplication11
 {
     public partial class SupplierForm : Form
     {
-        MmasweEntities5 db = new MmasweEntities5
-            ();
+        MmasweEntities5 db = new MmasweEntities5();
         private Form2 f = null;
         int index = -1;
         
