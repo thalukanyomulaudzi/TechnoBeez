@@ -11,100 +11,51 @@ namespace WindowsFormsApplication11
 {
     public partial class frmAddCustomer : Form
     {
-        MmasweEntities13 db = new MmasweEntities13();
-        private Form2 f = null;
-        int index = -1;
         public frmAddCustomer()
         {
             InitializeComponent();
         }
-        public frmAddCustomer(Form callingForm)
-        {
-            f = callingForm as Form2;
-            InitializeComponent();
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
+        MmasweEntities5 db = new MmasweEntities5();
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Customer cs = new Customer();
-            Suburb csSuburb = new Suburb();
-            
-
-            cs.Customer_Name=txtCustomerNames.Text;
-            cs.Customer_Surname = txtCustomerSurname.Text;
-            cs.Customer_Contact_Number = Convert.ToInt32(txtContactNo.Text);
-            cs.Customer_Email = txtEmail.Text;
-            cs.Customer_Address = richTextBox1.Text;
-            csSuburb.Suburb_Name = txtSurburb.Text;
-            csSuburb.Zip_Code = txtCode.Text;
-
-            cs.Suburb_ID = csSuburb.Suburb_ID;
-
-            db.Suburbs.Add(csSuburb);
-            db.Customers.Add(cs);
-            db.SaveChanges();
-
-            this.Close();
-            f.LoadCustomers();
-            MessageBox.Show("Customer details successfully added");
-            
-        }
-        public void View(int index)
-        {
-            this.index = index;
-            //this.sb = sb;
-        }
-
-        private void frmAddCustomer_Load(object sender, EventArgs e)
-        {
-            if(index!=-1)
+            Customer cust = new Customer();
+            try
             {
-                Customer cs = new Customer();
-                Suburb csSuburb = new Suburb();
+                City city = db.Cities.FirstOrDefault(c => c.City_Name == txtCity.Text);
+                Suburb suburb = db.Suburbs.FirstOrDefault(c => c.Suburb_Name == txtSurburb.Text);
 
-                cs = db.Customers.Single(x => x.Customer_ID == index);
-                csSuburb = db.Suburbs.Single(x => x.Suburb_ID == cs.Suburb_ID);
+                cust.Customer_Name = txtCustomerNames.Text;
+                cust.Customer_Surname = txtCustomerSurname.Text;
+                if ((city != null) && (suburb != null))
+                {
+                    cust.City_ID =  city.City_ID;
+                    cust.Suburb_ID =  suburb.Suburb_ID;
+                  
+                }
+                else
+                {
+                    MessageBox.Show("Error:City or Suburb not found");
+                    return;
 
-                txtCustomerNames.Text= cs.Customer_Name;
-                txtCustomerSurname.Text= cs.Customer_Surname;
-                txtContactNo.Text= cs.Customer_Contact_Number.ToString();
-                txtEmail.Text = cs.Customer_Email;
-                richTextBox1.Text= cs.Customer_Address;
-                txtSurburb.Text= csSuburb.Suburb_Name;
-                txtCode.Text= csSuburb.Zip_Code;
+                }
+                cust.Customer_Address = txtProvimce.Text + " " + city.City_Name
+                + "\n " + suburb.Suburb_Name + " " + txtStreeName.Text;
 
-                cs.Suburb_ID = csSuburb.Suburb_ID;
+                cust.Customer_Contact_Number = Convert.ToInt32(txtContactNo.Text);
+
+                db.Customers.Add(cust);
+                db.SaveChanges();
+                Globals.addCustomer = true;
+                Globals.custId = cust.Customer_ID;
+               MessageBox.Show("New customer added successfully");
             }
-        }
-
-        private void btnUpdateEmployee_Click(object sender, EventArgs e)
-        {
-            Customer cs = new Customer();
-            Suburb csSuburb = new Suburb();
-
-
-            cs.Customer_Name = txtCustomerNames.Text;
-            cs.Customer_Surname = txtCustomerSurname.Text;
-            cs.Customer_Contact_Number = Convert.ToInt32(txtContactNo.Text);
-            cs.Customer_Email = txtEmail.Text;
-            cs.Customer_Address = richTextBox1.Text;
-            csSuburb.Suburb_Name = txtSurburb.Text;
-            csSuburb.Zip_Code = txtCode.Text;
-
-            cs.Suburb_ID = csSuburb.Suburb_ID;
-
-            db.Suburbs.Add(csSuburb);
-            db.Customers.Add(cs);
-            db.SaveChanges();
-
-            this.Close();
-            f.LoadCustomers();
-            MessageBox.Show("Customer details successfully updated");
+            catch(Exception i)
+            {
+                MessageBox.Show(Convert.ToString(i));
+            }
+            
+            
         }
     }
 }

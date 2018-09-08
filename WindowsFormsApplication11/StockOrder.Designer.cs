@@ -51,7 +51,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSupplierSelect = new System.Windows.Forms.Button();
             this.txtSelectSupplier = new System.Windows.Forms.TextBox();
-            this.btnSubmit = new System.Windows.Forms.Button();
             this.panel17.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -70,11 +69,12 @@
             // 
             this.btnOrder.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
             this.btnOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnOrder.Image")));
             this.btnOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrder.Location = new System.Drawing.Point(133, 3);
+            this.btnOrder.Location = new System.Drawing.Point(118, 3);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.btnOrder.Size = new System.Drawing.Size(55, 34);
+            this.btnOrder.Size = new System.Drawing.Size(70, 34);
             this.btnOrder.TabIndex = 9;
             this.btnOrder.Text = "Order";
             this.btnOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -83,10 +83,9 @@
             // 
             // panel17
             // 
-            this.panel17.Controls.Add(this.btnSubmit);
             this.panel17.Controls.Add(this.btnOrder);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel17.Location = new System.Drawing.Point(186, 0);
+            this.panel17.Location = new System.Drawing.Point(180, 0);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(200, 39);
             this.panel17.TabIndex = 8;
@@ -97,10 +96,10 @@
             this.panel14.Controls.Add(this.panel17);
             this.panel14.Controls.Add(this.panel15);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel14.Location = new System.Drawing.Point(0, 298);
+            this.panel14.Location = new System.Drawing.Point(0, 275);
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(386, 40);
+            this.panel14.Size = new System.Drawing.Size(380, 40);
             this.panel14.TabIndex = 18;
             // 
             // panel15
@@ -109,7 +108,7 @@
             this.panel15.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel15.Location = new System.Drawing.Point(0, 39);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(386, 1);
+            this.panel15.Size = new System.Drawing.Size(380, 1);
             this.panel15.TabIndex = 0;
             // 
             // panel2
@@ -122,7 +121,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(386, 57);
+            this.panel2.Size = new System.Drawing.Size(380, 57);
             this.panel2.TabIndex = 17;
             // 
             // panel1
@@ -131,7 +130,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 56);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(386, 1);
+            this.panel1.Size = new System.Drawing.Size(380, 1);
             this.panel1.TabIndex = 2;
             // 
             // label14
@@ -233,28 +232,11 @@
             this.txtSelectSupplier.Size = new System.Drawing.Size(201, 20);
             this.txtSelectSupplier.TabIndex = 5;
             // 
-            // btnSubmit
-            // 
-            this.btnSubmit.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSubmit.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubmit.Image = ((System.Drawing.Image)(resources.GetObject("btnSubmit.Image")));
-            this.btnSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSubmit.Location = new System.Drawing.Point(51, 3);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.btnSubmit.Size = new System.Drawing.Size(76, 34);
-            this.btnSubmit.TabIndex = 10;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
             // StockOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 338);
+            this.ClientSize = new System.Drawing.Size(380, 315);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -262,6 +244,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "StockOrder";
             this.Text = "StockOrder";
+            this.Load += new System.EventHandler(this.StockOrder_Load);
             this.panel17.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -305,6 +288,5 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnSupplierSelect;
         private System.Windows.Forms.TextBox txtSelectSupplier;
-        private System.Windows.Forms.Button btnSubmit;
     }
 }

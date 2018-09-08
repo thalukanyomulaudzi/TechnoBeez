@@ -14,7 +14,7 @@ namespace WindowsFormsApplication11
     
     public partial class City
     {
-        public string City_ID { get; set; }
+        public int City_ID { get; set; }
         public string City_Name { get; set; }
     }
 }

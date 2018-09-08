@@ -20,10 +20,5 @@ namespace WindowsFormsApplication11
         {
 
         }
-
-        private void Add_Employee_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

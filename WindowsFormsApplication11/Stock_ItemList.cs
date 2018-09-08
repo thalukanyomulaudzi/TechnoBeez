@@ -15,7 +15,7 @@ namespace WindowsFormsApplication11
 {
     public partial class Stock_ItemList : Form
     {
-        MmasweEntities13 db = new MmasweEntities13();
+        MmasweEntities5 db = new MmasweEntities5();
         StockOrder order;
         public Stock_ItemList()
         {

@@ -22,7 +22,6 @@ namespace WindowsFormsApplication11
             this.Customer_Order_Line = new HashSet<Customer_Order_Line>();
             this.Stock_Combo_Line = new HashSet<Stock_Combo_Line>();
             this.Stock_Order_Line = new HashSet<Stock_Order_Line>();
-            this.Stock_Order_Line1 = new HashSet<Stock_Order_Line>();
             this.Stock_WriteOff_Line = new HashSet<Stock_WriteOff_Line>();
         }
     
@@ -45,8 +44,6 @@ namespace WindowsFormsApplication11
         public virtual Stock_Type Stock_Type { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stock_Order_Line> Stock_Order_Line { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Stock_Order_Line> Stock_Order_Line1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stock_WriteOff_Line> Stock_WriteOff_Line { get; set; }
     }

@@ -26,10 +26,9 @@ namespace WindowsFormsApplication11
         public int Customer_Contact_Number { get; set; }
         public int Suburb_ID { get; set; }
         public string Customer_Address { get; set; }
-        public string Customer_Email { get; set; }
+        public int City_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customer_Order> Customer_Order { get; set; }
-        public virtual Suburb Suburb { get; set; }
     }
 }
