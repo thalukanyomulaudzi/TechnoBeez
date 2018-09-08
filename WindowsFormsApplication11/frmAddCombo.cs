@@ -16,7 +16,7 @@ namespace WindowsFormsApplication11
         {
             InitializeComponent();
         }
-        MmasweEntities5 db = new MmasweEntities5();
+        MmasweEntities13 db = new MmasweEntities13();
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
