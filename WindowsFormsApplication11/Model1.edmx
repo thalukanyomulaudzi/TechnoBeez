@@ -5,16 +5,26 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="MmasweModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Access_level">
+          <Key>
+            <PropertyRef Name="Access_Level_ID" />
+          </Key>
+          <Property Name="Access_Level_ID" Type="int" Nullable="false" />
+          <Property Name="Access_Level_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Acess_Level_Description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="Address_ID" />
           </Key>
           <Property Name="Address_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Street_Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Province" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Address_Type_ID" Type="int" />
-          <Property Name="City_ID" Type="int" />
+          <Property Name="House_No" Type="int" />
+          <Property Name="Province" Type="varchar" MaxLength="50" />
+          <Property Name="City_Name" Type="varchar" MaxLength="50" />
           <Property Name="Supplier_ID" Type="int" />
+          <Property Name="Suburb_ID" Type="int" />
         </EntityType>
         <EntityType Name="Adress_Type">
           <Key>
@@ -83,7 +93,7 @@
           <Key>
             <PropertyRef Name="City_ID" />
           </Key>
-          <Property Name="City_ID" Type="int" Nullable="false" />
+          <Property Name="City_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="City_Name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Combo">
@@ -129,7 +139,6 @@
           <Property Name="Customer_Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Customer_Surname" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Customer_Contact_Number" Type="int" Nullable="false" />
-          <Property Name="Customer_Adress" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Suburb_ID" Type="int" Nullable="false" />
           <Property Name="Customer_Address" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="City_ID" Type="int" Nullable="false" />
@@ -139,14 +148,18 @@
             <PropertyRef Name="Order_ID" />
           </Key>
           <Property Name="Order_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Order_Status" Type="varchar" MaxLength="25" />
-          <Property Name="Order_Date" Type="datetime" />
-          <Property Name="Sale_Vat_Amount" Type="float" />
+          <Property Name="Order_Status" Type="varchar" MaxLength="900" Nullable="false" />
+          <Property Name="Order_Date" Type="datetime" Nullable="false" />
+          <Property Name="Sale_Vat_Amount" Type="float" Nullable="false" />
           <Property Name="Customer_ID" Type="int" />
-          <Property Name="Payment_ID" Type="int" />
           <Property Name="Employee_ID" Type="int" />
           <Property Name="Delivery_Status_ID" Type="int" />
-          <Property Name="ItemType" Type="int" Nullable="false" />
+          <Property Name="OrderNotes" Type="varchar" MaxLength="900" />
+          <Property Name="OrderTotal" Type="float" />
+          <Property Name="TotalItems" Type="int" />
+          <Property Name="Cash" Type="float" />
+          <Property Name="Change" Type="float" />
+          <Property Name="Payment_ID" Type="int" />
         </EntityType>
         <EntityType Name="Customer_Order_Line">
           <Key>
@@ -155,16 +168,11 @@
           <Property Name="Combo_ID" Type="int" />
           <Property Name="Stock_ID" Type="int" />
           <Property Name="Menu_Item_ID" Type="int" />
-          <Property Name="Customer_Order_ID" Type="int" />
           <Property Name="Combo_Quantity" Type="int" />
           <Property Name="Menu_Item_Quantity" Type="int" />
           <Property Name="Stock_Item_Quantity" Type="int" />
-          <Property Name="Order_Notes" Type="varchar" MaxLength="50" />
-          <Property Name="Picked_Up" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Special_ID" Type="int" />
-          <Property Name="Payment_ID" Type="int" />
           <Property Name="Customer_Order_Line_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Customer_ID" Type="int" />
+          <Property Name="Customer_Order_ID" Type="int" />
         </EntityType>
         <EntityType Name="Delivery_Status">
           <Key>
@@ -261,8 +269,8 @@
             <PropertyRef Name="Payment_ID" />
           </Key>
           <Property Name="Payment_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Payment_Date" Type="datetime" Nullable="false" />
-          <Property Name="Payment_Amount" Type="float" Nullable="false" />
+          <Property Name="Payment_Date" Type="datetime" />
+          <Property Name="Payment_Amount" Type="float" />
           <Property Name="Payment_Type_ID" Type="int" />
         </EntityType>
         <EntityType Name="Payment_Type">
@@ -381,8 +389,7 @@
           </Key>
           <Property Name="Suburb_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Suburb_Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Zip_Code" Type="int" Nullable="false" />
-          <Property Name="City_ID" Type="int" />
+          <Property Name="Zip_Code" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
@@ -425,7 +432,6 @@
           </Key>
           <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="User_Role" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="User_Password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="User_Role_ID" Type="int" />
           <Property Name="Audit_ID" Type="int" />
@@ -446,8 +452,22 @@
           </Key>
           <Property Name="User_Role_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="User_Role_Description" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="User_Role_Access_Level" Type="int" Nullable="false" />
+          <Property Name="Access_Level_ID" Type="int" />
         </EntityType>
+        <Association Name="FK_Address_Suburb">
+          <End Role="Suburb" Type="Self.Suburb" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suburb">
+              <PropertyRef Name="Suburb_ID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="Suburb_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Address_Supplier">
           <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -471,18 +491,6 @@
             </Principal>
             <Dependent Role="Address">
               <PropertyRef Name="Address_Type_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Adress_City">
-          <End Role="City" Type="Self.City" Multiplicity="0..1" />
-          <End Role="Address" Type="Self.Address" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="City">
-              <PropertyRef Name="City_ID" />
-            </Principal>
-            <Dependent Role="Address">
-              <PropertyRef Name="City_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -642,30 +650,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Customer_Order_Line_Payment">
-          <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
-          <End Role="Customer_Order_Line" Type="Self.Customer_Order_Line" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Payment">
-              <PropertyRef Name="Payment_ID" />
-            </Principal>
-            <Dependent Role="Customer_Order_Line">
-              <PropertyRef Name="Payment_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Customer_Order_Line_Special">
-          <End Role="Special" Type="Self.Special" Multiplicity="0..1" />
-          <End Role="Customer_Order_Line" Type="Self.Customer_Order_Line" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Special">
-              <PropertyRef Name="Special_ID" />
-            </Principal>
-            <Dependent Role="Customer_Order_Line">
-              <PropertyRef Name="Special_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Customer_Order_Line_Stock_Item">
           <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="0..1" />
           <End Role="Customer_Order_Line" Type="Self.Customer_Order_Line" Multiplicity="*" />
@@ -675,6 +659,20 @@
             </Principal>
             <Dependent Role="Customer_Order_Line">
               <PropertyRef Name="Stock_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Order_Payment">
+          <End Role="Payment" Type="Self.Payment" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Customer_Order" Type="Self.Customer_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment">
+              <PropertyRef Name="Payment_ID" />
+            </Principal>
+            <Dependent Role="Customer_Order">
+              <PropertyRef Name="Payment_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -958,6 +956,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_User_Role_Access_level">
+          <End Role="Access_level" Type="Self.Access_level" Multiplicity="0..1" />
+          <End Role="User_Role" Type="Self.User_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Access_level">
+              <PropertyRef Name="Access_Level_ID" />
+            </Principal>
+            <Dependent Role="User_Role">
+              <PropertyRef Name="Access_Level_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Us">
+          <End Role="User_Role" Type="Self.User_Role" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Role">
+              <PropertyRef Name="User_Role_ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="User_Role_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_User_User_Log">
           <End Role="User_Log" Type="Self.User_Log" Multiplicity="0..1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -970,19 +992,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_User_User_Role">
-          <End Role="User_Role" Type="Self.User_Role" Multiplicity="0..1" />
-          <End Role="User" Type="Self.User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User_Role">
-              <PropertyRef Name="User_Role_ID" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="User_Role_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="MmasweModelStoreContainer">
+          <EntitySet Name="Access_level" EntityType="Self.Access_level" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Adress_Type" EntityType="Self.Adress_Type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Audit" EntityType="Self.Audit" Schema="dbo" store:Type="Tables" />
@@ -1030,16 +1041,16 @@
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User_Log" EntityType="Self.User_Log" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User_Role" EntityType="Self.User_Role" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Address_Suburb" Association="Self.FK_Address_Suburb">
+            <End Role="Suburb" EntitySet="Suburb" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
           <AssociationSet Name="FK_Address_Supplier" Association="Self.FK_Address_Supplier">
             <End Role="Supplier" EntitySet="Supplier" />
             <End Role="Address" EntitySet="Address" />
           </AssociationSet>
           <AssociationSet Name="FK_Adress_Adress_Type" Association="Self.FK_Adress_Adress_Type">
             <End Role="Adress_Type" EntitySet="Adress_Type" />
-            <End Role="Address" EntitySet="Address" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Adress_City" Association="Self.FK_Adress_City">
-            <End Role="City" EntitySet="City" />
             <End Role="Address" EntitySet="Address" />
           </AssociationSet>
           <AssociationSet Name="FK_Banking_Details_Supplier" Association="Self.FK_Banking_Details_Supplier">
@@ -1094,17 +1105,13 @@
             <End Role="Menu_Item" EntitySet="Menu_Item" />
             <End Role="Customer_Order_Line" EntitySet="Customer_Order_Line" />
           </AssociationSet>
-          <AssociationSet Name="FK_Customer_Order_Line_Payment" Association="Self.FK_Customer_Order_Line_Payment">
-            <End Role="Payment" EntitySet="Payment" />
-            <End Role="Customer_Order_Line" EntitySet="Customer_Order_Line" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Customer_Order_Line_Special" Association="Self.FK_Customer_Order_Line_Special">
-            <End Role="Special" EntitySet="Special" />
-            <End Role="Customer_Order_Line" EntitySet="Customer_Order_Line" />
-          </AssociationSet>
           <AssociationSet Name="FK_Customer_Order_Line_Stock_Item" Association="Self.FK_Customer_Order_Line_Stock_Item">
             <End Role="Stock_Item" EntitySet="Stock_Item" />
             <End Role="Customer_Order_Line" EntitySet="Customer_Order_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Order_Payment" Association="Self.FK_Customer_Order_Payment">
+            <End Role="Payment" EntitySet="Payment" />
+            <End Role="Customer_Order" EntitySet="Customer_Order" />
           </AssociationSet>
           <AssociationSet Name="FK_Employee_Attendence_Status_Employee_Booking_Shift" Association="Self.FK_Employee_Attendence_Status_Employee_Booking_Shift">
             <End Role="Employee_Booking_Shift" EntitySet="Employee_Booking_Shift" />
@@ -1198,12 +1205,16 @@
             <End Role="Audit" EntitySet="Audit" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
-          <AssociationSet Name="FK_User_User_Log" Association="Self.FK_User_User_Log">
-            <End Role="User_Log" EntitySet="User_Log" />
+          <AssociationSet Name="FK_User_Role_Access_level" Association="Self.FK_User_Role_Access_level">
+            <End Role="Access_level" EntitySet="Access_level" />
+            <End Role="User_Role" EntitySet="User_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Us" Association="Self.FK_User_Us">
+            <End Role="User_Role" EntitySet="User_Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
-          <AssociationSet Name="FK_User_User_Role" Association="Self.FK_User_User_Role">
-            <End Role="User_Role" EntitySet="User_Role" />
+          <AssociationSet Name="FK_User_User_Log" Association="Self.FK_User_User_Log">
+            <End Role="User_Log" EntitySet="User_Log" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
@@ -1212,19 +1223,30 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MmasweModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Access_level">
+          <Key>
+            <PropertyRef Name="Access_Level_ID" />
+          </Key>
+          <Property Name="Access_Level_ID" Type="Int32" Nullable="false" />
+          <Property Name="Access_Level_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Acess_Level_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="User_Role" Relationship="Self.FK_User_Role_Access_level" FromRole="Access_level" ToRole="User_Role" />
+        </EntityType>
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="Address_ID" />
           </Key>
           <Property Name="Address_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Street_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Address_Type_ID" Type="Int32" />
-          <Property Name="City_ID" Type="Int32" />
+          <Property Name="House_No" Type="Int32" />
+          <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Supplier_ID" Type="Int32" />
+          <Property Name="Suburb_ID" Type="Int32" />
+          <NavigationProperty Name="Suburb" Relationship="Self.FK_Address_Suburb" FromRole="Address" ToRole="Suburb" />
           <NavigationProperty Name="Supplier" Relationship="Self.FK_Address_Supplier" FromRole="Address" ToRole="Supplier" />
           <NavigationProperty Name="Adress_Type" Relationship="Self.FK_Adress_Adress_Type" FromRole="Address" ToRole="Adress_Type" />
-          <NavigationProperty Name="City" Relationship="Self.FK_Adress_City" FromRole="Address" ToRole="City" />
         </EntityType>
         <EntityType Name="Adress_Type">
           <Key>
@@ -1302,9 +1324,8 @@
           <Key>
             <PropertyRef Name="City_ID" />
           </Key>
-          <Property Name="City_ID" Type="Int32" Nullable="false" />
+          <Property Name="City_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="City_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Addresses" Relationship="Self.FK_Adress_City" FromRole="City" ToRole="Address" />
         </EntityType>
         <EntityType Name="Combo">
           <Key>
@@ -1356,7 +1377,6 @@
           <Property Name="Customer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Customer_Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Customer_Contact_Number" Type="Int32" Nullable="false" />
-          <Property Name="Customer_Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Suburb_ID" Type="Int32" Nullable="false" />
           <Property Name="Customer_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="City_ID" Type="Int32" Nullable="false" />
@@ -1367,18 +1387,23 @@
             <PropertyRef Name="Order_ID" />
           </Key>
           <Property Name="Order_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Order_Status" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="Order_Date" Type="DateTime" Precision="3" />
-          <Property Name="Sale_Vat_Amount" Type="Double" />
+          <Property Name="Order_Status" Type="String" MaxLength="900" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Order_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Sale_Vat_Amount" Type="Double" Nullable="false" />
           <Property Name="Customer_ID" Type="Int32" />
-          <Property Name="Payment_ID" Type="Int32" />
           <Property Name="Employee_ID" Type="Int32" />
           <Property Name="Delivery_Status_ID" Type="Int32" />
-          <Property Name="ItemType" Type="Int32" Nullable="false" />
+          <Property Name="OrderNotes" Type="String" MaxLength="900" FixedLength="false" Unicode="false" />
+          <Property Name="OrderTotal" Type="Double" />
+          <Property Name="TotalItems" Type="Int32" />
+          <Property Name="Cash" Type="Double" />
+          <Property Name="Change" Type="Double" />
+          <Property Name="Payment_ID" Type="Int32" />
           <NavigationProperty Name="Customer" Relationship="Self.FK_Customer_Order_Customer" FromRole="Customer_Order" ToRole="Customer" />
           <NavigationProperty Name="Delivery_Status" Relationship="Self.FK_Customer_Order_Delivery_Status" FromRole="Customer_Order" ToRole="Delivery_Status" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Customer_Order_Employee" FromRole="Customer_Order" ToRole="Employee" />
           <NavigationProperty Name="Customer_Order_Line" Relationship="Self.FK_Customer_Order_Line_Customer_Order" FromRole="Customer_Order" ToRole="Customer_Order_Line" />
+          <NavigationProperty Name="Payment" Relationship="Self.FK_Customer_Order_Payment" FromRole="Customer_Order" ToRole="Payment" />
         </EntityType>
         <EntityType Name="Customer_Order_Line">
           <Key>
@@ -1387,21 +1412,14 @@
           <Property Name="Combo_ID" Type="Int32" />
           <Property Name="Stock_ID" Type="Int32" />
           <Property Name="Menu_Item_ID" Type="Int32" />
-          <Property Name="Customer_Order_ID" Type="Int32" />
           <Property Name="Combo_Quantity" Type="Int32" />
           <Property Name="Menu_Item_Quantity" Type="Int32" />
           <Property Name="Stock_Item_Quantity" Type="Int32" />
-          <Property Name="Order_Notes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Picked_Up" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Special_ID" Type="Int32" />
-          <Property Name="Payment_ID" Type="Int32" />
           <Property Name="Customer_Order_Line_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Customer_ID" Type="Int32" />
+          <Property Name="Customer_Order_ID" Type="Int32" />
           <NavigationProperty Name="Combo" Relationship="Self.FK_Customer_Order_Line_Combo" FromRole="Customer_Order_Line" ToRole="Combo" />
           <NavigationProperty Name="Customer_Order" Relationship="Self.FK_Customer_Order_Line_Customer_Order" FromRole="Customer_Order_Line" ToRole="Customer_Order" />
           <NavigationProperty Name="Menu_Item" Relationship="Self.FK_Customer_Order_Line_Menu_Item" FromRole="Customer_Order_Line" ToRole="Menu_Item" />
-          <NavigationProperty Name="Payment" Relationship="Self.FK_Customer_Order_Line_Payment" FromRole="Customer_Order_Line" ToRole="Payment" />
-          <NavigationProperty Name="Special" Relationship="Self.FK_Customer_Order_Line_Special" FromRole="Customer_Order_Line" ToRole="Special" />
           <NavigationProperty Name="Stock_Item" Relationship="Self.FK_Customer_Order_Line_Stock_Item" FromRole="Customer_Order_Line" ToRole="Stock_Item" />
         </EntityType>
         <EntityType Name="Delivery_Status">
@@ -1519,10 +1537,10 @@
             <PropertyRef Name="Payment_ID" />
           </Key>
           <Property Name="Payment_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Payment_Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Payment_Amount" Type="Double" Nullable="false" />
+          <Property Name="Payment_Date" Type="DateTime" Precision="3" />
+          <Property Name="Payment_Amount" Type="Double" />
           <Property Name="Payment_Type_ID" Type="Int32" />
-          <NavigationProperty Name="Customer_Order_Line" Relationship="Self.FK_Customer_Order_Line_Payment" FromRole="Payment" ToRole="Customer_Order_Line" />
+          <NavigationProperty Name="Customer_Order" Relationship="Self.FK_Customer_Order_Payment" FromRole="Payment" ToRole="Customer_Order" />
           <NavigationProperty Name="Payment_Type" Relationship="Self.FK_Payment_Payment_Type" FromRole="Payment" ToRole="Payment_Type" />
         </EntityType>
         <EntityType Name="Payment_Type">
@@ -1550,7 +1568,6 @@
           <Property Name="Special_Start_Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Special_End_Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Special_Discount" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Customer_Order_Line" Relationship="Self.FK_Customer_Order_Line_Special" FromRole="Special" ToRole="Customer_Order_Line" />
         </EntityType>
         <EntityType Name="Stock_Combo_Line">
           <Key>
@@ -1665,8 +1682,8 @@
           </Key>
           <Property Name="Suburb_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Suburb_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Zip_Code" Type="Int32" Nullable="false" />
-          <Property Name="City_ID" Type="Int32" />
+          <Property Name="Zip_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_Suburb" FromRole="Suburb" ToRole="Address" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
@@ -1714,15 +1731,14 @@
           </Key>
           <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="User_Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="User_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="User_Role_ID" Type="Int32" />
           <Property Name="Audit_ID" Type="Int32" />
           <Property Name="User_Log_ID" Type="Int32" />
           <NavigationProperty Name="Audit" Relationship="Self.FK_User_Audit" FromRole="User" ToRole="Audit" />
           <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_User" FromRole="User" ToRole="Employee" />
+          <NavigationProperty Name="User_Role" Relationship="Self.FK_User_Us" FromRole="User" ToRole="User_Role" />
           <NavigationProperty Name="User_Log" Relationship="Self.FK_User_User_Log" FromRole="User" ToRole="User_Log" />
-          <NavigationProperty Name="User_Role1" Relationship="Self.FK_User_User_Role" FromRole="User" ToRole="User_Role" />
         </EntityType>
         <EntityType Name="User_Log">
           <Key>
@@ -1740,9 +1756,36 @@
           </Key>
           <Property Name="User_Role_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="User_Role_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="User_Role_Access_Level" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_User_User_Role" FromRole="User_Role" ToRole="User" />
+          <Property Name="Access_Level_ID" Type="Int32" />
+          <NavigationProperty Name="Access_level" Relationship="Self.FK_User_Role_Access_level" FromRole="User_Role" ToRole="Access_level" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_Us" FromRole="User_Role" ToRole="User" />
         </EntityType>
+        <Association Name="FK_User_Role_Access_level">
+          <End Role="Access_level" Type="Self.Access_level" Multiplicity="0..1" />
+          <End Role="User_Role" Type="Self.User_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Access_level">
+              <PropertyRef Name="Access_Level_ID" />
+            </Principal>
+            <Dependent Role="User_Role">
+              <PropertyRef Name="Access_Level_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Suburb">
+          <End Role="Suburb" Type="Self.Suburb" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suburb">
+              <PropertyRef Name="Suburb_ID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="Suburb_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Address_Supplier">
           <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -1766,18 +1809,6 @@
             </Principal>
             <Dependent Role="Address">
               <PropertyRef Name="Address_Type_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Adress_City">
-          <End Role="City" Type="Self.City" Multiplicity="0..1" />
-          <End Role="Address" Type="Self.Address" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="City">
-              <PropertyRef Name="City_ID" />
-            </Principal>
-            <Dependent Role="Address">
-              <PropertyRef Name="City_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1963,6 +1994,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Customer_Order_Payment">
+          <End Role="Payment" Type="Self.Payment" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Customer_Order" Type="Self.Customer_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment">
+              <PropertyRef Name="Payment_ID" />
+            </Principal>
+            <Dependent Role="Customer_Order">
+              <PropertyRef Name="Payment_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Customer_Order_Line_Menu_Item">
           <End Role="Menu_Item" Type="Self.Menu_Item" Multiplicity="0..1" />
           <End Role="Customer_Order_Line" Type="Self.Customer_Order_Line" Multiplicity="*" />
@@ -1972,30 +2017,6 @@
             </Principal>
             <Dependent Role="Customer_Order_Line">
               <PropertyRef Name="Menu_Item_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Customer_Order_Line_Payment">
-          <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
-          <End Role="Customer_Order_Line" Type="Self.Customer_Order_Line" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Payment">
-              <PropertyRef Name="Payment_ID" />
-            </Principal>
-            <Dependent Role="Customer_Order_Line">
-              <PropertyRef Name="Payment_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Customer_Order_Line_Special">
-          <End Role="Special" Type="Self.Special" Multiplicity="0..1" />
-          <End Role="Customer_Order_Line" Type="Self.Customer_Order_Line" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Special">
-              <PropertyRef Name="Special_ID" />
-            </Principal>
-            <Dependent Role="Customer_Order_Line">
-              <PropertyRef Name="Special_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2253,6 +2274,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_User_Us">
+          <End Role="User_Role" Type="Self.User_Role" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Role">
+              <PropertyRef Name="User_Role_ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="User_Role_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_User_User_Log">
           <End Role="User_Log" Type="Self.User_Log" Multiplicity="0..1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -2265,19 +2298,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_User_User_Role">
-          <End Role="User_Role" Type="Self.User_Role" Multiplicity="0..1" />
-          <End Role="User" Type="Self.User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User_Role">
-              <PropertyRef Name="User_Role_ID" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="User_Role_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="MmasweEntities5" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Access_level" EntityType="Self.Access_level" />
           <EntitySet Name="Addresses" EntityType="Self.Address" />
           <EntitySet Name="Adress_Type" EntityType="Self.Adress_Type" />
           <EntitySet Name="Audits" EntityType="Self.Audit" />
@@ -2325,16 +2347,20 @@
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="User_Log" EntityType="Self.User_Log" />
           <EntitySet Name="User_Role" EntityType="Self.User_Role" />
+          <AssociationSet Name="FK_User_Role_Access_level" Association="Self.FK_User_Role_Access_level">
+            <End Role="Access_level" EntitySet="Access_level" />
+            <End Role="User_Role" EntitySet="User_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Suburb" Association="Self.FK_Address_Suburb">
+            <End Role="Suburb" EntitySet="Suburbs" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
           <AssociationSet Name="FK_Address_Supplier" Association="Self.FK_Address_Supplier">
             <End Role="Supplier" EntitySet="Suppliers" />
             <End Role="Address" EntitySet="Addresses" />
           </AssociationSet>
           <AssociationSet Name="FK_Adress_Adress_Type" Association="Self.FK_Adress_Adress_Type">
             <End Role="Adress_Type" EntitySet="Adress_Type" />
-            <End Role="Address" EntitySet="Addresses" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Adress_City" Association="Self.FK_Adress_City">
-            <End Role="City" EntitySet="Cities" />
             <End Role="Address" EntitySet="Addresses" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Audit" Association="Self.FK_User_Audit">
@@ -2397,16 +2423,12 @@
             <End Role="Customer_Order" EntitySet="Customer_Order" />
             <End Role="Customer_Order_Line" EntitySet="Customer_Order_Line" />
           </AssociationSet>
+          <AssociationSet Name="FK_Customer_Order_Payment" Association="Self.FK_Customer_Order_Payment">
+            <End Role="Payment" EntitySet="Payments" />
+            <End Role="Customer_Order" EntitySet="Customer_Order" />
+          </AssociationSet>
           <AssociationSet Name="FK_Customer_Order_Line_Menu_Item" Association="Self.FK_Customer_Order_Line_Menu_Item">
             <End Role="Menu_Item" EntitySet="Menu_Item" />
-            <End Role="Customer_Order_Line" EntitySet="Customer_Order_Line" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Customer_Order_Line_Payment" Association="Self.FK_Customer_Order_Line_Payment">
-            <End Role="Payment" EntitySet="Payments" />
-            <End Role="Customer_Order_Line" EntitySet="Customer_Order_Line" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Customer_Order_Line_Special" Association="Self.FK_Customer_Order_Line_Special">
-            <End Role="Special" EntitySet="Specials" />
             <End Role="Customer_Order_Line" EntitySet="Customer_Order_Line" />
           </AssociationSet>
           <AssociationSet Name="FK_Customer_Order_Line_Stock_Item" Association="Self.FK_Customer_Order_Line_Stock_Item">
@@ -2493,12 +2515,12 @@
             <End Role="Supplier" EntitySet="Suppliers" />
             <End Role="Supplier_Contact_Details" EntitySet="Supplier_Contact_Details" />
           </AssociationSet>
-          <AssociationSet Name="FK_User_User_Log" Association="Self.FK_User_User_Log">
-            <End Role="User_Log" EntitySet="User_Log" />
+          <AssociationSet Name="FK_User_Us" Association="Self.FK_User_Us">
+            <End Role="User_Role" EntitySet="User_Role" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK_User_User_Role" Association="Self.FK_User_User_Role">
-            <End Role="User_Role" EntitySet="User_Role" />
+          <AssociationSet Name="FK_User_User_Log" Association="Self.FK_User_User_Log">
+            <End Role="User_Log" EntitySet="User_Log" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
@@ -2508,15 +2530,26 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="MmasweModelStoreContainer" CdmEntityContainer="MmasweEntities5">
+          <EntitySetMapping Name="Access_level">
+            <EntityTypeMapping TypeName="MmasweModel.Access_level">
+              <MappingFragment StoreEntitySet="Access_level">
+                <ScalarProperty Name="Access_Level_ID" ColumnName="Access_Level_ID" />
+                <ScalarProperty Name="Access_Level_Name" ColumnName="Access_Level_Name" />
+                <ScalarProperty Name="Acess_Level_Description" ColumnName="Acess_Level_Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Addresses">
             <EntityTypeMapping TypeName="MmasweModel.Address">
               <MappingFragment StoreEntitySet="Address">
                 <ScalarProperty Name="Address_ID" ColumnName="Address_ID" />
                 <ScalarProperty Name="Street_Name" ColumnName="Street_Name" />
-                <ScalarProperty Name="Province" ColumnName="Province" />
                 <ScalarProperty Name="Address_Type_ID" ColumnName="Address_Type_ID" />
-                <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+                <ScalarProperty Name="House_No" ColumnName="House_No" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="City_Name" ColumnName="City_Name" />
                 <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+                <ScalarProperty Name="Suburb_ID" ColumnName="Suburb_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2644,7 +2677,6 @@
                 <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
                 <ScalarProperty Name="Customer_Surname" ColumnName="Customer_Surname" />
                 <ScalarProperty Name="Customer_Contact_Number" ColumnName="Customer_Contact_Number" />
-                <ScalarProperty Name="Customer_Adress" ColumnName="Customer_Adress" />
                 <ScalarProperty Name="Suburb_ID" ColumnName="Suburb_ID" />
                 <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
                 <ScalarProperty Name="City_ID" ColumnName="City_ID" />
@@ -2659,10 +2691,14 @@
                 <ScalarProperty Name="Order_Date" ColumnName="Order_Date" />
                 <ScalarProperty Name="Sale_Vat_Amount" ColumnName="Sale_Vat_Amount" />
                 <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
-                <ScalarProperty Name="Payment_ID" ColumnName="Payment_ID" />
                 <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
                 <ScalarProperty Name="Delivery_Status_ID" ColumnName="Delivery_Status_ID" />
-                <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+                <ScalarProperty Name="OrderNotes" ColumnName="OrderNotes" />
+                <ScalarProperty Name="OrderTotal" ColumnName="OrderTotal" />
+                <ScalarProperty Name="TotalItems" ColumnName="TotalItems" />
+                <ScalarProperty Name="Cash" ColumnName="Cash" />
+                <ScalarProperty Name="Change" ColumnName="Change" />
+                <ScalarProperty Name="Payment_ID" ColumnName="Payment_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2672,16 +2708,11 @@
                 <ScalarProperty Name="Combo_ID" ColumnName="Combo_ID" />
                 <ScalarProperty Name="Stock_ID" ColumnName="Stock_ID" />
                 <ScalarProperty Name="Menu_Item_ID" ColumnName="Menu_Item_ID" />
-                <ScalarProperty Name="Customer_Order_ID" ColumnName="Customer_Order_ID" />
                 <ScalarProperty Name="Combo_Quantity" ColumnName="Combo_Quantity" />
                 <ScalarProperty Name="Menu_Item_Quantity" ColumnName="Menu_Item_Quantity" />
                 <ScalarProperty Name="Stock_Item_Quantity" ColumnName="Stock_Item_Quantity" />
-                <ScalarProperty Name="Order_Notes" ColumnName="Order_Notes" />
-                <ScalarProperty Name="Picked_Up" ColumnName="Picked_Up" />
-                <ScalarProperty Name="Special_ID" ColumnName="Special_ID" />
-                <ScalarProperty Name="Payment_ID" ColumnName="Payment_ID" />
                 <ScalarProperty Name="Customer_Order_Line_ID" ColumnName="Customer_Order_Line_ID" />
-                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Customer_Order_ID" ColumnName="Customer_Order_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2923,7 +2954,6 @@
                 <ScalarProperty Name="Suburb_ID" ColumnName="Suburb_ID" />
                 <ScalarProperty Name="Suburb_Name" ColumnName="Suburb_Name" />
                 <ScalarProperty Name="Zip_Code" ColumnName="Zip_Code" />
-                <ScalarProperty Name="City_ID" ColumnName="City_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2971,7 +3001,6 @@
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="User_ID" ColumnName="User_ID" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="User_Role" ColumnName="User_Role" />
                 <ScalarProperty Name="User_Password" ColumnName="User_Password" />
                 <ScalarProperty Name="User_Role_ID" ColumnName="User_Role_ID" />
                 <ScalarProperty Name="Audit_ID" ColumnName="Audit_ID" />
@@ -2994,7 +3023,7 @@
               <MappingFragment StoreEntitySet="User_Role">
                 <ScalarProperty Name="User_Role_ID" ColumnName="User_Role_ID" />
                 <ScalarProperty Name="User_Role_Description" ColumnName="User_Role_Description" />
-                <ScalarProperty Name="User_Role_Access_Level" ColumnName="User_Role_Access_Level" />
+                <ScalarProperty Name="Access_Level_ID" ColumnName="Access_Level_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

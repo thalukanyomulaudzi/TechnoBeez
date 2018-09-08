@@ -25,6 +25,7 @@ namespace WindowsFormsApplication11
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Access_level> Access_level { get; set; }
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<Adress_Type> Adress_Type { get; set; }
         public virtual DbSet<Audit> Audits { get; set; }

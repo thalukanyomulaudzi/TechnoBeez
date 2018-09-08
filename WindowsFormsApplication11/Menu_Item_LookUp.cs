@@ -31,7 +31,7 @@ namespace WindowsFormsApplication11
                 if ((item != null) && (price != null))
                 {
                     string itemDesc = "ID:  " + Convert.ToString(item.Menu_Item_ID) + " Name:  " + item.Menu_Item_Name
-                    + " Description:  " + item.Menu_Item_Description + " Quantity:  " + numericUpDown1.Text + " Notes:  " + richTextB.Text;
+                    + " Description:  " + item.Menu_Item_Description + " Quantity:  " + numericUpDown1.Text ;
                     listBox1.Items.Add(itemDesc);
                     Globals menu = new Globals();
 
@@ -40,7 +40,7 @@ namespace WindowsFormsApplication11
                     menu.OrderItemDescription = item.Menu_Item_Description;
 
                     menu.OrderItemPrice = price.Menu_Price;
-                    menu.OrderItemNotes = richTextB.Text;
+                   
                     menu.OrderQuantity = Convert.ToInt32(numericUpDown1.Text);
                     itemsA.Add(menu);
                 }
@@ -65,6 +65,8 @@ namespace WindowsFormsApplication11
                         };
             dgvMenuItems.DataSource = items.ToList();
             dgvMenuItems.ClearSelection();
+         
+            Globals.refresher2 = -1;
         }
 
         private void dataGridView4_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -101,9 +103,8 @@ namespace WindowsFormsApplication11
                 Globals.AmountDue = Globals.AmountDue + item.OrderItemPrice * item.OrderQuantity;
             }
 
-            Globals.DisplayMenus = true;
-            Globals.refresher2 = true;
-            this.Close();
+            this.Close();          
+          
         }
 
         private void button1_Click(object sender, EventArgs e)

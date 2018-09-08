@@ -17,22 +17,15 @@ namespace WindowsFormsApplication11
         public Nullable<int> Combo_ID { get; set; }
         public Nullable<int> Stock_ID { get; set; }
         public Nullable<int> Menu_Item_ID { get; set; }
-        public Nullable<int> Customer_Order_ID { get; set; }
         public Nullable<int> Combo_Quantity { get; set; }
         public Nullable<int> Menu_Item_Quantity { get; set; }
         public Nullable<int> Stock_Item_Quantity { get; set; }
-        public string Order_Notes { get; set; }
-        public string Picked_Up { get; set; }
-        public Nullable<int> Special_ID { get; set; }
-        public Nullable<int> Payment_ID { get; set; }
         public int Customer_Order_Line_ID { get; set; }
-        public Nullable<int> Customer_ID { get; set; }
+        public Nullable<int> Customer_Order_ID { get; set; }
     
         public virtual Combo Combo { get; set; }
         public virtual Customer_Order Customer_Order { get; set; }
         public virtual Menu_Item Menu_Item { get; set; }
-        public virtual Payment Payment { get; set; }
-        public virtual Special Special { get; set; }
         public virtual Stock_Item Stock_Item { get; set; }
     }
 }

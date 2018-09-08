@@ -59,7 +59,7 @@ namespace WindowsFormsApplication11
             orderLine.Stock_ID = stockID;
             sOrder.Supplier_ID = supplierID;
             orderLine.Stock_Order_Quantity = Convert.ToInt32(txtOrderQuantity.Text);
-            orderLine.Quantity_Received = orderLine.Stock_Order_Quantity;
+            orderLine.Stock_Order_Quantity = orderLine.Stock_Order_Quantity;
             sOrder.Stock_Order_Description = "Description";
             sOrder.Stock_Order_Issue_Date = DateTime.Now;
             sOrder.Stock_Order_Status_ID = 1;

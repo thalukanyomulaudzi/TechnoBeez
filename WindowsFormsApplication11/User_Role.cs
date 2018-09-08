@@ -22,8 +22,9 @@ namespace WindowsFormsApplication11
     
         public int User_Role_ID { get; set; }
         public string User_Role_Description { get; set; }
-        public int User_Role_Access_Level { get; set; }
+        public Nullable<int> Access_Level_ID { get; set; }
     
+        public virtual Access_level Access_level { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }
     }

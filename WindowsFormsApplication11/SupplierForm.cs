@@ -50,7 +50,7 @@ namespace WindowsFormsApplication11
                     supplierAddress.Street_Name = txtStreetName.Text;
                     supplierAddress.Province = txtProvince.Text;
                     
-                    supplierSuburb.Zip_Code = Convert.ToInt32(txtCode.Text);
+                    supplierSuburb.Zip_Code = txtCode.Text;
 
                     bank.Bank_Name = txtBankName.Text;
                     bank.Bank_Acc_No = Convert.ToInt32(txtAccNumber.Text);
@@ -58,8 +58,8 @@ namespace WindowsFormsApplication11
 
                     supplierAddress.Supplier_ID = newSupplier.Supplier_ID;
                     supplierContact.Supplier_ID = newSupplier.Supplier_ID;
-                    supplierAddress.City_ID = supplierCity.City_ID;
-                    supplierSuburb.City_ID = supplierCity.City_ID;
+                    //supplierAddress.City_ID = supplierCity.City_ID;
+                   // supplierSuburb.City_ID = supplierCity.City_ID;
                     bank.Supplier_ID = newSupplier.Supplier_ID;
 
 
@@ -141,8 +141,8 @@ namespace WindowsFormsApplication11
 
                 supplierAddress.Supplier_ID = newSupplier.Supplier_ID;
                 supplierContact.Supplier_ID = newSupplier.Supplier_ID;
-                supplierAddress.City_ID = supplierCity.City_ID;
-                supplierSuburb.City_ID = supplierCity.City_ID;
+               // supplierAddress.City_ID = supplierCity.City_ID;
+                //supplierSuburb.City_ID = supplierCity.City_ID;
             }
         }
 
@@ -171,7 +171,7 @@ namespace WindowsFormsApplication11
                     //
                     //supplierCity.City_Name = txtCity.Text;
                     //supplierSuburb.Suburb_Name = txtSuburb.Text;
-                    supplierSuburb.Zip_Code = Convert.ToInt32(txtCode.Text);
+                    //supplierSuburb.Zip_Code = Convert.ToInt32(txtCode.Text);
 
                     bank.Bank_Name = txtBankName.Text;
                     bank.Bank_Acc_No = Convert.ToInt32(txtAccNumber.Text);
@@ -179,8 +179,8 @@ namespace WindowsFormsApplication11
 
                     supplierAddress.Supplier_ID = newSupplier.Supplier_ID;
                     supplierContact.Supplier_ID = newSupplier.Supplier_ID;
-                    supplierAddress.City_ID = supplierCity.City_ID;
-                    supplierSuburb.City_ID = supplierCity.City_ID;
+                    //supplierAddress.City_ID = supplierCity.City_ID;
+                    //supplierSuburb.City_ID = supplierCity.City_ID;
                     bank.Supplier_ID = newSupplier.Supplier_ID;
 
 

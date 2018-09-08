@@ -61,6 +61,9 @@
     <Compile Include=".Add New Stock Item.Designer.cs">
       <DependentUpon>.Add New Stock Item.cs</DependentUpon>
     </Compile>
+    <Compile Include="Access_level.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Add Employee User Role.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -318,6 +321,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="OrderDeliveryDetails.cs" />
     <Compile Include="OrderList.cs">
       <SubType>Form</SubType>
     </Compile>

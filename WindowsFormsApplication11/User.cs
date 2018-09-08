@@ -22,7 +22,6 @@ namespace WindowsFormsApplication11
     
         public int User_ID { get; set; }
         public string UserName { get; set; }
-        public string User_Role { get; set; }
         public string User_Password { get; set; }
         public Nullable<int> User_Role_ID { get; set; }
         public Nullable<int> Audit_ID { get; set; }
@@ -31,7 +30,7 @@ namespace WindowsFormsApplication11
         public virtual Audit Audit { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employee> Employees { get; set; }
+        public virtual User_Role User_Role { get; set; }
         public virtual User_Log User_Log { get; set; }
-        public virtual User_Role User_Role1 { get; set; }
     }
 }

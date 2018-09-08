@@ -24,7 +24,6 @@ namespace WindowsFormsApplication11
         public string Customer_Name { get; set; }
         public string Customer_Surname { get; set; }
         public int Customer_Contact_Number { get; set; }
-        public string Customer_Adress { get; set; }
         public int Suburb_ID { get; set; }
         public string Customer_Address { get; set; }
         public int City_ID { get; set; }

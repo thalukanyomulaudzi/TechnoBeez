@@ -14,19 +14,10 @@ namespace WindowsFormsApplication11
     
     public partial class Special
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Special()
-        {
-            this.Customer_Order_Line = new HashSet<Customer_Order_Line>();
-        }
-    
         public int Special_ID { get; set; }
         public string Special_Description { get; set; }
         public System.DateTime Special_Start_Date { get; set; }
         public System.DateTime Special_End_Date { get; set; }
         public double Special_Discount { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customer_Order_Line> Customer_Order_Line { get; set; }
     }
 }
