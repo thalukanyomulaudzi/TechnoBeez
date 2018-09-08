@@ -87,10 +87,9 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(16, 11);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(12, 9);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(175, 40);
+            this.label14.Size = new System.Drawing.Size(143, 33);
             this.label14.TabIndex = 1;
             this.label14.Text = "Customer";
             // 
@@ -281,22 +280,6 @@
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(581, 75);
             this.panel14.TabIndex = 19;
-            // 
-            // btnUpdateEmployee
-            // 
-            this.btnUpdateEmployee.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnUpdateEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateEmployee.Image")));
-            this.btnUpdateEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdateEmployee.Location = new System.Drawing.Point(344, 25);
-            this.btnUpdateEmployee.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUpdateEmployee.Name = "btnUpdateEmployee";
-            this.btnUpdateEmployee.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnUpdateEmployee.Size = new System.Drawing.Size(112, 34);
-            this.btnUpdateEmployee.TabIndex = 59;
-            this.btnUpdateEmployee.Text = "Update";
-            this.btnUpdateEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpdateEmployee.UseVisualStyleBackColor = true;
             // 
             // button7
             // 

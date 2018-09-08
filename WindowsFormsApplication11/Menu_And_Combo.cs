@@ -18,7 +18,7 @@ namespace WindowsFormsApplication11
         {
             InitializeComponent();
         }
-        MmasweEntities5 db = new MmasweEntities5();
+        MmasweEntities13 db = new MmasweEntities13();
        
         private void btnUpload_Click(object sender, EventArgs e)
         {
@@ -97,7 +97,7 @@ namespace WindowsFormsApplication11
                     itempic.ImageID = item.Menu_Item_ID;
                     itempic.Menu_Item_ID = item.Menu_Item_ID;
                     db.ItemsPictures.Add(itempic);
-                    db.SaveChanges();
+                    //db.SaveChanges();
                 }
 
 
