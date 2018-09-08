@@ -1204,5 +1204,10 @@ namespace WindowsFormsApplication11
             PlaceOrder frm = new PlaceOrder();
             frm.ShowDialog();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

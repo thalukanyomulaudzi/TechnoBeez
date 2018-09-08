@@ -125,6 +125,7 @@
             this.linkLabelRestPassword.TabIndex = 23;
             this.linkLabelRestPassword.TabStop = true;
             this.linkLabelRestPassword.Text = "Retrieve Lost Password";
+            this.linkLabelRestPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRestPassword_LinkClicked);
             // 
             // Login
             // 

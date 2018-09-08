@@ -49,9 +49,9 @@ namespace WindowsFormsApplication11
 
             var q = from p in db.Users
 
-                    where p.nme == txtUsername.Text
+                    where p.UserName == txtUsername.Text
 
-                    && p.passw == txtPassword.Text
+                    && p.User_Password == txtPassword.Text
 
                     select p;
 
@@ -72,6 +72,12 @@ namespace WindowsFormsApplication11
                 return false;
 
             }
+        }
+
+        private void linkLabelRestPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Retrieve_Lost_Password RP = new Retrieve_Lost_Password();
+            RP.ShowDialog();
         }
     }
     }
