@@ -43,6 +43,8 @@ namespace WindowsFormsApplication11
         public virtual DbSet<Customer_Order> Customer_Order { get; set; }
         public virtual DbSet<Customer_Order_Line> Customer_Order_Line { get; set; }
         public virtual DbSet<Delivery_Status> Delivery_Status { get; set; }
+        public virtual DbSet<DeliveryLine> DeliveryLines { get; set; }
+        public virtual DbSet<DeliveryTable> DeliveryTables { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Employee_Attendence_Status> Employee_Attendence_Status { get; set; }
         public virtual DbSet<Employee_Booking_Shift> Employee_Booking_Shift { get; set; }
@@ -73,5 +75,6 @@ namespace WindowsFormsApplication11
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<User_Log> User_Log { get; set; }
         public virtual DbSet<User_Role> User_Role { get; set; }
+        public virtual DbSet<DeliveryOrder> DeliveryOrders { get; set; }
     }
 }

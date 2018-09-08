@@ -12,23 +12,18 @@ namespace WindowsFormsApplication11
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class DeliveryTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer()
+        public DeliveryTable()
         {
-            this.Customer_Order = new HashSet<Customer_Order>();
+            this.DeliveryLines = new HashSet<DeliveryLine>();
         }
     
-        public int Customer_ID { get; set; }
-        public string Customer_Name { get; set; }
-        public string Customer_Surname { get; set; }
-        public string Customer_Email { get; set; }
-        public int Customer_Contact_Number { get; set; }
-        public int Suburb_ID { get; set; }
-        public string Customer_Address { get; set; }
+        public int OrderId { get; set; }
+        public string ItemName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customer_Order> Customer_Order { get; set; }
+        public virtual ICollection<DeliveryLine> DeliveryLines { get; set; }
     }
 }

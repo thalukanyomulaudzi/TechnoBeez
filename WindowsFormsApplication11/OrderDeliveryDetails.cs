@@ -27,6 +27,9 @@ namespace WindowsFormsApplication11
         private int mOrderId;
         private int mItemQuantity;
 
+        public static List< List<OrderDeliveryDetails>> OrderList = new List<List<OrderDeliveryDetails>>();
+
+
         public static List<OrderDeliveryDetails> comboLineProds = new List<OrderDeliveryDetails>();
 
         public static List<OrderDeliveryDetails> menuLineProds = new List<OrderDeliveryDetails>();
