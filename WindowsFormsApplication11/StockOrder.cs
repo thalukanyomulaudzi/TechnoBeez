@@ -14,7 +14,9 @@ namespace WindowsFormsApplication11
     public partial class StockOrder : Form
     {
         OrderList parent;
-        MmasweEntities5 db = new MmasweEntities5();
+        MmasweEntities13 db = new MmasweEntities13();
+
+        bool isTrue = true;
         int stockID = -1;
         int supplierID = -1;
        // int index = -1;
@@ -32,6 +34,11 @@ namespace WindowsFormsApplication11
         {
              SupplierList f = new SupplierList(this);
             f.ShowDialog();
+            btnSupplierSelect.Enabled = false;
+        }
+        public void check(bool ch)
+        {
+            ch = isTrue;
         }
   
         private void btnStockSelect_Click(object sender, EventArgs e)
@@ -54,30 +61,21 @@ namespace WindowsFormsApplication11
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            Stock_Order sOrder = new Stock_Order();
-            Stock_Order_Line orderLine = new Stock_Order_Line();
-            orderLine.Stock_ID = stockID;
-            sOrder.Supplier_ID = supplierID;
-            orderLine.Stock_Order_Quantity = Convert.ToInt32(txtOrderQuantity.Text);
-            orderLine.Stock_Order_Quantity = orderLine.Stock_Order_Quantity;
-            sOrder.Stock_Order_Description = "Description";
-            sOrder.Stock_Order_Issue_Date = DateTime.Now;
-            sOrder.Stock_Order_Status_ID = 1;
+            Globals newGlobal = new Globals();
 
-            StockOrder f = new StockOrder();
-          //  if (this.Close())
-                
-            orderLine.Stock_Order_ID = sOrder.Stock_Order_ID;
-            
+            //StockOrder f = new StockOrder();
+            newGlobal.OrderNo = stockID;
+            newGlobal.sOrderQuantity = Convert.ToInt32(txtOrderQuantity.Text);
+            newGlobal.SupplierName = txtSelectSupplier.Text;
+            newGlobal.StockItemName = txtSelectStock.Text;
+            newGlobal.StockOrderDescription = "Description";
+            newGlobal.DateIssued = DateTime.Now;
 
-            db.Stock_Order_Line.Add(orderLine);
-            db.Stock_Order.Add(sOrder);
-            db.SaveChanges();
+            Globals.StockOrders.Add(newGlobal);
 
-            parent.load();
-            SendEmail();
-            // parent.loadReceivedOrder();
-            MessageBox.Show("New Order Placed");
+            txtSelectStock.Text = "";
+            txtOrderQuantity.Text="";
+
 
         }
         public void SendEmail()
@@ -86,6 +84,7 @@ namespace WindowsFormsApplication11
             Supplier_Contact_Details sc = db.Supplier_Contact_Details.Where(x => x.Supplier_Contact_ID == supplierID).FirstOrDefault();
             Stock_Item st = db.Stock_Item.Where(x=>x.Stock_ID==stockID).FirstOrDefault();
             Stock_Order_Line so = db.Stock_Order_Line.Where(x => x.Stock_Order_Line_ID == stockID).FirstOrDefault();
+
 
             try
             {
@@ -96,9 +95,16 @@ namespace WindowsFormsApplication11
                 string pswd = "@mulaudzi";
                 message.From = new MailAddress(myEmail);
                 message.Subject = "Placing an order";
-                message.Body = "Dear \n"+s.Supplier_Name+"\nWe are very interested in making an order for the following item: \n"+
-                                st.Stock_Item_Name +" Quantity"+ so.Stock_Order_Quantity +
-                                "\n\nWe look forward to your reply \n\nKind Regards Mr Mafokwane (Manager)";
+                
+                foreach (var order in Globals.StockOrders)
+                {
+                    message.Body = "Dear " + s.Supplier_Name + "\nWe are very interested in making an order for the following item: \n" +
+                    order.StockItemName + " Quantity: " + order.sOrderQuantity;
+                }
+
+                //message.Body = "Dear \n"+s.Supplier_Name+"\nWe are very interested in making an order for the following item: \n"+
+                //                st.Stock_Item_Name +" Quantity"+ so.Stock_Order_Quantity +
+                //                "\n\nWe look forward to your reply \n\nKind Regards Mr Mafokwane (Manager)";
                 //message.To.Add(sc.Supplier_Email_Adress);
                 message.To.Add("thalu0014@gmail.com");
                 client.UseDefaultCredentials = false;
@@ -114,6 +120,41 @@ namespace WindowsFormsApplication11
                 MessageBox.Show("Error "+ ex);
             }
 
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            Stock_Order sOrder = new Stock_Order();
+          
+            // orderLine.Q = orderLine.Stock_Order_Quantity;
+            sOrder.Stock_Order_Description = "Description";
+            sOrder.Stock_Order_Issue_Date = DateTime.Now;
+            sOrder.Stock_Order_Status_ID = 1;
+            sOrder.Supplier_ID = supplierID;
+            db.Stock_Order.Add(sOrder);
+            db.SaveChanges();
+            foreach (var item in Globals.StockOrders)
+            {
+                Stock_Order_Line orderLine = new Stock_Order_Line();
+                orderLine.Stock_ID = item.OrderNo;
+
+
+                orderLine.Stock_Order_Quantity = item.sOrderQuantity;
+
+                orderLine.Stock_Order_ID = sOrder.Stock_Order_ID;
+               // sOrder.Stock_Order_ID = item.OrderNo;
+
+                db.Stock_Order_Line.Add(orderLine);
+                db.SaveChanges();
+                parent.load();
+            }
+            
+            
+
+           
+            SendEmail();
+            // parent.loadReceivedOrder();
+            MessageBox.Show("New Order Placed");
         }
         //private void groupBox1_Validating(object sender, CancelEventArgs e)
         //{

@@ -13,9 +13,10 @@ namespace WindowsFormsApplication11
 {
     public partial class SupplierForm : Form
     {
-        MmasweEntities5 db = new MmasweEntities5();
+        MmasweEntities13 db = new MmasweEntities13();
         private Form2 f = null;
         int index = -1;
+        
         public SupplierForm()
         {
            
@@ -40,30 +41,34 @@ namespace WindowsFormsApplication11
                     Suburb supplierSuburb = new Suburb();
                     Banking_Details bank = new Banking_Details();
                     Adress_Type addressType = new Adress_Type();
+                    Supplier_Type sp = new Supplier_Type();
 
                     newSupplier.Supplier_Name = txtSupplierName.Text;
 
                     supplierContact.Supplier_Email_Adress = txtSupplierEmail.Text;
                     supplierContact.Supplier_Contact_Number = Convert.ToInt32(txtSupplierPhone.Text);
                     supplierContact.Supplier_Contact_Name = txtSupplierContactName.Text;
-
+                    supplierAddress.City_Name = txtCity.Text;
                     supplierAddress.Street_Name = txtStreetName.Text;
                     supplierAddress.Province = txtProvince.Text;
-                    
+
+                    supplierSuburb.Suburb_Name = txtSuburb.Text;
                     supplierSuburb.Zip_Code = txtCode.Text;
 
                     bank.Bank_Name = txtBankName.Text;
                     bank.Bank_Acc_No = Convert.ToInt32(txtAccNumber.Text);
                     bank.Branch_Code = Convert.ToInt32(txtBranchCode.Text);
+                    newSupplier.Supplier_Type_ID = cbxSupplierType.SelectedIndex;
 
                     supplierAddress.Supplier_ID = newSupplier.Supplier_ID;
                     supplierContact.Supplier_ID = newSupplier.Supplier_ID;
-                    //supplierAddress.City_ID = supplierCity.City_ID;
-                   // supplierSuburb.City_ID = supplierCity.City_ID;
+                    supplierAddress.Suburb_ID = supplierSuburb.Suburb_ID;
+                  //  supplierSuburb.City_ID = supplierCity.City_ID;
                     bank.Supplier_ID = newSupplier.Supplier_ID;
+                    //newSupplier.Supplier_Type_ID = sp.Supplier_Type_ID;
+                    
 
-
-                    db.Cities.Add(supplierCity);
+                    //db.Cities.Add(supplierCity);
                     db.Suburbs.Add(supplierSuburb);
                     db.Suppliers.Add(newSupplier);
                     db.Addresses.Add(supplierAddress);
@@ -86,6 +91,7 @@ namespace WindowsFormsApplication11
         public void View(int index)
         {
             this.index = index;
+            //this.sb = sb;
         }
         private void panel17_Paint(object sender, PaintEventArgs e)
         {
@@ -94,25 +100,30 @@ namespace WindowsFormsApplication11
 
         private void SupplierForm_Load(object sender, EventArgs e)
         {
-            Suburb supplierSuburb = new Suburb();
 
-            foreach(var item in db.Cities.Where(a=>a.City_Name!=null).ToList())
+            SupplierType sp = new SupplierType();
+            //// int index = supplierCity.City_ID;
+            foreach (var item in db.Supplier_Type.Where(a => a.Supplier_Type_Description != null).ToList())
             {
-                cbxSuburb.Items.Add(item.City_Name);
+                cbxSupplierType.Items.Add(item.Supplier_Type_Description);
             }
-            foreach (var item in db.Suburbs.Where(a => a.Suburb_Name != null).ToList())
-            {
-                cbxCity.Items.Add(item.Suburb_Name);
-            }
-           
+
+            //if(cbxSupplierType.SelectedText =="Ingredient Supplier")
+            //{
+            //    cbxSupplierType.SelectedIndex = 1;
+            //}
+            //else
+            //{
+            //    cbxSupplierType.SelectedIndex = 2;
+            //}
             if (index!=-1)
             {
 
                 Supplier newSupplier = new Supplier();
                 Supplier_Contact_Details supplierContact = new Supplier_Contact_Details();
                 Address supplierAddress = new Address();
-                City supplierCity = new City();
-               // Suburb supplierSuburb = new Suburb();
+              //  City supplierCity = new City();
+                Suburb supplierSuburb = new Suburb();
                 Banking_Details bank = new Banking_Details();
                 Adress_Type addressType = new Adress_Type();
 
@@ -122,7 +133,8 @@ namespace WindowsFormsApplication11
                 supplierAddress = db.Addresses.Single(x => x.Supplier_ID == index);
                 bank = db.Banking_Details.Single(x => x.Supplier_ID == index);
                 //supplierCity = db.Cities.FirstOrDefault(x => x.City_ID == index);
-               // supplierSuburb = db.Suburbs.Single(x=>x.City_ID==index);
+              //  supplierAddress = db.Addresses.Single(x=>x.Suburb_ID==index);
+                supplierSuburb = db.Suburbs.Single(x=>x.Suburb_ID==supplierAddress.Suburb_ID);
 
                 txtSupplierName.Text= newSupplier.Supplier_Name;
                 txtSupplierEmail.Text= supplierContact.Supplier_Email_Adress;
@@ -132,8 +144,9 @@ namespace WindowsFormsApplication11
                 txtSupplierContactP.Text = supplierContact.Supplier_Contact_Name;
                 txtStreetName.Text = supplierAddress.Street_Name;
                 txtProvince.Text= supplierAddress.Province;
-                cbxSuburb.SelectedIndex.ToString(); //= supplierCity.City_Name;//supplierCity.City_Name;
-                cbxCity.SelectedIndex.ToString(); //txtSuburb.Text = supplierSuburb.Suburb_Name;
+                txtCity.Text=supplierAddress.City_Name;//supplierCity.City_Name;
+                txtSuburb.Text = supplierSuburb.Suburb_Name;
+                txtCode.Text = supplierSuburb.Zip_Code;
 
                 txtBankName.Text= bank.Bank_Name;
                 txtAccNumber.Text = bank.Bank_Acc_No.ToString();
@@ -141,7 +154,7 @@ namespace WindowsFormsApplication11
 
                 supplierAddress.Supplier_ID = newSupplier.Supplier_ID;
                 supplierContact.Supplier_ID = newSupplier.Supplier_ID;
-               // supplierAddress.City_ID = supplierCity.City_ID;
+                supplierAddress.Suburb_ID = supplierSuburb.Suburb_ID;
                 //supplierSuburb.City_ID = supplierCity.City_ID;
             }
         }
@@ -170,8 +183,8 @@ namespace WindowsFormsApplication11
                     supplierAddress.Province = txtProvince.Text;
                     //
                     //supplierCity.City_Name = txtCity.Text;
-                    //supplierSuburb.Suburb_Name = txtSuburb.Text;
-                    //supplierSuburb.Zip_Code = Convert.ToInt32(txtCode.Text);
+                    supplierSuburb.Suburb_Name = txtSuburb.Text;
+                    supplierSuburb.Zip_Code = txtCode.Text;
 
                     bank.Bank_Name = txtBankName.Text;
                     bank.Bank_Acc_No = Convert.ToInt32(txtAccNumber.Text);
@@ -179,13 +192,13 @@ namespace WindowsFormsApplication11
 
                     supplierAddress.Supplier_ID = newSupplier.Supplier_ID;
                     supplierContact.Supplier_ID = newSupplier.Supplier_ID;
-                    //supplierAddress.City_ID = supplierCity.City_ID;
+                    supplierAddress.Suburb_ID = supplierSuburb.Suburb_ID;
                     //supplierSuburb.City_ID = supplierCity.City_ID;
                     bank.Supplier_ID = newSupplier.Supplier_ID;
 
 
                    // db.Cities.Add(supplierCity);
-                   // db.Suburbs.Add(supplierSuburb);
+                    db.Suburbs.Add(supplierSuburb);
                     db.Suppliers.Add(newSupplier);
                     db.Addresses.Add(supplierAddress);
                     db.Supplier_Contact_Details.Add(supplierContact);
@@ -201,7 +214,7 @@ namespace WindowsFormsApplication11
             }
             this.Close();
             f.loadSuppliers();
-            MessageBox.Show("Supplier details successfully added");
+            MessageBox.Show("Supplier details successfully updated");
         }
         bool IsValidEmail(string email)
         {
@@ -210,7 +223,7 @@ namespace WindowsFormsApplication11
 
         bool IsPhoneNumber(string number)
         {
-            return Regex.IsMatch(number, @"^\+27[0-9]{9}$");
+            return Regex.IsMatch(number, @"^[0-9]{9}$");
         }
 
         bool IsNumber(string number)
@@ -261,7 +274,7 @@ namespace WindowsFormsApplication11
 
         private void txtSupplierPhoneNumber_Validating(object sender, CancelEventArgs e)
         {
-            if (!IsPhoneNumber(txtSupplierPhone.Text))
+            if (!IsNumber(txtSupplierPhone.Text))
             {
                 e.Cancel = true;
                 errorProvider.SetError(txtSupplierPhone, "Please enter valid phone number");
@@ -272,7 +285,7 @@ namespace WindowsFormsApplication11
                 errorProvider.SetError(txtSupplierPhone, null);
             }
         }
-
+        
         private void txtBankName_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(txtBankName.Text))
@@ -357,19 +370,19 @@ namespace WindowsFormsApplication11
         //    }
         //}
 
-        private void txtProvince_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtProvince.Text))
-            {
-                e.Cancel = true;
-                errorProvider.SetError(txtProvince, "Please enter province");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider.SetError(txtProvince, null);
-            }
-        }
+        //private void txtProvince_Validating(object sender, CancelEventArgs e)
+        //{
+        //    if (string.IsNullOrEmpty(txtProvince.Text))
+        //    {
+        //        e.Cancel = true;
+        //        errorProvider.SetError(txtProvince, "Please enter province");
+        //    }
+        //    else
+        //    {
+        //        e.Cancel = false;
+        //        errorProvider.SetError(txtProvince, null);
+        //    }
+        //}
 
         private void txtCode_Validating(object sender, CancelEventArgs e)
         {

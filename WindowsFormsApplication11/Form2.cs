@@ -17,7 +17,7 @@ namespace WindowsFormsApplication11
     public partial class Form2 : Form
     {
         Button navButton;
-        MmasweEntities5 db = new MmasweEntities5();
+        MmasweEntities13 db = new MmasweEntities13();
         public Form2()
         {
             InitializeComponent();
@@ -418,16 +418,44 @@ namespace WindowsFormsApplication11
                 int position_xy__row = dgvSupplier.HitTest(e.X, e.Y).RowIndex;
                 if (position_xy__row >= 0)
                 {
-                    myMenu.Items.Add("Delete").Name = "Deleted";
+                    myMenu.Items.Add("Delete").Name = "Delete";
                     myMenu.Items.Add("View").Name = "View";
                 }
-
-
                 myMenu.Show(dgvSupplier, new Point(e.X, e.Y));
-                myMenu.ItemClicked += new ToolStripItemClickedEventHandler(myMenu_ItemClicked);
-                Globals.menu = myMenu;
+                int index = int.Parse(dgvSupplier.Rows[position_xy__row].Cells[0].Value.ToString());
+
+
+                myMenu.ItemClicked += new ToolStripItemClickedEventHandler((x, y) => CustomerRightClick(x, y, index, myMenu));
+                //Globals.menu = myMenu;
+
 
             }
+        }
+        void CustomerRightClick(Object sender, ToolStripItemClickedEventArgs e, int index, ContextMenuStrip my_menu)
+        {
+            if (e.ClickedItem.Name.ToString() == "Delete")
+            {
+                my_menu.Hide();
+                if (MessageBox.Show("Do you want to delete Customer?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    //Supplier sp = new Supplier();
+                    //int id = Globals.Supplierpassing;
+
+                    Customer cs = db.Customers.FirstOrDefault(c => c.Customer_ID == index);
+                    db.Customers.Remove(cs);
+                    db.SaveChanges();
+                    Globals.refresher = true;
+                    MessageBox.Show("Customer Deleted");
+                }
+            }
+            else if (e.ClickedItem.Name.ToString() == "View")
+            {
+                my_menu.Hide();
+                frmAddCustomer f = new frmAddCustomer(this);
+                f.View(index);
+                f.ShowDialog();
+            }
+
         }
 
         /*Sales Grid Mouse Click Func*/
@@ -648,6 +676,10 @@ namespace WindowsFormsApplication11
                 navigate(btnCustomer);
             }
 
+
+        }
+        public void LoadCustomers()
+        {
             var customers = from p in db.Customers
                             select new
                             {
@@ -655,9 +687,9 @@ namespace WindowsFormsApplication11
                                 CustomerName = p.Customer_Name,
                                 CustomerSurname = p.Customer_Surname,
                                 CustContactNo = p.Customer_Contact_Number,
-                               
+
                                 SuburbId = p.Suburb_ID,
-                                
+
 
 
                             };
@@ -670,7 +702,6 @@ namespace WindowsFormsApplication11
             //}
             dgvSupplier.MouseClick += new MouseEventHandler(customerClick);
         }
-
         private void inventoryBtn_Click(object sender, EventArgs e)
         {
             header.Text = "Stock";

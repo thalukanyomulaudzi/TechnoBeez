@@ -35,5 +35,6 @@ namespace WindowsFormsApplication11
         public virtual ICollection<Stock_Order> Stock_Order { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Supplier_Contact_Details> Supplier_Contact_Details { get; set; }
+        public virtual Supplier_Type Supplier_Type { get; set; }
     }
 }

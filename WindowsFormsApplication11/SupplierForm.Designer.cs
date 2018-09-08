@@ -46,16 +46,10 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbxCity = new System.Windows.Forms.ComboBox();
-            this.cbxSuburb = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.txtCode = new System.Windows.Forms.TextBox();
-            this.txtProvince = new System.Windows.Forms.TextBox();
-            this.txtStreetName = new System.Windows.Forms.TextBox();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnUpdateSupplier = new System.Windows.Forms.Button();
@@ -64,6 +58,7 @@
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cbxSupplierType = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtSupplierContactName = new System.Windows.Forms.Label();
             this.txtSupplierContactP = new System.Windows.Forms.TextBox();
@@ -74,7 +69,12 @@
             this.employeeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.genderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.cbxSupplierType = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtStreetName = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtProvince = new System.Windows.Forms.TextBox();
+            this.txtCity = new System.Windows.Forms.TextBox();
+            this.txtSuburb = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -102,7 +102,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(12, 191);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(340, 116);
+            this.groupBox1.Size = new System.Drawing.Size(309, 116);
             this.groupBox1.TabIndex = 52;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Banking Details";
@@ -202,7 +202,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(735, 41);
+            this.panel2.Size = new System.Drawing.Size(610, 41);
             this.panel2.TabIndex = 17;
             // 
             // panel1
@@ -211,7 +211,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(735, 1);
+            this.panel1.Size = new System.Drawing.Size(610, 1);
             this.panel1.TabIndex = 2;
             // 
             // label14
@@ -235,43 +235,27 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cbxCity);
-            this.groupBox2.Controls.Add(this.cbxSuburb);
+            this.groupBox2.Controls.Add(this.txtSuburb);
+            this.groupBox2.Controls.Add(this.txtCity);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.txtProvince);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.txtStreetName);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtCode);
-            this.groupBox2.Controls.Add(this.txtProvince);
-            this.groupBox2.Controls.Add(this.txtStreetName);
-            this.groupBox2.Location = new System.Drawing.Point(417, 50);
+            this.groupBox2.Location = new System.Drawing.Point(334, 47);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(292, 182);
+            this.groupBox2.Size = new System.Drawing.Size(262, 170);
             this.groupBox2.TabIndex = 44;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Address";
             // 
-            // cbxCity
-            // 
-            this.cbxCity.FormattingEnabled = true;
-            this.cbxCity.Location = new System.Drawing.Point(79, 84);
-            this.cbxCity.Name = "cbxCity";
-            this.cbxCity.Size = new System.Drawing.Size(155, 21);
-            this.cbxCity.TabIndex = 11;
-            // 
-            // cbxSuburb
-            // 
-            this.cbxSuburb.FormattingEnabled = true;
-            this.cbxSuburb.Location = new System.Drawing.Point(79, 57);
-            this.cbxSuburb.Name = "cbxSuburb";
-            this.cbxSuburb.Size = new System.Drawing.Size(155, 21);
-            this.cbxSuburb.TabIndex = 10;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 57);
+            this.label11.Location = new System.Drawing.Point(6, 87);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(44, 13);
             this.label11.TabIndex = 9;
@@ -280,62 +264,28 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 87);
+            this.label10.Location = new System.Drawing.Point(6, 57);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(27, 13);
             this.label10.TabIndex = 8;
             this.label10.Text = "City:";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 115);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(52, 13);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "Province:";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 151);
+            this.label8.Location = new System.Drawing.Point(6, 138);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 13);
             this.label8.TabIndex = 6;
             this.label8.Text = "Code:";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 31);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Street name:";
-            // 
             // txtCode
             // 
-            this.txtCode.Location = new System.Drawing.Point(79, 144);
+            this.txtCode.Location = new System.Drawing.Point(80, 135);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(87, 20);
             this.txtCode.TabIndex = 4;
             this.txtCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtCode_Validating);
-            // 
-            // txtProvince
-            // 
-            this.txtProvince.Location = new System.Drawing.Point(79, 115);
-            this.txtProvince.Name = "txtProvince";
-            this.txtProvince.Size = new System.Drawing.Size(155, 20);
-            this.txtProvince.TabIndex = 3;
-            this.txtProvince.Validating += new System.ComponentModel.CancelEventHandler(this.txtProvince_Validating);
-            // 
-            // txtStreetName
-            // 
-            this.txtStreetName.Location = new System.Drawing.Point(79, 24);
-            this.txtStreetName.Name = "txtStreetName";
-            this.txtStreetName.Size = new System.Drawing.Size(155, 20);
-            this.txtStreetName.TabIndex = 0;
-            this.txtStreetName.Validating += new System.ComponentModel.CancelEventHandler(this.txtStreetName_Validating);
             // 
             // panel14
             // 
@@ -344,17 +294,17 @@
             this.panel14.Controls.Add(this.panel17);
             this.panel14.Controls.Add(this.panel15);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel14.Location = new System.Drawing.Point(0, 337);
+            this.panel14.Location = new System.Drawing.Point(0, 330);
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(735, 39);
+            this.panel14.Size = new System.Drawing.Size(610, 39);
             this.panel14.TabIndex = 18;
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.btnUpdateSupplier);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(417, 0);
+            this.panel4.Location = new System.Drawing.Point(292, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(209, 38);
             this.panel4.TabIndex = 10;
@@ -379,7 +329,7 @@
             // 
             this.panel17.Controls.Add(this.btnSaveSupplier);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel17.Location = new System.Drawing.Point(626, 0);
+            this.panel17.Location = new System.Drawing.Point(501, 0);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(109, 38);
             this.panel17.TabIndex = 8;
@@ -407,7 +357,7 @@
             this.panel15.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel15.Location = new System.Drawing.Point(0, 38);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(735, 1);
+            this.panel15.Size = new System.Drawing.Size(610, 1);
             this.panel15.TabIndex = 0;
             // 
             // panel3
@@ -419,18 +369,26 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(735, 376);
+            this.panel3.Size = new System.Drawing.Size(610, 369);
             this.panel3.TabIndex = 19;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.cbxSupplierType);
-            this.groupBox4.Location = new System.Drawing.Point(417, 239);
+            this.groupBox4.Location = new System.Drawing.Point(334, 223);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(292, 56);
+            this.groupBox4.Size = new System.Drawing.Size(262, 56);
             this.groupBox4.TabIndex = 61;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Supplier Type";
+            // 
+            // cbxSupplierType
+            // 
+            this.cbxSupplierType.FormattingEnabled = true;
+            this.cbxSupplierType.Location = new System.Drawing.Point(6, 19);
+            this.cbxSupplierType.Name = "cbxSupplierType";
+            this.cbxSupplierType.Size = new System.Drawing.Size(213, 21);
+            this.cbxSupplierType.TabIndex = 12;
             // 
             // groupBox3
             // 
@@ -444,7 +402,7 @@
             this.groupBox3.Controls.Add(this.txtSupplierEmail);
             this.groupBox3.Location = new System.Drawing.Point(12, 44);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(340, 141);
+            this.groupBox3.Size = new System.Drawing.Size(309, 141);
             this.groupBox3.TabIndex = 53;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Supplier Details";
@@ -486,19 +444,57 @@
             // 
             this.genderBindingSource1.DataMember = "Gender";
             // 
-            // cbxSupplierType
+            // label7
             // 
-            this.cbxSupplierType.FormattingEnabled = true;
-            this.cbxSupplierType.Location = new System.Drawing.Point(6, 19);
-            this.cbxSupplierType.Name = "cbxSupplierType";
-            this.cbxSupplierType.Size = new System.Drawing.Size(213, 21);
-            this.cbxSupplierType.TabIndex = 12;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 118);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 13);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Street name:";
+            // 
+            // txtStreetName
+            // 
+            this.txtStreetName.Location = new System.Drawing.Point(78, 109);
+            this.txtStreetName.Name = "txtStreetName";
+            this.txtStreetName.Size = new System.Drawing.Size(155, 20);
+            this.txtStreetName.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(5, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Province:";
+            // 
+            // txtProvince
+            // 
+            this.txtProvince.Location = new System.Drawing.Point(78, 24);
+            this.txtProvince.Name = "txtProvince";
+            this.txtProvince.Size = new System.Drawing.Size(155, 20);
+            this.txtProvince.TabIndex = 12;
+            // 
+            // txtCity
+            // 
+            this.txtCity.Location = new System.Drawing.Point(78, 54);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(155, 20);
+            this.txtCity.TabIndex = 14;
+            // 
+            // txtSuburb
+            // 
+            this.txtSuburb.Location = new System.Drawing.Point(78, 83);
+            this.txtSuburb.Name = "txtSuburb";
+            this.txtSuburb.Size = new System.Drawing.Size(155, 20);
+            this.txtSuburb.TabIndex = 15;
             // 
             // SupplierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 376);
+            this.ClientSize = new System.Drawing.Size(610, 369);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel3);
@@ -548,12 +544,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCode;
-        private System.Windows.Forms.TextBox txtProvince;
-        private System.Windows.Forms.TextBox txtStreetName;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnUpdateSupplier;
@@ -572,8 +564,12 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label txtSupplierContactName;
         private System.Windows.Forms.TextBox txtSupplierContactP;
-        private System.Windows.Forms.ComboBox cbxCity;
-        private System.Windows.Forms.ComboBox cbxSuburb;
         private System.Windows.Forms.ComboBox cbxSupplierType;
+        private System.Windows.Forms.TextBox txtSuburb;
+        private System.Windows.Forms.TextBox txtCity;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtProvince;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtStreetName;
     }
 }

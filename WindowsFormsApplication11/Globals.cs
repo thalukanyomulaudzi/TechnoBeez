@@ -45,6 +45,44 @@ namespace WindowsFormsApplication11
         private int mOrderQuantity;
         private string mOrderItemNotes;
 
+        private string mStockOrderDescription;
+        private string mSupplierName;
+        private int mOrderNo;
+        private int msOrderQuantity;
+        private string mStockItemName;
+        private DateTime mDateIssued;
+
+        public string StockOrderDescription
+        {
+            get { return mStockOrderDescription; }
+            set { mStockOrderDescription = value; }
+        }
+        public string SupplierName
+        {
+            get { return mSupplierName; }
+            set { mSupplierName = value; }
+        }
+        public int OrderNo
+        {
+            get { return mOrderNo; }
+            set { mOrderNo = value; }
+        }
+        public int sOrderQuantity
+        {
+            get { return msOrderQuantity; }
+            set { msOrderQuantity = value; }
+        }
+        public string StockItemName
+        {
+            get { return mStockItemName; }
+            set { mStockItemName = value; }
+        }
+        public DateTime DateIssued
+        {
+            get { return mDateIssued; }
+            set { mDateIssued = value; }
+        }
+
         public string OrderItemNotes
         {
             get
@@ -123,7 +161,7 @@ namespace WindowsFormsApplication11
         public static List<Globals> ComboItems = new List<Globals>();
         public static List<Globals> MenuItems = new List<Globals>();
         public static List<Globals> StockItems = new List<Globals>();
-
+        public static List<Globals> StockOrders = new List<Globals>();
         public static string fileName;
 
 

@@ -10,11 +10,10 @@
 namespace WindowsFormsApplication11
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class City
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public string City_ID { get; set; }
-        public string City_Name { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
