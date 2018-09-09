@@ -65,7 +65,7 @@ namespace WindowsFormsApplication11
                     supplierAddress.Suburb_ID = supplierSuburb.Suburb_ID;
                   //  supplierSuburb.City_ID = supplierCity.City_ID;
                     bank.Supplier_ID = newSupplier.Supplier_ID;
-                    //newSupplier.Supplier_Type_ID = sp.Supplier_Type_ID;
+                    newSupplier.Supplier_Type_ID = sp.Supplier_Type_ID;
                     
 
                     //db.Cities.Add(supplierCity);
@@ -215,6 +215,7 @@ namespace WindowsFormsApplication11
                     supplierAddress.Suburb_ID = supplierSuburb.Suburb_ID;
                     //supplierSuburb.City_ID = supplierCity.City_ID;
                     bank.Supplier_ID = newSupplier.Supplier_ID;
+                    //newSupplier.Supplier_Type_ID = sp
 
 
                    // db.Cities.Add(supplierCity);

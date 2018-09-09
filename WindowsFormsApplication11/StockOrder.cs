@@ -13,18 +13,24 @@ namespace WindowsFormsApplication11
 {
     public partial class StockOrder : Form
     {
-        OrderList parent;
+       // OrderList parent;
+        ListStockOrderItems parent;
         MmasweEntities5 db = new MmasweEntities5();
 
         bool isTrue = true;
         int stockID = -1;
         int supplierID = -1;
-       // int index = -1;
+        ListStockOrderItems list = new ListStockOrderItems();
+        // int index = -1;
         public StockOrder()
         {
             InitializeComponent();
         }
-        public StockOrder(OrderList f)
+        public string Get_SupplierText()
+        {
+            return txtSelectSupplier.Text;
+        }
+        public StockOrder(ListStockOrderItems f)
         {
             InitializeComponent();
             parent = f;
@@ -32,9 +38,15 @@ namespace WindowsFormsApplication11
 
         private void btnSupplierSelect_Click(object sender, EventArgs e)
         {
-             SupplierList f = new SupplierList(this);
-            f.ShowDialog();
-            btnSupplierSelect.Enabled = false;
+             SupplierList f1 = new SupplierList(this);
+            f1.ShowDialog();
+            if(txtSelectSupplier.Text!="")
+            {
+                btnSupplierSelect.Enabled = false;
+            }
+            else
+                btnSupplierSelect.Enabled = true;
+
         }
         public void check(bool ch)
         {
@@ -61,6 +73,7 @@ namespace WindowsFormsApplication11
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
+
             Globals newGlobal = new Globals();
 
             //StockOrder f = new StockOrder();
@@ -68,20 +81,21 @@ namespace WindowsFormsApplication11
             newGlobal.sOrderQuantity = Convert.ToInt32(txtOrderQuantity.Text);
             newGlobal.SupplierName = txtSelectSupplier.Text;
             newGlobal.StockItemName = txtSelectStock.Text;
-            newGlobal.StockOrderDescription = "Description";
+            newGlobal.StockOrderDescription = richTextBox1.Text;
             newGlobal.DateIssued = DateTime.Now;
 
             Globals.StockOrders.Add(newGlobal);
 
-            txtSelectStock.Text = "";
-            txtOrderQuantity.Text="";
-
-
+            list.ShowDialog();
+        }
+        public string StockOrderDescription()
+        {
+            return richTextBox1.Text;
         }
         public void SendEmail()
         {
             Supplier s = db.Suppliers.Where(x => x.Supplier_ID == supplierID).FirstOrDefault();
-            Supplier_Contact_Details sc = db.Supplier_Contact_Details.Where(x => x.Supplier_Contact_ID == supplierID).FirstOrDefault();
+            Supplier_Contact_Details sc = db.Supplier_Contact_Details.Where(x => x.Supplier_Contact_ID == s.Supplier_ID).FirstOrDefault();
             Stock_Item st = db.Stock_Item.Where(x=>x.Stock_ID==stockID).FirstOrDefault();
             Stock_Order_Line so = db.Stock_Order_Line.Where(x => x.Stock_Order_Line_ID == stockID).FirstOrDefault();
 
@@ -98,15 +112,16 @@ namespace WindowsFormsApplication11
                 
                 foreach (var order in Globals.StockOrders)
                 {
-                    message.Body = "Dear " + s.Supplier_Name + "\nWe are very interested in making an order for the following item: \n" +
-                    order.StockItemName + " Quantity: " + order.sOrderQuantity;
+                    message.Body = "Dear " + s.Supplier_Name + "\nWe are very interested in making an order for the following item:\n\n" +
+                    order.StockItemName + "     Quantity: " + order.sOrderQuantity +
+                    "\n\nWe look forward to your reply \n\nKind Regards Mr Mafokwane (Manager)";
                 }
 
                 //message.Body = "Dear \n"+s.Supplier_Name+"\nWe are very interested in making an order for the following item: \n"+
                 //                st.Stock_Item_Name +" Quantity"+ so.Stock_Order_Quantity +
                 //                "\n\nWe look forward to your reply \n\nKind Regards Mr Mafokwane (Manager)";
                 //message.To.Add(sc.Supplier_Email_Adress);
-                message.To.Add("thalu0014@gmail.com");
+                message.To.Add(sc.Supplier_Email_Adress);
                 client.UseDefaultCredentials = false;
                 client.EnableSsl = true;
 
@@ -124,37 +139,135 @@ namespace WindowsFormsApplication11
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            Stock_Order sOrder = new Stock_Order();
+            //if (txtOrderQuantity.Text == "" && txtSelectStock.Text == "" && txtSelectSupplier.Text == "")
+            //{
+            //    btnSubmit.Enabled = false;
+            //}
+            //else
+            //    btnSubmit.Enabled = true;
+            //Stock_Order sOrder = new Stock_Order();
           
-            // orderLine.Q = orderLine.Stock_Order_Quantity;
-            sOrder.Stock_Order_Description = "Description";
-            sOrder.Stock_Order_Issue_Date = DateTime.Now;
-            sOrder.Stock_Order_Status_ID = 1;
-            sOrder.Supplier_ID = supplierID;
-            db.Stock_Order.Add(sOrder);
-            db.SaveChanges();
-            foreach (var item in Globals.StockOrders)
-            {
-                Stock_Order_Line orderLine = new Stock_Order_Line();
-                orderLine.Stock_ID = item.OrderNo;
+            //// orderLine.Q = orderLine.Stock_Order_Quantity;
+            //sOrder.Stock_Order_Description = "Description";
+            //sOrder.Stock_Order_Issue_Date = DateTime.Now;
+            //sOrder.Stock_Order_Status_ID = 1;
+            //sOrder.Supplier_ID = supplierID;
+            //db.Stock_Order.Add(sOrder);
+            //db.SaveChanges();
+            //foreach (var item in Globals.StockOrders)
+            //{
+            //    Stock_Order_Line orderLine = new Stock_Order_Line();
+            //    orderLine.Stock_ID = item.OrderNo;
 
 
-                orderLine.Stock_Order_Quantity = item.sOrderQuantity;
+            //    orderLine.Stock_Order_Quantity = item.sOrderQuantity;
 
-                orderLine.Stock_Order_ID = sOrder.Stock_Order_ID;
-               // sOrder.Stock_Order_ID = item.OrderNo;
+            //    orderLine.Stock_Order_ID = sOrder.Stock_Order_ID;
+            //   // sOrder.Stock_Order_ID = item.OrderNo;
 
-                db.Stock_Order_Line.Add(orderLine);
-                db.SaveChanges();
-                parent.load();
-            }
+            //    db.Stock_Order_Line.Add(orderLine);
+            //    db.SaveChanges();
+            //   // parent.load();
+
+
+            //}
             
             
 
            
-            SendEmail();
-            // parent.loadReceivedOrder();
-            MessageBox.Show("New Order Placed");
+            //SendEmail();
+            //// parent.loadReceivedOrder();
+            //MessageBox.Show("New Order Placed");
+        }
+
+        private void StockOrder_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel17_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel14_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel15_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSelectStock_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtOrderQuantity_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void employeeTypeBindingSource2_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void genderBindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void genderBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void employeeTypeBindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void employeeTypeBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
         //private void groupBox1_Validating(object sender, CancelEventArgs e)
         //{

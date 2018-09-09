@@ -362,7 +362,7 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
           <Property Name="Stock_Order_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Stock_Order_Description" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Stock_Order_Issue_Date" Type="datetime" Nullable="false" />
-          <Property Name="Employee_ID" Type="int" />
+          <Property Name="DateReceived" Type="datetime" />
           <Property Name="Stock_Order_Status_ID" Type="int" />
           <Property Name="Supplier_ID" Type="int" />
           <Property Name="DateReceived" Type="datetime" />
@@ -374,7 +374,6 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
           <Property Name="Stock_ID" Type="int" />
           <Property Name="Stock_Order_ID" Type="int" />
           <Property Name="Stock_Order_Quantity" Type="int" Nullable="false" />
-          <Property Name="Quantity_Received" Type="int" Nullable="false" />
           <Property Name="Stock_Order_Line_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Stock_Order_Status">
@@ -897,19 +896,19 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Stock_Order_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="Stock_Order" Type="Self.Stock_Order" Multiplicity="*" />
+        <Association Name="FK_Stock_Order_Line_Stock_Item">
+          <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="0..1" />
+          <End Role="Stock_Order_Line" Type="Self.Stock_Order_Line" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Employee_ID" />
+            <Principal Role="Stock_Item">
+              <PropertyRef Name="Stock_ID" />
             </Principal>
-            <Dependent Role="Stock_Order">
-              <PropertyRef Name="Employee_ID" />
+            <Dependent Role="Stock_Order_Line">
+              <PropertyRef Name="Stock_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Stock_Order_Line_Stock_Item">
+        <Association Name="FK_Stock_Order_Line_Stock_Item1">
           <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="0..1" />
           <End Role="Stock_Order_Line" Type="Self.Stock_Order_Line" Multiplicity="*" />
           <ReferentialConstraint>
@@ -990,6 +989,18 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
             </Principal>
             <Dependent Role="Supplier_Contact_Details">
               <PropertyRef Name="Supplier_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supplier_Supplier_Type">
+          <End Role="Supplier_Type" Type="Self.Supplier_Type" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier_Type">
+              <PropertyRef Name="Supplier_Type_ID" />
+            </Principal>
+            <Dependent Role="Supplier">
+              <PropertyRef Name="Supplier_Type_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1229,11 +1240,11 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
             <End Role="Stock_Type" EntitySet="Stock_Type" />
             <End Role="Stock_Item" EntitySet="Stock_Item" />
           </AssociationSet>
-          <AssociationSet Name="FK_Stock_Order_Employee" Association="Self.FK_Stock_Order_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Stock_Order" EntitySet="Stock_Order" />
-          </AssociationSet>
           <AssociationSet Name="FK_Stock_Order_Line_Stock_Item" Association="Self.FK_Stock_Order_Line_Stock_Item">
+            <End Role="Stock_Item" EntitySet="Stock_Item" />
+            <End Role="Stock_Order_Line" EntitySet="Stock_Order_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Order_Line_Stock_Item1" Association="Self.FK_Stock_Order_Line_Stock_Item1">
             <End Role="Stock_Item" EntitySet="Stock_Item" />
             <End Role="Stock_Order_Line" EntitySet="Stock_Order_Line" />
           </AssociationSet>
@@ -1260,6 +1271,10 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
           <AssociationSet Name="FK_Supplier_Contact_Details_Supplier" Association="Self.FK_Supplier_Contact_Details_Supplier">
             <End Role="Supplier" EntitySet="Supplier" />
             <End Role="Supplier_Contact_Details" EntitySet="Supplier_Contact_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supplier_Supplier_Type" Association="Self.FK_Supplier_Supplier_Type">
+            <End Role="Supplier_Type" EntitySet="Supplier_Type" />
+            <End Role="Supplier" EntitySet="Supplier" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Audit" Association="Self.FK_User_Audit">
             <End Role="Audit" EntitySet="Audit" />
@@ -1538,7 +1553,6 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
           <NavigationProperty Name="Employee_Booking_Shift" Relationship="Self.FK_Employee_Booking_Shift_Employee" FromRole="Employee" ToRole="Employee_Booking_Shift" />
           <NavigationProperty Name="Employee_Gender_" Relationship="Self.FK_Employee_Employee_Gender_" FromRole="Employee" ToRole="Employee_Gender_" />
           <NavigationProperty Name="User" Relationship="Self.FK_Employee_User" FromRole="Employee" ToRole="User" />
-          <NavigationProperty Name="Stock_Order" Relationship="Self.FK_Stock_Order_Employee" FromRole="Employee" ToRole="Stock_Order" />
         </EntityType>
         <EntityType Name="Employee_Attendence_Status">
           <Key>
@@ -1687,6 +1701,7 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
           <NavigationProperty Name="Stock_Price" Relationship="Self.FK_Stock_Item_Stock_Price" FromRole="Stock_Item" ToRole="Stock_Price" />
           <NavigationProperty Name="Stock_Type" Relationship="Self.FK_Stock_Item_Stock_Type" FromRole="Stock_Item" ToRole="Stock_Type" />
           <NavigationProperty Name="Stock_Order_Line" Relationship="Self.FK_Stock_Order_Line_Stock_Item" FromRole="Stock_Item" ToRole="Stock_Order_Line" />
+          <NavigationProperty Name="Stock_Order_Line1" Relationship="Self.FK_Stock_Order_Line_Stock_Item1" FromRole="Stock_Item" ToRole="Stock_Order_Line" />
           <NavigationProperty Name="Stock_WriteOff_Line" Relationship="Self.FK_Stock_WriteOff_Line_Stock_Item" FromRole="Stock_Item" ToRole="Stock_WriteOff_Line" />
         </EntityType>
         <EntityType Name="Stock_Order">
@@ -1696,10 +1711,9 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
           <Property Name="Stock_Order_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Stock_Order_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Stock_Order_Issue_Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Employee_ID" Type="Int32" />
+          <Property Name="DateReceived" Type="DateTime" Precision="3" />
           <Property Name="Stock_Order_Status_ID" Type="Int32" />
           <Property Name="Supplier_ID" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Stock_Order_Employee" FromRole="Stock_Order" ToRole="Employee" />
           <NavigationProperty Name="Stock_Order_Line" Relationship="Self.FK_Stock_Order_Line_Stock_Order" FromRole="Stock_Order" ToRole="Stock_Order_Line" />
           <NavigationProperty Name="Stock_Order_Status" Relationship="Self.FK_Stock_Order_Stock_Order_Status" FromRole="Stock_Order" ToRole="Stock_Order_Status" />
           <NavigationProperty Name="Supplier" Relationship="Self.FK_Stock_Order_Supplier" FromRole="Stock_Order" ToRole="Supplier" />
@@ -1712,9 +1726,9 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
           <Property Name="Stock_ID" Type="Int32" />
           <Property Name="Stock_Order_ID" Type="Int32" />
           <Property Name="Stock_Order_Quantity" Type="Int32" Nullable="false" />
-          <Property Name="Quantity_Received" Type="Int32" Nullable="false" />
           <Property Name="Stock_Order_Line_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Stock_Item" Relationship="Self.FK_Stock_Order_Line_Stock_Item" FromRole="Stock_Order_Line" ToRole="Stock_Item" />
+          <NavigationProperty Name="Stock_Item1" Relationship="Self.FK_Stock_Order_Line_Stock_Item1" FromRole="Stock_Order_Line" ToRole="Stock_Item" />
           <NavigationProperty Name="Stock_Order" Relationship="Self.FK_Stock_Order_Line_Stock_Order" FromRole="Stock_Order_Line" ToRole="Stock_Order" />
         </EntityType>
         <EntityType Name="Stock_Order_Status">
@@ -1786,6 +1800,7 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
           <NavigationProperty Name="Banking_Details" Relationship="Self.FK_Banking_Details_Supplier" FromRole="Supplier" ToRole="Banking_Details" />
           <NavigationProperty Name="Stock_Order" Relationship="Self.FK_Stock_Order_Supplier" FromRole="Supplier" ToRole="Stock_Order" />
           <NavigationProperty Name="Supplier_Contact_Details" Relationship="Self.FK_Supplier_Contact_Details_Supplier" FromRole="Supplier" ToRole="Supplier_Contact_Details" />
+          <NavigationProperty Name="Supplier_Type" Relationship="Self.FK_Supplier_Supplier_Type" FromRole="Supplier" ToRole="Supplier_Type" />
         </EntityType>
         <EntityType Name="Supplier_Contact_Details">
           <Key>
@@ -1804,6 +1819,7 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
           </Key>
           <Property Name="Supplier_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Supplier_Type_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Suppliers" Relationship="Self.FK_Supplier_Supplier_Type" FromRole="Supplier_Type" ToRole="Supplier" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -2176,18 +2192,6 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Stock_Order_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="Stock_Order" Type="Self.Stock_Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Employee_ID" />
-            </Principal>
-            <Dependent Role="Stock_Order">
-              <PropertyRef Name="Employee_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Employee_Attendence_Status_Employee_Booking_Shift">
           <End Role="Employee_Booking_Shift" Type="Self.Employee_Booking_Shift" Multiplicity="0..1" />
           <End Role="Employee_Attendence_Status" Type="Self.Employee_Attendence_Status" Multiplicity="*" />
@@ -2310,6 +2314,18 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Stock_Order_Line_Stock_Item1">
+          <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="0..1" />
+          <End Role="Stock_Order_Line" Type="Self.Stock_Order_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Item">
+              <PropertyRef Name="Stock_ID" />
+            </Principal>
+            <Dependent Role="Stock_Order_Line">
+              <PropertyRef Name="Stock_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Stock_WriteOff_Line_Stock_Item">
           <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="0..1" />
           <End Role="Stock_WriteOff_Line" Type="Self.Stock_WriteOff_Line" Multiplicity="*" />
@@ -2379,6 +2395,18 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
             </Principal>
             <Dependent Role="Supplier_Contact_Details">
               <PropertyRef Name="Supplier_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supplier_Supplier_Type">
+          <End Role="Supplier_Type" Type="Self.Supplier_Type" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier_Type">
+              <PropertyRef Name="Supplier_Type_ID" />
+            </Principal>
+            <Dependent Role="Supplier">
+              <PropertyRef Name="Supplier_Type_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2562,10 +2590,6 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
             <End Role="User" EntitySet="Users" />
             <End Role="Employee" EntitySet="Employees" />
           </AssociationSet>
-          <AssociationSet Name="FK_Stock_Order_Employee" Association="Self.FK_Stock_Order_Employee">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="Stock_Order" EntitySet="Stock_Order" />
-          </AssociationSet>
           <AssociationSet Name="FK_Employee_Attendence_Status_Employee_Booking_Shift" Association="Self.FK_Employee_Attendence_Status_Employee_Booking_Shift">
             <End Role="Employee_Booking_Shift" EntitySet="Employee_Booking_Shift" />
             <End Role="Employee_Attendence_Status" EntitySet="Employee_Attendence_Status" />
@@ -2606,6 +2630,10 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
             <End Role="Stock_Item" EntitySet="Stock_Item" />
             <End Role="Stock_Order_Line" EntitySet="Stock_Order_Line" />
           </AssociationSet>
+          <AssociationSet Name="FK_Stock_Order_Line_Stock_Item1" Association="Self.FK_Stock_Order_Line_Stock_Item1">
+            <End Role="Stock_Item" EntitySet="Stock_Item" />
+            <End Role="Stock_Order_Line" EntitySet="Stock_Order_Line" />
+          </AssociationSet>
           <AssociationSet Name="FK_Stock_WriteOff_Line_Stock_Item" Association="Self.FK_Stock_WriteOff_Line_Stock_Item">
             <End Role="Stock_Item" EntitySet="Stock_Item" />
             <End Role="Stock_WriteOff_Line" EntitySet="Stock_WriteOff_Line" />
@@ -2629,6 +2657,10 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
           <AssociationSet Name="FK_Supplier_Contact_Details_Supplier" Association="Self.FK_Supplier_Contact_Details_Supplier">
             <End Role="Supplier" EntitySet="Suppliers" />
             <End Role="Supplier_Contact_Details" EntitySet="Supplier_Contact_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supplier_Supplier_Type" Association="Self.FK_Supplier_Supplier_Type">
+            <End Role="Supplier_Type" EntitySet="Supplier_Type" />
+            <End Role="Supplier" EntitySet="Suppliers" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Us" Association="Self.FK_User_Us">
             <End Role="User_Role" EntitySet="User_Role" />
@@ -3029,7 +3061,7 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
                 <ScalarProperty Name="Stock_Order_ID" ColumnName="Stock_Order_ID" />
                 <ScalarProperty Name="Stock_Order_Description" ColumnName="Stock_Order_Description" />
                 <ScalarProperty Name="Stock_Order_Issue_Date" ColumnName="Stock_Order_Issue_Date" />
-                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
                 <ScalarProperty Name="Stock_Order_Status_ID" ColumnName="Stock_Order_Status_ID" />
                 <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
               </MappingFragment>
@@ -3041,7 +3073,6 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
                 <ScalarProperty Name="Stock_ID" ColumnName="Stock_ID" />
                 <ScalarProperty Name="Stock_Order_ID" ColumnName="Stock_Order_ID" />
                 <ScalarProperty Name="Stock_Order_Quantity" ColumnName="Stock_Order_Quantity" />
-                <ScalarProperty Name="Quantity_Received" ColumnName="Quantity_Received" />
                 <ScalarProperty Name="Stock_Order_Line_ID" ColumnName="Stock_Order_Line_ID" />
               </MappingFragment>
             </EntityTypeMapping>
