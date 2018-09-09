@@ -26,14 +26,15 @@ namespace WindowsFormsApplication11
 
         private void button18_Click(object sender, EventArgs e)
         {
-            StockOrder f = new StockOrder(this);
-            f.ShowDialog();
+            //ListStockOrderItems m = new ListStockOrderItems();
+            SupplierForm m = new SupplierForm();
+            m.ShowDialog();
         }
         public void load()
         {
             var orderList = from p in db.Stock_Order.Where(x => x.Stock_Order_Status_ID == 1)
                             join q in db.Stock_Order_Line
-                                on p.Stock_Order_ID equals q.Stock_Order_Line_ID
+                                on p.Stock_Order_ID equals q.Stock_Order_ID
                             join x in db.Stock_Order_Status
                                 on p.Stock_Order_Status_ID equals x.Stock_Order_Status_ID
 

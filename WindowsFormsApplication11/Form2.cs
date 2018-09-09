@@ -552,20 +552,31 @@ namespace WindowsFormsApplication11
         }
         void supplierClick(Object sender, ToolStripItemClickedEventArgs e, int index, ContextMenuStrip my_menu)
         {
+            StockOrder orders = new StockOrder();
+            string text = orders.Get_SupplierText();
             if (e.ClickedItem.Name.ToString() == "Delete")
             {
                 my_menu.Hide();
-                if (MessageBox.Show("Do you want to delete Supplier?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    //Supplier sp = new Supplier();
-                    //int id = Globals.Supplierpassing;
+                Supplier sp = db.Suppliers.FirstOrDefault(c => c.Supplier_ID == index);
+                //Globals so = Globals.StockOrders.FirstOrDefault(x => x.SupplierName == text);
 
-                    Supplier sp = db.Suppliers.FirstOrDefault(c => c.Supplier_ID == index);
-                    db.Suppliers.Remove(sp);
-                    db.SaveChanges();
-                    Globals.refresher = true;
-                    MessageBox.Show("Supplier Deleted");
+                //Supplier s = new Supplier();
+                Stock_Order sso =db.Stock_Order.FirstOrDefault(x => x.Supplier_ID == sp.Supplier_ID);
+                if(sso==null)
+                {
+                    if (MessageBox.Show("Do you want to delete Supplier?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+
+                        db.Suppliers.Remove(sp);
+                        db.SaveChanges();
+                        Globals.refresher = true;
+                        MessageBox.Show("Supplier Deleted ");
+                    }
                 }
+                else
+                    MessageBox.Show("Cannot delete supplier! Order has already been placed");
+                //MessageBox.Show(so.ToString());
+
             }
             else if (e.ClickedItem.Name.ToString() == "View")
             {
@@ -705,7 +716,7 @@ namespace WindowsFormsApplication11
         private void inventoryBtn_Click(object sender, EventArgs e)
         {
             header.Text = "Stock";
-            btnTheAdd.Text = "Add Stock Item";
+            //btnTheAdd.Text = "Add Stock Item";
             
             if (navButton != btnStock)
             {
@@ -873,10 +884,10 @@ namespace WindowsFormsApplication11
         {
             var customers = from p in db.Suppliers
                             join q in db.Addresses
-                                on p.Supplier_ID equals q.Address_ID
+                                on p.Supplier_ID equals q.Supplier_ID
 
                             join y in db.Supplier_Contact_Details
-                                on p.Supplier_ID equals y.Supplier_Contact_ID
+                                on p.Supplier_ID equals y.Supplier_ID
                             select new
                             {
                                 SupplierId = p.Supplier_ID,
@@ -975,7 +986,42 @@ namespace WindowsFormsApplication11
               
             }
 
+            if (navButton == btnSuppliers11)
+            {
+                int id = 900000000;
+                double Quantity = 9000000000;
+                if (!(txtSearchNew.Text == ""))
+                {
+                    int number;
+                    bool result = Int32.TryParse(txtSearchNew.Text, out number);
+                    if (result)
+                    {
+                        // Conversion to a number was successful.
+                        // The number variable contains your value. 
+                        id = Convert.ToInt32(txtSearchNew.Text);
+                        Quantity = (Convert.ToDouble(txtSearchNew.Text));
+                    }
+                    else
+                    {
+                        id = 900000000;
+                        Quantity = 9000000000;
 
+                    }
+                    Supplier s = new Supplier();
+                    s.Supplier_ID = id;
+                //    Supplier_Contact_Details scd = db.Suppliers.FirstOrDefault(x => x.Supplier_ID == s.Supplier_ID);
+                //    dgvSupplier.DataSource = db.Suppliers.Where(c => c.Supplier_ID == id || c.Supplier_Name.Contains(txtSearchNew.Text)
+                //    || scd.Supplier_Email_Adress.Contains(txtSearchNew.Text) || c.Stock_Item_Quantity == Quantity).ToList();
+                }
+
+                else
+                {
+
+                    dgvSupplier.DataSource = db.Stock_Item.ToList();
+                }
+
+
+            }
             if (navButton == btnCombo)
             {
                 int id = 900000000;
@@ -1226,7 +1272,7 @@ namespace WindowsFormsApplication11
 
         private void btnOrderList_Click(object sender, EventArgs e)
         {
-            OrderList f = new OrderList(this);
+            OrderList f = new OrderList();
             f.ShowDialog();
         }
 
