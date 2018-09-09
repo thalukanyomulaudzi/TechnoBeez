@@ -85,8 +85,28 @@ namespace WindowsFormsApplication11
             }
 
             f.loadSuppliers();
+
+
+          
+
             MessageBox.Show("Supplier details successfully added");
-            Globals.refresher = true;
+
+            txtAccNumber.Text = "";
+            txtBankName.Text = "";
+            txtBranchCode.Text = "";
+            txtCity.Text = "";
+            txtProvince.Text = "";
+            txtSuburb.Text = "";
+            txtSupplierEmail.Text = "";
+            txtSupplierPhone.Text = "";
+            txtSupplierContactName.Text = "";
+            txtSupplierContactP.Text = "";
+            txtSuburb.Text = "";
+            txtSupplierName.Text = "";
+            txtCode.Text = "";
+            txtStreetName.Text = "";
+            cbxSupplierType.Text = "";
+           // Globals.refresher = true;
         }
         public void View(int index)
         {

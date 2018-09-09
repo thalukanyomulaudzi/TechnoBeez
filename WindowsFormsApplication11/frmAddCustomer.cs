@@ -19,6 +19,13 @@ namespace WindowsFormsApplication11
 
         private void button7_Click(object sender, EventArgs e)
         {
+ 
+            
+            
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
             Customer cust = new Customer();
             try
             {
@@ -27,11 +34,11 @@ namespace WindowsFormsApplication11
 
                 cust.Customer_Name = txtCustomerNames.Text;
                 cust.Customer_Surname = txtCustomerSurname.Text;
-                if ( (suburb != null))
+                if ((suburb != null))
                 {
-                   // cust.City_ID =  city.City_ID;
-                    cust.Suburb_ID =  suburb.Suburb_ID;
-                  
+                    // cust.City_ID =  city.City_ID;
+                    cust.Suburb_ID = suburb.Suburb_ID;
+
                 }
                 else
                 {
@@ -39,7 +46,7 @@ namespace WindowsFormsApplication11
                     return;
 
                 }
-                cust.Customer_Address = txtProvimce.Text + " " + 
+                cust.Customer_Address = txtProvimce.Text + " " +
                "\n " + suburb.Suburb_Name + " " + txtStreeName.Text;
 
                 cust.Customer_Contact_Number = Convert.ToInt32(txtContactNo.Text);
@@ -48,19 +55,12 @@ namespace WindowsFormsApplication11
                 db.SaveChanges();
                 Globals.addCustomer = true;
                 Globals.custId = cust.Customer_ID;
-               MessageBox.Show("New customer added successfully");
+                MessageBox.Show("New customer added successfully");
             }
-            catch(Exception i)
+            catch (Exception i)
             {
                 MessageBox.Show(Convert.ToString(i));
             }
-            
-            
-        }
-
-        private void button7_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -32,7 +32,7 @@
             this.txtOrderNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPay = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -52,6 +52,7 @@
             this.txtOrderNo.Name = "txtOrderNo";
             this.txtOrderNo.Size = new System.Drawing.Size(127, 22);
             this.txtOrderNo.TabIndex = 1;
+            this.txtOrderNo.TextChanged += new System.EventHandler(this.txtOrderNo_TextChanged);
             // 
             // label1
             // 
@@ -71,24 +72,27 @@
             this.listBox1.Size = new System.Drawing.Size(528, 356);
             this.listBox1.TabIndex = 3;
             // 
-            // button1
+            // btnPay
             // 
-            this.button1.Location = new System.Drawing.Point(883, 423);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 27);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Pay";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnPay.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnPay.Location = new System.Drawing.Point(883, 423);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(127, 27);
+            this.btnPay.TabIndex = 4;
+            this.btnPay.Text = "Pay";
+            this.btnPay.UseVisualStyleBackColor = true;
+            this.btnPay.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Location = new System.Drawing.Point(12, 423);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(127, 27);
             this.button2.TabIndex = 5;
             this.button2.Text = "Close";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmRetrieveOrder
             // 
@@ -96,13 +100,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 462);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPay);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtOrderNo);
             this.Controls.Add(this.btnRetrieve);
             this.Name = "frmRetrieveOrder";
             this.Text = "frmRetrieveOrder";
+            this.Load += new System.EventHandler(this.frmRetrieveOrder_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,7 +119,7 @@
         private System.Windows.Forms.TextBox txtOrderNo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.Button button2;
     }
 }
