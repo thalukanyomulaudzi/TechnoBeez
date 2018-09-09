@@ -253,6 +253,12 @@
     <Compile Include="frmMaintain_Menu_Item.Designer.cs">
       <DependentUpon>frmMaintain_Menu_Item.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRetrieveOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRetrieveOrder.Designer.cs">
+      <DependentUpon>frmRetrieveOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Globals.cs" />
     <Compile Include="ItemsPicture.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -372,12 +378,6 @@
       <DependentUpon>Setup Employee Shift Schedule.cs</DependentUpon>
     </Compile>
     <Compile Include="Special.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="StockOrder.cs">
@@ -544,6 +544,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMaintain_Menu_Item.resx">
       <DependentUpon>frmMaintain_Menu_Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRetrieveOrder.resx">
+      <DependentUpon>frmRetrieveOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

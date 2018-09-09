@@ -12,7 +12,7 @@ namespace WindowsFormsApplication11
     public partial class SupplierList : Form
     {
         StockOrder parent;
-        MmasweEntities13 db = new MmasweEntities13();
+        MmasweEntities5 db = new MmasweEntities5();
         public SupplierList()
         {
             InitializeComponent();

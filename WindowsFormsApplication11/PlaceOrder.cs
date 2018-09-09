@@ -88,6 +88,10 @@ namespace WindowsFormsApplication11
             //Globals.refresher2 = false;
             groupBox1.Visible = false;
             Globals.addCustomer = false;
+
+           
+            btnDeliverySaveOrder.Visible = false;
+           
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -331,54 +335,25 @@ namespace WindowsFormsApplication11
 
 
             Payment pay = new Payment();
-            Payment_Type type = db.Payment_Type.FirstOrDefault(c => c.Payment_Description == cmbType.Text);
+            Payment_Type type = db.Payment_Type.FirstOrDefault(c => c.Payment_Description == "Cash");
 
            
             pay.Payment_Amount = Convert.ToDouble(Globals.AmountDue);
             pay.Payment_Date = DateTime.Today;
 
-            if (cmbType.Text != "")
-            { pay.Payment_Type_ID = type.Payment_Type_ID;
-            }
+           
+             pay.Payment_Type_ID = type.Payment_Type_ID;
+            
 
-            else
-            {
-                MessageBox.Show("Error:Select payment type");
-                return;
-            }
 
             db.Payments.Add(pay);
             db.SaveChanges();
             Globals.SalesPaymentID = pay.Payment_ID;
             
-            int contact = Convert.ToInt32(txtContact.Text);
+            //int contact = Convert.ToInt32(txtContact.Text);
 
             Customer_Order order = new Customer_Order();
-            Customer cust = db.Customers.FirstOrDefault(c => ((c.Customer_Name == txtCustName.Text) && (c.Customer_Contact_Number == contact)));
-            if (cust == null)
-            {
-                MessageBox.Show("Customer does not exist,Add customer");
-                using (frmAddCustomer frm = new frmAddCustomer() { })
-                {
-                    if ((frm.ShowDialog() == DialogResult.OK) && (Globals.addCustomer == true))
-                    {
 
-                        var some = db.Customers.ToList();
-                        cust = some.LastOrDefault();
-
-                    }
-
-                    else
-                    {
-                        
-                        return;
-                    }
-
-                }
-
-  
-
-            }
             
             //Object Declaration---------------------------------//
 
@@ -431,7 +406,7 @@ namespace WindowsFormsApplication11
                 order.TotalItems = Globals.ComboItems.Count + Globals.MenuItems.Count + Globals.StockItems.Count;
                 order.Cash = Convert.ToDouble(txtCash.Text);
                 order.Change = Convert.ToDouble(txtCash.Text) - Globals.AmountDue;
-                order.Customer_ID = cust.Customer_ID;
+                //order.Customer_ID = cust.Customer_ID;
                 //---------------------------------------------------------//
 
                 db.Customer_Order.Add(order);
@@ -551,10 +526,14 @@ namespace WindowsFormsApplication11
             if(cbxYes.Checked)
             {
                 groupBox1.Visible = true;
+                btnDeliverySaveOrder.Visible = true;
+                btnEatIn.Visible = false;
             }
             else
             {
                 groupBox1.Visible = false;
+                btnDeliverySaveOrder.Visible = false;
+                btnEatIn.Visible = true;
             }
         }
 
@@ -566,7 +545,7 @@ namespace WindowsFormsApplication11
         private void btnDeliverySubmit_Click(object sender, EventArgs e)
         {
             //OrderDeliveryDetails orderSaver = new OrderDeliveryDetails();
-
+            double VatAmount = 0;
             //Payment pay = new Payment();
             //Payment_Type type = db.Payment_Type.FirstOrDefault(c => c.Payment_Description == cmbType.Text);
 
@@ -585,7 +564,7 @@ namespace WindowsFormsApplication11
             //    return;
             //}
 
-         
+
             //Globals.SalesPaymentID = pay.Payment_ID;
 
             //int contact = Convert.ToInt32(txtContact.Text);
@@ -671,7 +650,7 @@ namespace WindowsFormsApplication11
             //    orderSaver.CustomerId = cust.Customer_ID;
             //    //---------------------------------------------------------//
 
-          
+
 
 
             //}
@@ -680,69 +659,122 @@ namespace WindowsFormsApplication11
             //    MessageBox.Show(Convert.ToString(i));
             //}
 
-            
-            //for (int i = 0; i < Globals.ComboItems.Count; i++)
-            //{
-            //    OrderDeliveryDetails item = new OrderDeliveryDetails();
-            //    Customer_Order_Line orderLine = new Customer_Order_Line();
-            //    item.OrderLineId = orderLine.Customer_Order_Line_ID;
-            //    item.OrderId = order.Order_ID;
-            //    item.ItemQuantity = Globals.ComboItems[i].OrderQuantity;
-            //    item.ItemId = Globals.ComboItems[i].OrderItemId;
+
+            DeliveryTable order = new DeliveryTable();
+            order.ItemName = "";
+            order.orderTotal = Globals.AmountDue;
+
+            int contact = Convert.ToInt32(txtContact.Text);
 
 
-
-            //    OrderDeliveryDetails.comboLineProds.Add(item);
-            //    //OrderDeliveryDetails.OrderList.Add();
-
-            //}
-            
-
-            //for (int i = 0; i < Globals.StockItems.Count; i++)
-            //{
-            //    OrderDeliveryDetails item = new OrderDeliveryDetails();
-            //    Customer_Order_Line orderLine = new Customer_Order_Line();
-            //    item.OrderLineId = orderLine.Customer_Order_Line_ID;
-            //    item.OrderId = order.Order_ID;
-            //    item.ItemQuantity = Globals.StockItems[i].OrderQuantity;
-            //    item.ItemId = Globals.StockItems[i].OrderItemId;
-                
-            //    OrderDeliveryDetails.stockLineProds.Add(item);
-            //}
-
-            //for (int i = 0; i < Globals.MenuItems.Count; i++)
-            //{
-            //    OrderDeliveryDetails item = new OrderDeliveryDetails();
-            //    Customer_Order_Line orderLine = new Customer_Order_Line();
-            //    item.OrderLineId = orderLine.Customer_Order_Line_ID;
-            //    item.OrderId = order.Order_ID;
-            //    item.ItemQuantity = Globals.MenuItems[i].OrderQuantity;
-            //    item.ItemId = Globals.MenuItems[i].OrderItemId;
-
-            //    OrderDeliveryDetails.menuLineProds.Add(item);
-
-
-            //}
-
-            ////OrderDeliveryDetails.OrderList.Add
+            VatAmount = Math.Round(VatAmount, 2);
 
             
-            //Globals.ComboItems.Clear();
-            //Globals.MenuItems.Clear();
-            //Globals.StockItems.Clear();
+            order.orderDatef = DateTime.Today;
+            order.vatTot = VatAmount;
 
-            //Globals.refresher = true;
-
-            //Globals.AmountDue = 0;
-
-            //this.Close();
+            order.orderNotesf = richTextBox1.Text;
+            order.orderTotal = Globals.AmountDue;
+            order.totalItemsf = Globals.ComboItems.Count + Globals.MenuItems.Count + Globals.StockItems.Count;
 
 
+
+            Customer cust = db.Customers.FirstOrDefault(c => ((c.Customer_Name == txtCustName.Text) && (c.Customer_Contact_Number == contact)));
+            if (cust == null)
+            {
+                MessageBox.Show("Customer does not exist,Add customer");
+                using (frmAddCustomer frm = new frmAddCustomer() { })
+                {
+                    if ((frm.ShowDialog() == DialogResult.OK) && (Globals.addCustomer == true))
+                    {
+
+                        var some = db.Customers.ToList();
+                        cust = some.LastOrDefault();
+
+                        order.customerName = cust.Customer_Name;
+                        order.customerContact = cust.Customer_Contact_Number;
+
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Something went wrong");
+                        return;
+                       
+                    }
+
+                }
+
+
+
+            }
+            else
+            {
+                order.customerName = txtCustName.Text;
+                order.customerContact = Convert.ToInt32(txtContact.Text);
+            }
+            db.DeliveryTables.Add(order);
+            db.SaveChanges();
+
+
+            for (int i = 0; i < Globals.ComboItems.Count; i++)
+            {
+
+                DeliveryLine item = new DeliveryLine();
+
+                item.comboItemId = Globals.ComboItems[i].OrderItemId;
+                item.orderId = order.OrderId;
+                item.comboItemQuantity = Globals.ComboItems[i].OrderQuantity;
+
+                db.DeliveryLines.Add(item);
+              
+            }
+
+
+            for (int i = 0; i < Globals.StockItems.Count; i++)
+            {
+                DeliveryLine item = new DeliveryLine();
+
+                item.stockItemId = Globals.StockItems[i].OrderItemId;
+                item.orderId = order.OrderId;
+                item.stockItemQuantity = Globals.StockItems[i].OrderQuantity;
+
+                db.DeliveryLines.Add(item);
+            }
+
+            for (int i = 0; i < Globals.MenuItems.Count; i++)
+            {
+                DeliveryLine item = new DeliveryLine();
+
+                item.menuItemId = Globals.MenuItems[i].OrderItemId;
+                item.orderId = order.OrderId;
+                item.menuItemQuantity = Globals.StockItems[i].OrderQuantity;
+
+                db.DeliveryLines.Add(item);
+
+
+            }
 
             MessageBox.Show("Order saved successfully");
         }
 
         private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            frmRetrieveOrder form = new frmRetrieveOrder();
+            form.ShowDialog();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

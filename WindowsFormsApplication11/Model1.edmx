@@ -207,7 +207,15 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
             <PropertyRef Name="OrderId" />
           </Key>
           <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ItemName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ItemName" Type="varchar" MaxLength="50" />
+          <Property Name="orderTotal" Type="float" Nullable="false" />
+          <Property Name="customerName" Type="varchar" MaxLength="50" />
+          <Property Name="customerContact" Type="int" />
+          <Property Name="orderDatef" Type="datetime" />
+          <Property Name="vatAmountf" Type="float" />
+          <Property Name="orderNotesf" Type="varchar" MaxLength="50" />
+          <Property Name="totalItemsf" Type="int" />
+          <Property Name="vatTot" Type="float" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -1500,7 +1508,15 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
             <PropertyRef Name="OrderId" />
           </Key>
           <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="orderTotal" Type="Double" Nullable="false" />
+          <Property Name="customerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="customerContact" Type="Int32" />
+          <Property Name="orderDatef" Type="DateTime" Precision="3" />
+          <Property Name="vatAmountf" Type="Double" />
+          <Property Name="orderNotesf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="totalItemsf" Type="Int32" />
+          <Property Name="vatTot" Type="Double" />
           <NavigationProperty Name="DeliveryLines" Relationship="Self.FK_DeliveryLine_DeliveryTable" FromRole="DeliveryTable" ToRole="DeliveryLine" />
         </EntityType>
         <EntityType Name="Employee">
@@ -2841,6 +2857,14 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
               <MappingFragment StoreEntitySet="DeliveryTable">
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="orderTotal" ColumnName="orderTotal" />
+                <ScalarProperty Name="customerName" ColumnName="customerName" />
+                <ScalarProperty Name="customerContact" ColumnName="customerContact" />
+                <ScalarProperty Name="orderDatef" ColumnName="orderDatef" />
+                <ScalarProperty Name="vatAmountf" ColumnName="vatAmountf" />
+                <ScalarProperty Name="orderNotesf" ColumnName="orderNotesf" />
+                <ScalarProperty Name="totalItemsf" ColumnName="totalItemsf" />
+                <ScalarProperty Name="vatTot" ColumnName="vatTot" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

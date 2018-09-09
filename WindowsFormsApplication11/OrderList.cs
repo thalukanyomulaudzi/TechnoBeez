@@ -13,7 +13,7 @@ namespace WindowsFormsApplication11
     {
         Form2 mainForm;
         // int index = -1;
-        MmasweEntities13 db = new MmasweEntities13();
+        MmasweEntities5 db = new MmasweEntities5();
         public OrderList()
         {
             InitializeComponent();
@@ -70,7 +70,7 @@ namespace WindowsFormsApplication11
                                 Supplier_Name = y.Supplier_Name,
                                 QuantityReceived = q.Stock_Order_Quantity,
                                 Order_Date = p.Stock_Order_Issue_Date,
-                                Date_Received = p.DateReceived ?? DateTime.Now,
+                               // Date_Received = p.DateReceived ?? DateTime.Now,
                             };
 
             dgvReceivedOrder.DataSource = orderL.ToList();
@@ -122,7 +122,7 @@ namespace WindowsFormsApplication11
         {
            
             var order = db.Stock_Order.Where(x => x.Stock_Order_ID == index).Single<Stock_Order>();
-            order.DateReceived = DateTime.Now;
+            //order.DateReceived = DateTime.Now;
             order.Stock_Order_Status_ID = 2;
 
            // Stock_Order_Line orderLine = new Stock_Order_Line();
