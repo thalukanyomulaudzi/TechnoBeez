@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MmasweModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MmasweModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Access_level">
           <Key>
             <PropertyRef Name="Access_Level_ID" />
@@ -365,6 +365,7 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
           <Property Name="Employee_ID" Type="int" />
           <Property Name="Stock_Order_Status_ID" Type="int" />
           <Property Name="Supplier_ID" Type="int" />
+          <Property Name="DateReceived" Type="datetime" />
         </EntityType>
         <EntityType Name="Stock_Order_Line">
           <Key>
@@ -1277,8 +1278,7 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MmasweModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1703,6 +1703,7 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
           <NavigationProperty Name="Stock_Order_Line" Relationship="Self.FK_Stock_Order_Line_Stock_Order" FromRole="Stock_Order" ToRole="Stock_Order_Line" />
           <NavigationProperty Name="Stock_Order_Status" Relationship="Self.FK_Stock_Order_Stock_Order_Status" FromRole="Stock_Order" ToRole="Stock_Order_Status" />
           <NavigationProperty Name="Supplier" Relationship="Self.FK_Stock_Order_Supplier" FromRole="Stock_Order" ToRole="Supplier" />
+          <Property Name="DateReceived" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Stock_Order_Line">
           <Key>
@@ -3024,6 +3025,7 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
           <EntitySetMapping Name="Stock_Order">
             <EntityTypeMapping TypeName="MmasweModel.Stock_Order">
               <MappingFragment StoreEntitySet="Stock_Order">
+                <ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
                 <ScalarProperty Name="Stock_Order_ID" ColumnName="Stock_Order_ID" />
                 <ScalarProperty Name="Stock_Order_Description" ColumnName="Stock_Order_Description" />
                 <ScalarProperty Name="Stock_Order_Issue_Date" ColumnName="Stock_Order_Issue_Date" />

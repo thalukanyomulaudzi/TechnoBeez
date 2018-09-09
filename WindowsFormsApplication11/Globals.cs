@@ -205,6 +205,8 @@ namespace WindowsFormsApplication11
         public static bool addCustomer = false;
         public static int custId = -1;
 
+        public static double vatAmountDelivery = 0;
+
 
         //Employee Passing
         public static dynamic Employeepassing = 0;

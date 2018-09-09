@@ -622,6 +622,8 @@ namespace WindowsFormsApplication11
 
         private void empBtn_Click(object sender, EventArgs e)
         {
+            btnOrderList.Visible = false;
+            btnViewOrder.Visible = false;
             try
             {
                 header.Text = "Employee";
@@ -667,6 +669,8 @@ namespace WindowsFormsApplication11
 
         private void clientBtn_Click(object sender, EventArgs e)
         {
+            btnOrderList.Visible = false;
+            btnViewOrder.Visible = false;
             header.Text = "Customer";
 
 
@@ -704,8 +708,10 @@ namespace WindowsFormsApplication11
         }
         private void inventoryBtn_Click(object sender, EventArgs e)
         {
+            btnOrderList.Visible = true;
+            btnViewOrder.Visible = false;
             header.Text = "Stock";
-            btnTheAdd.Text = "Add Stock Item";
+           // btnTheAdd.Text = "Add Stock Item";
             
             if (navButton != btnStock)
             {
@@ -741,11 +747,31 @@ namespace WindowsFormsApplication11
         }
         private void Form2_Load(object sender, EventArgs e)
         {
-            
+            btnViewOrder.Visible = false;
+            btnOrderList.Visible = false;
+            try
+            {
+                header.Text = "Suppliers";
+                txtSearchNew.Clear();
+
+
+
+                if (navButton != btnSuppliers11)
+                {
+                    navigate(btnSuppliers11);
+                }
+                loadSuppliers();
+            }
+            catch
+            {
+
+            }
         }
 
         private void supplierBtn_Click(object sender, EventArgs e)
         {
+            btnOrderList.Visible = false;
+            btnViewOrder.Visible = false;
             header.Text = "Combo";
 
             if (navButton != btnCombo)
@@ -776,6 +802,8 @@ namespace WindowsFormsApplication11
 
         private void jobOBtn_Click(object sender, EventArgs e)
         {
+            btnOrderList.Visible = false;
+            btnViewOrder.Visible = false;
             try
             {
 
@@ -816,8 +844,9 @@ namespace WindowsFormsApplication11
 
         private void quoteBtn_Click(object sender, EventArgs e)
         {
+            btnOrderList.Visible = false;
             header.Text = "Orders";
-
+            btnViewOrder.Visible = true;
             txtSearchNew.Clear();
 
             if (navButton != btnSalesOrders)
@@ -850,6 +879,8 @@ namespace WindowsFormsApplication11
 
         private void btnSuppliers11_Click(object sender, EventArgs e)
         {
+            btnOrderList.Visible = false;
+            btnViewOrder.Visible = false;
             try
             {
                 header.Text = "Suppliers";
@@ -873,10 +904,10 @@ namespace WindowsFormsApplication11
         {
             var customers = from p in db.Suppliers
                             join q in db.Addresses
-                                on p.Supplier_ID equals q.Address_ID
+                                on p.Supplier_ID equals q.Supplier_ID
 
                             join y in db.Supplier_Contact_Details
-                                on p.Supplier_ID equals y.Supplier_Contact_ID
+                                on p.Supplier_ID equals y.Supplier_ID
                             select new
                             {
                                 SupplierId = p.Supplier_ID,
@@ -918,9 +949,11 @@ namespace WindowsFormsApplication11
                 form.ShowDialog();
 
             }
-            else if(navButton == btnCombo)
+
+            else if (navButton == btnSalesOrders)
             {
-                
+                PlaceOrder frm = new PlaceOrder();
+                frm.ShowDialog();
             }
         }
        
@@ -1232,8 +1265,8 @@ namespace WindowsFormsApplication11
 
         private void button4_Click(object sender, EventArgs e)
         {
-            PlaceOrder frm = new PlaceOrder();
-            frm.ShowDialog();
+            frmViewOrder form = new frmViewOrder();
+            form.ShowDialog();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
