@@ -263,12 +263,6 @@
     <Compile Include="ItemsPicture.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ListStockOrderItems.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ListStockOrderItems.Designer.cs">
-      <DependentUpon>ListStockOrderItems.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -553,9 +547,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRetrieveOrder.resx">
       <DependentUpon>frmRetrieveOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ListStockOrderItems.resx">
-      <DependentUpon>ListStockOrderItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

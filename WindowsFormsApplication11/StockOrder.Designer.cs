@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockOrder));
             this.panel17 = new System.Windows.Forms.Panel();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnOrder = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -43,7 +44,6 @@
             this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnOrder = new System.Windows.Forms.Button();
             this.txtSelectSupplier = new System.Windows.Forms.TextBox();
             this.btnSupplierSelect = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -96,8 +96,22 @@
             this.btnSubmit.Text = "Submit Order";
             this.btnSubmit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Visible = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // btnOrder
+            // 
+            this.btnOrder.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOrder.Location = new System.Drawing.Point(117, 3);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnOrder.Size = new System.Drawing.Size(71, 34);
+            this.btnOrder.TabIndex = 9;
+            this.btnOrder.Text = "Add Item";
+            this.btnOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOrder.UseVisualStyleBackColor = true;
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
             // panel14
             // 
@@ -182,21 +196,6 @@
             // employeeTypeBindingSource
             // 
             this.employeeTypeBindingSource.CurrentChanged += new System.EventHandler(this.employeeTypeBindingSource_CurrentChanged);
-            // 
-            // btnOrder
-            // 
-            this.btnOrder.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrder.Location = new System.Drawing.Point(117, 3);
-            this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.btnOrder.Size = new System.Drawing.Size(71, 34);
-            this.btnOrder.TabIndex = 9;
-            this.btnOrder.Text = "Add Item";
-            this.btnOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOrder.UseVisualStyleBackColor = true;
-            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
             // txtSelectSupplier
             // 

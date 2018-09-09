@@ -26,8 +26,8 @@ namespace WindowsFormsApplication11
 
         private void button18_Click(object sender, EventArgs e)
         {
-            //ListStockOrderItems m = new ListStockOrderItems();
-            SupplierForm m = new SupplierForm();
+            //ListStockOrderItems m = new ListStockOrderItems(this);
+            StockOrder m = new StockOrder(this);
             m.ShowDialog();
         }
         public void load()

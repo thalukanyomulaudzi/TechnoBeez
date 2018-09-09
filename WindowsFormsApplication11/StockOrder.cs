@@ -13,14 +13,14 @@ namespace WindowsFormsApplication11
 {
     public partial class StockOrder : Form
     {
-       // OrderList parent;
-        ListStockOrderItems parent;
+        OrderList parent;
+       // ListStockOrderItems parent;
         MmasweEntities5 db = new MmasweEntities5();
 
         bool isTrue = true;
         int stockID = -1;
         int supplierID = -1;
-        ListStockOrderItems list = new ListStockOrderItems();
+      //  ListStockOrderItems list = new ListStockOrderItems();
         // int index = -1;
         public StockOrder()
         {
@@ -30,7 +30,7 @@ namespace WindowsFormsApplication11
         {
             return txtSelectSupplier.Text;
         }
-        public StockOrder(ListStockOrderItems f)
+        public StockOrder(OrderList f)
         {
             InitializeComponent();
             parent = f;
@@ -86,7 +86,7 @@ namespace WindowsFormsApplication11
 
             Globals.StockOrders.Add(newGlobal);
 
-            list.ShowDialog();
+            parent.ShowDialog();
         }
         public string StockOrderDescription()
         {
@@ -145,39 +145,40 @@ namespace WindowsFormsApplication11
             //}
             //else
             //    btnSubmit.Enabled = true;
-            //Stock_Order sOrder = new Stock_Order();
-          
-            //// orderLine.Q = orderLine.Stock_Order_Quantity;
-            //sOrder.Stock_Order_Description = "Description";
-            //sOrder.Stock_Order_Issue_Date = DateTime.Now;
-            //sOrder.Stock_Order_Status_ID = 1;
-            //sOrder.Supplier_ID = supplierID;
-            //db.Stock_Order.Add(sOrder);
-            //db.SaveChanges();
-            //foreach (var item in Globals.StockOrders)
-            //{
-            //    Stock_Order_Line orderLine = new Stock_Order_Line();
-            //    orderLine.Stock_ID = item.OrderNo;
+            Stock_Order sOrder = new Stock_Order();
+
+            // orderLine.Q = orderLine.Stock_Order_Quantity;
+            sOrder.Stock_Order_Description = "Description";
+            sOrder.Stock_Order_Issue_Date = DateTime.Now;
+            sOrder.Stock_Order_Status_ID = 1;
+            sOrder.Supplier_ID = supplierID;
+            db.Stock_Order.Add(sOrder);
+            db.SaveChanges();
+            foreach (var item in Globals.StockOrders)
+            {
+                Stock_Order_Line orderLine = new Stock_Order_Line();
+                orderLine.Stock_ID = item.OrderNo;
 
 
-            //    orderLine.Stock_Order_Quantity = item.sOrderQuantity;
+                orderLine.Stock_Order_Quantity = item.sOrderQuantity;
 
-            //    orderLine.Stock_Order_ID = sOrder.Stock_Order_ID;
-            //   // sOrder.Stock_Order_ID = item.OrderNo;
+                orderLine.Stock_Order_ID = sOrder.Stock_Order_ID;
+                // sOrder.Stock_Order_ID = item.OrderNo;
 
-            //    db.Stock_Order_Line.Add(orderLine);
-            //    db.SaveChanges();
-            //   // parent.load();
+                db.Stock_Order_Line.Add(orderLine);
+                db.SaveChanges();
+                // parent.load();
 
 
-            //}
-            
-            
+                //}
 
-           
-            //SendEmail();
-            //// parent.loadReceivedOrder();
-            //MessageBox.Show("New Order Placed");
+
+
+
+                //SendEmail();
+                //// parent.loadReceivedOrder();
+                //MessageBox.Show("New Order Placed");
+            }
         }
 
         private void StockOrder_Load(object sender, EventArgs e)
