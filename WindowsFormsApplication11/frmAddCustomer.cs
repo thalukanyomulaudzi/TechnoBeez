@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace WindowsFormsApplication11
@@ -22,6 +23,20 @@ namespace WindowsFormsApplication11
  
             
             
+        }
+        bool IsValidEmail(string email)
+        {
+            return Regex.IsMatch(email, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
+        }
+
+        bool IsPhoneNumber(string number)
+        {
+            return Regex.IsMatch(number, @"^[0-9]{9}$");
+        }
+
+        bool IsNumber(string number)
+        {
+            return Regex.IsMatch(number, @"^[0-9]+$");
         }
 
         private void button7_Click_1(object sender, EventArgs e)
@@ -60,6 +75,105 @@ namespace WindowsFormsApplication11
             catch (Exception i)
             {
                 MessageBox.Show(Convert.ToString(i));
+            }
+        }
+
+        private void txtCustomerName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCustomerNames.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtCustomerNames, "Please enter customer name");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtCustomerNames, null);
+            }
+        }
+
+
+        private void txtContactNo_Validating(object sender, CancelEventArgs e)
+        {
+            if (!IsNumber(txtContactNo.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtContactNo, "Please enter valid phone number");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtContactNo, null);
+            }
+        }
+
+        private void txtCustomerStrName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtStreeName.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtStreeName, "Please enter street name");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtStreeName, null);
+            }
+        }
+
+        private void txtCustomerSuburb_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtSurburb.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtSurburb, "Please enter Suburb");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtSurburb, null);
+            }
+        }
+
+        private void txtCustomerCity_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCity.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtCity, "Please enter city");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtCity, null);
+            }
+        }
+
+        private void txtCustomerProvince_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtProvimce.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtProvimce, "Please enter province");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtProvimce, null);
+            }
+        }
+
+        private void txtCustomerSurname_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCustomerSurname.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtCustomerSurname, "Please enter customer surname");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtCustomerSurname, null);
             }
         }
     }
