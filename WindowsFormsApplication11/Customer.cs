@@ -23,7 +23,6 @@ namespace WindowsFormsApplication11
         public int Customer_ID { get; set; }
         public string Customer_Name { get; set; }
         public string Customer_Surname { get; set; }
-        public string Customer_Email { get; set; }
         public int Customer_Contact_Number { get; set; }
         public int Suburb_ID { get; set; }
         public string Customer_Address { get; set; }

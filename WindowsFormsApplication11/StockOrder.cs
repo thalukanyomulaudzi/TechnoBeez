@@ -21,7 +21,8 @@ namespace WindowsFormsApplication11
         int stockID = -1;
         int supplierID = -1;
       //  ListStockOrderItems list = new ListStockOrderItems();
-        // int index = -1;
+        // int index = -1;     <connectionStrings><add name="MmasweEntities5" connectionString="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=LAPTOP-FU49UF7O\MSSQLSERVER01;initial catalog=Mmaswe;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+  //</connectionStrings>
         public StockOrder()
         {
             InitializeComponent();
