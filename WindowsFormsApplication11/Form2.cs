@@ -690,7 +690,7 @@ namespace WindowsFormsApplication11
             {
                 navigate(btnCustomer);
             }
-
+            LoadCustomers();
 
         }
         public void LoadCustomers()
@@ -967,6 +967,11 @@ namespace WindowsFormsApplication11
                 PlaceOrder frm = new PlaceOrder();
                 frm.ShowDialog();
             }
+            else if (navButton == btnEmployees)
+            {
+                Add_Employee f = new Add_Employee();
+                f.ShowDialog();
+            }
         }
        
 
@@ -1043,15 +1048,18 @@ namespace WindowsFormsApplication11
                     }
                     Supplier s = new Supplier();
                     s.Supplier_ID = id;
-                //    Supplier_Contact_Details scd = db.Suppliers.FirstOrDefault(x => x.Supplier_ID == s.Supplier_ID);
-                //    dgvSupplier.DataSource = db.Suppliers.Where(c => c.Supplier_ID == id || c.Supplier_Name.Contains(txtSearchNew.Text)
-                //    || scd.Supplier_Email_Adress.Contains(txtSearchNew.Text) || c.Stock_Item_Quantity == Quantity).ToList();
+                  // Supplier_Contact_Details scd = db.Suppliers.FirstOrDefault(x => x.Supplier_ID == s.Supplier_ID);
+                   // dgvSupplier.DataSource = db.Suppliers.Where(c => c.Supplier_ID == id || c.Supplier_Name.Contains(txtSearchNew.Text)).ToList();
+                  //  dgvSupplier.DataSource = db.Supplier_Contact_Details.Where(c => c.Supplier_ID == id || c.Supplier_Contact_Name.Contains(txtSearchNew.Text)
+                    //|| c.Supplier_Email_Adress.Contains(txtSearchNew.Text)).ToList();
+
                 }
 
                 else
                 {
 
-                    dgvSupplier.DataSource = db.Stock_Item.ToList();
+                  //  dgvSupplier.DataSource = db.Suppliers.ToList();
+                    //dgvSupplier.DataSource = db.Supplier_Contact_Details.ToList();
                 }
 
 
@@ -1089,7 +1097,43 @@ namespace WindowsFormsApplication11
 
 
             }
+            if (navButton == btnCustomer)
+            {
+                int id = 900000000;
+                double Price = 9000000000;
+                int contact = 900000000;
+                if (!(txtSearchNew.Text == ""))
+                {
+                    int number;
+                    bool result = Int32.TryParse(txtSearchNew.Text, out number);
+                    if (result)
+                    {
+                        // Conversion to a number was successful.
+                        // The number variable contains your value. 
+                        id = Convert.ToInt32(txtSearchNew.Text);
+                        Price = (Convert.ToDouble(txtSearchNew.Text));
+                        contact = Convert.ToInt32(txtSearchNew.Text);
+                    }
+                    else
+                    {
+                        id = 900000000;
+                        Price = 9000000000;
+                        contact = 900000000;
 
+                    }
+                    dgvSupplier.DataSource = db.Customers.Where(c => c.Customer_ID == id || c.Customer_Name.Contains(txtSearchNew.Text) ||
+                    c.Customer_Surname.Contains(txtSearchNew.Text) || c.Customer_Contact_Number == contact).ToList();
+                    
+                }
+
+                else
+                {
+
+                    dgvSupplier.DataSource = db.Customers.ToList();
+                }
+
+
+            }
             dgvSupplier.ClearSelection();
         }
 
