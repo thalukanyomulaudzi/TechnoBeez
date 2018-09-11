@@ -26,7 +26,6 @@ namespace WindowsFormsApplication11
         public Nullable<int> Employee_ID { get; set; }
         public Nullable<int> Stock_Order_Status_ID { get; set; }
         public Nullable<int> Supplier_ID { get; set; }
-        public Nullable<System.DateTime> DateReceived { get; set; }
     
         public virtual Employee Employee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

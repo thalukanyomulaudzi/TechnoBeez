@@ -364,7 +364,6 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
           <Property Name="Employee_ID" Type="int" />
           <Property Name="Stock_Order_Status_ID" Type="int" />
           <Property Name="Supplier_ID" Type="int" />
-          <Property Name="DateReceived" Type="datetime" />
         </EntityType>
         <EntityType Name="Stock_Order_Line">
           <Key>
