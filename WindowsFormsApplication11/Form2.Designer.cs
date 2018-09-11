@@ -74,7 +74,6 @@
             this.dgvCustomer2 = new System.Windows.Forms.DataGridView();
             this.dgvEmp = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.MmaswePannel.SuspendLayout();
             this.topBarPannel.SuspendLayout();
             this.CustomerPan.SuspendLayout();
@@ -125,7 +124,7 @@
             this.topBarPannel.Controls.Add(this.comboBox3);
             this.topBarPannel.Controls.Add(this.label8);
             this.topBarPannel.Location = new System.Drawing.Point(257, 73);
-            this.topBarPannel.Margin = new System.Windows.Forms.Padding(4);
+            this.topBarPannel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.topBarPannel.Name = "topBarPannel";
             this.topBarPannel.Size = new System.Drawing.Size(1003, 74);
             this.topBarPannel.TabIndex = 12;
@@ -136,7 +135,7 @@
             this.CustomerPan.Controls.Add(this.EmployeePan);
             this.CustomerPan.Controls.Add(this.dgvCustomer);
             this.CustomerPan.Location = new System.Drawing.Point(0, 74);
-            this.CustomerPan.Margin = new System.Windows.Forms.Padding(4);
+            this.CustomerPan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CustomerPan.Name = "CustomerPan";
             this.CustomerPan.Padding = new System.Windows.Forms.Padding(40, 37, 40, 0);
             this.CustomerPan.Size = new System.Drawing.Size(993, 398);
@@ -146,7 +145,7 @@
             // 
             this.EmployeePan.Controls.Add(this.dgvEmployee);
             this.EmployeePan.Location = new System.Drawing.Point(732, 316);
-            this.EmployeePan.Margin = new System.Windows.Forms.Padding(4);
+            this.EmployeePan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.EmployeePan.Name = "EmployeePan";
             this.EmployeePan.Padding = new System.Windows.Forms.Padding(40, 37, 40, 0);
             this.EmployeePan.Size = new System.Drawing.Size(993, 398);
@@ -195,7 +194,7 @@
             this.topBarPannel2.Controls.Add(this.btnTheAdd);
             this.topBarPannel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.topBarPannel2.Location = new System.Drawing.Point(595, 0);
-            this.topBarPannel2.Margin = new System.Windows.Forms.Padding(4);
+            this.topBarPannel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.topBarPannel2.Name = "topBarPannel2";
             this.topBarPannel2.Size = new System.Drawing.Size(408, 74);
             this.topBarPannel2.TabIndex = 8;
@@ -206,7 +205,7 @@
             this.btnOrderList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOrderList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOrderList.Location = new System.Drawing.Point(4, 36);
-            this.btnOrderList.Margin = new System.Windows.Forms.Padding(4);
+            this.btnOrderList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOrderList.Name = "btnOrderList";
             this.btnOrderList.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnOrderList.Size = new System.Drawing.Size(107, 31);
@@ -223,7 +222,7 @@
             this.btnViewOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnViewOrder.Image")));
             this.btnViewOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnViewOrder.Location = new System.Drawing.Point(265, 36);
-            this.btnViewOrder.Margin = new System.Windows.Forms.Padding(4);
+            this.btnViewOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnViewOrder.Name = "btnViewOrder";
             this.btnViewOrder.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnViewOrder.Size = new System.Drawing.Size(133, 31);
@@ -240,7 +239,7 @@
             this.btnTheAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnTheAdd.Image")));
             this.btnTheAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTheAdd.Location = new System.Drawing.Point(119, 36);
-            this.btnTheAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTheAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTheAdd.Name = "btnTheAdd";
             this.btnTheAdd.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnTheAdd.Size = new System.Drawing.Size(139, 31);
@@ -256,7 +255,7 @@
             this.panel22.Controls.Add(this.txtSearchNew);
             this.panel22.Controls.Add(this.button11);
             this.panel22.Location = new System.Drawing.Point(93, 38);
-            this.panel22.Margin = new System.Windows.Forms.Padding(4);
+            this.panel22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(216, 26);
             this.panel22.TabIndex = 2;
@@ -266,7 +265,7 @@
             this.txtSearchNew.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearchNew.ForeColor = System.Drawing.Color.Black;
             this.txtSearchNew.Location = new System.Drawing.Point(5, 6);
-            this.txtSearchNew.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearchNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearchNew.Name = "txtSearchNew";
             this.txtSearchNew.Size = new System.Drawing.Size(164, 15);
             this.txtSearchNew.TabIndex = 0;
@@ -279,7 +278,7 @@
             this.button11.ForeColor = System.Drawing.Color.Transparent;
             this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
             this.button11.Location = new System.Drawing.Point(177, -1);
-            this.button11.Margin = new System.Windows.Forms.Padding(4);
+            this.button11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(32, 30);
             this.button11.TabIndex = 1;
@@ -303,7 +302,7 @@
             "Quote Client Descending",
             "Quote Status Descending"});
             this.comboBox3.Location = new System.Drawing.Point(399, 37);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(187, 24);
             this.comboBox3.TabIndex = 3;
@@ -366,7 +365,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnStock);
             this.panel1.Controls.Add(this.btnCombo);
             this.panel1.Controls.Add(this.btnMenu);
@@ -672,20 +670,6 @@
             this.timer1.Interval = 5;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(4, 402);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.button1.Size = new System.Drawing.Size(252, 38);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Sales Report";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -777,6 +761,5 @@
         private System.Windows.Forms.DataGridView dgvEmp;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnOrderList;
-        private System.Windows.Forms.Button button1;
     }
 }

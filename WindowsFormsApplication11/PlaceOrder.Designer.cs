@@ -61,6 +61,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cbxYes = new System.Windows.Forms.CheckBox();
             this.lblChange = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.txtCash = new System.Windows.Forms.TextBox();
             this.lblCash = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -355,6 +356,7 @@
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.cbxYes);
             this.panel3.Controls.Add(this.lblChange);
+            this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.txtCash);
             this.panel3.Controls.Add(this.lblCash);
             this.panel3.Controls.Add(this.label7);
@@ -412,6 +414,16 @@
             this.lblChange.Name = "lblChange";
             this.lblChange.Size = new System.Drawing.Size(0, 17);
             this.lblChange.TabIndex = 27;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(1093, 368);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(61, 17);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "Change:";
             // 
             // txtCash
             // 
@@ -676,6 +688,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label lblChange;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtCash;
         private System.Windows.Forms.Label lblCash;
         private System.Windows.Forms.Label label10;

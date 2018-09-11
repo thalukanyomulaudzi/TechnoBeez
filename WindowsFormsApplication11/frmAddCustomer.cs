@@ -70,9 +70,7 @@ namespace WindowsFormsApplication11
                 db.SaveChanges();
                 Globals.addCustomer = true;
                 Globals.custId = cust.Customer_ID;
-                Globals.refresher = true;
                 MessageBox.Show("New customer added successfully");
-
             }
             catch (Exception i)
             {
