@@ -47,8 +47,69 @@ namespace WindowsFormsApplication11
 
         void myMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            
-            
+
+
+            if (navButton == btnCustomer)
+            {
+
+                if (e.ClickedItem.Name.ToString() == "Deleted")
+                {
+                    Globals.menu.Hide();
+                    if (dgvSupplier.Rows.Count != 0)
+                    {
+                        int id = Globals.Customerpassing;
+
+                        Customer deieteItem = db.Customers.FirstOrDefault(c => c.Customer_ID == id);
+
+                        if (deieteItem != null)
+                        {
+                            db.Customers.Remove(deieteItem);
+                            db.SaveChanges();
+                            MessageBox.Show("Customer(" + deieteItem.Customer_Name + ") deleted successfully");
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error:Customer does not exist/No customer selected,select customer");
+                        }
+
+                    }
+
+                }
+                //else if (e.ClickedItem.Name.ToString() == "View")
+                //{
+                //    Globals.menu.Hide();
+                //    int id = Globals.Customerpassing;
+
+                //    Customer deieteItem = db.Customers.FirstOrDefault(c => c.Customer_ID == id);
+                //    if (deieteItem != null)
+                //    {
+                //        frmMaintain_Menu_Item form = new frmMaintain_Menu_Item();
+                //        form.ShowDialog();
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("Error:Stock item does not exist/No stock item selected,select a stock item");
+                //    }
+
+                //}
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             if (navButton == btnMenu)
             {
               
@@ -83,7 +144,7 @@ namespace WindowsFormsApplication11
                     Menu_Item item = db.Menu_Item.FirstOrDefault(c => c.Menu_Item_ID == id);
                     if(item != null)
                     {
-                        frmMaintainMenuItem form = new frmMaintainMenuItem();
+                        frmMaintain_Menu_Item form = new frmMaintain_Menu_Item();
                         form.ShowDialog();
                     }
                     else
@@ -209,6 +270,7 @@ namespace WindowsFormsApplication11
                             db.Comboes.Remove(deieteItem);
                             db.SaveChanges();
                             MessageBox.Show("Stock item(" + deieteItem.Combo_Description + ") deleted successfully");
+                            Globals.refresher = true;
                         }
                         else
                         {
@@ -225,7 +287,7 @@ namespace WindowsFormsApplication11
                     Combo item = db.Comboes.FirstOrDefault(c => c.Combo_ID == id);
                     if (item != null)
                     {
-                         frmMaintainCombo form  = new frmMaintainCombo();
+                         frmComboView form  = new frmComboView();
                          form.ShowDialog();
                     }
                     else
@@ -236,7 +298,7 @@ namespace WindowsFormsApplication11
                 }
             }
 
-            if (navButton == btnCombo)
+            if (navButton == btnSalesOrders)
             {
 
                 if (e.ClickedItem.Name.ToString() == "Deleted")
@@ -244,15 +306,16 @@ namespace WindowsFormsApplication11
                     Globals.menu.Hide();
                     if (dgvSupplier.Rows.Count != 0)
                     {
-                        int id = Globals.Combopassing;
+                        int id = Globals.Salespassing;
 
-                        Combo deieteItem = db.Comboes.FirstOrDefault(c => c.Combo_ID == id);
+                        Customer_Order deieteItem = db.Customer_Order.FirstOrDefault(c => c.Order_ID == id);
 
                         if (deieteItem != null)
                         {
-                            db.Comboes.Remove(deieteItem);
+                            db.Customer_Order.Remove(deieteItem);
                             db.SaveChanges();
-                            MessageBox.Show("Stock item(" + deieteItem.Combo_Description + ") deleted successfully");
+                            MessageBox.Show("Order deleted successfully");
+                            Globals.refresher = true;
                         }
                         else
                         {
@@ -265,16 +328,16 @@ namespace WindowsFormsApplication11
                 else if (e.ClickedItem.Name.ToString() == "View")
                 {
                     Globals.menu.Hide();
-                    int id = Globals.Combopassing;
-                    Combo item = db.Comboes.FirstOrDefault(c => c.Combo_ID == id);
-                    if (item != null)
+                    int id = Globals.Salespassing;
+                    Customer_Order deieteItem = db.Customer_Order.FirstOrDefault(c => c.Order_ID == id);
+                    if (deieteItem != null)
                     {
-                        frmMaintainCombo form = new frmMaintainCombo();
+                        frmViewOrder form = new frmViewOrder();
                         form.ShowDialog();
                     }
                     else
                     {
-                        MessageBox.Show("Error:Stock item does not exist/No stock item selected,select a stock item");
+                        MessageBox.Show("Error:Order does not exist/No order selected");
                     }
 
                 }
@@ -283,37 +346,84 @@ namespace WindowsFormsApplication11
             //Stock Management Click Event Handlers
             //
             //-----------------------------------------------------------------------------------------------------//
-            if (e.ClickedItem.Name.ToString() == "View" )
+
+            else if (navButton == btnStock)
             {
-                Globals.menu.Hide();
-
-                int id = Globals.MStockpassing;
-                Stock_Item itemEdited = db.Stock_Item.FirstOrDefault(c => c.Stock_ID ==id );
-                if (itemEdited !=null)
+                if (e.ClickedItem.Name.ToString() == "View")
                 {
-                    Maintain_Stock_Item myform = new Maintain_Stock_Item();
-                    myform.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Error:Stock item does not exist/No stock item selected,select a stock item");
-                }
-                
+                    Globals.menu.Hide();
 
-
-                
-            }
-
-            else if (e.ClickedItem.Name.ToString() == "Check In")
-            {
-                Globals.menu.Hide();
-                int id = Globals.MStockpassing;
-                Stock_Item itemEdited = db.Stock_Item.FirstOrDefault(c => c.Stock_ID == id);
-                if (itemEdited.Stock_Type_ID == 1)
-                {
+                    int id = Globals.MStockpassing;
+                    Stock_Item itemEdited = db.Stock_Item.FirstOrDefault(c => c.Stock_ID == id);
                     if (itemEdited != null)
                     {
-                        Check_In_Stock_Item myform = new Check_In_Stock_Item();
+                        Maintain_Stock_Item myform = new Maintain_Stock_Item();
+                        myform.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error:Stock item does not exist/No stock item selected,select a stock item");
+                    }
+
+
+
+
+                }
+
+                else if (e.ClickedItem.Name.ToString() == "Check In")
+                {
+                    Globals.menu.Hide();
+                    int id = Globals.MStockpassing;
+                    Stock_Item itemEdited = db.Stock_Item.FirstOrDefault(c => c.Stock_ID == id);
+                    if (itemEdited.Stock_Type_ID == 1)
+                    {
+                        if (itemEdited != null)
+                        {
+                            Check_In_Stock_Item myform = new Check_In_Stock_Item();
+                            myform.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error:Stock item does not exist/No stock item selected,select a stock item");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Action not allowed in such stock item");
+                    }
+                }
+
+                else if (e.ClickedItem.Name.ToString() == "Check Out")
+                {
+                    Globals.menu.Hide();
+                    int id = Globals.MStockpassing;
+                    Stock_Item itemEdited = db.Stock_Item.FirstOrDefault(c => c.Stock_ID == id);
+                    if (itemEdited.Stock_Type_ID == 1)
+                    {
+                        if (itemEdited != null)
+                        {
+                            Check_Out_Stock_Item myform = new Check_Out_Stock_Item();
+                            myform.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error:Stock item does not exist/No stock item selected,select a stock item");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Action not allowed in such stock item");
+                    }
+                }
+
+                else if (e.ClickedItem.Name.ToString() == "Take")
+                {
+                    Globals.menu.Hide();
+                    int id = Globals.MStockpassing;
+                    Stock_Item itemEdited = db.Stock_Item.FirstOrDefault(c => c.Stock_ID == id);
+                    if (itemEdited != null)
+                    {
+                        Take_Stock_Item myform = new Take_Stock_Item();
                         myform.ShowDialog();
                     }
                     else
@@ -321,67 +431,23 @@ namespace WindowsFormsApplication11
                         MessageBox.Show("Error:Stock item does not exist/No stock item selected,select a stock item");
                     }
                 }
-                else
+                else if (e.ClickedItem.Name.ToString() == "Write Off")
                 {
-                    MessageBox.Show("Action not allowed in such stock item");
-                }
-            }
-
-            else if (e.ClickedItem.Name.ToString() == "Check Out")
-            {
-                Globals.menu.Hide();
-                int id = Globals.MStockpassing;
-                Stock_Item itemEdited = db.Stock_Item.FirstOrDefault(c => c.Stock_ID == id);
-                if (itemEdited.Stock_Type_ID == 1)
-                {
+                    Globals.menu.Hide();
+                    int id = Globals.MStockpassing;
+                    Stock_Item itemEdited = db.Stock_Item.FirstOrDefault(c => c.Stock_ID == id);
                     if (itemEdited != null)
                     {
-                        Check_Out_Stock_Item myform = new Check_Out_Stock_Item();
+                        Write_Off_stock_Item myform = new Write_Off_stock_Item();
                         myform.ShowDialog();
                     }
                     else
                     {
                         MessageBox.Show("Error:Stock item does not exist/No stock item selected,select a stock item");
+
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Action not allowed in such stock item");
-                }
             }
-
-            else if (e.ClickedItem.Name.ToString() == "Take")
-            {
-                Globals.menu.Hide();
-                int id = Globals.MStockpassing;
-                Stock_Item itemEdited = db.Stock_Item.FirstOrDefault(c => c.Stock_ID == id);
-                if (itemEdited != null)
-                {
-                    Take_Stock_Item myform = new Take_Stock_Item();
-                    myform.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Error:Stock item does not exist/No stock item selected,select a stock item");
-                }
-            }
-            else if (e.ClickedItem.Name.ToString() == "Write Off")
-            {
-                Globals.menu.Hide();
-                int id = Globals.MStockpassing;
-                Stock_Item itemEdited = db.Stock_Item.FirstOrDefault(c => c.Stock_ID == id);
-                if (itemEdited != null)
-                {
-                    Write_Off_stock_Item myform = new Write_Off_stock_Item();
-                    myform.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Error:Stock item does not exist/No stock item selected,select a stock item");
-                    
-                }
-            }
-
         }
 
         /*Employee Grid Mouse Click Func*/
@@ -419,7 +485,7 @@ namespace WindowsFormsApplication11
                 if (position_xy__row >= 0)
                 {
                     myMenu.Items.Add("Delete").Name = "Delete";
-                    myMenu.Items.Add("View").Name = "View";
+                    //myMenu.Items.Add("View").Name = "View";
                 }
                 myMenu.Show(dgvSupplier, new Point(e.X, e.Y));
                 int index = int.Parse(dgvSupplier.Rows[position_xy__row].Cells[0].Value.ToString());
@@ -680,16 +746,38 @@ namespace WindowsFormsApplication11
 
         private void clientBtn_Click(object sender, EventArgs e)
         {
-            btnOrderList.Visible = false;
-            btnViewOrder.Visible = false;
-            header.Text = "Customer";
-
-
-
             if (navButton != btnCustomer)
             {
                 navigate(btnCustomer);
             }
+            try
+            {
+                btnOrderList.Visible = false;
+                btnViewOrder.Visible = false;
+                header.Text = "Customer";
+
+                var items = from obj in db.Customers
+                            select new
+                            {
+                                CustomerID = obj.Customer_ID,
+                                CustomerName = obj.Customer_Name,
+                                CustomerSurName = obj.Customer_Surname,
+                                ContactNo = obj.Customer_Contact_Number,
+                                Adress = obj.Customer_Address
+
+                            };
+                dgvSupplier.DataSource = items.ToList();
+                dgvSupplier.ClearSelection();
+            }
+            catch(Exception i)
+            {
+
+            }
+
+
+            dgvSupplier.MouseClick += new MouseEventHandler(customerClick);
+
+          
 
 
         }
@@ -967,6 +1055,17 @@ namespace WindowsFormsApplication11
                 PlaceOrder frm = new PlaceOrder();
                 frm.ShowDialog();
             }
+
+            else if(navButton == btnCombo)
+            {
+                frmAddCombo form = new frmAddCombo();
+                form.ShowDialog();
+            }
+            else if(navButton == btnCustomer)
+            {
+                frmAddCustomer form = new frmAddCustomer();
+                form.ShowDialog();
+            }
         }
        
 
@@ -1155,7 +1254,7 @@ namespace WindowsFormsApplication11
                 if (dgvSupplier.SelectedRows.Count > 0)
                 {
                     int rowindex = dgvSupplier.CurrentCell.RowIndex;
-                    Globals.MenuCombopassing = dgvSupplier.Rows[rowindex].Cells[0].Value;
+                    Globals.Combopassing = dgvSupplier.Rows[rowindex].Cells[0].Value;
                 }
             }
 
@@ -1241,8 +1340,20 @@ namespace WindowsFormsApplication11
 
                 else if (navButton == btnCustomer)
                 {
-                    dgvSupplier.DataSource = db.Customers.ToList();
-                    db.SaveChanges();
+
+                    var items = from obj in db.Customers
+                                select new
+                                {
+                                    CustomerID = obj.Customer_ID,
+                                    CustomerName = obj.Customer_Name,
+                                    CustomerSurName = obj.Customer_Surname,
+                                    ContactNo = obj.Customer_Contact_Number,
+                                    Adress = obj.Customer_Address
+
+                                };
+                    dgvSupplier.DataSource = items.ToList();
+                    dgvSupplier.ClearSelection();
+
                 }
 
                 else if (navButton == btnSalesOrders)
@@ -1319,6 +1430,12 @@ namespace WindowsFormsApplication11
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            frmSalesReports form = new frmSalesReports();
+            form.ShowDialog();
         }
     }
 }

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Windows.Forms;
 
@@ -591,6 +593,9 @@ namespace WindowsFormsApplication11
        
         private void btnDeliverySubmit_Click(object sender, EventArgs e)
         {
+
+
+
             string phrase = txtShelfId.Text;
 
             double number;
@@ -704,6 +709,20 @@ namespace WindowsFormsApplication11
 
 
                     MessageBox.Show("Order saved successfully");
+
+                    try
+                    {
+                        WebClient client = new WebClient();
+                        Stream s = client.OpenRead("");
+                        StreamReader reader = new StreamReader(s);
+                        string str = reader.ReadToEnd();
+                        MessageBox.Show(str, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    catch(Exception exc)
+                    {
+                        MessageBox.Show(exc.Message,"Message",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {

@@ -14,16 +14,7 @@ namespace WindowsFormsApplication11
     
     public partial class Supplier_Type
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Supplier_Type()
-        {
-            this.Suppliers = new HashSet<Supplier>();
-        }
-    
         public int Supplier_Type_ID { get; set; }
         public string Supplier_Type_Description { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Supplier> Suppliers { get; set; }
     }
 }
