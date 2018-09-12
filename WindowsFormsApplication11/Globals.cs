@@ -162,6 +162,7 @@ namespace WindowsFormsApplication11
         public static List<Globals> MenuItems = new List<Globals>();
         public static List<Globals> StockItems = new List<Globals>();
         public static List<Globals> StockOrders = new List<Globals>();
+        public static List<Globals> ListOrders = new List<Globals>();
         public static string fileName;
 
 

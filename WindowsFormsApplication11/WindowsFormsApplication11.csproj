@@ -334,6 +334,12 @@
     <Compile Include="ItemsPicture.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ListOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListOrders.Designer.cs">
+      <DependentUpon>ListOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -624,6 +630,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewOrder.resx">
       <DependentUpon>frmViewOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListOrders.resx">
+      <DependentUpon>ListOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
