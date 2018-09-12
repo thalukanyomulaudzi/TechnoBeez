@@ -1036,7 +1036,11 @@ namespace WindowsFormsApplication11
                 frm.ShowDialog();
 
             }
-
+            else if(navButton == btnEmployees)
+            {
+                Add_Employee f = new Add_Employee();
+                f.ShowDialog();
+            }
             else if(navButton == btnMenu)
             {
                 Menu_And_Combo form = new Menu_And_Combo();
@@ -1256,6 +1260,8 @@ namespace WindowsFormsApplication11
                     int rowindex = dgvSupplier.CurrentCell.RowIndex;
                     Globals.Combopassing = dgvSupplier.Rows[rowindex].Cells[0].Value;
                 }
+
+             
             }
 
         }
@@ -1436,6 +1442,20 @@ namespace WindowsFormsApplication11
         {
             frmSalesReports form = new frmSalesReports();
             form.ShowDialog();
+        }
+
+        private void SupplierPan_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+           
+            User_Log log = new User_Log();
+            log.Logout_Time = DateTime.Now.TimeOfDay;
+           
+            this.Close();
         }
     }
 }

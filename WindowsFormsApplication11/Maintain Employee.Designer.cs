@@ -77,10 +77,10 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(194, 9);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(270, 33);
+            this.label14.Size = new System.Drawing.Size(243, 31);
             this.label14.TabIndex = 1;
             this.label14.Text = "Maintain Employee";
             // 
@@ -186,7 +186,7 @@
             this.Column3});
             this.dataGridView1.Location = new System.Drawing.Point(10, 208);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(470, 255);
+            this.dataGridView1.Size = new System.Drawing.Size(346, 255);
             this.dataGridView1.TabIndex = 17;
             // 
             // Column1
@@ -206,7 +206,7 @@
             // 
             // btnView
             // 
-            this.btnView.Location = new System.Drawing.Point(32, 477);
+            this.btnView.Location = new System.Drawing.Point(100, 469);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(108, 23);
             this.btnView.TabIndex = 18;
@@ -215,7 +215,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(160, 477);
+            this.button2.Location = new System.Drawing.Point(277, 469);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(108, 23);
             this.button2.TabIndex = 19;
