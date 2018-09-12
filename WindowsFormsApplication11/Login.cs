@@ -31,9 +31,15 @@ namespace WindowsFormsApplication11
             if (IsvalidUser(txtUsername.Text, txtPassword.Text))
 
             {
-
-                 Form2 F = new Form2();
-
+                MmasweEntities5 db = new MmasweEntities5();
+                txtPassword = null;
+                txtUsername = null;
+                Form2 F = new Form2();
+                User_Log log = new User_Log();
+                log.Login_Time = DateTime.Today.TimeOfDay;
+                db.User_Log.Add(log);
+               
+                db.SaveChanges();
                 F.Show();
             }
         }
@@ -68,7 +74,11 @@ namespace WindowsFormsApplication11
 
                 {
 
-                    return false;
+                MessageBox.Show("The login details entered are incorrect");
+                txtPassword = null;
+                txtUsername = null;
+                return false;
+                
 
                 }
                         

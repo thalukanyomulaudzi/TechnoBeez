@@ -50,8 +50,13 @@ namespace WindowsFormsApplication11
         private int mOrderNo;
         private int msOrderQuantity;
         private string mStockItemName;
+        private string mLog;
         private DateTime mDateIssued;
-
+        public string LogI
+        {
+            get { return mLog; }
+            set { mLog = value; }
+        }
         public string StockOrderDescription
         {
             get { return mStockOrderDescription; }

@@ -16,11 +16,13 @@ namespace WindowsFormsApplication11
         {
             InitializeComponent();
         }
-
+        MmasweEntities5 db = new MmasweEntities5();
         private void button1_Click(object sender, EventArgs e)
         {
             //Send password to email address
-
+            db.Employees
+                   .Where(t =>
+                           t.Email_Adress.Contains(txtEmail.Text));
 
         }
 

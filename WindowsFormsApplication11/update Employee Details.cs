@@ -18,6 +18,21 @@ namespace WindowsFormsApplication11
 
         private void update_Employee_Details_Load(object sender, EventArgs e)
         {
+            MmasweEntities5 db = new MmasweEntities5();
+            int id = Globals.Employeepassing;
+            Employee EmEdited = db.Employees.FirstOrDefault(c => c.Employee_ID == id);
+
+            txtName.Text = EmEdited.Employee_Name;
+            txtSurname.Text = EmEdited.Employee_Surname;
+            txtAddress.Text = EmEdited.Adress;
+            txtNextOfKin.Text = EmEdited.Next_Of_Kin_Name;
+            txtNKC.Text = EmEdited.Next_Of_Kin_Contact_Number.ToString();
+            txtEmail.Text = EmEdited.Email_Adress;
+            txtIdNumber.Text = EmEdited.Employee_ID.ToString();
+        }
+
+        private void btnUpdateEmployeeInfo_Click(object sender, EventArgs e)
+        {
 
         }
     }
