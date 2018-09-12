@@ -19,16 +19,17 @@ namespace WindowsFormsApplication11
         {
             this.Customer_Order = new HashSet<Customer_Order>();
             this.Employee_Booking_Shift = new HashSet<Employee_Booking_Shift>();
+            this.Stock_Order = new HashSet<Stock_Order>();
         }
     
         public int Employee_ID { get; set; }
         public string Employee_Name { get; set; }
         public string Employee_Surname { get; set; }
-        public int Employee_Identity_Number { get; set; }
+        public string Employee_Identity_Number { get; set; }
         public string Email_Adress { get; set; }
-        public int Contact_Number { get; set; }
+        public string Contact_Number { get; set; }
         public string Next_Of_Kin_Name { get; set; }
-        public int Next_Of_Kin_Contact_Number { get; set; }
+        public string Next_Of_Kin_Contact_Number { get; set; }
         public string Adress { get; set; }
         public Nullable<int> Gender_ID { get; set; }
         public Nullable<int> User_ID { get; set; }
@@ -39,5 +40,7 @@ namespace WindowsFormsApplication11
         public virtual ICollection<Employee_Booking_Shift> Employee_Booking_Shift { get; set; }
         public virtual Employee_Gender_ Employee_Gender_ { get; set; }
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Stock_Order> Stock_Order { get; set; }
     }
 }

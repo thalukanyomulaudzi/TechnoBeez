@@ -71,7 +71,6 @@ namespace WindowsFormsApplication11
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<Supplier_Contact_Details> Supplier_Contact_Details { get; set; }
         public virtual DbSet<Supplier_Type> Supplier_Type { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<User_Log> User_Log { get; set; }
         public virtual DbSet<User_Role> User_Role { get; set; }

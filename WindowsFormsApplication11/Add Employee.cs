@@ -30,12 +30,12 @@ namespace WindowsFormsApplication11
             int gender = comboBox1.SelectedIndex;
             NewE.Employee_Name = txtName.Text;
             NewE.Employee_Surname = txtSurname.Text;
-            NewE.Employee_Identity_Number = Convert.ToInt32(txtIdNumber.Text);
+            NewE.Employee_Identity_Number = txtIdNumber.Text;
             NewE.Gender_ID = 1;
             NewE.Adress = txtAddress.Text;
             NewE.Email_Adress = txtEmail.Text;
             NewE.Next_Of_Kin_Name = txtNextOfKin.Text;
-            NewE.Next_Of_Kin_Contact_Number = Convert.ToInt32(txtNKC.Text);
+            NewE.Next_Of_Kin_Contact_Number = txtNKC.Text;
 
             //Generate Login Details
 
