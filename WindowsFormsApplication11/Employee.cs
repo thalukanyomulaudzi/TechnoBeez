@@ -24,11 +24,11 @@ namespace WindowsFormsApplication11
         public int Employee_ID { get; set; }
         public string Employee_Name { get; set; }
         public string Employee_Surname { get; set; }
-        public string Employee_Identity_Number { get; set; }
+        public int Employee_Identity_Number { get; set; }
         public string Email_Adress { get; set; }
-        public string Contact_Number { get; set; }
+        public int Contact_Number { get; set; }
         public string Next_Of_Kin_Name { get; set; }
-        public string Next_Of_Kin_Contact_Number { get; set; }
+        public int Next_Of_Kin_Contact_Number { get; set; }
         public string Adress { get; set; }
         public Nullable<int> Gender_ID { get; set; }
         public Nullable<int> User_ID { get; set; }

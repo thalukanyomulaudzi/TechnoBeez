@@ -51,6 +51,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblHawks = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnUsers = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnStock = new System.Windows.Forms.Button();
             this.btnCombo = new System.Windows.Forms.Button();
@@ -67,6 +68,7 @@
             this.MenuPan = new System.Windows.Forms.Panel();
             this.StockPan = new System.Windows.Forms.Panel();
             this.SupplierPan = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.dgvSupplier = new System.Windows.Forms.DataGridView();
             this.dgvStock = new System.Windows.Forms.DataGridView();
             this.dgvMenu = new System.Windows.Forms.DataGridView();
@@ -75,8 +77,6 @@
             this.dgvCustomer2 = new System.Windows.Forms.DataGridView();
             this.dgvEmp = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnUsers = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.MmaswePannel.SuspendLayout();
             this.topBarPannel.SuspendLayout();
             this.CustomerPan.SuspendLayout();
@@ -155,7 +155,7 @@
             // 
             this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployee.Location = new System.Drawing.Point(51, 27);
-            this.dgvEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvEmployee.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEmployee.Name = "dgvEmployee";
             this.dgvEmployee.RowTemplate.Height = 24;
             this.dgvEmployee.Size = new System.Drawing.Size(664, 304);
@@ -362,11 +362,28 @@
             this.panel1.Controls.Add(this.btnEmployees);
             this.panel1.Controls.Add(this.btnSuppliers11);
             this.panel1.Location = new System.Drawing.Point(0, 123);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(195, 421);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnUsers
+            // 
+            this.btnUsers.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnUsers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUsers.FlatAppearance.BorderSize = 0;
+            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnUsers.ForeColor = System.Drawing.Color.White;
+            this.btnUsers.Location = new System.Drawing.Point(0, 280);
+            this.btnUsers.Margin = new System.Windows.Forms.Padding(0);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Size = new System.Drawing.Size(195, 40);
+            this.btnUsers.TabIndex = 21;
+            this.btnUsers.Text = "Users";
+            this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsers.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
@@ -511,7 +528,7 @@
             // 
             this.panel2.Controls.Add(this.EmployeePanel);
             this.panel2.Location = new System.Drawing.Point(197, 125);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(831, 418);
             this.panel2.TabIndex = 4;
@@ -522,7 +539,7 @@
             this.EmployeePanel.Controls.Add(this.dgvEmp);
             this.EmployeePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EmployeePanel.Location = new System.Drawing.Point(0, 0);
-            this.EmployeePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EmployeePanel.Margin = new System.Windows.Forms.Padding(2);
             this.EmployeePanel.Name = "EmployeePanel";
             this.EmployeePanel.Size = new System.Drawing.Size(831, 418);
             this.EmployeePanel.TabIndex = 3;
@@ -533,7 +550,7 @@
             this.CustomerPanel.Controls.Add(this.dgvCustomer2);
             this.CustomerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomerPanel.Location = new System.Drawing.Point(0, 0);
-            this.CustomerPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CustomerPanel.Margin = new System.Windows.Forms.Padding(2);
             this.CustomerPanel.Name = "CustomerPanel";
             this.CustomerPanel.Size = new System.Drawing.Size(831, 418);
             this.CustomerPanel.TabIndex = 2;
@@ -544,7 +561,7 @@
             this.SalesPan.Controls.Add(this.dgvSales);
             this.SalesPan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SalesPan.Location = new System.Drawing.Point(0, 0);
-            this.SalesPan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SalesPan.Margin = new System.Windows.Forms.Padding(2);
             this.SalesPan.Name = "SalesPan";
             this.SalesPan.Size = new System.Drawing.Size(831, 418);
             this.SalesPan.TabIndex = 3;
@@ -555,7 +572,7 @@
             this.ComboPan.Controls.Add(this.dgvCombo);
             this.ComboPan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ComboPan.Location = new System.Drawing.Point(0, 0);
-            this.ComboPan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ComboPan.Margin = new System.Windows.Forms.Padding(2);
             this.ComboPan.Name = "ComboPan";
             this.ComboPan.Size = new System.Drawing.Size(831, 418);
             this.ComboPan.TabIndex = 3;
@@ -566,7 +583,7 @@
             this.MenuPan.Controls.Add(this.dgvMenu);
             this.MenuPan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MenuPan.Location = new System.Drawing.Point(0, 0);
-            this.MenuPan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MenuPan.Margin = new System.Windows.Forms.Padding(2);
             this.MenuPan.Name = "MenuPan";
             this.MenuPan.Size = new System.Drawing.Size(831, 418);
             this.MenuPan.TabIndex = 3;
@@ -577,7 +594,7 @@
             this.StockPan.Controls.Add(this.dgvStock);
             this.StockPan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StockPan.Location = new System.Drawing.Point(0, 0);
-            this.StockPan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.StockPan.Margin = new System.Windows.Forms.Padding(2);
             this.StockPan.Name = "StockPan";
             this.StockPan.Size = new System.Drawing.Size(831, 418);
             this.StockPan.TabIndex = 3;
@@ -588,17 +605,28 @@
             this.SupplierPan.Controls.Add(this.dgvSupplier);
             this.SupplierPan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SupplierPan.Location = new System.Drawing.Point(0, 0);
-            this.SupplierPan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SupplierPan.Margin = new System.Windows.Forms.Padding(2);
             this.SupplierPan.Name = "SupplierPan";
             this.SupplierPan.Size = new System.Drawing.Size(831, 418);
             this.SupplierPan.TabIndex = 1;
             this.SupplierPan.Paint += new System.Windows.Forms.PaintEventHandler(this.SupplierPan_Paint);
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.Location = new System.Drawing.Point(641, 360);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(94, 40);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "LogOut";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // dgvSupplier
             // 
             this.dgvSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSupplier.Location = new System.Drawing.Point(22, 20);
-            this.dgvSupplier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvSupplier.Margin = new System.Windows.Forms.Padding(2);
             this.dgvSupplier.Name = "dgvSupplier";
             this.dgvSupplier.RowTemplate.Height = 24;
             this.dgvSupplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -612,7 +640,7 @@
             // 
             this.dgvStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStock.Location = new System.Drawing.Point(17, 20);
-            this.dgvStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvStock.Margin = new System.Windows.Forms.Padding(2);
             this.dgvStock.Name = "dgvStock";
             this.dgvStock.RowTemplate.Height = 24;
             this.dgvStock.Size = new System.Drawing.Size(706, 286);
@@ -622,7 +650,7 @@
             // 
             this.dgvMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMenu.Location = new System.Drawing.Point(22, 20);
-            this.dgvMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvMenu.Margin = new System.Windows.Forms.Padding(2);
             this.dgvMenu.Name = "dgvMenu";
             this.dgvMenu.RowTemplate.Height = 24;
             this.dgvMenu.Size = new System.Drawing.Size(701, 301);
@@ -632,7 +660,7 @@
             // 
             this.dgvCombo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCombo.Location = new System.Drawing.Point(22, 20);
-            this.dgvCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvCombo.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCombo.Name = "dgvCombo";
             this.dgvCombo.RowTemplate.Height = 24;
             this.dgvCombo.Size = new System.Drawing.Size(689, 310);
@@ -642,7 +670,7 @@
             // 
             this.dgvSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSales.Location = new System.Drawing.Point(17, 20);
-            this.dgvSales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvSales.Margin = new System.Windows.Forms.Padding(2);
             this.dgvSales.Name = "dgvSales";
             this.dgvSales.RowTemplate.Height = 24;
             this.dgvSales.Size = new System.Drawing.Size(706, 310);
@@ -652,7 +680,7 @@
             // 
             this.dgvCustomer2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomer2.Location = new System.Drawing.Point(17, 20);
-            this.dgvCustomer2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvCustomer2.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCustomer2.Name = "dgvCustomer2";
             this.dgvCustomer2.RowTemplate.Height = 24;
             this.dgvCustomer2.Size = new System.Drawing.Size(698, 310);
@@ -662,7 +690,7 @@
             // 
             this.dgvEmp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmp.Location = new System.Drawing.Point(22, 26);
-            this.dgvEmp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvEmp.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEmp.Name = "dgvEmp";
             this.dgvEmp.RowTemplate.Height = 24;
             this.dgvEmp.Size = new System.Drawing.Size(701, 312);
@@ -674,34 +702,6 @@
             this.timer1.Interval = 5;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btnUsers
-            // 
-            this.btnUsers.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnUsers.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnUsers.FlatAppearance.BorderSize = 0;
-            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnUsers.ForeColor = System.Drawing.Color.White;
-            this.btnUsers.Location = new System.Drawing.Point(0, 280);
-            this.btnUsers.Margin = new System.Windows.Forms.Padding(0);
-            this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Size = new System.Drawing.Size(195, 40);
-            this.btnUsers.TabIndex = 21;
-            this.btnUsers.Text = "Users";
-            this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsers.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button2.Location = new System.Drawing.Point(641, 360);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 40);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "LogOut";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -710,7 +710,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.MmaswePannel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form2";
             this.Text = "DashBoard";
             this.Load += new System.EventHandler(this.Form2_Load);
