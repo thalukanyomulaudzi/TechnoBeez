@@ -102,7 +102,7 @@ namespace WindowsFormsApplication11
                     writeoff.WriteOff_Stock_Name = itemEdited.Stock_Item_Name;
                     writeoff.WriteOff_Reason = txtReason.Text;
                     writeoff.Stock_WriteOff_Quantity = Convert.ToInt32(txtStockQuantity.Text);
-                    writeoff.WriteOffDate = DateTime.Today;
+                    writeoff.WriteOffDate = DateTime.Now;
 
                     writeline.Stock_ID = itemEdited.Stock_ID;
                     writeline.Write_Off_ID = writeoff.Write_Off_ID;

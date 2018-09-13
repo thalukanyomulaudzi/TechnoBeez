@@ -21,8 +21,12 @@ namespace WindowsFormsApplication11
         }
     
         public int Employee_Shift_ID { get; set; }
-        public System.DateTime Employee_Shift_Date { get; set; }
-        public string Employee_Shift_Time_Slot { get; set; }
+        public string Employee_Shift_Start_Time { get; set; }
+        public string Employee_Shift_End_Time { get; set; }
+        public int MaximumCooks { get; set; }
+        public Nullable<int> MaximumCashiers { get; set; }
+        public Nullable<int> CooksAllocated { get; set; }
+        public Nullable<int> CashiersAllocated { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employee_Booking_Shift> Employee_Booking_Shift { get; set; }

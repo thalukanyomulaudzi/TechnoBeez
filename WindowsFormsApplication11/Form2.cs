@@ -699,6 +699,8 @@ namespace WindowsFormsApplication11
 
         private void empBtn_Click(object sender, EventArgs e)
         {
+            btnBookShift.Visible = true;
+            btnSetShift.Visible = true;
             btnOrderList.Visible = false;
             btnViewOrder.Visible = false;
             try
@@ -746,6 +748,8 @@ namespace WindowsFormsApplication11
 
         private void clientBtn_Click(object sender, EventArgs e)
         {
+            btnBookShift.Visible = false;
+            btnSetShift.Visible = false;
             if (navButton != btnCustomer)
             {
                 navigate(btnCustomer);
@@ -807,6 +811,8 @@ namespace WindowsFormsApplication11
         }
         private void inventoryBtn_Click(object sender, EventArgs e)
         {
+            btnBookShift.Visible = false;
+            btnSetShift.Visible = false;
             btnOrderList.Visible = true;
             btnViewOrder.Visible = false;
             header.Text = "Stock";
@@ -847,8 +853,10 @@ namespace WindowsFormsApplication11
         }
         private void Form2_Load(object sender, EventArgs e)
         {
+            btnSetShift.Visible = false;
             btnViewOrder.Visible = false;
             btnOrderList.Visible = false;
+            btnBookShift.Visible = false;
             try
             {
                 header.Text = "Suppliers";
@@ -870,6 +878,8 @@ namespace WindowsFormsApplication11
 
         private void supplierBtn_Click(object sender, EventArgs e)
         {
+            btnBookShift.Visible = false;
+            btnSetShift.Visible = false;
             btnOrderList.Visible = false;
             btnViewOrder.Visible = false;
             header.Text = "Combo";
@@ -902,6 +912,8 @@ namespace WindowsFormsApplication11
 
         private void jobOBtn_Click(object sender, EventArgs e)
         {
+            btnBookShift.Visible = false;
+            btnSetShift.Visible = false;
             btnOrderList.Visible = false;
             btnViewOrder.Visible = false;
             try
@@ -944,6 +956,8 @@ namespace WindowsFormsApplication11
 
         private void quoteBtn_Click(object sender, EventArgs e)
         {
+            btnBookShift.Visible = false;
+            btnSetShift.Visible = false;
             btnOrderList.Visible = false;
             header.Text = "Orders";
             btnViewOrder.Visible = true;
@@ -979,6 +993,8 @@ namespace WindowsFormsApplication11
 
         private void btnSuppliers11_Click(object sender, EventArgs e)
         {
+            btnBookShift.Visible = false;
+            btnSetShift.Visible = false;
             btnOrderList.Visible = false;
             btnViewOrder.Visible = false;
             try
@@ -1068,6 +1084,11 @@ namespace WindowsFormsApplication11
             else if(navButton == btnCustomer)
             {
                 frmAddCustomer form = new frmAddCustomer();
+                form.ShowDialog();
+            }
+            else if (navButton == btnUsers)
+            {
+                Add_Employee_User_Role form = new Add_Employee_User_Role();
                 form.ShowDialog();
             }
         }
@@ -1454,8 +1475,35 @@ namespace WindowsFormsApplication11
            
             User_Log log = new User_Log();
             log.Logout_Time = DateTime.Now.TimeOfDay;
+            db.User_Log.Add(log);
            
             this.Close();
+        }
+
+        private void btnGeneralReports_Click(object sender, EventArgs e)
+        {
+            frmReports form = new frmReports();
+            form.ShowDialog();
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+           // btnSetShift.Visible = true;
+
+
+        }
+
+        private void btnSetShift_Click(object sender, EventArgs e)
+        {
+            Setup_Employee_Shift_Schedule form = new Setup_Employee_Shift_Schedule();
+            form.ShowDialog();
+
+        }
+
+        private void btnBookShift_Click(object sender, EventArgs e)
+        {
+            Book_Employee_Shift form = new Book_Employee_Shift();
+            form.ShowDialog();
         }
     }
 }

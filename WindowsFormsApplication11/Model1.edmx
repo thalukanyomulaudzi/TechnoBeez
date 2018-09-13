@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MmasweModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MmasweModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Access_level">
           <Key>
             <PropertyRef Name="Access_Level_ID" />
           </Key>
-          <Property Name="Access_Level_ID" Type="int" Nullable="false" />
+          <Property Name="Access_Level_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Access_Level_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Acess_Level_Description" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
@@ -261,8 +261,12 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
             <PropertyRef Name="Employee_Shift_ID" />
           </Key>
           <Property Name="Employee_Shift_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Employee_Shift_Date" Type="datetime" Nullable="false" />
-          <Property Name="Employee_Shift_Time_Slot" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Employee_Shift_Start_Time" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Employee_Shift_End_Time" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaximumCooks" Type="int" Nullable="false" />
+          <Property Name="MaximumCashiers" Type="int" />
+          <Property Name="CooksAllocated" Type="int" />
+          <Property Name="CashiersAllocated" Type="int" />
         </EntityType>
         <EntityType Name="ItemsPicture">
           <Key>
@@ -1266,8 +1270,7 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MmasweModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1275,7 +1278,7 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
           <Key>
             <PropertyRef Name="Access_Level_ID" />
           </Key>
-          <Property Name="Access_Level_ID" Type="Int32" Nullable="false" />
+          <Property Name="Access_Level_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Access_Level_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Acess_Level_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="User_Role" Relationship="Self.FK_User_Role_Access_level" FromRole="Access_level" ToRole="User_Role" />
@@ -1562,9 +1565,13 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
             <PropertyRef Name="Employee_Shift_ID" />
           </Key>
           <Property Name="Employee_Shift_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Employee_Shift_Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Employee_Shift_Time_Slot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Employee_Shift_Start_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Employee_Shift_End_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Employee_Booking_Shift" Relationship="Self.FK_Employee_Booking_Shift_Employee_Shifts" FromRole="Employee_Shifts" ToRole="Employee_Booking_Shift" />
+          <Property Name="MaximumCooks" Type="Int32" Nullable="false" />
+          <Property Name="MaximumCashiers" Type="Int32" />
+          <Property Name="CooksAllocated" Type="Int32" />
+          <Property Name="CashiersAllocated" Type="Int32" />
         </EntityType>
         <EntityType Name="ItemsPicture">
           <Key>
@@ -2892,9 +2899,13 @@ warning 6002: The table/view 'Mmaswe.dbo.DeliveryOrder' does not have a primary 
           <EntitySetMapping Name="Employee_Shifts">
             <EntityTypeMapping TypeName="MmasweModel.Employee_Shifts">
               <MappingFragment StoreEntitySet="Employee_Shifts">
+                <ScalarProperty Name="CashiersAllocated" ColumnName="CashiersAllocated" />
+                <ScalarProperty Name="CooksAllocated" ColumnName="CooksAllocated" />
+                <ScalarProperty Name="MaximumCashiers" ColumnName="MaximumCashiers" />
+                <ScalarProperty Name="MaximumCooks" ColumnName="MaximumCooks" />
                 <ScalarProperty Name="Employee_Shift_ID" ColumnName="Employee_Shift_ID" />
-                <ScalarProperty Name="Employee_Shift_Date" ColumnName="Employee_Shift_Date" />
-                <ScalarProperty Name="Employee_Shift_Time_Slot" ColumnName="Employee_Shift_Time_Slot" />
+                <ScalarProperty Name="Employee_Shift_Start_Time" ColumnName="Employee_Shift_Start_Time" />
+                <ScalarProperty Name="Employee_Shift_End_Time" ColumnName="Employee_Shift_End_Time" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

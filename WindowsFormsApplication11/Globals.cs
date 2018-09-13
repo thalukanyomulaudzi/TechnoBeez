@@ -19,6 +19,7 @@ namespace WindowsFormsApplication11
         public static bool refresher = false;
         public static int refresher2 = -1;
         public static int refr = -1;
+        public static int payMentID = -1;
         public static ContextMenuStrip menu;
         public static Image converBinToImage(byte[] Data)
         {
@@ -44,6 +45,7 @@ namespace WindowsFormsApplication11
         private double mOrderItemPrice;
         private int mOrderQuantity;
         private string mOrderItemNotes;
+        private string mItemType;
 
         private string mStockOrderDescription;
         private string mSupplierName;
@@ -52,6 +54,12 @@ namespace WindowsFormsApplication11
         private string mStockItemName;
         private string mLog;
         private DateTime mDateIssued;
+        public string ItemType
+        {
+            get { return mItemType; }
+            set { mItemType = value; }
+        }
+
         public string LogI
         {
             get { return mLog; }
@@ -192,7 +200,9 @@ namespace WindowsFormsApplication11
 
         public static List<int> combos;
 
-
+        public static int LogedUser = 0;
+        public static DateTime LogInTieme;
+        public static DateTime LogOutTime;
 
         //Sales Passing
         public static dynamic Salespassing = 0;

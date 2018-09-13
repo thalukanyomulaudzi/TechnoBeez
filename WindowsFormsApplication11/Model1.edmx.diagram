@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7aac51b3d47b472e8bb049d1f13851aa" Name="Diagram1">
+      <Diagram DiagramId="0fc7fe05c9394852bd5f986d0fb0cee4" Name="Diagram1">
         <EntityTypeShape EntityType="MmasweModel.Access_level" Width="1.5" PointX="1.5" PointY="55.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MmasweModel.Address" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MmasweModel.Adress_Type" Width="1.5" PointX="3.75" PointY="23.25" IsExpanded="true" />
@@ -29,7 +29,7 @@
         <EntityTypeShape EntityType="MmasweModel.Employee_Attendence_Status" Width="1.5" PointX="6.25" PointY="36.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MmasweModel.Employee_Booking_Shift" Width="1.5" PointX="4" PointY="36.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MmasweModel.Employee_Gender_" Width="1.5" PointX="1.5" PointY="37.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MmasweModel.Employee_Shifts" Width="1.5" PointX="1.75" PointY="70.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MmasweModel.Employee_Shifts" Width="1.5" PointX="1.75" PointY="70.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MmasweModel.ItemsPicture" Width="1.5" PointX="5.25" PointY="42.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MmasweModel.Menu_Item" Width="1.5" PointX="3" PointY="64.625" IsExpanded="true" />
         <EntityTypeShape EntityType="MmasweModel.Menu_Item_Price" Width="1.5" PointX="0.75" PointY="64" IsExpanded="true" />

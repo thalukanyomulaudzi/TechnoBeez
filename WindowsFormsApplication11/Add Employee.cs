@@ -21,44 +21,69 @@ namespace WindowsFormsApplication11
         {
 
         }
+        MmasweEntities5 db = new MmasweEntities5();
 
         private void btnSaveCombo_Click(object sender, EventArgs e)
         {
-            MmasweEntities5 db = new MmasweEntities5();
+            
             User NewU = new User();
             Employee NewE = new Employee();
-            int gender = comboBox1.SelectedIndex;
+            string ges = cmbGender.Text;
+            Employee_Gender_ gend = db.Employee_Gender_.FirstOrDefault(c=> c.Gender_Description ==ges );
+
+           
+
+            int gender = cmbGender.SelectedIndex;
             NewE.Employee_Name = txtName.Text;
             NewE.Employee_Surname = txtSurname.Text;
             NewE.Employee_Identity_Number = txtIdNumber.Text;
-            NewE.Gender_ID = 1;
+            NewE.Gender_ID = gend.Gender_ID;
             NewE.Adress = txtAddress.Text;
+            NewE.Contact_Number = txtEmpContact.Text;
             NewE.Email_Adress = txtEmail.Text;
             NewE.Next_Of_Kin_Name = txtNextOfKin.Text;
             NewE.Next_Of_Kin_Contact_Number = txtNKC.Text;
+            NewE.User_ID = NewU.User_ID;
 
             //Generate Login Details
 
-            
-            string userprif = txtName.Text.Substring(0, 3);
-            Random rd = new Random();
-            int number = rd.Next(100, 999);
-            string username = userprif + number.ToString();
-            NewU.UserName = username;
-            int password = rd.Next(10000, 99999);
 
-            NewU.User_Password = password.ToString();
+            if (txtName.Text.Length >= 3)
+            {
+                string userprif = txtName.Text.Substring(0, 3);
+                Random rd = new Random();
+                int number = rd.Next(100, 999);
+                string username = userprif + number.ToString();
+                NewU.UserName = username;
 
-          
+                int password = rd.Next(10000, 99999);
 
-            //send email to user address with username and password
+                NewU.User_Password = password.ToString();
 
-            MessageBox.Show("Employee Login details has been sent to their email address");
-            SendEmail(txtEmail.Text, txtName.Text, username, password.ToString());
+                string r = cmbRole.Text;
+                User_Role role = db.User_Role.FirstOrDefault(c => c.User_Role_Description == r);
+
+                NewU.User_Role_ID = role.User_Role_ID;
+
+
+
+                //send email to user address with username and password
+
+
+                SendEmail(txtEmail.Text, txtName.Text, username, password.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Error: Name too short");
+                return;
+                
+            }
             db.Employees.Add(NewE);
             db.Users.Add(NewU);
             db.SaveChanges();
-           
+            MessageBox.Show("Employee added successfully,employee Login details has been sent to their email address");
+            this.Close();
+
         }
 
         private void Add_Employee_Load(object sender, EventArgs e)
@@ -93,6 +118,16 @@ namespace WindowsFormsApplication11
                 MessageBox.Show("Error " + ex);
             }
 
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

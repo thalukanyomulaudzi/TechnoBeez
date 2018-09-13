@@ -15,6 +15,7 @@ namespace WindowsFormsApplication11
         {
             InitializeComponent();
         }
+        MmasweEntities5 db = new MmasweEntities5();
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -28,20 +29,33 @@ namespace WindowsFormsApplication11
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (IsvalidUser(txtUsername.Text, txtPassword.Text))
+            //if (IsvalidUser(txtUsername.Text, txtPassword.Text))
 
-            {
-                MmasweEntities5 db = new MmasweEntities5();
+            //{
+            string username = txtUsername.Text;
+            string pass = txtPassword.Text;
+           
                 txtPassword = null;
                 txtUsername = null;
-                Form2 F = new Form2();
-                User_Log log = new User_Log();
-                log.Login_Time = DateTime.Today.TimeOfDay;
-                db.User_Log.Add(log);
-               
-                db.SaveChanges();
-                F.Show();
+
+
+            User use = db.Users.FirstOrDefault(c => c.UserName == username && c.User_Password == pass);
+            if (use != null)
+            {
+                Globals.LogInTieme = DateTime.Now;
+                Globals.LogedUser = use.User_ID;
+                
             }
+
+            else
+            {
+                MessageBox.Show("Error:Combination not found");
+                return;
+            }
+               
+                //db.SaveChanges();
+            //   
+            //}
         }
         private bool IsvalidUser(string userName, string password)
 

@@ -19,6 +19,8 @@ namespace WindowsFormsApplication11
         }
         MmasweEntities5 db = new MmasweEntities5();
 
+
+
         private void button3_Click(object sender, EventArgs e)
         {
 
@@ -90,6 +92,7 @@ namespace WindowsFormsApplication11
             //Globals.refresher2 = false;
             groupBox1.Visible = false;
             Globals.addCustomer = false;
+            btnEatIn.Visible = false;
 
            
             btnDeliverySaveOrder.Visible = false;
@@ -247,12 +250,12 @@ namespace WindowsFormsApplication11
                         Stock_Item item = db.Stock_Item.FirstOrDefault(c => c.Stock_ID == id);
                         Stock_Price price = db.Stock_Price.FirstOrDefault(c => c.Stock_Price_ID == id);
 
-                        if ((item != null) && (price != null))
+                        if ((item != null) && (price != null)&&(item.Stock_Type_ID != 2))
                         {
                             shelf.OrderItemId = id;
                             shelf.OrderItemName = item.Stock_Item_Name;
                             shelf.OrderItemDescription = item.Stock_Item_Description;
-
+                            shelf.ItemType = item.Stock_Type_ID.ToString();
                             shelf.OrderItemPrice = price.Stock_Price1;
                             shelf.OrderQuantity = Convert.ToInt32(numericUpDown1.Text);
                             Globals.StockItems.Add(shelf);
@@ -271,7 +274,9 @@ namespace WindowsFormsApplication11
                         List<Globals> something = new List<Globals>();
                         something = Globals.StockItems;
                         var items = from obj in something
+                                  // where obj.ItemType == "2"
                                     select new
+                                    
                                     {
                                         Id = obj.OrderItemId,
                                         Name = obj.OrderItemName,
@@ -355,31 +360,18 @@ namespace WindowsFormsApplication11
 
         }
 
+
         private void button7_Click(object sender, EventArgs e)
         {
-            string phrase = txtCash.Text;
+            //string phrase = txtCash.Text;
 
-            double number;
-            bool isNumeric = double.TryParse(phrase, out number);
-            if ((phrase.Length < 9) && (isNumeric == true))
-            {
-                if (Convert.ToInt32(txtCash.Text) > -1)
-                {
-                    Payment pay = new Payment();
-                    Payment_Type type = db.Payment_Type.FirstOrDefault(c => c.Payment_Description == "Cash");
-
-
-                    pay.Payment_Amount = Convert.ToDouble(Globals.AmountDue);
-                    pay.Payment_Date = DateTime.Today;
-
-
-                    pay.Payment_Type_ID = type.Payment_Type_ID;
-
-
-
-                    db.Payments.Add(pay);
-                    db.SaveChanges();
-                    Globals.SalesPaymentID = pay.Payment_ID;
+            //double number;
+            //bool isNumeric = double.TryParse(phrase, out number);
+            //if ((phrase.Length < 9) && (isNumeric == true))
+            //{
+            //    if (Convert.ToInt32(txtCash.Text) > -1)
+            //    {
+                   
 
                     //int contact = Convert.ToInt32(txtContact.Text);
 
@@ -402,7 +394,7 @@ namespace WindowsFormsApplication11
 
                                 VatAmount = VatAmount + item.OrderItemPrice * inf.VAT_Percentage;
 
-                                MessageBox.Show(Convert.ToString(inf.VAT_Percentage));
+                               
                             }
                         }
 
@@ -464,9 +456,14 @@ namespace WindowsFormsApplication11
                     for (int i = 0; i < Globals.StockItems.Count; i++)
                     {
                         Customer_Order_Line orderLine = new Customer_Order_Line();
+                      
                         orderLine.Customer_Order_ID = order.Order_ID;
                         orderLine.Stock_Item_Quantity = Globals.StockItems[i].OrderQuantity;
                         orderLine.Stock_ID = Globals.StockItems[i].OrderItemId;
+
+                        int id = Globals.StockItems[i].OrderItemId;
+                        Stock_Item stc = db.Stock_Item.FirstOrDefault(c=> c.Stock_ID == id);
+                        stc.Stock_Item_Quantity = stc.Stock_Item_Quantity - Globals.StockItems[i].OrderQuantity;
 
                         db.Customer_Order_Line.Add(orderLine);
                         db.SaveChanges();
@@ -494,20 +491,9 @@ namespace WindowsFormsApplication11
                     Globals.AmountDue = 0;
 
                     this.Close();
-                    MessageBox.Show("Order created successfully");
-                }
-                else
-                {
-                    MessageBox.Show("Error: Cash can't be less than one");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Error: Cash not numeric,please anter a numeric value(integer)");
+                    MessageBox.Show("Order created successfully with order number: " + order.Order_ID.ToString());
+                    btnEatIn.Visible = false;
 
-
-               
-            }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -574,13 +560,16 @@ namespace WindowsFormsApplication11
                 btnEatIn.Visible = false;
                 lblCash.Visible = false;
                 txtCash.Visible = false;
+                btnPay.Visible = false;
+                lblChangeIdentikiloto.Visible = false;
             }
             else
             {
+                lblChangeIdentikiloto.Visible = true;
                 groupBox1.Visible = false;
                 btnDeliverySaveOrder.Visible = false;
                 btnEatIn.Visible = true;
-
+                btnPay.Visible = false;
                 lblCash.Visible = true;
                 txtCash.Visible = true;
             }
@@ -593,16 +582,16 @@ namespace WindowsFormsApplication11
        
         private void btnDeliverySubmit_Click(object sender, EventArgs e)
         {
+            Company_Information inf = db.Company_Information.FirstOrDefault(c => c.Company_Info_ID == 1);
 
 
-
-            string phrase = txtShelfId.Text;
+            string phrase = txtContact.Text;
 
             double number;
             bool isNumeric = double.TryParse(phrase, out number);
-            if ((phrase.Length < 9) && (isNumeric == true))
+            if ((phrase.Length ==10) && (isNumeric == true))
             {
-                if (Convert.ToInt32(txtShelfId.Text) > -1)
+                if (Convert.ToInt32(txtContact.Text) > -1)
                 {
                     double VatAmount = 0;
                     DeliveryTable order = new DeliveryTable();
@@ -610,13 +599,40 @@ namespace WindowsFormsApplication11
                     order.orderTotal = Globals.AmountDue;
 
                     int contact = Convert.ToInt32(txtContact.Text);
+                    if (Globals.ComboItems.Count != 0)
+                    {
+                        foreach (var item in Globals.ComboItems)
+                        {
 
+                            VatAmount = VatAmount + item.OrderItemPrice * inf.VAT_Percentage;
+
+                           
+                        }
+                    }
+
+                    if (Globals.ComboItems.Count != 0)
+                    {
+                        foreach (var item in Globals.MenuItems)
+                        {
+                            VatAmount = VatAmount + item.OrderItemPrice * inf.VAT_Percentage;
+
+                        }
+                    }
+
+                    if (Globals.StockItems.Count != 0)
+                    {
+                        foreach (var item in Globals.StockItems)
+                        {
+                            VatAmount = VatAmount + item.OrderItemPrice * inf.VAT_Percentage;
+
+                        }
+                    }
 
                     VatAmount = Math.Round(VatAmount, 2);
 
 
-                    order.orderDatef = DateTime.Today;
-                    order.vatTot = Globals.vatAmountDelivery;
+                    order.orderDatef = DateTime.Now;
+                    order.vatTot = VatAmount;
 
                     order.orderNotesf = richTextBox1.Text;
                     order.orderTotal = Globals.AmountDue;
@@ -708,20 +724,38 @@ namespace WindowsFormsApplication11
                     Globals.StockItems.Clear();
 
 
-                    MessageBox.Show("Order saved successfully");
+                    MessageBox.Show("Order saved successfully with order number: " + order.OrderId.ToString()+",customer Address: " + cust.Customer_Address.ToString());
 
+
+
+                    string username = "nedzingahephindulo@gmail.com";
+                    string password = "70gra";
+                    string msgsender = "4700000000";
+                    string destinationaddr = "27" + txtContact.Text.Substring(1, 9);
+                    string message = "Dear customer,thank you for ordering food with us,your order is being prepared for delivery,your order number is: " + order.OrderId.ToString();
+
+                    // Create ViaNettSMS object with username and password
+                    ViaNettSMS s = new ViaNettSMS(username, password);
+                    // Declare Result object returned by the SendSMS function
+                    ViaNettSMS.Result result;
                     try
                     {
-                        WebClient client = new WebClient();
-                        Stream s = client.OpenRead("");
-                        StreamReader reader = new StreamReader(s);
-                        string str = reader.ReadToEnd();
-                        MessageBox.Show(str, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        // Send SMS through HTTP API
+                        result = s.sendSMS(msgsender, destinationaddr, message);
+                        // Show Send SMS response
+                        if (result.Success)
+                        {
+                            MessageBox.Show("Order confirmation message successfully sent to customer" );
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error:Network connection not strong enough to send and receive messages:" + result.ErrorCode + " " + result.ErrorMessage);
+                        }
                     }
-
-                    catch(Exception exc)
+                    catch (System.Net.WebException ex)
                     {
-                        MessageBox.Show(exc.Message,"Message",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        //Catch error occurred while connecting to server.
+                        MessageBox.Show(ex.Message);
                     }
                 }
                 else
@@ -734,7 +768,7 @@ namespace WindowsFormsApplication11
             else
             {
                 
-                MessageBox.Show("Error: Contact number not numeric,please anter a numeric value(integer)");
+                MessageBox.Show("Error: Contact number not numeric/valid,please anter a valid number(integer)");
             }
 
         }
@@ -758,6 +792,45 @@ namespace WindowsFormsApplication11
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPay_Click(object sender, EventArgs e)
+        { string phrase = txtCash.Text;
+
+            double number;
+            bool isNumeric = double.TryParse(phrase, out number);
+            if ((phrase.Length < 9) && (isNumeric == true))
+            {
+                if ((Convert.ToInt32(txtCash.Text) > -1)&&(Convert.ToDouble(txtCash.Text) >= Globals.AmountDue))
+                {
+                    Payment pay = new Payment();
+                    Payment_Type type = db.Payment_Type.FirstOrDefault(c => c.Payment_Description == "Cash");
+
+
+                    pay.Payment_Amount = Convert.ToDouble(Globals.AmountDue);
+                    pay.Payment_Date = DateTime.Today;
+
+
+                    pay.Payment_Type_ID = type.Payment_Type_ID;
+
+
+
+                    db.Payments.Add(pay);
+                    db.SaveChanges();
+                    Globals.SalesPaymentID = pay.Payment_ID;
+                    btnEatIn.Visible = true;
+                    lblChangeNew.Text = (Convert.ToDouble(txtCash.Text) - Globals.AmountDue).ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Error: Cash can't be less than one/Cash not enough");
+                   
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error: Cash not numeric,please anter a numeric value(integer)");
+            }
         }
     }
 }
