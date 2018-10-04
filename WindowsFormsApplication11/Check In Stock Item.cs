@@ -45,6 +45,19 @@ namespace WindowsFormsApplication11
                     db.Check_In_Line.Add(checkitemline);
                     db.Check_In.Add(checkitem);
                     db.SaveChanges();
+
+                    int id2 = Globals.LogedUser;
+                    Employee emp = db.Employees.FirstOrDefault(c => c.Employee_ID == id2);
+                    Audit ad = new Audit();
+                    ad.Audit_Name = emp.Employee_Name;
+                    ad.Audit_Table = "Stock_Item";
+                    ad.Audit_Description = "Item_CheckIn";
+                    ad.User_ID = Globals.LogedUser;
+                    ad.transactionNumber = checkitem.Check_In_ID;
+                    ad.auditDate = DateTime.Now;
+                    db.Audits.Add(ad);
+                    db.SaveChanges();
+
                     MessageBox.Show("Stock item checked in successfully,quantity: -" + txtStockQuantity.Text);
                     Globals.refresher = true;
 

@@ -182,6 +182,8 @@ namespace WindowsFormsApplication11
         //Stock Passing
         public static dynamic MStockpassing = 0;
         public static int checkinout = 0;
+        public static int imageIdEmployee = 0;
+        public static string emNameImage = "";
 
         //Menu Passing
         public static dynamic MenuCombopassing = 0;
@@ -203,6 +205,8 @@ namespace WindowsFormsApplication11
         public static int LogedUser = 0;
         public static DateTime LogInTieme;
         public static DateTime LogOutTime;
+
+        public static dynamic roleID = 0;
 
         //Sales Passing
         public static dynamic Salespassing = 0;

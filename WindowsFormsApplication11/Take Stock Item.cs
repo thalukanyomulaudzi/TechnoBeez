@@ -31,6 +31,7 @@ namespace WindowsFormsApplication11
                 {
                     itemEdited.Stock_Item_Quantity =  Convert.ToInt32(txtStockQuantity.Text);
                     db.SaveChanges();
+
                     MessageBox.Show("Stock item taken successfully,quantity: " + txtStockQuantity.Text);
                     Globals.refresher = true;
                     this.Close();

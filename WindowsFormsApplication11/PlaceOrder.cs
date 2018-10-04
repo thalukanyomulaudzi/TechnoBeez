@@ -491,7 +491,20 @@ namespace WindowsFormsApplication11
                     Globals.AmountDue = 0;
 
                     this.Close();
-                    MessageBox.Show("Order created successfully with order number: " + order.Order_ID.ToString());
+
+                    int id2 = Globals.LogedUser;
+                    Employee emp = db.Employees.FirstOrDefault(c=> c.Employee_ID == id2);
+                    Audit ad = new Audit();
+                    ad.Audit_Name = emp.Employee_Name;
+                    ad.Audit_Table = "Customer_Order";
+                    ad.Audit_Description = "Order Processing";
+                    ad.User_ID = Globals.LogedUser;
+                    ad.transactionNumber = order.Order_ID;
+                    ad.auditDate = DateTime.Now;
+                     db.Audits.Add(ad);
+                     db.SaveChanges();
+
+            MessageBox.Show("Order created successfully with order number: " + order.Order_ID.ToString());
                     btnEatIn.Visible = false;
 
         }
@@ -723,7 +736,18 @@ namespace WindowsFormsApplication11
                     Globals.MenuItems.Clear();
                     Globals.StockItems.Clear();
 
+                    int id2 = Globals.LogedUser;
+                    Employee emp = db.Employees.FirstOrDefault(c => c.Employee_ID == id2);
+                    Audit ad = new Audit();
+                    ad.Audit_Name = emp.Employee_Name;
+                    ad.Audit_Table = "DeliveryTable";
+                    ad.Audit_Description = "Order Saving";
+                    ad.User_ID = Globals.LogedUser;
+                    ad.transactionNumber = order.OrderId;
+                    ad.auditDate = DateTime.Now;
+                    db.Audits.Add(ad);
 
+                    db.SaveChanges();
                     MessageBox.Show("Order saved successfully with order number: " + order.OrderId.ToString()+",customer Address: " + cust.Customer_Address.ToString());
 
 

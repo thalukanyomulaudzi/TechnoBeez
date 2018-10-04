@@ -20,15 +20,28 @@ namespace WindowsFormsApplication11
         {
             MmasweEntities5 db = new MmasweEntities5();
             int id = Globals.Employeepassing;
-            Employee EmEdited = db.Employees.FirstOrDefault(c => c.Employee_ID == id);
+            try
+            {
+                Employee EmEdited = db.Employees.FirstOrDefault(c => c.Employee_ID == id);
 
-            txtName.Text = EmEdited.Employee_Name;
-            txtSurname.Text = EmEdited.Employee_Surname;
-            txtAddress.Text = EmEdited.Adress;
-            txtNextOfKin.Text = EmEdited.Next_Of_Kin_Name;
-            txtNKC.Text = EmEdited.Next_Of_Kin_Contact_Number.ToString();
-            txtEmail.Text = EmEdited.Email_Adress;
-            txtIdNumber.Text = EmEdited.Employee_ID.ToString();
+                txtName.Text = EmEdited.Employee_Name;
+                txtSurname.Text = EmEdited.Employee_Surname;
+                txtAddress.Text = EmEdited.Adress;
+                txtNextOfKin.Text = EmEdited.Next_Of_Kin_Name;
+                txtNKC.Text = EmEdited.Next_Of_Kin_Contact_Number.ToString();
+                txtEmail.Text = EmEdited.Email_Adress;
+                txtIdNumber.Text = EmEdited.Employee_ID.ToString();
+
+                ItemsPicture pic = db.ItemsPictures.FirstOrDefault(c => c.EmployeeID == id);
+                // Image n = (Bitmap)((new ImageConverter()).ConvertFrom(pic.imageVar));
+
+                pictureBox1.Image = Globals.converBinToImage(pic.imageVar);
+            }
+            catch(Exception i)
+            {
+                MessageBox.Show(i.ToString());
+
+            }
         }
 
         private void btnUpdateEmployeeInfo_Click(object sender, EventArgs e)

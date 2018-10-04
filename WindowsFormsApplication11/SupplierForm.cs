@@ -58,7 +58,7 @@ namespace WindowsFormsApplication11
                     bank.Bank_Name = txtBankName.Text;
                     bank.Bank_Acc_No = Convert.ToInt32(txtAccNumber.Text);
                     bank.Branch_Code = Convert.ToInt32(txtBranchCode.Text);
-                    newSupplier.Supplier_Type_ID = cbxSupplierType.SelectedIndex;
+                 //   newSupplier.Supplier_Type_ID = cbxSupplierType.SelectedIndex;
 
                     supplierAddress.Supplier_ID = newSupplier.Supplier_ID;
                     supplierContact.Supplier_ID = newSupplier.Supplier_ID;
@@ -105,7 +105,7 @@ namespace WindowsFormsApplication11
             txtSupplierName.Text = "";
             txtCode.Text = "";
             txtStreetName.Text = "";
-            cbxSupplierType.Text = "";
+            //cbxSupplierType.Text = "";
            // Globals.refresher = true;
         }
         public void View(int index)
@@ -125,7 +125,7 @@ namespace WindowsFormsApplication11
             //// int index = supplierCity.City_ID;
             foreach (var item in db.Supplier_Type.Where(a => a.Supplier_Type_Description != null).ToList())
             {
-                cbxSupplierType.Items.Add(item.Supplier_Type_Description);
+                //cbxSupplierType.Items.Add(item.Supplier_Type_Description);
             }
 
             //if(cbxSupplierType.SelectedText =="Ingredient Supplier")
@@ -138,7 +138,7 @@ namespace WindowsFormsApplication11
             //}
             if (index!=-1)
             {
-
+                btnUpdateSupplier.Visible = true;
                 Supplier newSupplier = new Supplier();
                 Supplier_Contact_Details supplierContact = new Supplier_Contact_Details();
                 Address supplierAddress = new Address();
@@ -365,16 +365,7 @@ namespace WindowsFormsApplication11
 
         //private void txtSuburb_Validating(object sender, CancelEventArgs e)
         //{
-        //    if (string.IsNullOrEmpty(txtSuburb.Text))
-        //    {
-        //        e.Cancel = true;
-        //        errorProvider.SetError(txtSuburb, "Please enter Suburb");
-        //    }
-        //    else
-        //    {
-        //        e.Cancel = false;
-        //        errorProvider.SetError(txtSuburb, null);
-        //    }
+
         //}
 
         //private void txtCity_Validating(object sender, CancelEventArgs e)
@@ -393,16 +384,7 @@ namespace WindowsFormsApplication11
 
         //private void txtProvince_Validating(object sender, CancelEventArgs e)
         //{
-        //    if (string.IsNullOrEmpty(txtProvince.Text))
-        //    {
-        //        e.Cancel = true;
-        //        errorProvider.SetError(txtProvince, "Please enter province");
-        //    }
-        //    else
-        //    {
-        //        e.Cancel = false;
-        //        errorProvider.SetError(txtProvince, null);
-        //    }
+
         //}
 
         private void txtCode_Validating(object sender, CancelEventArgs e)
@@ -416,6 +398,34 @@ namespace WindowsFormsApplication11
             {
                 e.Cancel = false;
                 errorProvider.SetError(txtCode, null);
+            }
+        }
+
+        private void txtSuburb_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtSuburb.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtSuburb, "Please enter Suburb");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtSuburb, null);
+            }
+        }
+
+        private void txtProvince_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtProvince.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtProvince, "Please enter province");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtProvince, null);
             }
         }
     }

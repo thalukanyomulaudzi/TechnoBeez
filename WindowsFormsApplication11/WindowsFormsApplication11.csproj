@@ -32,6 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge.Video">
+      <HintPath>..\..\..\..\Desktop\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow">
+      <HintPath>..\..\..\..\Desktop\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
       <HintPath>..\packages\CrystalReports.Engine.13.0.3501\lib\net20\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
     </Reference>
@@ -101,6 +107,11 @@
     </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\Desktop\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -293,11 +304,23 @@
     <Compile Include="frmAddCustomer.Designer.cs">
       <DependentUpon>frmAddCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAudit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAudit.Designer.cs">
+      <DependentUpon>frmAudit.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmComboView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmComboView.Designer.cs">
       <DependentUpon>frmComboView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmployeePicture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmployeePicture.Designer.cs">
+      <DependentUpon>frmEmployeePicture.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMaintainCombo.cs">
       <SubType>Form</SubType>
@@ -317,6 +340,12 @@
     <Compile Include="frmMaintain_Menu_Item.Designer.cs">
       <DependentUpon>frmMaintain_Menu_Item.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMenuList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuList.Designer.cs">
+      <DependentUpon>frmMenuList.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReports.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -334,6 +363,12 @@
     </Compile>
     <Compile Include="frmSalesReports.Designer.cs">
       <DependentUpon>frmSalesReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmvideo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmvideo.Designer.cs">
+      <DependentUpon>frmvideo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmViewOrder.cs">
       <SubType>Form</SubType>
@@ -619,8 +654,14 @@
     <EmbeddedResource Include="frmAddCustomer.resx">
       <DependentUpon>frmAddCustomer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAudit.resx">
+      <DependentUpon>frmAudit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmComboView.resx">
       <DependentUpon>frmComboView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmployeePicture.resx">
+      <DependentUpon>frmEmployeePicture.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMaintainCombo.resx">
       <DependentUpon>frmMaintainCombo.cs</DependentUpon>
@@ -631,6 +672,9 @@
     <EmbeddedResource Include="frmMaintain_Menu_Item.resx">
       <DependentUpon>frmMaintain_Menu_Item.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuList.resx">
+      <DependentUpon>frmMenuList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReports.resx">
       <DependentUpon>frmReports.cs</DependentUpon>
     </EmbeddedResource>
@@ -639,6 +683,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSalesReports.resx">
       <DependentUpon>frmSalesReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmvideo.resx">
+      <DependentUpon>frmvideo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewOrder.resx">
       <DependentUpon>frmViewOrder.cs</DependentUpon>
@@ -726,6 +773,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Audit.datasource" />
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>

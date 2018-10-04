@@ -38,6 +38,7 @@
             this.dgvCustomer = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.topBarPannel2 = new System.Windows.Forms.Panel();
+            this.btnBookShift = new System.Windows.Forms.Button();
             this.btnSetShift = new System.Windows.Forms.Button();
             this.btnOrderList = new System.Windows.Forms.Button();
             this.btnViewOrder = new System.Windows.Forms.Button();
@@ -52,10 +53,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblHawks = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnStockOrderReport = new System.Windows.Forms.Button();
             this.btnGeneralReports = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
-            this.btnSalesReport = new System.Windows.Forms.Button();
             this.btnStock = new System.Windows.Forms.Button();
             this.btnCombo = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
@@ -71,6 +70,9 @@
             this.MenuPan = new System.Windows.Forms.Panel();
             this.StockPan = new System.Windows.Forms.Panel();
             this.SupplierPan = new System.Windows.Forms.Panel();
+            this.btnAudit = new System.Windows.Forms.Button();
+            this.lblHint = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dgvSupplier = new System.Windows.Forms.DataGridView();
             this.dgvStock = new System.Windows.Forms.DataGridView();
@@ -80,7 +82,7 @@
             this.dgvCustomer2 = new System.Windows.Forms.DataGridView();
             this.dgvEmp = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnBookShift = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.MmaswePannel.SuspendLayout();
             this.topBarPannel.SuspendLayout();
             this.CustomerPan.SuspendLayout();
@@ -196,6 +198,7 @@
             // 
             // topBarPannel2
             // 
+            this.topBarPannel2.Controls.Add(this.button3);
             this.topBarPannel2.Controls.Add(this.btnBookShift);
             this.topBarPannel2.Controls.Add(this.btnSetShift);
             this.topBarPannel2.Controls.Add(this.btnOrderList);
@@ -207,6 +210,22 @@
             this.topBarPannel2.Name = "topBarPannel2";
             this.topBarPannel2.Size = new System.Drawing.Size(408, 74);
             this.topBarPannel2.TabIndex = 8;
+            // 
+            // btnBookShift
+            // 
+            this.btnBookShift.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnBookShift.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBookShift.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBookShift.Location = new System.Drawing.Point(291, 0);
+            this.btnBookShift.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBookShift.Name = "btnBookShift";
+            this.btnBookShift.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnBookShift.Size = new System.Drawing.Size(107, 31);
+            this.btnBookShift.TabIndex = 14;
+            this.btnBookShift.Text = "BookShift";
+            this.btnBookShift.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBookShift.UseVisualStyleBackColor = true;
+            this.btnBookShift.Click += new System.EventHandler(this.btnBookShift_Click);
             // 
             // btnSetShift
             // 
@@ -283,6 +302,7 @@
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(216, 26);
             this.panel22.TabIndex = 2;
+            this.panel22.Paint += new System.Windows.Forms.PaintEventHandler(this.panel22_Paint);
             // 
             // txtSearchNew
             // 
@@ -389,10 +409,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel1.Controls.Add(this.btnStockOrderReport);
             this.panel1.Controls.Add(this.btnGeneralReports);
             this.panel1.Controls.Add(this.btnUsers);
-            this.panel1.Controls.Add(this.btnSalesReport);
             this.panel1.Controls.Add(this.btnStock);
             this.panel1.Controls.Add(this.btnCombo);
             this.panel1.Controls.Add(this.btnMenu);
@@ -407,32 +425,23 @@
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // btnStockOrderReport
-            // 
-            this.btnStockOrderReport.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnStockOrderReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStockOrderReport.Location = new System.Drawing.Point(4, 446);
-            this.btnStockOrderReport.Margin = new System.Windows.Forms.Padding(4);
-            this.btnStockOrderReport.Name = "btnStockOrderReport";
-            this.btnStockOrderReport.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnStockOrderReport.Size = new System.Drawing.Size(252, 38);
-            this.btnStockOrderReport.TabIndex = 23;
-            this.btnStockOrderReport.Text = "Stock Order Report";
-            this.btnStockOrderReport.UseVisualStyleBackColor = true;
-            // 
             // btnGeneralReports
             // 
-            this.btnGeneralReports.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnGeneralReports.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnGeneralReports.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGeneralReports.FlatAppearance.BorderSize = 0;
             this.btnGeneralReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGeneralReports.Location = new System.Drawing.Point(4, 488);
-            this.btnGeneralReports.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGeneralReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnGeneralReports.ForeColor = System.Drawing.Color.White;
+            this.btnGeneralReports.Location = new System.Drawing.Point(0, 392);
+            this.btnGeneralReports.Margin = new System.Windows.Forms.Padding(0);
             this.btnGeneralReports.Name = "btnGeneralReports";
-            this.btnGeneralReports.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnGeneralReports.Size = new System.Drawing.Size(252, 38);
+            this.btnGeneralReports.Size = new System.Drawing.Size(260, 49);
             this.btnGeneralReports.TabIndex = 22;
-            this.btnGeneralReports.Text = "General Reports";
-            this.btnGeneralReports.UseVisualStyleBackColor = true;
-            this.btnGeneralReports.Click += new System.EventHandler(this.btnGeneralReports_Click);
+            this.btnGeneralReports.Text = "Reports";
+            this.btnGeneralReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGeneralReports.UseVisualStyleBackColor = false;
+            this.btnGeneralReports.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // btnUsers
             // 
@@ -451,20 +460,6 @@
             this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUsers.UseVisualStyleBackColor = false;
             this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
-            // 
-            // btnSalesReport
-            // 
-            this.btnSalesReport.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnSalesReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalesReport.Location = new System.Drawing.Point(4, 402);
-            this.btnSalesReport.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSalesReport.Name = "btnSalesReport";
-            this.btnSalesReport.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnSalesReport.Size = new System.Drawing.Size(252, 38);
-            this.btnSalesReport.TabIndex = 13;
-            this.btnSalesReport.Text = "Sales Report";
-            this.btnSalesReport.UseVisualStyleBackColor = true;
-            this.btnSalesReport.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // btnStock
             // 
@@ -533,7 +528,7 @@
             this.btnSalesOrders.Name = "btnSalesOrders";
             this.btnSalesOrders.Size = new System.Drawing.Size(260, 49);
             this.btnSalesOrders.TabIndex = 16;
-            this.btnSalesOrders.Text = "Sales and Ordering";
+            this.btnSalesOrders.Text = "Ordering";
             this.btnSalesOrders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalesOrders.UseVisualStyleBackColor = false;
             this.btnSalesOrders.Click += new System.EventHandler(this.quoteBtn_Click);
@@ -669,6 +664,10 @@
             // 
             // SupplierPan
             // 
+            this.SupplierPan.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.SupplierPan.Controls.Add(this.btnAudit);
+            this.SupplierPan.Controls.Add(this.lblHint);
+            this.SupplierPan.Controls.Add(this.button1);
             this.SupplierPan.Controls.Add(this.button2);
             this.SupplierPan.Controls.Add(this.dgvSupplier);
             this.SupplierPan.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -678,6 +677,39 @@
             this.SupplierPan.Size = new System.Drawing.Size(1108, 514);
             this.SupplierPan.TabIndex = 1;
             this.SupplierPan.Paint += new System.Windows.Forms.PaintEventHandler(this.SupplierPan_Paint);
+            // 
+            // btnAudit
+            // 
+            this.btnAudit.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnAudit.Location = new System.Drawing.Point(192, 443);
+            this.btnAudit.Name = "btnAudit";
+            this.btnAudit.Size = new System.Drawing.Size(133, 49);
+            this.btnAudit.TabIndex = 58;
+            this.btnAudit.Text = "ViewAudit";
+            this.btnAudit.UseVisualStyleBackColor = false;
+            this.btnAudit.Click += new System.EventHandler(this.btnAudit_Click);
+            // 
+            // lblHint
+            // 
+            this.lblHint.AutoSize = true;
+            this.lblHint.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHint.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.lblHint.Location = new System.Drawing.Point(246, 7);
+            this.lblHint.Name = "lblHint";
+            this.lblHint.Size = new System.Drawing.Size(421, 23);
+            this.lblHint.TabIndex = 57;
+            this.lblHint.Text = "Select item(LeftClick) and RightClick for more options";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.Location = new System.Drawing.Point(34, 443);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(133, 49);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Show Menu";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // button2
             // 
@@ -693,13 +725,14 @@
             // 
             // dgvSupplier
             // 
+            this.dgvSupplier.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSupplier.Location = new System.Drawing.Point(29, 25);
+            this.dgvSupplier.Location = new System.Drawing.Point(29, 32);
             this.dgvSupplier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvSupplier.Name = "dgvSupplier";
             this.dgvSupplier.RowTemplate.Height = 24;
             this.dgvSupplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSupplier.Size = new System.Drawing.Size(935, 382);
+            this.dgvSupplier.Size = new System.Drawing.Size(935, 375);
             this.dgvSupplier.TabIndex = 0;
             this.dgvSupplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSupplier_CellClick);
             this.dgvSupplier.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSupplier_CellContentClick);
@@ -771,26 +804,26 @@
             this.timer1.Interval = 5;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btnBookShift
+            // button3
             // 
-            this.btnBookShift.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnBookShift.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBookShift.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBookShift.Location = new System.Drawing.Point(291, 0);
-            this.btnBookShift.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBookShift.Name = "btnBookShift";
-            this.btnBookShift.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnBookShift.Size = new System.Drawing.Size(107, 31);
-            this.btnBookShift.TabIndex = 14;
-            this.btnBookShift.Text = "BookShift";
-            this.btnBookShift.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBookShift.UseVisualStyleBackColor = true;
-            this.btnBookShift.Click += new System.EventHandler(this.btnBookShift_Click);
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(4, 0);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Name = "button3";
+            this.button3.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.button3.Size = new System.Drawing.Size(107, 31);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "OrderList";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1267, 690);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -821,6 +854,7 @@
             this.MenuPan.ResumeLayout(false);
             this.StockPan.ResumeLayout(false);
             this.SupplierPan.ResumeLayout(false);
+            this.SupplierPan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).EndInit();
@@ -878,12 +912,14 @@
         private System.Windows.Forms.DataGridView dgvEmp;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnOrderList;
-        private System.Windows.Forms.Button btnSalesReport;
         private System.Windows.Forms.Button btnUsers;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnStockOrderReport;
-        private System.Windows.Forms.Button btnGeneralReports;
         private System.Windows.Forms.Button btnSetShift;
         private System.Windows.Forms.Button btnBookShift;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGeneralReports;
+        private System.Windows.Forms.Label lblHint;
+        private System.Windows.Forms.Button btnAudit;
+        private System.Windows.Forms.Button button3;
     }
 }

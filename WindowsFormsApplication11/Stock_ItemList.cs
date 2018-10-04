@@ -70,5 +70,15 @@ namespace WindowsFormsApplication11
                 }
             }
         }
+
+        private void dgvListStock_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvListStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     } 
 }

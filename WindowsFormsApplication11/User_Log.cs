@@ -21,8 +21,8 @@ namespace WindowsFormsApplication11
         }
     
         public int User_Log_ID { get; set; }
-        public System.TimeSpan Login_Time { get; set; }
-        public System.TimeSpan Logout_Time { get; set; }
+        public System.DateTime Login_Time { get; set; }
+        public System.DateTime Logout_Time { get; set; }
         public int User_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

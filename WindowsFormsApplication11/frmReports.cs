@@ -51,7 +51,7 @@ namespace WindowsFormsApplication11
                 friend.Columns.Add("ItemName");
                 friend.Columns.Add("CheckInQuantity");
 
-                //Populate with friends :)
+                
                 foreach (var i in items)
                 {
                     friend.Rows.Add(i.CheckInId.ToString(), i.CheckInDate.ToString(), i.ItemName.ToString(), i.CheckInQuantity.ToString());
@@ -355,6 +355,12 @@ namespace WindowsFormsApplication11
             {
                 MessageBox.Show(ex.Message, "Error Message");
             }
+        }
+
+        private void btnSalesReport_Click(object sender, EventArgs e)
+        {
+            frmSalesReports frm = new frmSalesReports();
+            frm.ShowDialog();
         }
     }
 }

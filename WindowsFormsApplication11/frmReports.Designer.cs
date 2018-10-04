@@ -35,6 +35,7 @@
             this.dgvReports = new System.Windows.Forms.DataGridView();
             this.btnStockOnHandRep = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnSalesReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReports)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,12 +109,27 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // btnSalesReport
+            // 
+            this.btnSalesReport.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnSalesReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalesReport.Location = new System.Drawing.Point(55, 276);
+            this.btnSalesReport.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalesReport.Name = "btnSalesReport";
+            this.btnSalesReport.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnSalesReport.Size = new System.Drawing.Size(163, 31);
+            this.btnSalesReport.TabIndex = 14;
+            this.btnSalesReport.Text = "Sales Report";
+            this.btnSalesReport.UseVisualStyleBackColor = true;
+            this.btnSalesReport.Click += new System.EventHandler(this.btnSalesReport_Click);
+            // 
             // frmReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(998, 350);
+            this.Controls.Add(this.btnSalesReport);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnStockOnHandRep);
             this.Controls.Add(this.dgvReports);
@@ -138,5 +154,6 @@
         private System.Windows.Forms.DataGridView dgvReports;
         private System.Windows.Forms.Button btnStockOnHandRep;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSalesReport;
     }
 }

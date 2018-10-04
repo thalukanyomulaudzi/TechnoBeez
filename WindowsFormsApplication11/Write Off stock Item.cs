@@ -113,6 +113,19 @@ namespace WindowsFormsApplication11
                     db.Stock_WriteOff_Line.Add(writeline);
 
                     db.SaveChanges();
+
+                    int id2 = Globals.LogedUser;
+                    Employee emp = db.Employees.FirstOrDefault(c => c.Employee_ID == id2);
+                    Audit ad = new Audit();
+                    ad.Audit_Name = emp.Employee_Name;
+                    ad.Audit_Table = "Stock_Write_Off";
+                    ad.Audit_Description = "Stock_Item_Write_Off";
+                    ad.User_ID = Globals.LogedUser;
+                    ad.transactionNumber = writeoff.Write_Off_ID;
+                    ad.auditDate = DateTime.Now;
+                    db.Audits.Add(ad);
+                    db.SaveChanges();
+
                     MessageBox.Show("Stock item writen off successfully,quantity: -" + txtStockQuantity.Text);
                     Globals.refresher = true;
                     this.Close();

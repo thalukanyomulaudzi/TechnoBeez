@@ -35,8 +35,8 @@ namespace WindowsFormsApplication11
             string username = txtUsername.Text;
             string pass = txtPassword.Text;
            
-                txtPassword = null;
-                txtUsername = null;
+              // txtPassword = null;
+                //txtUsername = null;
 
 
             User use = db.Users.FirstOrDefault(c => c.UserName == username && c.User_Password == pass);
@@ -44,7 +44,10 @@ namespace WindowsFormsApplication11
             {
                 Globals.LogInTieme = DateTime.Now;
                 Globals.LogedUser = use.User_ID;
-                
+                Globals.roleID = use.User_Role_ID;
+                Globals.roleID = use.User_Role_ID;
+                Form2 frm = new Form2();
+                frm.ShowDialog();
             }
 
             else

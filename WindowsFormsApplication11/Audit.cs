@@ -25,6 +25,8 @@ namespace WindowsFormsApplication11
         public string Audit_Table { get; set; }
         public string Audit_Description { get; set; }
         public int User_ID { get; set; }
+        public Nullable<int> transactionNumber { get; set; }
+        public Nullable<System.DateTime> auditDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }

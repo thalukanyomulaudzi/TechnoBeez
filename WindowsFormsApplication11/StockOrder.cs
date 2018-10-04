@@ -86,8 +86,8 @@ namespace WindowsFormsApplication11
             newGlobal.DateIssued = DateTime.Now;
 
             Globals.StockOrders.Add(newGlobal);
-
-            parent.ShowDialog();
+            this.Close();
+            //parent.ShowDialog();
         }
         public string StockOrderDescription()
         {

@@ -74,7 +74,7 @@ namespace WindowsFormsApplication11
                 }
                 else
                 {
-                    MessageBox.Show("Error: Value can't be less than one");
+                    MessageBox.Show("Error:Value invalid");
                 }
          }
 

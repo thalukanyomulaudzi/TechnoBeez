@@ -25,7 +25,7 @@ namespace WindowsFormsApplication11
 
         //Global Objects
 
-      
+      //ert887 51397
 
         //Global Objects
 
@@ -176,7 +176,8 @@ namespace WindowsFormsApplication11
                         {
                             db.Employees.Remove(deieteItem);
                             db.SaveChanges();
-                            MessageBox.Show("Stock item(" + deieteItem.Employee_Name + ") deleted successfully");
+                            MessageBox.Show("Employee (" + deieteItem.Employee_Name + ") deleted successfully");
+                            Globals.refresher = true;
                         }
                         else
                         {
@@ -193,7 +194,7 @@ namespace WindowsFormsApplication11
                     Employee item = db.Employees.FirstOrDefault(c => c.Employee_ID == id);
                     if (item != null)
                     {
-                        Maintain_Employee form = new Maintain_Employee();
+                        update_Employee_Details form = new update_Employee_Details();
                         form.ShowDialog();
                     }
                     else
@@ -725,7 +726,6 @@ namespace WindowsFormsApplication11
                                     EmailAdree = p.Email_Adress,
                                     ContactNo = p.Contact_Number,
                                     NextOfKinName = p.Next_Of_Kin_Name,
-                                    NextOfKinNumber = p.Next_Of_Kin_Contact_Number,
                                     GenderId = p.Gender_ID,
                                     UserId = p.User_ID
 
@@ -811,6 +811,11 @@ namespace WindowsFormsApplication11
         }
         private void inventoryBtn_Click(object sender, EventArgs e)
         {
+            if(Globals.roleID == 3)
+            {
+                btnTheAdd.Enabled = false;
+
+            }
             btnBookShift.Visible = false;
             btnSetShift.Visible = false;
             btnOrderList.Visible = true;
@@ -853,25 +858,102 @@ namespace WindowsFormsApplication11
         }
         private void Form2_Load(object sender, EventArgs e)
         {
-            btnSetShift.Visible = false;
-            btnViewOrder.Visible = false;
-            btnOrderList.Visible = false;
-            btnBookShift.Visible = false;
-            try
+            if (Globals.roleID == 1)
             {
-                header.Text = "Suppliers";
-                txtSearchNew.Clear();
 
 
 
-                if (navButton != btnSuppliers11)
+                btnSetShift.Visible = false;
+                btnViewOrder.Visible = false;
+                btnOrderList.Visible = false;
+                btnBookShift.Visible = false;
+                try
                 {
-                    navigate(btnSuppliers11);
+                    header.Text = "Suppliers";
+                    txtSearchNew.Clear();
+
+
+
+                    if (navButton != btnSuppliers11)
+                    {
+                        navigate(btnSuppliers11);
+                    }
+                    loadSuppliers();
                 }
-                loadSuppliers();
+                catch
+                {
+
+                }
             }
-            catch
+
+            else if(Globals.roleID == 2)
             {
+                btnSuppliers11.Enabled = false;
+                btnCustomer.Enabled = false;
+                btnEmployees.Enabled = false;
+                btnCombo.Enabled = false;
+                btnMenu.Enabled = false;
+                btnStock.Enabled = false;
+                btnUsers.Enabled = false;
+                btnSalesOrders.Enabled = false;
+                btnOrderList.Enabled = false;
+                btnSetShift.Enabled = false;
+                btnBookShift.Enabled = false;
+               // btnViewOrder.Enabled = false;
+
+                btnGeneralReports.Enabled = false;
+                //btnStockOrderReport.Enabled = false;
+                //btnSalesReport.Enabled = false;
+
+                var customers = from p in db.Customer_Order
+                                select new
+                                {
+                                    OrderId = p.Order_ID,
+                                    OrderStatus = p.Order_Status,
+                                    OrderDate = p.Order_Date,
+                                    SaleVatAmount = p.Sale_Vat_Amount,
+                                    CustomerId = p.Customer_ID,
+                                    PaymentId = p.Payment_ID,
+                                    EmployeeId = p.Employee_ID,
+                                    DeliveryStausId = p.Delivery_Status_ID
+
+                                };
+                dgvSupplier.DataSource = customers.ToList();
+                dgvSupplier.ClearSelection();
+                db.SaveChanges();
+                //if (dgvSupplier.Rows.Count != 0)
+                //{
+                //    Globals.Salespassing = dgvSupplier.Rows[0].Cells[0].Value;
+                //}
+                dgvSupplier.MouseClick += new MouseEventHandler(salesClick);
+
+
+            }
+            else if (Globals.roleID == 3)
+            {
+                btnSuppliers11.Enabled = false;
+                btnCustomer.Enabled = false;
+                btnEmployees.Enabled = false;
+                btnCombo.Enabled = false;
+                btnMenu.Enabled = false;
+                
+                btnUsers.Enabled = false;
+               // btnSalesOrders.Enabled = false;
+                btnOrderList.Enabled = false;
+                btnSetShift.Enabled = false;
+                btnBookShift.Enabled = false;
+                btnViewOrder.Enabled = false;
+               // btnStock.Enabled = false;
+                btnGeneralReports.Enabled = false;
+                //btnStockOrderReport.Enabled = false;
+                //btnSalesReport.Enabled = false;
+
+                if (navButton != btnStock)
+                {
+                    navigate(btnStock);
+                }
+                LoadStock();
+
 
             }
         }
@@ -889,17 +971,19 @@ namespace WindowsFormsApplication11
                 navigate(btnCombo);
             }
 
-            var customers = from p in db.Comboes
-                            select new
-                            {
-                                ComboId = p.Combo_ID,
-                                Description = p.Combo_Description,
-                                ComboPrice = p.Combo_Price,
-                                ComboTypeId = p.Combo_Type_ID,
-                                ComboPriceId = p.Combo_Price_ID
+            var items = from obj in db.Comboes
+                        join obj2 in db.Combo_Price
+                        on obj.Combo_Price_ID equals obj2.Combo_Price_ID
 
-                            };
-            dgvSupplier.DataSource = customers.ToList();
+                        select new
+                        {
+                            ComboID = obj.Combo_ID,
+                            ComboName = obj.Combo_Name,
+                            ComboDescription = obj.Combo_Description,
+                            ComboPrice = obj2.Combo_Price1
+
+                        };
+            dgvSupplier.DataSource = items.ToList();
             dgvSupplier.ClearSelection();
             db.SaveChanges();
             //if (dgvSupplier.Rows.Count != 0)
@@ -927,25 +1011,23 @@ namespace WindowsFormsApplication11
                 }
 
                 var customers = from p in db.Menu_Item
+                                join q in db.Menu_Item_Price
+                                on p.Menu_Price_ID equals q.Menu_Price_ID
+                               
                                 select new
                                 {
                                     MenuItemId = p.Menu_Item_ID,
                                     MenuItemName = p.Menu_Item_Name,
                                     MeniItemDescription = p.Menu_Item_Description,
-                                    MenuItemPrice = p.Menu_Item_Price,
-                                    MenuItemTypeId = p.Menu_Item_Type_ID,
-                                    MenuPriceId = p.Menu_Price_ID
+                                    MenuItemPrice = q.Menu_Price,
+
 
 
                                 };
                 dgvSupplier.DataSource = customers.ToList();
                 dgvSupplier.ClearSelection();
                 db.SaveChanges();
-                //if (dgvSupplier.Rows.Count != 0)
-                //{
-                //    Globals.MenuCombopassing = dgvSupplier.Rows[0].Cells[0].Value;
-                //}
-
+               
                 dgvSupplier.MouseClick += new MouseEventHandler(Menu);
             }
             catch
@@ -956,10 +1038,16 @@ namespace WindowsFormsApplication11
 
         private void quoteBtn_Click(object sender, EventArgs e)
         {
+            if(Globals.roleID == 3)
+            {
+                btnTheAdd.Visible = false;
+                btnTheAdd.Enabled = false;
+            }
             btnBookShift.Visible = false;
             btnSetShift.Visible = false;
             btnOrderList.Visible = false;
             header.Text = "Orders";
+
             btnViewOrder.Visible = true;
             txtSearchNew.Clear();
 
@@ -1110,6 +1198,202 @@ namespace WindowsFormsApplication11
 
         private void txtSearchNew_TextChanged(object sender, EventArgs e)
         {
+
+
+
+            if (navButton == btnCustomer)
+            {
+
+                int id = 900000000;
+                string Quantity = "900000000";
+                int Cont = 900000000;
+                if (!(txtSearchNew.Text == ""))
+                {
+                    int number;
+                    bool result = Int32.TryParse(txtSearchNew.Text, out number);
+                    if (result)
+                    {
+                        // Conversion to a number was successful.
+                        // The number variable contains your value. 
+                        id = Convert.ToInt32(txtSearchNew.Text);
+                        Quantity = txtSearchNew.Text;
+                    }
+                    else
+                    {
+                        id = 900000000;
+                        Quantity = "900000000";
+                        Cont = 900000000;
+
+                    }
+
+                    var items = from obj in db.Customers
+                                where(obj.Customer_ID == id || obj.Customer_Name.Contains(txtSearchNew.Text) 
+                                || obj.Customer_Surname.Contains(txtSearchNew.Text) || obj.Customer_Address.Contains(txtSearchNew.Text) )
+                                select new
+                                {
+                                    CustomerID = obj.Customer_ID,
+                                    CustomerName = obj.Customer_Name,
+                                    CustomerSurName = obj.Customer_Surname,
+                                    ContactNo = obj.Customer_Contact_Number,
+                                    Adress = obj.Customer_Address
+
+                                };
+                    dgvSupplier.DataSource = items.ToList();
+
+
+                }
+                else
+                {
+                    var items = from obj in db.Customers                            
+                                select new
+                                {
+                                    CustomerID = obj.Customer_ID,
+                                    CustomerName = obj.Customer_Name,
+                                    CustomerSurName = obj.Customer_Surname,
+                                    ContactNo = obj.Customer_Contact_Number,
+                                    Adress = obj.Customer_Address
+
+                                };
+                    dgvSupplier.DataSource = items.ToList();
+                }
+            }
+
+            if(navButton == btnEmployees)
+            {
+                int id = 900000000;
+                string Quantity = "900000000";
+                int Cont = 900000000;
+                if (!(txtSearchNew.Text == ""))
+                {
+                    int number;
+                    bool result = Int32.TryParse(txtSearchNew.Text, out number);
+                    if (result)
+                    {
+                        // Conversion to a number was successful.
+                        // The number variable contains your value. 
+                        id = Convert.ToInt32(txtSearchNew.Text);
+                        Quantity = txtSearchNew.Text;
+                    }
+                    else
+                    {
+                        id = 900000000;
+                        Quantity = "900000000";
+                        Cont = 900000000;
+
+                    }
+                    var customers = from p in db.Employees
+                                    where(p.Employee_ID == id || p.Employee_Name.Contains(txtSearchNew.Text) 
+                                    || p.Employee_Surname.Contains(txtSearchNew.Text) 
+                                    || p.Employee_Identity_Number.Contains(txtSearchNew.Text) 
+                                    || p.Adress.Contains(txtSearchNew.Text) || p.Email_Adress.Contains(txtSearchNew.Text)
+                                    || p.Contact_Number.Contains(txtSearchNew.Text) )
+                                    select new
+                                    {
+                                        EmpId = p.Employee_ID,
+                                        EmpName = p.Employee_Name,
+                                        EmpSurname = p.Employee_Surname,
+                                        EmpIdentity = p.Employee_Identity_Number,
+                                        Adress = p.Adress,
+                                        EmailAdree = p.Email_Adress,
+                                        ContactNo = p.Contact_Number,
+                                        NextOfKinName = p.Next_Of_Kin_Name,                                       
+                                        GenderId = p.Gender_ID,
+                                        UserId = p.User_ID
+
+                                    };
+                    dgvSupplier.DataSource = customers.ToList();
+                }
+                else
+                {
+                    var customers = from p in db.Employees                                  
+                                    select new
+                                    {
+                                        EmpId = p.Employee_ID,
+                                        EmpName = p.Employee_Name,
+                                        EmpSurname = p.Employee_Surname,
+                                        EmpIdentity = p.Employee_Identity_Number,
+                                        Adress = p.Adress,
+                                        EmailAdree = p.Email_Adress,
+                                        ContactNo = p.Contact_Number,
+                                        NextOfKinName = p.Next_Of_Kin_Name,
+                                        GenderId = p.Gender_ID,
+                                        UserId = p.User_ID
+
+                                    };
+                    dgvSupplier.DataSource = customers.ToList();
+
+
+                }
+
+
+            }
+
+
+            if(navButton == btnMenu)
+            {
+                int id = 900000000;
+                double Quantity = 9000000000;
+                if (!(txtSearchNew.Text == ""))
+                {
+                    int number;
+                    bool result = Int32.TryParse(txtSearchNew.Text, out number);
+                    if (result)
+                    {
+                        // Conversion to a number was successful.
+                        // The number variable contains your value. 
+                        id = Convert.ToInt32(txtSearchNew.Text);
+                        Quantity = (Convert.ToDouble(txtSearchNew.Text));
+                    }
+                    else
+                    {
+                        id = 900000000;
+                        Quantity = 9000000000;
+
+                    }
+                    var customers = from p in db.Menu_Item
+                                    join q in db.Menu_Item_Price
+                                    on p.Menu_Price_ID equals q.Menu_Price_ID
+                                    where(p.Menu_Item_ID == id || p.Menu_Item_Name.Contains(txtSearchNew.Text) 
+                                    || p.Menu_Item_Description.Contains(txtSearchNew.Text) 
+                                    || q.Menu_Price == Quantity)
+                                    select new
+                                    {
+                                        MenuItemId = p.Menu_Item_ID,
+                                        MenuItemName = p.Menu_Item_Name,
+                                        MeniItemDescription = p.Menu_Item_Description,
+                                        MenuItemPrice = q.Menu_Price,
+                                       
+
+
+                                    };
+                    dgvSupplier.DataSource = customers.ToList();
+                }
+
+                else
+                {
+                    var customers = from p in db.Menu_Item
+                                    join q in db.Menu_Item_Price
+                                    on p.Menu_Price_ID equals q.Menu_Price_ID                                  
+                                    select new
+                                    {
+                                        MenuItemId = p.Menu_Item_ID,
+                                        MenuItemName = p.Menu_Item_Name,
+                                        MeniItemDescription = p.Menu_Item_Description,
+                                        MenuItemPrice = q.Menu_Price,
+
+
+
+                                    };
+                    dgvSupplier.DataSource = customers.ToList();
+
+                }
+
+
+            }
+            
+
+
+
             if (navButton == btnStock)
             {
                 int id=900000000;
@@ -1167,15 +1451,47 @@ namespace WindowsFormsApplication11
                     }
                     Supplier s = new Supplier();
                     s.Supplier_ID = id;
-                //    Supplier_Contact_Details scd = db.Suppliers.FirstOrDefault(x => x.Supplier_ID == s.Supplier_ID);
-                //    dgvSupplier.DataSource = db.Suppliers.Where(c => c.Supplier_ID == id || c.Supplier_Name.Contains(txtSearchNew.Text)
-                //    || scd.Supplier_Email_Adress.Contains(txtSearchNew.Text) || c.Stock_Item_Quantity == Quantity).ToList();
+                    
+                   var items = from obj in db.Suppliers join
+                               obj2 in db.Supplier_Contact_Details
+                               on obj.Supplier_ID equals obj2.Supplier_ID
+                               join obj3 in db.Addresses
+                               on obj.Supplier_ID equals obj3.Supplier_ID
+                               where (obj.Supplier_ID == id || obj.Supplier_Name.Contains(txtSearchNew.Text)
+                              || obj2.Supplier_Email_Adress.Contains(txtSearchNew.Text) || obj2.Supplier_Contact_Number == 1 || obj3.Province.Contains(txtSearchNew.Text))
+                               select new
+                               {
+                               SupplierId = obj.Supplier_ID,
+                                SupplierName = obj.Supplier_Name,
+                                SupplierEmail = obj2.Supplier_Email_Adress,
+                                SupplierContactNumber = obj2.Supplier_Contact_Number,
+                                Province = obj3.Province
+                                
+                               };
+
+                    dgvSupplier.DataSource = items.ToList();
+                  
                 }
 
                 else
                 {
+                    var customers = from p in db.Suppliers
+                                    join q in db.Addresses
+                                        on p.Supplier_ID equals q.Supplier_ID
 
-                    dgvSupplier.DataSource = db.Stock_Item.ToList();
+                                    join y in db.Supplier_Contact_Details
+                                        on p.Supplier_ID equals y.Supplier_ID
+                                    select new
+                                    {
+                                        SupplierId = p.Supplier_ID,
+                                        SupplierName = p.Supplier_Name,
+                                        SupplierEmail = y.Supplier_Email_Adress,
+                                        SupplierContactNumber = y.Supplier_Contact_Number,
+                                        Province = q.Province,
+                                    };
+                    dgvSupplier.DataSource = customers.ToList();
+                    dgvSupplier.ClearSelection();
+
                 }
 
 
@@ -1183,7 +1499,7 @@ namespace WindowsFormsApplication11
             if (navButton == btnCombo)
             {
                 int id = 900000000;
-                double Price = 9000000000;
+                double Quantity = 9000000000;
                 if (!(txtSearchNew.Text == ""))
                 {
                     int number;
@@ -1193,22 +1509,50 @@ namespace WindowsFormsApplication11
                         // Conversion to a number was successful.
                         // The number variable contains your value. 
                         id = Convert.ToInt32(txtSearchNew.Text);
-                        Price = (Convert.ToDouble(txtSearchNew.Text));
+                        Quantity = (Convert.ToDouble(txtSearchNew.Text));
                     }
                     else
                     {
                         id = 900000000;
-                        Price = 9000000000;
+                        Quantity = 9000000000;
 
                     }
-                    dgvSupplier.DataSource = db.Comboes.Where(c => c.Combo_ID == id || c.Combo_Price == Price || c.Combo_Description.Contains(txtSearchNew.Text)
-                    ).ToList();
+                   
+
+                    var items = from obj in db.Comboes
+                                join obj2 in db.Combo_Price
+                                on obj.Combo_Price_ID equals obj2.Combo_Price_ID
+                                where (obj.Combo_ID == id || obj2.Combo_Price1 == Quantity 
+                                || obj.Combo_Name.Contains(txtSearchNew.Text) 
+                                || obj.Combo_Description.Contains(txtSearchNew.Text))
+                                select new
+                                {
+                                    ComboID = obj.Combo_ID,
+                                    ComboName = obj.Combo_Name,
+                                    ComboDescription = obj.Combo_Description,
+                                    ComboPrice = obj2.Combo_Price1
+
+                                };
+                    dgvSupplier.DataSource = items.ToList();
+
                 }
 
                 else
                 {
 
-                    dgvSupplier.DataSource = db.Stock_Item.ToList();
+                    var items = from obj in db.Comboes
+                                join obj2 in db.Combo_Price
+                                on obj.Combo_Price_ID equals obj2.Combo_Price_ID
+                               
+                                select new
+                                {
+                                    ComboID = obj.Combo_ID,
+                                    ComboName = obj.Combo_Name,
+                                    ComboDescription = obj.Combo_Description,
+                                    ComboPrice = obj2.Combo_Price1
+
+                                };
+                    dgvSupplier.DataSource = items.ToList();
                 }
 
 
@@ -1474,21 +1818,23 @@ namespace WindowsFormsApplication11
         {
            
             User_Log log = new User_Log();
-            log.Logout_Time = DateTime.Now.TimeOfDay;
+            log.Login_Time = Globals.LogInTieme;
+            log.Logout_Time = DateTime.Now;
+            log.User_ID = Globals.LogedUser;
+            
             db.User_Log.Add(log);
-           
+            db.SaveChanges();
             this.Close();
         }
 
         private void btnGeneralReports_Click(object sender, EventArgs e)
         {
-            frmReports form = new frmReports();
-            form.ShowDialog();
+            
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
-           // btnSetShift.Visible = true;
+           
 
 
         }
@@ -1504,6 +1850,35 @@ namespace WindowsFormsApplication11
         {
             Book_Employee_Shift form = new Book_Employee_Shift();
             form.ShowDialog();
+        }
+
+        private void btnMenuList_Click(object sender, EventArgs e)
+        {
+            frmMenuList frm = new frmMenuList();
+            frm.ShowDialog();
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            frmMenuList frm = new frmMenuList();
+            frm.ShowDialog();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            frmReports frm = new frmReports();
+            frm.ShowDialog();
+        }
+
+        private void panel22_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnAudit_Click(object sender, EventArgs e)
+        {
+            frmAudit f = new frmAudit();
+            f.ShowDialog();
         }
     }
 }

@@ -57,6 +57,7 @@
             this.txtNextOfKin = new System.Windows.Forms.TextBox();
             this.btnSaveCombo = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnPictureAdd = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -375,11 +376,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnPictureAdd
+            // 
+            this.btnPictureAdd.Location = new System.Drawing.Point(404, 533);
+            this.btnPictureAdd.Name = "btnPictureAdd";
+            this.btnPictureAdd.Size = new System.Drawing.Size(287, 23);
+            this.btnPictureAdd.TabIndex = 59;
+            this.btnPictureAdd.Text = "Add employee picture";
+            this.btnPictureAdd.UseVisualStyleBackColor = true;
+            this.btnPictureAdd.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Add_Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(703, 688);
+            this.Controls.Add(this.btnPictureAdd);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSaveCombo);
             this.Controls.Add(this.groupBox3);
@@ -432,5 +444,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnPictureAdd;
     }
 }

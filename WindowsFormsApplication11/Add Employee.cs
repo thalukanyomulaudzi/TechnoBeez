@@ -81,14 +81,21 @@ namespace WindowsFormsApplication11
             db.Employees.Add(NewE);
             db.Users.Add(NewU);
             db.SaveChanges();
-            MessageBox.Show("Employee added successfully,employee Login details has been sent to their email address");
-            this.Close();
+           Globals.imageIdEmployee    = NewE.Employee_ID;
+             Globals.emNameImage = NewE.Employee_Name;
+            MessageBox.Show("Employee added successfully,employee Login details has been sent to their email address,Press ok and add picture");
+            btnPictureAdd.Visible = true;
+            btnPictureAdd.Enabled = true;
+
 
         }
 
         private void Add_Employee_Load(object sender, EventArgs e)
         {
             //populate combo boxes
+
+            btnPictureAdd.Visible = false;
+            btnPictureAdd.Enabled = false;
         }
         public void SendEmail(string e,string EmployeeN,string usename ,string password)
         {
@@ -128,6 +135,12 @@ namespace WindowsFormsApplication11
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmEmployeePicture frm = new frmEmployeePicture();
+            frm.ShowDialog();
         }
     }
 }

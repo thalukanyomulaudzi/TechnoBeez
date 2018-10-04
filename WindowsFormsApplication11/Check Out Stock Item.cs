@@ -112,6 +112,18 @@ namespace WindowsFormsApplication11
                     db.Check_Out_Line.Add(outline);
                     db.SaveChanges();
 
+                    int id2 = Globals.LogedUser;
+                    Employee emp = db.Employees.FirstOrDefault(c => c.Employee_ID == id2);
+                    Audit ad = new Audit();
+                    ad.Audit_Name = emp.Employee_Name;
+                    ad.Audit_Table = "Check_Out";
+                    ad.Audit_Description = "Item_CheckOut";
+                    ad.User_ID = Globals.LogedUser;
+                    ad.transactionNumber = itemout.Check_Out_ID;
+                    ad.auditDate = DateTime.Now;
+                    db.Audits.Add(ad);
+                    db.SaveChanges();
+
                     MessageBox.Show("Stock item checked out successfully,quantity: +" + txtStockQuantity.Text);
                     Globals.refresher = true;
                     this.Close();
