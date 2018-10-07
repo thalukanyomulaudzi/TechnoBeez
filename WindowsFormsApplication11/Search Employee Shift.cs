@@ -15,5 +15,10 @@ namespace WindowsFormsApplication11
         {
             InitializeComponent();
         }
+
+        private void Search_Employee_Shift_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

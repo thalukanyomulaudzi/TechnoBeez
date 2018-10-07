@@ -137,6 +137,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Name = "Search_Employee_Shift";
             this.Text = "Search_Employee_Shift";
+            this.Load += new System.EventHandler(this.Search_Employee_Shift_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

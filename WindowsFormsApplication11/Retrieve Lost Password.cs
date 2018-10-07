@@ -19,10 +19,28 @@ namespace WindowsFormsApplication11
         MmasweEntities5 db = new MmasweEntities5();
         private void button1_Click(object sender, EventArgs e)
         {
-            //Send password to email address
-            db.Employees
-                   .Where(t =>
-                           t.Email_Adress.Contains(txtEmail.Text));
+            string username, pass;           ;
+            //Retrieve pass
+            var q = from f in db.Users
+                    join m in db.Employees on f.User_ID equals m.User_ID
+                    where m.Email_Adress == txtEmail.ToString()
+                    select new
+                    {
+                        username = f.UserName,
+
+                        pass = f.User_Password
+
+                    };
+
+            if (q.Any())
+            {
+                SendEmail(txtEmail.Text, username, pass);
+                
+            }
+            else
+            {
+                MessageBox.Show("Email provided does not exist in the system");
+            }
 
         }
 
@@ -58,6 +76,13 @@ namespace WindowsFormsApplication11
                 MessageBox.Show("Error " + ex);
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Login f = new Login();
+            f.Show();
+            this.Close();
         }
     }
 }

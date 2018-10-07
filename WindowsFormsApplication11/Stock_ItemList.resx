@@ -121,11 +121,10 @@
   <data name="button11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAANRJREFUOE/NkEkKwkAURCM4bHSvC1HxFuIBBNEDeAA3IqhbAyEYkLhI0tMit/Fm
-        sVoKQdIGAoI++PSvP1TS7f0nQogpYi+l9JVS6zzPW2xVUxRFA4snxCFJkkEQBG3kMxhpxIRjn8HXNlhY
-        UL6gkcHZZMlNlmU3piXQm8NkRekGQxemJbDcQZwp3VQZ2DeBwY7SDR4q0lp3Kd9A74jeiNINBvoYlHEc
-        91h6gtIS4VNWQ5PIXgdniN++IrbI72majjlWH7v8NRNjzJCl+thle03Kn+N5D3BnaTE57uY+AAAAAElF
-        TkSuQmCC
+        EgAACxIB0t1+/AAAAMpJREFUOE9jYBiUYOLEicpAnDtp0qSayZMn+82cOZOVKIf+//+fEaixCIgL+vr6
+        JOvr69mAbCugQVOAWJGgIUDbooAaPNAVQg2aCqRZ8BoyYcKELlwKgHI2QMN9CRnQjEsBUDM7EFeTbQAo
+        TIAGZOM1ABhQLVOmTOHBpggoVwiUk8drAFCBBFDhpM7OTl5khUAhb1CUEowFkAKoIS3AQGsGamoEOrsd
+        iNOA7AP9/f0KRBmCTRFIM9UMmTp1qizZLgFpBnmTbAOorhEAcGdpMRur2BsAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="supplierResultBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

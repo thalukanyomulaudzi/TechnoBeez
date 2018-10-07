@@ -103,8 +103,9 @@ namespace WindowsFormsApplication11
 
         private void linkLabelRestPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            this.Hide();
             Retrieve_Lost_Password RP = new Retrieve_Lost_Password();
-            RP.ShowDialog();
+            RP.Show();
         }
     }
     }

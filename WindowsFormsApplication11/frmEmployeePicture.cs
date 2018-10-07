@@ -31,19 +31,19 @@ namespace WindowsFormsApplication11
             comboBox1.SelectedIndex = 0;
         }
 
-       public void cam_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            Bitmap bit = (Bitmap)eventArgs.Frame.Clone();
-            pictureBox1.Image = bit;
-        }
-        private void button1_Click(object sender,EventArgs e)
-        {
-            cam = new VideoCaptureDevice(webcam[comboBox1.SelectedIndex].MonikerString);
-            cam.NewFrame += new NewFrameEventHandler(cam_NewFrame);
-            cam.Start();
+       //public void cam_NewFrame(object sender, NewFrameEventArgs eventArgs)
+       // {
+       //     Bitmap bit = (Bitmap)eventArgs.Frame.Clone();
+       //     pictureBox1.Image = bit;
+       // }
+       // private void button1_Click(object sender,EventArgs e)
+       // {
+       //     cam = new VideoCaptureDevice(webcam[comboBox1.SelectedIndex].MonikerString);
+       //     cam.NewFrame += new NewFrameEventHandler(cam_NewFrame);
+       //     cam.Start();
 
 
-        }
+       // }
 
         private void button3_Click(object sender, EventArgs e)
         {
